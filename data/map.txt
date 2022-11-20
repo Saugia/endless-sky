@@ -33081,7 +33081,12 @@ planet "Elek Kartanu"
 
 planet "Ember Gegno"
 	attributes "requires: quantum keystone"
-	description ``
+	wormhole "Ember Gegno"
+
+wormhole "Ember Gegno"
+	mappable
+	link Lucina Rouseu
+	link Rouseu Lucina
 	
 planet "Ember Graveyard"
 	attributes "requires: quantum keystone"
