@@ -74,7 +74,7 @@ fleet "Pincer Beast"
 	cargo 0
 	personality
 		confusion 20
-		timid mining harvests mute
+		timid mining harvests
 	variant
 		"Pincer Beast"
 	variant

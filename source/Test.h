@@ -103,7 +103,7 @@ public:
 		// Input variables.
 		Command command;
 		std::set<std::string> inputKeys;
-		Uint16 modKeys = 0;
+		Uint16 modKeys;
 
 		// Mouse/Pointer input variables.
 		int XValue = 0;

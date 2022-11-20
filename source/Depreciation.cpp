@@ -102,10 +102,10 @@ void Depreciation::Save(DataWriter &out, int day) const
 		using OutfitElement = pair<const Outfit *const, map<int, int>>;
 		WriteSorted(outfits,
 			[](const OutfitElement *lhs, const OutfitElement *rhs)
-				{ return lhs->first->TrueName() < rhs->first->TrueName(); },
+				{ return lhs->first->Name() < rhs->first->Name(); },
 			[=, &out](const OutfitElement &oit)
 			{
-				out.Write("outfit", oit.first->TrueName());
+				out.Write("outfit", oit.first->Name());
 				out.BeginChild();
 				{
 					for(const auto &it : oit.second)

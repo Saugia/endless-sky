@@ -1623,6 +1623,8 @@ Files:
  images/thumbnail/gegno?tridymite*
  images/thumbnail/modified?dromedary*
  images/thumbnail/modified?dromedary?wreck*
+ sound/drill*
+ sound/korath?afterburner*
 Copyright: Saugia <https://github.com/Saugia>
 License: CC-BY-SA-4.0
 
@@ -1659,10 +1661,7 @@ License: CC-BY-SA-4.0
 Comment: Derived from works by Michael Zahniser (under the same license).
 
 Files:
- sound/drill*
- sound/ion?rain*
- sound/korath?afterburner*
- sound/remnant?afterburner*
+ sounds/remnant?afterburner*
 Copyright: Saugia <https://github.com/Saugia>
 License: public-domain
 Comment: Based on public domain sounds taken from freesound.org, edit done by Saugia.
@@ -1711,7 +1710,6 @@ Files:
  images/ship/-nra-ret*
  images/ship/ikatila-ej*
  images/ship/korsmanath?a-awoj*
- images/ship/modified?ladybug*
  images/ship/rai-alorej*
  images/thumbnail/-nra-ret*
  images/thumbnail/ikatila-ej*

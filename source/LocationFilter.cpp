@@ -237,7 +237,7 @@ void LocationFilter::Save(DataWriter &out) const
 			out.BeginChild();
 			{
 				for(const Outfit *outfit : it)
-					out.Write(outfit->TrueName());
+					out.Write(outfit->Name());
 			}
 			out.EndChild();
 		}
