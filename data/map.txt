@@ -10347,9 +10347,9 @@ system E-4183
 	asteroids "large metal" 49 0.79
 	minables silver 1 8.3
 	minables aluminum 1 9.0285
-	fleet Iije 1200
-	fleet "Iije II" 600
-	fleet "Iije III" 600
+	fleet "Iije (Uninterested)" 1200
+	fleet "Iije (Swarming)" 600
+	fleet "Iije (Surveillance)" 600
 	object
 		sprite star/a-giant
 		period 10
@@ -10392,9 +10392,9 @@ system E-9182
 	minables copper 1 7.53
 	minables iron 8 7.36
 	minables aluminum 8 7.61
-	fleet Iije 4000
-	fleet "Iije II" 2000
-	fleet "Iije III" 2000
+	fleet "Iije (Uninterested)" 4000
+	fleet "Iije (Swarming)" 2000
+	fleet "Iije (Surveillance)" 2000
 	object
 		sprite star/o0
 		period 10
@@ -13390,9 +13390,9 @@ system G-719
 	haze _menu/haze-coal
 	link W-3197
 	asteroids "large metal" 1 2.22
-	fleet Iije 4000
-	fleet "Iije II" 2000
-	fleet "Iije III" 2000
+	fleet "Iije (Uninterested)" 4000
+	fleet "Iije (Swarming)" 2000
+	fleet "Iije (Surveillance)" 2000
 	object
 		sprite star/g3
 		distance 79.714
@@ -13449,9 +13449,9 @@ system G-819
 	asteroids "large rock" 1 2.04
 	asteroids "large metal" 2 3
 	minables iron 2 2.4
-	fleet Iije 6000
-	fleet "Iije II" 3000
-	fleet "Iije III" 3000
+	fleet "Iije (Uninterested)" 6000
+	fleet "Iije (Swarming)" 3000
+	fleet "Iije (Surveillance)" 3000
 	object
 		sprite star/g3
 		period 10
@@ -14474,9 +14474,9 @@ system H-8188
 	asteroids "small metal" 1 1.48
 	asteroids "medium metal" 3 1.3
 	asteroids "large metal" 2 0.81
-	fleet Iije 6000
-	fleet "Iije II" 3000
-	fleet "Iije III" 3000
+	fleet "Iije (Uninterested)" 6000
+	fleet "Iije (Swarming)" 3000
+	fleet "Iije (Surveillance)" 3000
 	object
 		sprite star/a0
 		period 10
@@ -14508,9 +14508,9 @@ system H-9187
 	link H-8188
 	link L-118
 	link MC-42
-	fleet Iije 4000
-	fleet "Iije II" 2000
-	fleet "Iije III" 2000
+	fleet "Iije (Uninterested)" 4000
+	fleet "Iije (Swarming)" 2000
+	fleet "Iije (Surveillance)" 2000
 	asteroids "large metal" 1 4.9
 	object
 		sprite star/a3
@@ -18518,9 +18518,9 @@ system L-6181
 	asteroids "large metal" 1 1.5
 	minables titanium 8 2.32
 	minables copper 11 3.569
-	fleet Iije 2000
-	fleet "Iije II" 1000
-	fleet "Iije III" 1000
+	fleet "Iije (Uninterested)" 2000
+	fleet "Iije (Swarming)" 1000
+	fleet "Iije (Surveillance)" 1000
 	object
 		sprite star/a-dwarf
 		distance 81.2
@@ -19244,9 +19244,9 @@ system M-1188
 	link L-6181
 	link MS-219
 	asteroids "large metal" 1 2.54
-	fleet Iije 800
-	fleet "Iije II" 400
-	fleet "Iije III" 400
+	fleet "Iije (Uninterested)" 800
+	fleet "Iije (Swarming)" 400
+	fleet "Iije (Surveillance)" 400
 	object
 		sprite star/a-dwarf
 		period 10
@@ -19596,9 +19596,9 @@ system MC-42
 	link H-9187
 	minables platinum 7 4.2
 	minables copper 32 7.91
-	fleet Iije 3000
-	fleet "Iije II" 1500
-	fleet "Iije III" 1500
+	fleet "Iije (Uninterested)" 3000
+	fleet "Iije (Swarming)" 1500
+	fleet "Iije (Surveillance)" 1500
 	object
 		sprite star/g5
 		period 10
@@ -21295,9 +21295,9 @@ system MS-219
 	link L-6181
 	link M-1188
 	asteroids "large metal" 1 4.22
-	fleet Iije 200
-	fleet "Iije II" 100
-	fleet "Iije III" 100
+	fleet "Iije (Uninterested)" 200
+	fleet "Iije (Swarming)" 100
+	fleet "Iije (Surveillance)" 100
 	object
 		sprite star/a-dwarf
 		distance 36.1
@@ -22074,9 +22074,9 @@ system O-3184
 	asteroids "large metal" 1 6.84
 	minables iron 5 2.23
 	minables lead 42 3.43
-	fleet Iije 500
-	fleet "Iije II" 250
-	fleet "Iije III" 250
+	fleet "Iije (Uninterested)" 500
+	fleet "Iije (Swarming)" 250
+	fleet "Iije (Surveillance)" 250
 	object
 		sprite star/m3
 		period 10
@@ -29326,9 +29326,9 @@ system U-5188
 	asteroids "medium metal" 70 2.83
 	asteroids "large metal" 29 1.65
 	minables iron 22 2.93
-	fleet Iije 2000
-	fleet "Iije II" 1000
-	fleet "Iije III" 1000
+	fleet "Iije (Uninterested)" 2000
+	fleet "Iije (Swarming)" 1000
+	fleet "Iije (Surveillance)" 1000
 	object
 		sprite star/k5
 		period 10
@@ -30450,9 +30450,9 @@ system W-3197
 	asteroids "large metal" 4 1.34
 	minables titanium 46 3.4
 	minables neodymium 101 4.76
-	fleet Iije 4000
-	fleet "Iije II" 2000
-	fleet "Iije III" 2000
+	fleet "Iije (Uninterested)" 4000
+	fleet "Iije (Swarming)" 2000
+	fleet "Iije (Surveillance)" 2000
 	object
 		sprite star/b3
 		period 10
