@@ -18,7 +18,7 @@ outfit "R01 Skirmish Battery"
 	licenses
 		"Gegno Civilian"
 	cost 17500
-	thumbnail "outfit/gbatterytiny"
+	thumbnail "outfit/skirmish battery"
 	"mass" 12
 	"outfit space" -12
 	"energy capacity" 1121
@@ -31,7 +31,7 @@ outfit "R02 Battlezone Battery"
 	licenses
 		"Gegno Civilian"
 	cost 32000
-	thumbnail "outfit/gbatterysmall"
+	thumbnail "outfit/battlezone battery"
 	"mass" 23
 	"outfit space" -23
 	"energy capacity" 2237
@@ -44,7 +44,7 @@ outfit "R03 Warforge Battery"
 	licenses
 		"Gegno Civilian"
 	cost 61700
-	thumbnail "outfit/gbatterymed"
+	thumbnail "outfit/warforge battery"
 	"mass" 41
 	"outfit space" -41
 	"energy capacity" 4469
@@ -60,7 +60,7 @@ outfit "R04 Crusade Battery"
 		"Vi Centurion"
 		"Vi Lord"
 	cost 136000
-	thumbnail "outfit/gbatterylarge"
+	thumbnail "outfit/crusade battery"
 	"mass" 83
 	"outfit space" -83
 	"energy capacity" 8885
@@ -72,7 +72,7 @@ outfit "C3 Scrap Cell"
 	licenses
 		"Gegno Civilian"
 	cost 54000
-	thumbnail "outfit/vicoretiny"
+	thumbnail "outfit/scrap cell"
 	"mass" 25
 	"outfit space" -25
 	"energy generation" 1.4
@@ -85,7 +85,7 @@ outfit "C7 Brawl Cell"
 	licenses
 		"Gegno Civilian"
 	cost 68100
-	thumbnail "outfit/vicoresmall"
+	thumbnail "outfit/brawl cell"
 	"mass" 39
 	"outfit space" -39
 	"energy generation" 2.5
@@ -98,7 +98,7 @@ outfit "C17 Warzone Core"
 	licenses
 		"Gegno Civilian"
 	cost 2472000
-	thumbnail "outfit/vicoremed"
+	thumbnail "outfit/warzone core"
 	"mass" 87
 	"outfit space" -87
 	"energy generation" 14.1
@@ -114,7 +114,7 @@ outfit "C27 Campaign Core"
 		"Vi Centurion"
 		"Vi Lord"
 	cost 8145000
-	thumbnail "outfit/vicorelarge"
+	thumbnail "outfit/campaign core"
 	"mass" 145
 	"outfit space" -145
 	"energy generation" 22.3
@@ -129,7 +129,7 @@ outfit "I70 Ameliorate Cell"
 		"Scin Hoplologist"
 		"Scin Architect"
 	cost 166000
-	thumbnail "outfit/scincoretiny"
+	thumbnail "outfit/ameliorate cell"
 	"mass" 27
 	"outfit space" -27
 	"energy capacity" 840
