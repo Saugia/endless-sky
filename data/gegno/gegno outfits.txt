@@ -255,6 +255,7 @@ outfit "RG3 Torch Steering"
 
 
 outfit "SC-1 Plasma Engines"
+	plural "SC-1 Plasma Engines"
 	category "Engines"
 	licenses
 		"Gegno Civilian"
