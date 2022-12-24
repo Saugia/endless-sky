@@ -768,19 +768,19 @@ ship "Protolith"
 		category "Heavy Freighter"
 		licenses
 			"Vi Lord"
-		"cost" 17600000
+		"cost" 168820000
 		"shields" 0
-		"hull" 19575
-		"required crew" 94
-		"bunks" 262
+		"hull" 21200
+		"required crew" 53
+		"bunks" 237
 		"mass" 1260
-		"drag" 16.1
+		"drag" 23.5
 		"heat dissipation" 0.4
-		"fuel capacity" 700
-		"cargo space" 530
-		"outfit space" 576
-		"weapon capacity" 238
-		"engine capacity" 176
+		"fuel capacity" 900
+		"cargo space" 718
+		"outfit space" 651
+		"weapon capacity" 216
+		"engine capacity" 203
 		weapon
 			"blast radius" 280
 			"shield damage" 1550
@@ -792,10 +792,13 @@ ship "Protolith"
 		"Choleric Cannon Turret"
 		
 		"C7 Brawl Cell" 2
-		"R02 Battlezone Battery"
+		"C3 Scrap Cell"
+		"R03 Warforge Battery" 3
 		
 		"RG3 Torch Thruster"
+		"RG15 Torch Thruster"
 		"RG3 Torch Steering"
+		"RG15 Torch Steering"
 		"Hyperdrive"
 	engine 0 266
 	engine -48 258
