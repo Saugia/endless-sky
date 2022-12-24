@@ -920,13 +920,13 @@ ship "Coesite"
 			"Scin Adjutant"
 		"cost" 1872000
 		"shields" 0
-		"hull" 6200
+		"hull" 5600
 		"required crew" 8
 		"bunks" 14
-		"mass" 260
+		"mass" 230
 		"drag" 4
 		"heat dissipation" 0.7
-		"fuel capacity" 400
+		"fuel capacity" 500
 		"cargo space" 40
 		"outfit space" 264
 		"weapon capacity" 86
@@ -940,11 +940,13 @@ ship "Coesite"
 		"Astuit Battery" 2
 		
 		"C7 Brawl Cell"
+		"C3 Scrap Cell"
 		"R01 Skirmish Battery"
-		"R02 Battlezone Battery" 2
+		"R02 Battlezone Battery"
 		
 		"SC-12 Plasma Thruster"
 		"SC-14 Plasma Steering"
+		"SC-1 Plasma Engines"
 		"Hyperdrive"
 	engine 48 85
 	engine -48 85
