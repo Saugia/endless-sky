@@ -101,19 +101,19 @@ ship "Conglomerate"
 		category "Heavy Freighter"
 		licenses
 			"Gegno Civilian"
-		"cost" 1692000
+		"cost" 5909000
 		"shields" 0
-		"hull" 13300
-		"required crew" 32
-		"bunks" 68
-		"mass" 760
-		"drag" 8.9
-		"heat dissipation" 0.7
-		"fuel capacity" 400
+		"hull" 10600
+		"required crew" 13
+		"bunks" 50
+		"mass" 905
+		"drag" 13.9
+		"heat dissipation" 0.6
+		"fuel capacity" 500
 		"cargo space" 415
-		"outfit space" 200
+		"outfit space" 253
 		"weapon capacity" 0
-		"engine capacity" 136
+		"engine capacity" 146
 		weapon
 			"blast radius" 124
 			"shield damage" 960
@@ -121,9 +121,11 @@ ship "Conglomerate"
 			"hit force" 1650
 	outfits
 		"C7 Brawl Cell"
+		"C3 Scrap Cell"
 		"R02 Battlezone Battery"
 		
 		"RG18 Torch Thruster"
+		"RG15 Torch Thruster"
 		"RG18 Torch Steering"
 		"RG15 Torch Steering"
 		"Hyperdrive"
