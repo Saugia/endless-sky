@@ -147,14 +147,14 @@ ship "Gypsum"
 			"Gegno Civilian"
 		"cost" 1692000
 		"shields" 0
-		"hull" 6000
+		"hull" 5500
 		"required crew" 5
-		"bunks" 15
-		"mass" 380
+		"bunks" 9
+		"mass" 360
 		"drag" 3
 		"heat dissipation" 0.8
-		"fuel capacity" 500
-		"cargo space" 220
+		"fuel capacity" 600
+		"cargo space" 160
 		"outfit space" 240
 		"weapon capacity" 42
 		"engine capacity" 120
