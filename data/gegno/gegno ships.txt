@@ -840,15 +840,14 @@ ship "Halite"
 		licenses
 			"Scin Hoplologist"
 			"Scin Architect"
-		"cost" 129000
-		"shields" 240
-		"hull" 580
+		"cost" 71000
+		"shields" 300
+		"hull" 500
 		"required crew" 1
 		"bunks" 1
 		"mass" 30
 		"drag" 0.74
-		"heat dissipation" 0.76
-		"cargo space" 1
+		"heat dissipation" 0.95
 		"outfit space" 78
 		"weapon capacity" 30
 		"engine capacity" 21
