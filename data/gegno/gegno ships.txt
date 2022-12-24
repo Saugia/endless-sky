@@ -22,10 +22,10 @@ ship "Shale"
 			"Gegno Civilian"
 		"cost" 148000
 		"shields" 0
-		"hull" 760
+		"hull" 800
 		"required crew" 1
 		"bunks" 7
-		"mass" 121
+		"mass" 93
 		"drag" 1.8
 		"heat dissipation" 0.8
 		"fuel capacity" 400
@@ -356,19 +356,19 @@ ship "Slate"
 	sprite "ship/gegno slate"
 	thumbnail "thumbnail/gegno slate"
 	attributes
-		category "Transport"
+		category "Light Freighter"
 		licenses
 			"Vi Evocati"
 		"cost" 169000
 		"shields" 0
-		"hull" 825
+		"hull" 1000
 		"required crew" 1
-		"bunks" 7
-		"mass" 121
+		"bunks" 4
+		"mass" 116
 		"drag" 2
 		"heat dissipation" 0.8
 		"fuel capacity" 400
-		"cargo space" 60
+		"cargo space" 81
 		"outfit space" 122
 		"weapon capacity" 0
 		"engine capacity" 58
@@ -884,12 +884,12 @@ ship "Mica"
 		"shields" 0
 		"hull" 700
 		"required crew" 1
-		"bunks" 9
-		"mass" 115
+		"bunks" 10
+		"mass" 70
 		"drag" 1.7
 		"heat dissipation" 0.8
 		"fuel capacity" 400
-		"cargo space" 42
+		"cargo space" 36
 		"outfit space" 118
 		"weapon capacity" 0
 		"engine capacity" 50
