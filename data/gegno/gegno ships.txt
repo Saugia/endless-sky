@@ -58,17 +58,17 @@ ship "Dolomite"
 		category "Heavy Freighter"
 		licenses
 			"Gegno Civilian"
-		"cost" 1692000
+		"cost" 2768000
 		"shields" 0
-		"hull" 10500
-		"required crew" 18
-		"bunks" 80
-		"mass" 570
-		"drag" 5.9
-		"heat dissipation" 0.7
+		"hull" 8200
+		"required crew" 9
+		"bunks" 79
+		"mass" 540
+		"drag" 4.6
+		"heat dissipation" 0.6
 		"fuel capacity" 500
 		"cargo space" 200
-		"outfit space" 186
+		"outfit space" 152
 		"weapon capacity" 0
 		"engine capacity" 81
 		weapon
@@ -77,7 +77,7 @@ ship "Dolomite"
 			"hull damage" 620
 			"hit force" 720
 	outfits
-		"C3 Scrap Cell"
+		"C7 Brawl Cell"
 		"R01 Skirmish Battery"
 		
 		"RG15 Torch Thruster"
