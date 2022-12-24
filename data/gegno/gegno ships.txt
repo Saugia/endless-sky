@@ -198,7 +198,7 @@ ship "Dunite"
 			"Vi Evocati"
 		"cost" 50000
 		"shields" 0
-		"hull" 460
+		"hull" 500
 		"required crew" 1
 		"bunks" 1
 		"mass" 98
