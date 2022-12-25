@@ -587,18 +587,18 @@ ship "Hornfel"
 		category "Medium Warship"
 		licenses
 			"Vi Centurion"
-		"cost" 7630000
+		"cost" 5052000
 		"shields" 0
-		"hull" 14550
-		"required crew" 58
-		"bunks" 74
+		"hull" 14600
+		"required crew" 32
+		"bunks" 48
 		"mass" 740
-		"drag" 5.9
+		"drag" 6.3
 		"heat dissipation" 0.6
-		"fuel capacity" 400
+		"fuel capacity" 600
 		"cargo space" 120
-		"outfit space" 548
-		"weapon capacity" 260
+		"outfit space" 508
+		"weapon capacity" 240
 		"engine capacity" 94
 		weapon
 			"blast radius" 90
