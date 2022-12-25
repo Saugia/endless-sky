@@ -1087,12 +1087,12 @@ ship "Feldspar"
 			"Scin Hoplologist"
 		"cost" 14760000
 		"shields" 0
-		"hull" 18800
+		"hull" 20700
 		"required crew" 133
 		"bunks" 192
 		"mass" 1090
 		"drag" 15
-		"heat dissipation" 1
+		"heat dissipation" 0.5
 		"fuel capacity" 600
 		"cargo space" 82
 		"outfit space" 566
@@ -1162,17 +1162,17 @@ ship "Epidote"
 		licenses
 			"Scin Architect"
 			"Scin Hoplologist"
-		"cost" 16460000
+		"cost" 14454000
 		"shields" 0
-		"hull" 15400
-		"required crew" 38
-		"bunks" 98
+		"hull" 16900
+		"required crew" 102
+		"bunks" 170
 		"mass" 1146
 		"drag" 16.1
-		"heat dissipation" 0.9
+		"heat dissipation" 0.55
 		"fuel capacity" 600
 		"cargo space" 430
-		"outfit space" 527
+		"outfit space" 552
 		"weapon capacity" 166
 		"engine capacity" 182
 		weapon
