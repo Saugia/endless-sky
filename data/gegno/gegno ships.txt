@@ -248,7 +248,7 @@ ship "Augen"
 		"required crew" 280
 		"bunks" 360
 		"mass" 5000
-		"drag" 40
+		"drag" 50
 		"heat dissipation" 0.4
 		"fuel capacity" 500
 		"cargo space" 84
