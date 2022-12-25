@@ -187,7 +187,7 @@ ship "Gypsum"
 	explode "tiny explosion" 10
 	"final explode" "final explosion medium"
 	description `To fuel their increasing need for materials, the Gegno designed a new ship class for the sole purpose of mining. The resulting platform, the Gypsum, is not much more than a flying drill with cargo containers, engines, and a bridge attached behind it, making it cost-efficient and easy to manufacture.`
-	description `	Because of the Gegno's limited technology, the Gypsum is much more sluggish than similarly sized ships elsewhere in the galaxy, making it too slow to chase faster asteroids. For those asteroids it can catch up to, the powerful Excavator Drill is able to grind materials out with ease.`
+	description `	Because Gegno engines are not very powerful, the Gypsum has difficulty chasing faster-moving asteroids. In order to alleviate this problem without needing to massively increase the engine space on the ship, the Gegno have instead developed the powerful Excavator Drill, which can shred asteroids in a matter of seconds, meaning the Gypsum only needs to be near an asteroid for a mere moment in order to mine it.`
 
 # Gegno Vi:
 
@@ -447,7 +447,7 @@ ship "Schist"
 	explode "tiny explosion" 10
 	"final explode" "final explosion medium"
 	description `Based on the Gegno's old Dolomite, the Schist is a mid-range ship used by the Vi. It can carry a decent amount of cargo, and has enough bunks to carry a whole platoon of warriors. It is the primary vessel used to transport recruits to the front lines, and veterans back to home territories.` 
-	description `	Although is it lightly armed compared to other Vi ships, Schists still are mounted with a pair of forward facing cannons and a turret so they can bring some type of weaponry to any possible engagement, as well as a set of angled guns for deterring any smaller, faster ships from attempting to flank the ship.`
+	description `	Although is it lightly armed compared to other Vi ships, Schists still are mounted with a pair of forward facing cannons and a turret so they can bring some type of weaponry to any possible engagement, as well as a set of angled guns for deterring any smaller, faster ships from attempting to flank the vessel.`
 
 ship "Schist" "Schist (Light Load)"
 	sprite "ship/gegno schist b"
@@ -513,7 +513,7 @@ ship "Eclogite"
 	explode "small explosion" 20
 	explode "tiny explosion" 15
 	"final explode" "final explosion small"
-	description `While the style of longer battleship-esque vessels is a Gegno Vi staple, another shipyard rose to the competition for Vi war vessels. The Eclogite is one of the newest designs in the Vi fleet - a gunboat armed to the teeth with cannons, and maneuverability that the Vi's larger ships lack. It plays the role of a hit-and-run vessel, unloading volleys of shells against a target's armor in a rapid maneuver before adjusting its position for another run.`
+	description `While the style of longer battleship-esque vessels is a Gegno Vi staple, another shipyard rose to the competition for Vi warship designs. The Eclogite is one of the newest designs in the Vi fleet - a gunboat armed to the teeth with cannons, and maneuverability that the Vi's larger ships lack. It plays the role of a hit-and-run vessel, unloading volleys of shells against a target's armor in a rapid maneuver before adjusting its position for another run.`
 
 ship "Diorite"
 	sprite "ship/gegno diorite"
@@ -550,15 +550,15 @@ ship "Diorite"
 		"RG18 Torch Thruster"
 		"RG3 Torch Steering"
 		"Hyperdrive"
-	engine -22.5 158
-	engine 0 164
-	engine 22.5 158
-	gun -7 -193 "Choleric Cannon"
-	gun 7 -193 "Choleric Cannon"
-	gun 0 143 "Choleric Cannon"
+	engine -19.5 132
+	engine 0 137
+	engine 19.5 132
+	gun -6 -160 "Choleric Cannon"
+	gun 6 -160 "Choleric Cannon"
+	gun 0 116 "Choleric Cannon"
 		angle 180
-	turret -24 -77 "Choleric Cannon Turret"
-	turret 24 -77 "Choleric Cannon Turret"
+	turret -19.5 -63 "Choleric Cannon Turret"
+	turret 19.5 -63 "Choleric Cannon Turret"
 	leak "leak" 30 50
 	leak "flame" 50 90
 	explode "large explosion" 9
@@ -615,26 +615,26 @@ ship "Hornfel"
 		"RG18 Torch Thruster"
 		"RG18 Torch Steering"
 		"Hyperdrive"
-	engine -20 205
-	engine 20 205
-	gun 20.5 -234.5 "Irate Cannon"
-	gun -20.5 -234.5 "Irate Cannon"
-	gun -26.5 -222.5 "Irate Cannon"
-	gun 26.5 -222.5 "Irate Cannon"
-	gun 32.5 -129 "Irate Cannon"
+	engine -18 193
+	engine 18 193
+	gun 18.5 -220 "Irate Cannon"
+	gun -18.5 -220 "Irate Cannon"
+	gun -24.5 -208 "Irate Cannon"
+	gun 24.5 -208 "Irate Cannon"
+	gun 29 -120 "Irate Cannon"
 		angle 60
-	gun -30.5 -114 "Irate Cannon"
+	gun -29 -107.5 "Irate Cannon"
 		angle -60
-	gun -41.5 -2 "Irate Cannon"
+	gun -38 -1.5 "Irate Cannon"
 		angle -90
-	gun 42.5 31 "Irate Cannon"
+	gun 40.5 30 "Irate Cannon"
 		angle 90
-	gun -33 150.5 "Irate Cannon"
+	gun -29 141.5 "Irate Cannon"
 		angle -135
-	gun 32 160.5 "Irate Cannon"
+	gun 29 120.5 "Irate Cannon"
 		angle 135
-	turret 0 -117.5 "Choleric Cannon Turret"
-	turret 0 -44 "Choleric Cannon Turret"
+	turret 0 -111 "Choleric Cannon Turret"
+	turret 0 -42 "Choleric Cannon Turret"
 	leak "leak" 60 50
 	leak "flame" 60 80
 	explode "large explosion" 10
@@ -642,7 +642,7 @@ ship "Hornfel"
 	explode "small explosion" 25
 	explode "tiny explosion" 10
 	"final explode" "final explosion medium"
-	description `Hornfels are the workhorse of the Gegno Vi's military - decently sized, decently fast, and more than decently armed warships for the frontline of operations. Hornfels are also the most configurable ship in the Vi's fleet, lined with many mounting points to support cargo pods, allowing them to provide a secondary transport role for when the Vi require replacement supplies in war. Other variants of Hornfels are instead occasionally found with adjustments to carry a larger armament. This multi-role function is extremely valued and is the reason why the Hornfel is one of the Vi's most popular ships.`
+	description `Hornfels are the workhorse of the Gegno Vi's military - decently sized, decently fast, and more than decently armed warships designed for the frontline of operations. Hornfels are also the most configurable ship in the Vi's fleet, lined with many mounting points to support cargo pods, allowing them to provide a secondary transport role for when the Vi require replacement supplies in war. Other variants of Hornfels are instead occasionally found with adjustments to carry a larger armament. This multi-role function is extremely valued and is the reason why the Hornfel is one of the Vi's most popular ships.`
 
 ship "Hornfel" "Hornfel (Light Load)"
 	sprite "ship/gegno hornfel b"
@@ -681,25 +681,25 @@ ship "Hornfel" "Hornfel (Heavy Weapons)"
 		"RG18 Torch Thruster"
 		"RG18 Torch Steering"
 		"Hyperdrive"
-	gun 20.5 -234.5 "Choleric Cannon"
-	gun -20.5 -234.5 "Choleric Cannon"
-	gun -26.5 -222.5 "Irate Cannon"
-	gun 26.5 -222.5 "Irate Cannon"
-	gun 32.5 -129 "Irate Cannon"
+	gun 18.5 -220 "Choleric Cannon"
+	gun -18.5 -220 "Choleric Cannon"
+	gun -24.5 -208 "Irate Cannon"
+	gun 24.5 -208 "Irate Cannon"
+	gun 29 -120 "Irate Cannon"
 		angle 60
-	gun -30.5 -114 "Irate Cannon"
+	gun -29 -107.5 "Irate Cannon"
 		angle -60
-	gun -41.5 -2 "Irate Cannon"
+	gun -38 -1.5 "Irate Cannon"
 		angle -90
-	gun 42.5 31 "Irate Cannon"
+	gun 40.5 30 "Irate Cannon"
 		angle 90
-	gun -33 150.5 "Irate Cannon"
-		angle 135
-	gun 32 160.5 "Irate Cannon"
+	gun -29 141.5 "Irate Cannon"
 		angle -135
-	turret 0 -117.5 "Choleric Cannon Turret"
-	turret 0 -44 "Choleric Cannon Turret"
-	turret 0 -185 "Irate Cannon Turret"
+	gun 29 120.5 "Irate Cannon"
+		angle 135
+	turret 0 -174 "Irate Cannon Turret"
+	turret 0 -111 "Choleric Cannon Turret"
+	turret 0 -42 "Choleric Cannon Turret"
 
 ship "Gneiss"
 	plural "Gneiss"
@@ -1025,7 +1025,7 @@ ship "Tridymite"
 	explode "small explosion" 19
 	explode "tiny explosion" 14
 	"final explode" "final explosion small"
-	description `Built upon a similar frame to the Coesite, the Tridymite serves as a small luxury transport vessel for the Gegno Scin. Tridymites are typically used as research vessels, transporting crews of scientists from one location to another, or as private vessels for top ranking Scin scientists. Additionally, Tridymites can occasionally be seen used as a scout craft by the military, equipped an early prototype scanner system built into the frame.`
+	description `Built upon a similar frame to the Coesite, the Tridymite serves as a small luxury transport vessel for the Gegno Scin. Tridymites are typically used as research vessels, transporting crews of scientists from one location to another, or as private vessels for top ranking Scin scientists. Additionally, Tridymites can occasionally be seen used as a scout craft by the military, equipped with an early prototype scanner system built into the frame.`
 
 ship "Felsic"
 	sprite "ship/gegno felsic"
