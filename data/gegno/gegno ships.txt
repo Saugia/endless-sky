@@ -768,7 +768,7 @@ ship "Protolith"
 		category "Heavy Freighter"
 		licenses
 			"Vi Lord"
-		"cost" 168820000
+		"cost" 16820000
 		"shields" 0
 		"hull" 21200
 		"required crew" 53
