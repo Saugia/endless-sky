@@ -522,31 +522,30 @@ ship "Diorite"
 		category "Medium Warship"
 		licenses
 			"Vi Centurion"
-		"cost" 6980000
+		"cost" 3350000
 		"shields" 0
-		"hull" 11600
-		"required crew" 41
-		"bunks" 68
-		"mass" 642
-		"drag" 6.3
-		"heat dissipation" 0.5
+		"hull" 7900
+		"required crew" 14
+		"bunks" 29
+		"mass" 238
+		"drag" 5.2
+		"heat dissipation" 0.8
 		"fuel capacity" 500
 		"cargo space" 40
-		"outfit space" 548
-		"engine capacity" 124
-		"weapon capacity" 285
+		"outfit space" 453
+		"weapon capacity" 195
+		"engine capacity" 140
 		weapon
 			"blast radius" 90
 			"shield damage" 540
 			"hull damage" 770
 			"hit force" 810
 	outfits
-		"Ballistic Cannon" 2
-		"Choleric Cannon"
-		"Irate Cannon Turret" 2
+		"Choleric Cannon" 3
+		"Choleric Cannon Turret" 2
 		
 		"C17 Warzone Core"
-		"R03 Warforge Battery"
+		"R02 Battlezone Battery"
 		
 		"RG18 Torch Thruster"
 		"RG3 Torch Steering"
@@ -554,12 +553,12 @@ ship "Diorite"
 	engine -22.5 158
 	engine 0 164
 	engine 22.5 158
-	gun -7 -193 "Ballistic Cannon"
-	gun 7 -193 "Ballistic Cannon"
+	gun -7 -193 "Choleric Cannon"
+	gun 7 -193 "Choleric Cannon"
 	gun 0 143 "Choleric Cannon"
 		angle 180
-	turret -24 -77 "Irate Cannon Turret"
-	turret 24 -77 "Irate Cannon Turret"
+	turret -24 -77 "Choleric Cannon Turret"
+	turret 24 -77 "Choleric Cannon Turret"
 	leak "leak" 30 50
 	leak "flame" 50 90
 	explode "large explosion" 9
@@ -567,7 +566,19 @@ ship "Diorite"
 	explode "small explosion" 20
 	explode "tiny explosion" 17
 	"final explode" "final explosion medium"
-	description `Continuing on with the design concept of the Vi's Eclogite, the Diorite is made by a separate shipyard from other larger Vi vessels. Rather than being a platform for large turreted mounts, the Diorite is focused on having powerful forward weaponry in the form of two mounted Ballistic Cannons and a pair of Irate Cannon Turrets. In conjunction with this configuration, the Diorite is much more manoeuvrable than other Vi ships in its class and can easily keep a bead on other ships its size, and sometimes smaller ones as well.`
+	description `Continuing on with the design concept of the Vi's Eclogite, the Diorite is made by a separate shipyard from other larger Vi vessels. It is much more maneuverable than other Vi ships in its class, allowing it to easily keep a bead on other ships its size, and sometimes smaller ones as well.`
+
+ship "Diorite" "Diorite (Ballistic)"
+	outfits
+		"Ballistic Cannon" 2
+		
+		"C7 Brawl Core" 2
+		"R01 Skirmish Battery"
+		
+		"RG18 Torch Thruster"
+		"RG3 Torch Steering"
+		"RG15 Torch Steering"
+		"Hyperdrive"
 
 ship "Hornfel"
 	sprite "ship/gegno hornfel a"
