@@ -399,19 +399,19 @@ ship "Schist"
 		category "Heavy Freighter"
 		licenses
 			"Vi Evocati"
-		"cost" 1932000
+		"cost" 3737000
 		"shields" 0
-		"hull" 12375
-		"required crew" 36
-		"bunks" 86
+		"hull" 10700
+		"required crew" 23
+		"bunks" 73
 		"mass" 560
 		"drag" 5.9
 		"heat dissipation" 0.7
 		"fuel capacity" 500
 		"cargo space" 140
 		"outfit space" 298
-		"engine capacity" 106
 		"weapon capacity" 100
+		"engine capacity" 96
 		weapon
 			"blast radius" 71
 			"shield damage" 310
@@ -1024,18 +1024,18 @@ ship "Felsic"
 		licenses
 			"Scin Architect"
 			"Scin Hoplologist"
-		"cost" 2342000
+		"cost" 3955000
 		"shields" 0
-		"hull" 9850
-		"required crew" 38
-		"bunks" 78
+		"hull" 9100
+		"required crew" 18
+		"bunks" 53
 		"mass" 565
 		"drag" 5.9
 		"heat dissipation" 0.7
 		"fuel capacity" 500
 		"cargo space" 150
-		"outfit space" 310
-		"weapon capacity" 84
+		"outfit space" 322
+		"weapon capacity" 109
 		"engine capacity" 106
 		weapon
 			"blast radius" 74
@@ -1050,6 +1050,7 @@ ship "Felsic"
 		
 		"SC-14 Plasma Thruster"
 		"SC-14 Plasma Steering"
+		"SC-12 Plasma Steering"
 		"Hyperdrive"
 	engine -18.5 155.5
 	engine 18.5 155.5
@@ -1063,7 +1064,7 @@ ship "Felsic"
 	explode "small explosion" 28
 	explode "tiny explosion" 16
 	"final explode" "final explosion medium"
-	description `Felsics are based on Schists, but offer many upgrades in exchange for less durability and space for engines. The Scin have opted for three turret mounts, as well as expanded capacity for outfits and weapons. All this allows these ships to perform logistical duties as well as doubling as a secondary combat vessel, making up for the lack of a dedicated Scin warship.`
+	description `Felsics are based on Schists, but offer many upgrades in exchange for less durability. The Scin have opted for three turret mounts, as well as expanded capacity for outfits, weapons, and engines. All this allows these ships to perform logistical duties as well as doubling as a secondary combat vessel, making up for the lack of a dedicated Scin warship.`
 
 ship "Feldspar"
 	sprite "ship/gegno feldspar"
