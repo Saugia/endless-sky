@@ -572,7 +572,7 @@ ship "Diorite" "Diorite (Ballistic)"
 	outfits
 		"Ballistic Cannon" 2
 		
-		"C7 Brawl Core" 2
+		"C7 Brawl Cell" 2
 		"R01 Skirmish Battery"
 		
 		"RG18 Torch Thruster"
@@ -709,13 +709,13 @@ ship "Gneiss"
 		category "Heavy Warship"
 		licenses
 			"Vi Lord"
-		"cost" 15690000
+		"cost" 15066000
 		"shields" 0
-		"hull" 22275
+		"hull" 26300
 		"required crew" 112
 		"bunks" 162
-		"mass" 1245
-		"drag" 18
+		"mass" 1032
+		"drag" 12.9
 		"heat dissipation" 0.4
 		"fuel capacity" 500
 		"cargo space" 95
