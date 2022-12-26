@@ -145,14 +145,14 @@ outfit "RG15 Torch Thruster"
 	category "Engines"
 	licenses
 		"Gegno Civilian"
-	cost 26000
+	cost 17000
 	thumbnail "outfit/small torch thruster vi"
 	"mass" 31
 	"outfit space" -31
 	"engine capacity" -31
-	"thrust" 7.67
-	"thrusting energy" 0.9
-	"thrusting heat" 2
+	"thrust" 9.7
+	"thrusting energy" 0.7
+	"thrusting heat" 1.5
 	"flare sprite" "effect/vi flare/small"
 		"frame rate" 2.5
 	"flare sound" "ion torch small"
@@ -163,14 +163,14 @@ outfit "RG15 Torch Steering"
 	category "Engines"
 	licenses
 		"Gegno Civilian"
-	cost 21000
+	cost 15000
 	thumbnail "outfit/small torch steering vi"
 	"mass" 25
 	"outfit space" -25
 	"engine capacity" -25
-	"turn" 205
+	"turn" 287
 	"turning energy" 0.4
-	"turning heat" 1.4
+	"turning heat" 0.85
 	"steering flare sprite" "effect/vi flare/small"
 		"frame rate" 2.4
 	"steering flare sound" "ion torch small"
@@ -181,14 +181,14 @@ outfit "RG18 Torch Thruster"
 	category "Engines"
 	licenses
 		"Gegno Civilian"
-	cost 58000
+	cost 38000
 	thumbnail "outfit/medium torch thruster vi"
 	"mass" 51
 	"outfit space" -51
 	"engine capacity" -51
-	"thrust" 14.8
-	"thrusting energy" 1.2
-	"thrusting heat" 3.5
+	"thrust" 18.7
+	"thrusting energy" 1.25
+	"thrusting heat" 2.9
 	"flare sprite" "effect/vi flare/medium"
 		"frame rate" 2.4
 	"flare sound" "ion torch medium"
@@ -199,14 +199,14 @@ outfit "RG18 Torch Steering"
 	category "Engines"
 	licenses
 		"Gegno Civilian"
-	cost 46000
+	cost 32000
 	thumbnail "outfit/medium torch steering vi"
 	"mass" 39
 	"outfit space" -39
 	"engine capacity" -39
-	"turn" 408
-	"turning energy" 0.75
-	"turning heat" 2.7
+	"turn" 523
+	"turning energy" 0.65
+	"turning heat" 1.5
 	"steering flare sprite" "effect/vi flare/medium"
 		"frame rate" 2.4
 	"steering flare sound" "ion torch medium"
@@ -220,14 +220,14 @@ outfit "RG3 Torch Thruster"
 		"Vi Evocati"
 		"Vi Centurion"
 		"Vi Lord"
-	cost 128000
+	cost 84000
 	thumbnail "outfit/large torch thruster vi"
 	"mass" 83
 	"outfit space" -83
 	"engine capacity" -83
-	"thrust" 28.4
-	"thrusting energy" 3.1
-	"thrusting heat" 6.6
+	"thrust" 36
+	"thrusting energy" 2.2
+	"thrusting heat" 5.4
 	"flare sprite" "effect/vi flare/large"
 		"frame rate" 2.3
 	"flare sound" "ion torch large"
@@ -241,14 +241,14 @@ outfit "RG3 Torch Steering"
 		"Vi Evocati"
 		"Vi Centurion"
 		"Vi Lord"
-	cost 102000
+	cost 70000
 	thumbnail "outfit/large torch steering vi"
 	"mass" 64
 	"outfit space" -64
 	"engine capacity" -64
-	"turn" 701
-	"turning energy" 1.6
-	"turning heat" 4.2
+	"turn" 1004
+	"turning energy" 1.15
+	"turning heat" 2.8
 	"steering flare sprite" "effect/vi flare/large"
 		"frame rate" 2.3
 	"steering flare sound" "ion torch large"
@@ -262,20 +262,20 @@ outfit "SC-1 Plasma Engines"
 		"Gegno Civilian"
 		"Scin Hoplologist"
 		"Scin Architect"
-	cost 128000
+	cost 21200
 	thumbnail "outfit/tiny plasma engines scin"
-	"mass" 24
+	"mass" 21
 	"outfit space" -21
 	"engine capacity" -21
 	"thrust" 5.1
-	"thrusting energy" 0.54
-	"thrusting heat" 1.2
+	"thrusting energy" 0.4
+	"thrusting heat" 1
 	"flare sprite" "effect/scin flare/tiny"
 		"frame rate" 0.6
 	"flare sound" "scplasma tiny"
 	"turn" 160
-	"turning energy" 0.31
-	"turning heat" 0.86
+	"turning energy" 0.35
+	"turning heat" 0.8
 	"steering flare sprite" "effect/scin flare/tiny"
 		"frame rate" 0.6
 	"steering flare sound" "scplasma tiny"
@@ -287,14 +287,14 @@ outfit "SC-12 Plasma Thruster"
 	licenses
 		"Gegno Civilian"
 		"Scin Adjutant"
-	cost 98000
+	cost 20900
 	thumbnail "outfit/small plasma thruster scin"
 	"mass" 25
 	"outfit space" -25
 	"engine capacity" -25
-	"thrust" 10.6
-	"thrusting energy" 0.8
-	"thrusting heat" 2.9
+	"thrust" 11.1
+	"thrusting energy" 0.85
+	"thrusting heat" 2.25
 	"flare sprite" "effect/scin flare/small"
 		"frame rate" 0.5
 	"flare sound" "scplasma small"
@@ -306,14 +306,14 @@ outfit "SC-12 Plasma Steering"
 	licenses
 		"Gegno Civilian"
 		"Scin Adjutant"
-	cost 95800
+	cost 17000
 	thumbnail "outfit/small plasma steering scin"
 	"mass" 19
 	"outfit space" -19
 	"engine capacity" -19
-	"turn" 270
-	"turning energy" 0.55
-	"turning heat" 1.8
+	"turn" 297
+	"turning energy" 0.45
+	"turning heat" 1.15
 	"steering flare sprite" "effect/scin flare/small"
 		"frame rate" 0.5
 	"steering flare sound" "scplasma small"
@@ -325,14 +325,14 @@ outfit "SC-14 Plasma Thruster"
 	licenses
 		"Gegno Civilian"
 		"Scin Adjutant"
-	cost 162000
+	cost 52500
 	thumbnail "outfit/medium plasma thruster scin"
 	"mass" 45
 	"outfit space" -45
 	"engine capacity" -45
-	"thrust" 26.8
-	"thrusting energy" 2.8
-	"thrusting heat" 7.9
+	"thrust" 24
+	"thrusting energy" 1.7
+	"thrusting heat" 4.95
 	"flare sprite" "effect/scin flare/med"
 		"frame rate" 0.4
 	"flare sound" "scplasma medium"
@@ -344,18 +344,18 @@ outfit "SC-14 Plasma Steering"
 	licenses
 		"Gegno Civilian"
 		"Scin Adjutant"
-	cost 156400
+	cost 41500
 	thumbnail "outfit/medium plasma steering scin"
 	"mass" 34
 	"outfit space" -34
 	"engine capacity" -34
-	"turn" 690
-	"turning energy" 1.5
-	"turning heat" 4.78
+	"turn" 638
+	"turning energy" 1
+	"turning heat" 2.95
 	"steering flare sprite" "effect/scin flare/med"
 		"frame rate" 0.4
 	"steering flare sound" "scplasma medium"
-	description `Larger than SC-12 engines, SC-14-class steering is one of the most powerful steering systems in Gegno space, allowing the Scin to reposition even their largest ships many times faster than their Vi counterparts.`
+	description `Larger than SC-12 engines, SC-14 class steering is one of the most powerful steering systems in Gegno space, allowing the Scin to reposition even their largest ships many times faster than their Vi counterparts.`
 
 
 outfit "SC-15 Plasma Thrusters"
@@ -365,20 +365,20 @@ outfit "SC-15 Plasma Thrusters"
 		"Gegno Civilian"
 		"Scin Hoplologist"
 		"Scin Architect"
-	cost 2312000
+	cost 170400
 	thumbnail "outfit/large plasma engines scin"
 	"mass" 112
 	"outfit space" -112
 	"engine capacity" -112
-	"thrust" 62.4
-	"thrusting energy" 11.1
-	"thrusting heat" 26.4
+	"thrust" 48.6
+	"thrusting energy" 3.1
+	"thrusting heat" 9.5
 	"flare sprite" "effect/scin flare/large"
 		"frame rate" 0.3
 	"flare sound" "scplasma large"
-	"reverse thrust" 29.2
-	"reverse thrusting energy" 7.8
-	"reverse thrusting heat" 20.6
+	"reverse thrust" 22.75
+	"reverse thrusting energy" 1.45
+	"reverse thrusting heat" 4.45
 	"reverse flare sprite" "effect/scin flare/large"
 		"frame rate" 0.3
 	"reverse flare sound" "scplasma large"
