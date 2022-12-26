@@ -72,12 +72,12 @@ outfit "C3 Scrap Cell"
 	category "Power"
 	licenses
 		"Gegno Civilian"
-	cost 54000
+	cost 47000
 	thumbnail "outfit/scrap cell"
 	"mass" 25
 	"outfit space" -25
 	"energy generation" 1.4
-	"heat generation" 2.2
+	"heat generation" 2
 	description `The Scrap Cell is a small radiothermal generator that produces a limited amount of energy. It is only used on the Gegno's smaller-sized vessels, or in tandem with their less energy-hungry internals.`
 
 
@@ -85,12 +85,12 @@ outfit "C7 Brawl Cell"
 	category "Power"
 	licenses
 		"Gegno Civilian"
-	cost 68100
+	cost 64000
 	thumbnail "outfit/brawl cell"
 	"mass" 39
 	"outfit space" -39
-	"energy generation" 2.5
-	"heat generation" 3.9
+	"energy generation" 2.7
+	"heat generation" 3.4
 	description `When developing the C7 Brawl Cell, the Gegno decided to scale up the smaller C3 Scrap Cell. Unfortunately, the new design became so tall that the Gegno struggled to fit it into some of their ships, requiring them to turn the entire thing sideways. This design still serves the Gegno well, though it will likely be phased out in favor of newer generators as they become more compact and efficient.`
 
 
@@ -98,12 +98,12 @@ outfit "C17 Warzone Core"
 	category "Power"
 	licenses
 		"Gegno Civilian"
-	cost 2472000
+	cost 1620000
 	thumbnail "outfit/warzone core"
 	"mass" 87
 	"outfit space" -87
-	"energy generation" 14.1
-	"heat generation" 38.3
+	"energy generation" 10.2
+	"heat generation" 22.9
 	description `The Gegno began developing nuclear technology once their cities grew massive enough to require it. The Warzone Core is a medium-sized nuclear fission reactor that is a suitable power source for most of the Gegno's large ships, though it appears to lack many of the fail-safes you would expect to find on a human nuclear reactor.`
 
 
@@ -114,12 +114,12 @@ outfit "C27 Campaign Core"
 		"Vi Evocati"
 		"Vi Centurion"
 		"Vi Lord"
-	cost 8145000
+	cost 3672000
 	thumbnail "outfit/campaign core"
 	"mass" 145
 	"outfit space" -145
-	"energy generation" 22.3
-	"heat generation" 62.9
+	"energy generation" 19.9
+	"heat generation" 46.3
 	description `In order to power the largest of vessels along with their energy-guzzling systems and engines, the Gegno designed the Campaign fusion reactor from earlier prototypes dating back to their generation ship era. It's still used to this day and is efficient enough to satisfy the requirements of the largest of Gegno warships, but just looking at it raises safety concerns.`
 
 
@@ -129,11 +129,11 @@ outfit "I70 Ameliorate Cell"
 		"Gegno Civilian"
 		"Scin Hoplologist"
 		"Scin Architect"
-	cost 166000
+	cost 57000
 	thumbnail "outfit/ameliorate cell"
 	"mass" 27
 	"outfit space" -27
-	"energy capacity" 840
+	"energy capacity" 2520
 	"energy generation" 1.4
 	"heat generation" 2.9
 	description `The I70 Cell was designed by the Scin as a smaller, more compact power system for their Halite fighters. It has enough energy generation and capacity to fuel the Halite's thrusters and their weapons for a short period. Unfortunately, as a side effect, a bit more excess heat is also generated.`
