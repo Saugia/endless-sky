@@ -391,7 +391,7 @@ outfit "Irate Cannon"
 	licenses
 		"Gegno Civilian" 
 		"Vi Evocati"
-	cost 475000
+	cost 12000
 	thumbnail "outfit/irate cannon"
 	"mass" 12
 	"outfit space" -12
@@ -407,8 +407,8 @@ outfit "Irate Cannon"
 		"velocity" 22
 		"lifetime" 15
 		"reload" 20
-		"firing energy" 10
-		"firing heat" 95
+		"firing energy" 1
+		"firing heat" 9
 		"shield damage" 6
 		"hull damage" 16
 		"hit force" 40
@@ -420,7 +420,7 @@ outfit "Irate Cannon Turret"
 	licenses
 		"Gegno Civilian" 
 		"Vi Evocati"
-	cost 576000
+	cost 30000
 	thumbnail "outfit/irate turret"
 	"mass" 28
 	"outfit space" -28
@@ -436,12 +436,12 @@ outfit "Irate Cannon Turret"
 		"live effect" "irate smoke" 12
 		"hit effect" "tiny explosion"
 		"inaccuracy" 2
-		"turret turn" 1
+		"turret turn" 2
 		"velocity" 22
 		"lifetime" 15
-		"reload" 12
-		"firing energy" 13
-		"firing heat" 95
+		"reload" 10
+		"firing energy" 1
+		"firing heat" 9
 		"shield damage" 6
 		"hull damage" 16
 		"hit force" 40
@@ -471,7 +471,7 @@ outfit "Choleric Cannon"
 		"Gegno Civilian"
 		"Vi Evocati"
 		"Vi Centurion"
-	cost 610000
+	cost 45000
 	thumbnail "outfit/choleric cannon"
 	"mass" 37
 	"outfit space" -37
@@ -486,11 +486,11 @@ outfit "Choleric Cannon"
 		"inaccuracy" 2
 		"velocity" 11
 		"lifetime" 55
-		"reload" 90
-		"firing energy" 105
-		"firing heat" 445
-		"shield damage" 95
-		"hull damage" 280
+		"reload" 100
+		"firing energy" 65
+		"firing heat" 222
+		"shield damage" 106
+		"hull damage" 311
 		"hit force" 180
 	description `A higher caliber than the Irate Cannon, Choleric Cannons fire larger, slower rounds that do a noticeable chunk of damage to a ship's hull. However, due to the nature of the cannon, it is, along with other Gegno weaponry, very ineffective against any sort of shielding.`
 
@@ -501,7 +501,7 @@ outfit "Choleric Cannon Turret"
 		"Gegno Civilian"
 		"Vi Evocati"
 		"Vi Centurion"
-	cost 816000
+	cost 112500
 	thumbnail "outfit/choleric turret"
 	"mass" 42
 	"outfit space" -42
@@ -521,10 +521,10 @@ outfit "Choleric Cannon Turret"
 		"velocity" 9
 		"lifetime" 55
 		"reload" 80
-		"firing energy" 120
-		"firing heat" 445
-		"shield damage" 95
-		"hull damage" 280
+		"firing energy" 65
+		"firing heat" 222
+		"shield damage" 106
+		"hull damage" 311
 		"hit force" 180
 	description `Mounted on a turret, a Choleric Cannon is much more devastating without the need to keep a target in front of the ship to land shots. It can consistently put out damage to a target's hull, and with multiple turrets, any shieldless vessel is forced to retreat after a decent enough bombardment lest they be destroyed.`
 	
@@ -553,7 +553,7 @@ outfit "Ballistic Cannon"
 		"Vi Evocati"
 		"Vi Centurion"
 		"Vi Lord"
-	cost 1025000
+	cost 128000
 	thumbnail "outfit/ballistic cannon"
 	"mass" 96
 	"outfit space" -96
@@ -568,11 +568,11 @@ outfit "Ballistic Cannon"
 		"inaccuracy" 3
 		"velocity" 8
 		"lifetime" 100
-		"reload" 130
+		"reload" 120
 		"firing energy" 252
 		"firing heat" 566
-		"shield damage" 145
-		"hull damage" 776
+		"shield damage" 181
+		"hull damage" 970
 		"hit force" 360
 		"stream"
 		"missile strength" 18
@@ -586,7 +586,7 @@ outfit "Ballistic Cannon Turret"
 		"Vi Evocati"
 		"Vi Centurion"
 		"Vi Lord"
-	cost 1370000
+	cost 320000
 	thumbnail "outfit/ballistic turret"
 	"mass" 120
 	"outfit space" -120
@@ -605,11 +605,11 @@ outfit "Ballistic Cannon Turret"
 		"turret turn" 0.6
 		"velocity" 8
 		"lifetime" 100
-		"reload" 110
-		"firing energy" 247
+		"reload" 100
+		"firing energy" 328
 		"firing heat" 537
-		"shield damage" 145
-		"hull damage" 776
+		"shield damage" 181
+		"hull damage" 970
 		"hit force" 360
 		"missile strength" 18
 	description `As the largest caliber cannon in the Gegno Vi's arsenal, Ballistic Cannons require a lot of work to be fitted on even the largest of ships. A huge, self-sustaining base with its own vent ports is necessary for one of these cannons to even be fitted on a turret mount, provided there are crew to operate it. Combining destructive force with adjustable aim, Ballisic Cannon Turrets are the deadliest weapons of Vi warships.`
@@ -648,7 +648,7 @@ outfit "Astuit Battery"
 	licenses
 		"Gegno Civilian"
 		"Scin Adjutant"
-	cost 764000
+	cost 42000
 	thumbnail "outfit/astuit"
 	"mass" 28
 	"outfit space" -28
@@ -665,8 +665,8 @@ outfit "Astuit Battery"
 		"velocity" 8
 		"lifetime" 44
 		"reload" 6
-		"firing energy" 13.2
-		"firing heat" 34
+		"firing energy" 10
+		"firing heat" 25.5
 		"shield damage" 8.8
 		"hull damage" 9.4
 	description "The Gegno Scin are the first Gegno to advance plasma technology to the point where it can be used in combat, although the energy requirement of such technology is still significant. Astuit Batteries work very similar to human Energy Blasters, firing small condensed plasma projectiles at high rates of fire. With four Astuit Blasters on a turreted mount, it produces a constant stream of damage which adds up over time, despite the minor damage that each individual projectile creates."
@@ -685,7 +685,7 @@ outfit "Acuit Artillery"
 	licenses
 		"Gegno Civilian"
 		"Scin Hoplologist"
-	cost 1406000
+	cost 244000
 	thumbnail "outfit/acuit"
 	"mass" 81
 	"outfit space" -81
@@ -703,13 +703,11 @@ outfit "Acuit Artillery"
 		"turret turn" 1.3
 		"velocity" 18
 		"lifetime" 60
-		"reload" 56
-		"burst reload" 10
-		"burst count" 1
-		"firing energy" 130
-		"firing heat" 204
-		"shield damage" 170
-		"hull damage" 290
+		"reload" 60
+		"firing energy" 195
+		"firing heat" 306
+		"shield damage" 195
+		"hull damage" 332
 		"hit force" 40
 	description `With a better grasp on plasma and energy weaponry, the Gegno Scin developed a larger blaster weapon to mount on the Feldspar Carrier as a counter to the Gegno Vi's huge cannon weaponry. Acuit Artillery turrets outrange most weapons in Gegno space, while having a higher rate of fire as well, making them very efficient bombardment weapons.`
 
@@ -726,7 +724,7 @@ outfit "Guile Pulse Laser"
 	licenses
 		"Gegno Civilian"
 		"Scin Hoplologist"
-	cost 109000
+	cost 31000
 	"thumbnail" "outfit/guile pulse laser"
 	"mass" 15
 	"outfit space" -15
@@ -743,8 +741,8 @@ outfit "Guile Pulse Laser"
 		"reload" 6
 		"burst count" 3
 		"burst reload" 1
-		"firing energy" 3.7
-		"firing heat" 10
+		"firing energy" 8.2
+		"firing heat" 6.7
 		"shield damage" 12.4
 		"hull damage" 20.2
 		"cluster"
