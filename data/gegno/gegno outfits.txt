@@ -801,10 +801,10 @@ outfit "Savagery Bludgeon"
 		"inaccuracy" 360
 		"velocity" 30
 		"lifetime" 1
-		"reload" 1
+		"reload" 40
 		"shield damage" 8
 		"hull damage" 40
-		"hit force" 140
+		"hit force" 500
 	description `A Savagery Bludgeon is a mace-like weapon found jammed into the Gegno Vi's Dunite duelist ships. They are used as melee weapons for close-quarter rams and jousts during duels. However, they have hardly any use as a weapon outside of this as they merely scratch larger ship's hulls and barely put a dent into anything shielded.`
 	
 effect "bludgeon impact"
