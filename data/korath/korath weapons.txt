@@ -1118,3 +1118,74 @@ effect "firestorm ring"
 	"random angle" 360
 	"random velocity" 3
 	"velocity scale" 0.1
+
+outfit "Nutrigel"
+	category Ammunition
+	cost 200
+	mass 0.0625
+	thumbnail "outfit/korath nutrigel"
+	"nutrigel capacity" -1
+	description "This glowing red gel makes up the bulk of the diet of the Korath. It was only by accident that they discovered it explodes when super-heated and thrown at a shield."
+
+outfit "Nutrigel Gun"
+	category "Secondary Weapons"
+	cost 393000
+	mass 11
+	thumbnail "outfit/korath gel gun"
+	"energy capacity" 50
+	"gun ports" -1
+	"nutrigel capacity" 96
+	"outfit space" -17
+	"weapon capacity" -17
+	weapon
+		sprite projectile/nutrigel
+			"frame rate" 20
+		sound nutrigel
+		ammo "Korath Nutrigel"
+		icon icon/nutrigel
+		"hit effect" "nutrigel impact"
+		lifetime 10
+		reload 90
+		velocity 19
+		inaccuracy 1
+		"firing energy" 36
+		"firing heat" 107
+		"shield damage" 450
+		"hull damage" 150
+	description "This weapon is highly effective against shields, but it has such a short range that the ship itself must act as a projectile. It is typically used in afterburner-equipped Korath Chasers, who can dive-bomb their targets."
+
+outfit "Nutrigel Turret"
+	category "Secondary Weapons"
+	cost 393000
+	mass 11
+	thumbnail "outfit/korath gel turret"
+	"energy capacity" 50
+	"nutrigel capacity" 96
+	"outfit space" -17
+	"turret mounts" -1
+	"weapon capacity" -17
+	weapon
+		sprite projectile/nutrigel
+			"frame rate" 20
+		"hardpoint sprite" hardpoint/disruptor
+		sound nutrigel
+		ammo "Korath Nutrigel"
+		icon icon/nutrigel
+		"hit effect" "nutrigel impact"
+		lifetime 10
+		reload 90
+		velocity 19
+		inaccuracy 1
+		"turret turn" 4
+		"firing energy" 36
+		"firing heat" 107
+		"shield damage" 450
+		"hull damage" 150
+	description "This weapon is highly effective against shields, but it has such a short range that the ship itself must act as a projectile. It is typically used in afterburner-equipped Korath Chasers, who can dive-bomb their targets."
+
+effect "nutrigel impact"
+	sprite effect/nutrigel
+		"frame rate" 12
+		"no repeat"
+	lifetime 30
+	"velocity scale" 0.02
