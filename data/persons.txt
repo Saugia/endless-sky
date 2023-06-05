@@ -1847,3 +1847,104 @@ ship "Modified Ladybug"
 	explode "huge explosion" 10
 	"final explode" "final explosion large"
 	description `This is an old war-torn Hai Ladybug with numerous modifications done on the hull. Apart from the additional turret mounts, the main adjustments on the vessel are three huge engine cells - two in the back replacing the old engine pods, and one in the front replacing the gun mounts. These push the Modified Ladybug to speeds only an insane captain would enjoy.`
+
+
+
+person "Saugia"
+	government "Author"
+	frequency 100
+	personality
+		heroic hunting daring ramming disables mining harvests
+	system
+		attributes "gegno"
+	phrase
+		word
+			"Can you don't?"
+	ship "Enhanced Diorite" "Eclipse"
+		"never disabled"
+
+ship "Enhanced Diorite"
+	swizzle 10
+	sprite "ship/enhanced diorite"
+	thumbnail "thumbnail/enhanced diorite"
+	attributes
+		category "Medium Warship"
+		"cost" 3350000
+		"shields" 0
+		"hull" 20000
+		"crew" 14
+		"bunks" 29
+		"mass" 238
+		"drag" 5.2
+		"heat dissipation" 0.8
+		"fuel capacity" 600
+		"cargo space" 40
+		"outfit space" 1200
+		"weapon capacity" 600
+		"engine capacity" 150
+
+		"hull protection" 1
+		"disruption protection" 1
+		"energy protection" 1
+		"force protection" 1
+		"ion protection" 1
+		"scramble protection" 1
+		"slowing protection" 1
+		"heat protection" 1
+		weapon
+			"blast radius" 90
+			"shield damage" 540
+			"hull damage" 770
+			"hit force" 810
+	outfits
+		"Ka'het Nullifier" 2
+		"Ion Cannon" 2
+		"Ion Rain Gun" 2
+		"Electron Turret" 2
+		"Heliarch Repulsor"
+		"Teciimach Bay" 4
+		"Teciimach Canister" 36
+		
+		"Dark Reactor" 2
+		"Reactor Limiter" 6
+		"Reactor Overclocker" 7
+		"Solar Battery"
+		"Liquid Sodium Cooler"
+		"Catalytic Ramscoop"
+
+		"Bellows-Class Afterburner"
+		"Vareti Engine Block"
+		"Hyperdrive"
+	"steering engine" -80.5 129.5 0.5
+		angle 15
+		left
+	"steering engine" 80.5 129.5 0.5
+		angle -15
+		right
+	engine -19.5 132
+	engine 0 137
+	engine 19.5 132
+	turret -20.5 -70 "Electron Turret"
+	turret 20.5 -70 "Electron Turret"
+	turret 0 57.5 "Heliarch Repulsor"
+	gun -6 -170 "Ka'het Nullifier"
+	gun 6 -170 "Ka'het Nullifier"
+	gun -19 -158.5 "Ion Cannon"
+	gun 19 -158.5 "Ion Cannon"
+	gun -28 -145 "Ion Rain Gun"
+	gun 28 -145 "Ion Rain Gun"
+	gun -96 33 "Teciimach Bay"
+		angle -20
+	gun -96 33 "Teciimach Bay"
+		angle -20	
+	gun 96 33 "Teciimach Bay"
+		angle 20	
+	gun 96 33 "Teciimach Bay"
+		angle 20	
+	leak "leak" 30 50
+	leak "flame" 50 90
+	explode "ionball impact" 30
+	#explode "fission explosion" 25
+	"final explode" "asteroid crunch large"
+	description `Enhanced Diorite.`
+
