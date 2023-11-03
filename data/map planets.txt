@@ -4958,3 +4958,67 @@ planet Zydee
 	landscape land/enceladus_1
 	description `Although this moon initially seems barren and lifeless, there is evidence that the nearby Gegno Scin have recently attempted to set up an outpost here. Several partially-constructed buildings and landing zones are scattered about the surface, but none of them show any signs of activity, likely due to recent warfare with the Gegno Vi. Despite this, a small number of satellites actively orbit Zydee, likely providing important tactical information such as the volume of system traffic.`
 	government Uninhabited
+
+
+#-----------------------zvoic
+
+planet "Zvoholic"
+	government "Zvoic"
+
+planet "Zequhn Zvoic"
+	government "Zvoic"
+
+planet 2
+
+planet 3
+
+planet 4
+
+planet 5
+
+planet 7
+	attributes "requires: gaslining"
+
+planet 10
+
+planet 11
+
+planet 12
+
+planet 13
+	attributes "requires: gaslining"
+
+
+
+# The Zvoic is the overall body of both the Zvoic and Zwoic, and they both speak Zvoic. The Zwoic are a sort of younger sibling government.
+government "Zvoic"
+	swizzle 0
+	color
+	language "Zvoic"
+
+	"player reputation" 1
+	"crew attack" 0.4
+	"crew defense" 2.2
+	"attitude toward"
+		"Coalition" 1
+		"Heliarchs" 0.01
+		"Quarg" 0.01
+		"Zwoic" 1
+	"bribe" 1.2
+	"fine" 1.4
+
+government "Zwoic"
+	swizzle 0
+	color
+	language "Zvoic"
+
+	"player reputation" 1
+	"crew attack" 0.6
+	"crew defense" 1.9
+	"attitude toward"
+		"Coalition" 1
+		"Heliarchs" 0.01
+		"Quarg" 0.01
+		"Zvoic" 1
+	"bribe" 1.4
+	"fine" 1.2

@@ -1,0 +1,485 @@
+# Copyright (c) 2022 by Saugia
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+
+
+# Fleets:
+
+fleet "Zvoic"
+	government "Zvoic"
+	cargo 1
+	personality
+		timid secretive unconstrained
+	variant 2
+		"Typ I"
+	variant
+		"Typ II"
+	variant
+		"Typ II (Light)"
+	variant
+		"Typ II (B)"
+	variant
+		"Typ II (B Light)"
+	variant
+		"Typ II (C)"
+	variant
+		"Typ II (C Light)"
+	variant
+		"Typ II (D)"
+	variant
+		"Typ II (D Light)"
+	variant
+		"Typ II (E)"
+	variant
+		"Typ II (E Light)"
+
+
+# Ships:
+
+ship "Typ I"
+	sprite "ship/typ-i"
+	attributes
+		category "Transport"
+		"cost" 2200000
+		"shields" 2800
+		"hull" 500
+		"required crew" 3
+		"bunks" 5
+		"mass" 220
+		"drag" 4.1
+		"heat dissipation" .22
+		"overheat damage rate" .2
+		"fuel capacity" 100
+		"cargo space" 10
+		"outfit space" 52
+		"engine capacity" 23
+		"energy capacity" 900
+		"aquatics bay" 1
+		"gaslining" 1
+		weapon
+			"blast radius" 26
+			"shield damage" 120
+			"hull damage" 160
+			"hit force" 400
+	outfits
+		"Hsu Sail"
+
+		"Rcotei Adjustors"
+	gun 0 -32 "Hsu Sail"
+	leak "leak" 14 32
+	leak "flame" 80 16
+	explode "tiny explosion" 12
+	explode "small explosion" 20
+	explode "medium explosion" 6
+	"final explode" "final explosion small"
+	description `Type I.`
+
+ship "Typ II"
+	sprite "ship/typ-ii a"
+	attributes
+		category "Light Freighter"
+		"cost" 6000000
+		"shields" 6200
+		"hull" 800
+		"required crew" 2
+		"bunks" 7
+		"mass" 400
+		"drag" 6.2
+		"heat dissipation" .3
+		"overheat damage rate" .3
+		"fuel capacity" 100
+		"cargo space" 60
+		"outfit space" 170
+		"weapon capacity" 42
+		"engine capacity" 40
+		"energy capacity" 2000
+		"aquatics bay" 1
+		"gaslining" 1
+		weapon
+			"blast radius" 40
+			"shield damage" 400
+			"hull damage" 200
+			"hit force" 600
+	outfits
+		"Dptem Ordinance" 6
+
+		"Hsu Sail" 4
+		"Hsu Cooling"
+
+		"Rcotei Adjustors"
+		"Rcotei Burner"
+	gun -30.5 -53.5 "Hsu Sail"
+		angle -40
+	gun 30.5 -53.5 "Hsu Sail"
+		angle 40
+	gun -43.5 -18 "Hsu Sail"
+		angle -85
+	gun 43.5 -18 "Hsu Sail"
+		angle 85
+	gun -15 38.5 "Dptem Ordinance"
+		angle -130
+	gun 15 38.5 "Dptem Ordinance"
+		angle 130
+	gun -13 41 "Dptem Ordinance"
+		angle -150
+	gun 13 41 "Dptem Ordinance"
+		angle 150
+	gun -10.5 44 "Dptem Ordinance"
+		angle -170
+	gun 10.5 44 "Dptem Ordinance"
+		angle 170
+	engine 0 113
+	"steering engine" -35 12 0.5
+		angle 35
+		left
+	"steering engine" 35 12 0.5
+		angle -35
+		right
+	leak "leak" 10 40
+	leak "flame" 60 20
+	explode "tiny explosion" 18
+	explode "small explosion" 26
+	explode "medium explosion" 12
+	"final explode" "final explosion small"
+	description `Type II.`
+
+ship "Typ II" "Typ II (Light)"
+	outfits
+		"Dptem Ordinance" 4
+
+		"Hsu Sail" 2
+		"Hsu Cooling"
+
+		"Rcotei Adjustors"
+		"Rcotei Burner"
+	gun "Hsu Sail"
+	gun "Hsu Sail"
+	gun
+	gun
+	gun
+	gun
+	gun "Dptem Ordinance"
+	gun "Dptem Ordinance"
+	gun "Dptem Ordinance"
+	gun "Dptem Ordinance"
+
+ship "Typ II" "Typ II (B)"
+	sprite "ship/typ-ii b"
+	outfits
+		"Dptem Ordinance" 6
+
+		"Hsu Sail" 4
+		"Hsu Cooling"
+
+		"Rcotei Adjustors"
+		"Rcotei Burner"
+	gun "Hsu Sail"
+	gun "Hsu Sail"
+	gun "Hsu Sail"
+	gun "Hsu Sail"
+	gun "Dptem Ordinance"
+	gun "Dptem Ordinance"
+	gun "Dptem Ordinance"
+	gun "Dptem Ordinance"
+	gun "Dptem Ordinance"
+	gun "Dptem Ordinance"
+
+ship "Typ II" "Typ II (B Light)"
+	sprite "ship/typ-ii b"
+	outfits
+		"Dptem Ordinance" 4
+
+		"Hsu Sail" 2
+		"Hsu Cooling"
+
+		"Rcotei Adjustors"
+		"Rcotei Burner"
+	gun "Hsu Sail"
+	gun "Hsu Sail"
+	gun
+	gun
+	gun
+	gun
+	gun "Dptem Ordinance"
+	gun "Dptem Ordinance"
+	gun "Dptem Ordinance"
+	gun "Dptem Ordinance"
+
+ship "Typ II" "Typ II (C)"
+	sprite "ship/typ-ii c"
+	outfits
+		"Dptem Ordinance" 6
+
+		"Hsu Sail" 4
+		"Hsu Cooling"
+
+		"Rcotei Adjustors"
+		"Rcotei Burner"
+	gun "Hsu Sail"
+	gun "Hsu Sail"
+	gun "Hsu Sail"
+	gun "Hsu Sail"
+	gun "Dptem Ordinance"
+	gun "Dptem Ordinance"
+	gun "Dptem Ordinance"
+	gun "Dptem Ordinance"
+	gun "Dptem Ordinance"
+	gun "Dptem Ordinance"
+
+ship "Typ II" "Typ II (C Light)"
+	sprite "ship/typ-ii c"
+	outfits
+		"Dptem Ordinance" 4
+
+		"Hsu Sail" 2
+		"Hsu Cooling"
+
+		"Rcotei Adjustors"
+		"Rcotei Burner"
+	gun "Hsu Sail"
+	gun "Hsu Sail"
+	gun
+	gun
+	gun
+	gun
+	gun "Dptem Ordinance"
+	gun "Dptem Ordinance"
+	gun "Dptem Ordinance"
+	gun "Dptem Ordinance"
+
+ship "Typ II" "Typ II (D)"
+	sprite "ship/typ-ii d"
+	outfits
+		"Dptem Ordinance" 6
+
+		"Hsu Sail" 4
+		"Hsu Cooling"
+
+		"Rcotei Adjustors"
+		"Rcotei Burner"
+	gun "Hsu Sail"
+	gun "Hsu Sail"
+	gun "Hsu Sail"
+	gun "Hsu Sail"
+	gun "Dptem Ordinance"
+	gun "Dptem Ordinance"
+	gun "Dptem Ordinance"
+	gun "Dptem Ordinance"
+	gun "Dptem Ordinance"
+	gun "Dptem Ordinance"
+
+ship "Typ II" "Typ II (D Light)"
+	sprite "ship/typ-ii d"
+	outfits
+		"Dptem Ordinance" 4
+
+		"Hsu Sail" 2
+		"Hsu Cooling"
+
+		"Rcotei Adjustors"
+		"Rcotei Burner"
+	gun "Hsu Sail"
+	gun "Hsu Sail"
+	gun
+	gun
+	gun
+	gun
+	gun "Dptem Ordinance"
+	gun "Dptem Ordinance"
+	gun "Dptem Ordinance"
+	gun "Dptem Ordinance"
+	
+ship "Typ II" "Typ II (E)"
+	sprite "ship/typ-ii e"
+	outfits
+		"Dptem Ordinance" 6
+
+		"Hsu Sail" 4
+		"Hsu Cooling"
+
+		"Rcotei Adjustors"
+		"Rcotei Burner"
+	gun "Hsu Sail"
+	gun "Hsu Sail"
+	gun "Hsu Sail"
+	gun "Hsu Sail"
+	gun "Dptem Ordinance"
+	gun "Dptem Ordinance"
+	gun "Dptem Ordinance"
+	gun "Dptem Ordinance"
+	gun "Dptem Ordinance"
+	gun "Dptem Ordinance"
+
+ship "Typ II" "Typ II (E Light)"
+	sprite "ship/typ-ii e"
+	outfits
+		"Dptem Ordinance" 4
+
+		"Hsu Sail" 2
+		"Hsu Cooling"
+
+		"Rcotei Adjustors"
+		"Rcotei Burner"
+	gun "Hsu Sail"
+	gun "Hsu Sail"
+	gun
+	gun
+	gun
+	gun
+	gun "Dptem Ordinance"
+	gun "Dptem Ordinance"
+	gun "Dptem Ordinance"
+	gun "Dptem Ordinance"
+
+
+# Outfits:
+
+outfit "Hsu Sail"
+	category "Systems"
+	thumbnail "outfit/hsu sail"
+	"cost" 200000
+	"mass" 29
+	"outfit space" -21
+	"gun ports" -1
+	"thrust" 1.8
+	"turn" 8.8
+	"solar collection" .7
+	"solar heat" 3
+	weapon
+		"hardpoint sprite" "hardpoint/sail"
+	description `Test.`
+
+outfit "Rcotei Adjustors"
+	plural "Rcotei Adjustors"
+	category "Engines"
+	thumbnail "outfit/rcotei adjustors"
+	"cost" 86000
+	"mass" 23
+	"outfit space" -23
+	"engine capacity" -23
+	"turn" 130
+	"turning energy" .9
+	"turning heat" 1.3
+	"steering flare sprite" "effect/atomic flare/tiny"
+		"frame rate" 1.2
+	"steering flare sound" "rcotei"
+	"reverse thrust" .9
+	"reverse thrusting energy" .7
+	"reverse thrusting heat" 1.1
+	description `Test.`
+
+outfit "Rcotei Burner"
+	category "Engines"
+	"cost" 60000
+	thumbnail "outfit/rcotei burner"
+	"mass" 12
+	"outfit space" -12
+	"engine capacity" -12
+	"afterburner thrust" 26
+	"afterburner fuel" .4
+	"afterburner heat" 40
+	"afterburner effect" "rcotei burn"
+	description `Test.`
+
+effect "rcotei burn"
+	sprite "effect/fissionflare"
+		"frame rate" 10
+	sound "remnant afterburner"
+
+
+outfit "Hsu Cooling"
+	category "Systems"
+	cost 100000
+	thumbnail "outfit/hsu cooling"
+	"mass" 6
+	"outfit space" -6
+	"active cooling" 25
+	"cooling energy" 4.5
+	"energy consumption" 0.5
+	description `Test.`
+
+outfit "Aquatic Accommodations"
+	category "Systems"
+	thumbnail "outfit/aquatic accommodations"
+	cost 150000
+	thumbnail
+	"mass" 5
+	"cargo space" -20
+	"aquatics" 1
+	"cooling" 1
+	"unplunderable" 1
+	description `Test.`
+
+
+# Weapons:
+
+outfit "Dptem Ordinance"
+	category "Secondary Weapons"
+	cost 200000
+	thumbnail "outfit/dptem"
+	"mass" 9
+	"outfit space" -7
+	"weapon capacity" -7
+	"gun ports" -1
+	weapon
+		sprite "projectile/dptem"
+			"random start frame"
+			"frame rate" 0
+		"hardpoint sprite" "hardpoint/dptem"
+		sound "dptem"
+		ammo "Dptem Ordinance"
+		icon "icon/nuke"
+		"hit effect" "dptem explosion"
+		"hit effect" "dptem smoke" 60
+		"die effect" "tiny explosion"
+		"inaccuracy" 5
+		"random velocity" 5
+		"lifetime" 1400
+		"random lifetime" 40
+		"reload" 60
+		"firing energy" 10
+		"firing heat" 400
+		"acceleration" .00001
+		"drag" .02
+		"trigger radius" 40
+		"blast radius" 80
+		"shield damage" 200
+		"hull damage" 380
+		"hit force" 3200
+		"velocity override" 1
+		"missile strength" 17
+		"stream"
+	description `Test.`
+
+effect "dptem explosion"
+	sprite "effect/explosion/large"
+		"no repeat"
+		"frame rate" 15
+	sound "final explosion medium"
+	"lifetime" 32
+	"random angle" 360
+	"random frame rate" 5
+	"random spin" 4
+	"random velocity" .8
+	"velocity scale" .4
+
+effect "dptem smoke"
+	sprite "effect/smoke"
+		"no repeat"
+		"frame rate" 8
+	"lifetime" 16
+	"random angle" 360
+	"lifetime" 30
+	"velocity scale" .2
+	"random lifetime" 30
+	"random velocity" 5.5
