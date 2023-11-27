@@ -262,6 +262,27 @@ mission "Ask Quarg About Coalition Early"
 				decline
 
 
+mission "Ask Quarg about the Rulei"
+	landing
+	source
+		attributes "gegno quarg"
+		attributes "station"
+	to offer
+		has: "First Contact: Rulei: offered"
+		has: "Giaru Gegno: Quarg Contact: offered"
+	on offer
+		conversation
+			`You've found remnants of an advanced ancient civilization called the Rulei nearby Gegno space. Would you like to ask the Quarg here if they know anything about them?`
+			choice
+				`	(Yes.)`
+				`	(No.)`
+					decline
+			`	
+
+
+
+
+
 
 mission "Quarg Ships Atrocity"
 	landing
