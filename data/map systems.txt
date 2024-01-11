@@ -114,9 +114,9 @@ system "1 Axis"
 	fleet "Large Kimek" 400
 	fleet "Small Saryd" 900
 	fleet "Large Saryd" 1800
-	fleet "Arach Miners" 2500
-	fleet "Kimek Miners" 2000
-	fleet "Saryd Miners" 3000
+	fleet "Arach Miners" 250
+	fleet "Kimek Miners" 200
+	fleet "Saryd Miners" 300
 	fleet Heliarch 450
 	object
 		sprite star/k5

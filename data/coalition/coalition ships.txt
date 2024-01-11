@@ -199,6 +199,7 @@ ship "Arach Hulk"
 ship "Arach Hulk" "Arach Hulk (Miner)"
 	outfits
 		"MCS Extractor" 2
+		"MR Attractor" 2
 		
 		"Large Cogeneration Module"
 		"Large Collector Module"
@@ -215,6 +216,12 @@ ship "Arach Hulk" "Arach Hulk (Miner)"
 		"Small Reverse Module" 2
 		"Small Steering Module" 2
 		"Hyperdrive"
+	gun "MCS Extractor"
+	gun "MCS Extractor"
+	turret "MR Attractor"
+	turret
+	turret
+	turret "MR Attractor"
 
 ship "Arach Spindle"
 	sprite "ship/arach spindle"
@@ -380,7 +387,8 @@ ship "Arach Transport"
 ship "Arach Transport" "Arach Transport (Miner)"
 	outfits
 		"MCS Extractor" 2
-		
+		"MR Attractor"
+
 		"Small Cogeneration Module" 2
 		"Small Collector Module" 3
 		"Small Battery Module" 2
@@ -1713,6 +1721,7 @@ ship "Kimek Spire"
 ship "Kimek Spire" "Kimek Spire (Miner)"
 	outfits
 		"MCS Extractor" 2
+		"MR Attractor" 2
 		
 		"Large Cogeneration Module"
 		"Large Collector Module"
@@ -1726,6 +1735,12 @@ ship "Kimek Spire" "Kimek Spire (Miner)"
 		"Large Steering Module" 2
 		"Small Steering Module"
 		"Hyperdrive"
+	gun "MCS Extractor"
+	gun "MCS Extractor"
+	turret "MR Attractor"
+	turret "MR Attractor"
+	turret
+	turret
 
 ship "Kimek Thistle"
 	sprite "ship/kimek thistle"
@@ -1988,6 +2003,7 @@ ship "Saryd Sojourner"
 ship "Saryd Sojourner" "Saryd Sojourner (Miner)"
 	outfits
 		"MCS Extractor" 2
+		"MR Attractor" 2
 		
 		"Large Cogeneration Module"
 		"Large Collector Module"
@@ -2005,6 +2021,12 @@ ship "Saryd Sojourner" "Saryd Sojourner (Miner)"
 		"Small Reverse Module" 3
 		"Small Steering Module"
 		"Hyperdrive"
+	gun "MCS Extractor"
+	gun "MCS Extractor"
+	turret
+	turret
+	turret "MR Attractor"
+	turret "MR Attractor"
 
 ship "Saryd Sojourner" "Saryd Sojourner (Bombardments)"
 	outfits
@@ -2082,6 +2104,7 @@ ship "Saryd Traveler"
 ship "Saryd Traveler" "Saryd Traveler (Miner)"
 	outfits
 		"MCS Extractor" 4
+		"MR Attractor" 2
 		
 		"Large Cogeneration Module"
 		"Small Collector Module" 3
