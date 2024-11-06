@@ -1,0 +1,66 @@
+# Copyright (c) 2024 by Saugia
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+
+
+mission "Gegno Asteroid Mining II"
+	invisible
+	landing
+	source "Tschyss"
+	to offer
+		has "gegno: mining jobs" > 20
+		not "Gegno Genocide Defense: offered"
+	on offer
+		conversation
+			`Aside from the occasional unloading of mined minerals from your cargo hold, the Gegno at this station have continued to ignore your presence one way or another, whether it's actively or passively. However, today seems to be different as you are approached directly by one of Gegno, who is carrying a tablet device larger than ones you've seen others handle before.`
+			`	Standing before you, they hold their device to their chest as they begin tapping and dragging on it with their free hand. Their appearance is more similar to members of the Scin you've interacted with before; somewhat thinner than other Gegno but still one of the taller ones. Unlike others around the hanger, they're wearing a dark-brown vest of sorts, adorned with various small badges.`
+			`	Finally, they gesture you to follow them outside of the hanger, leading you to a smaller area, albeit still only partially constructed like the rest of the station. In it are some other Gegno going to and from another wall-mounted display that also lists various jobs. Thankfully, these share the same visuals as the others, showing more mineable asteroids with tally-marks, though these jobs seem to request more than the others, and pay more as well.`
+			`	You turn around to address at the Gegno that led you here once more, but they already have vanished to somewhere else in the station. Although they continue to treat you dismissively, you've now been given access to more demanding and rewarding jobs. Perhaps they are beginning to place some value in you after all.`
+				decline
+
+
+
+
+
+
+
+mission "Unexpected Drifters A"
+#	invisible
+	landing
+	source
+		near "Heutesl" 100
+	to offer
+#		random < 40
+		"gegno: mining jobs" >= 10
+		not "Gegno Genocide Defense: offered"
+	on offer
+		conversation
+			"offer test."
+				accept
+
+	npc assist
+		government "Gegno"
+		personality derelict mute uninterested staying
+		system "Anbrim"
+		ship "Dolomite (No Power)" "Kkeryn"
+		conversation
+			`Boarding test.`
+			
+
+ship "Dolomite" "Dolomite (No Power)"
+	outfits
+		"R01 Skirmish Battery"
+
+		"RG15 Torch Thruster"
+		"RG15 Torch Steering" 2
+		"Hyperdrive"

@@ -12,6 +12,8 @@
 # this program. If not, see <https://www.gnu.org/licenses/>.
 
 
+# Mining Jobs I
+
 mission "Gegno Asteroid Mining - Aluminum"
 	job
 	repeat
@@ -20,7 +22,7 @@ mission "Gegno Asteroid Mining - Aluminum"
 	source "Tschyss"
 	to offer
 		has "Gegno Asteroid Mining Prologue: done"
-		random < 10
+		random < 10 + "Gegno Asteroid Mining II: offered" * 20
 	to accept
 		"cargo space" > 10
 	on visit
@@ -40,7 +42,7 @@ mission "Gegno Asteroid Mining - Copper"
 	source "Tschyss"
 	to offer
 		has "Gegno Asteroid Mining Prologue: done"
-		random < 10
+		random < 10 + "Gegno Asteroid Mining II: offered" * 20
 	to accept
 		"cargo space" > 10
 	on visit
@@ -60,7 +62,7 @@ mission "Gegno Asteroid Mining - Iron"
 	source "Tschyss"
 	to offer
 		has "Gegno Asteroid Mining Prologue: done"
-		random < 10
+		random < 10 + "Gegno Asteroid Mining II: offered" * 20
 	to accept
 		"cargo space" > 10
 	on visit
@@ -80,7 +82,7 @@ mission "Gegno Asteroid Mining - Lead"
 	source "Tschyss"
 	to offer
 		has "Gegno Asteroid Mining Prologue: done"
-		random < 10
+		random < 10 + "Gegno Asteroid Mining II: offered" * 20
 	to accept
 		"cargo space" > 10
 	on visit
@@ -100,7 +102,7 @@ mission "Gegno Asteroid Mining - Silicon"
 	source "Tschyss"
 	to offer
 		has "Gegno Asteroid Mining Prologue: done"
-		random < 10
+		random < 10 + "Gegno Asteroid Mining II: offered" * 20
 	to accept
 		"cargo space" > 10
 	on visit
@@ -120,7 +122,7 @@ mission "Gegno Asteroid Mining - Titanium"
 	source "Tschyss"
 	to offer
 		has "Gegno Asteroid Mining Prologue: done"
-		random < 10
+		random < 10 + "Gegno Asteroid Mining II: offered" * 20
 	to accept
 		"cargo space" > 10
 	on visit
@@ -130,3 +132,102 @@ mission "Gegno Asteroid Mining - Titanium"
 		payment 50000
 		outfit "Titanium" -10
 		dialog phrase "gegno mining payment dialog"
+
+
+# Mining Jobs II
+
+mission "Gegno Asteroid Mining II- Neodymium + Copper"
+	job
+	repeat
+	name "Gather 20 tons of copper and 10 tons of neodymium"
+	description "Mine and collect 15 tons of copper, and 5 tons of neodymium. Bring the minerals back to the Gegno at <origin>."
+	to offer
+		has "Gegno Asteroid Mining II: offered"
+		random < 15
+	to accept
+		"cargo space" > 20
+	on visit
+		dialog "You've returned to <origin>, but do not have all of the required minerals in your cargo hold. Make sure to mine and collect 15 tons of copper and 5 tons of neodymium before you return."	
+	on complete
+		"gegno: mining jobs" ++
+		payment 128000
+		outfit "Copper" -15
+		outfit "Neodymium" -5
+		dialog phrase "gegno mining payment dialog"
+
+
+mission "Gegno Asteroid Mining II- Tungsten + Titanium"
+	job
+	repeat
+	name "Gather 12 tons of titanium and 6 tons of tungsten"
+	description "Mine and collect 12 tons of titanium, and 6 tons of tungsten. Bring the minerals back to the Gegno at <origin>."
+	to offer
+		has "Gegno Asteroid Mining II: offered"
+		random < 15
+	to accept
+		"cargo space" > 18
+	on visit
+		dialog "You've returned to <origin>, but do not have all of the required minerals in your cargo hold. Make sure to mine and collect 12 tons of titanium and 6 tons of tungsten before you return."	
+	on complete
+		"gegno: mining jobs" ++
+		payment 94000
+		outfit "Titanium" -12
+		outfit "Tungsten" -6
+		dialog phrase "gegno mining payment dialog"
+
+
+mission "Gegno Asteroid Mining II- Silver"
+	job
+	repeat
+	name "Gather 10 tons of silver"
+	description "Mine and collect 10 tons of silver, then bring the minerals back to the Gegno at <origin>."
+	to offer
+		has "Gegno Asteroid Mining II: offered"
+		random < 15
+	to accept
+		"cargo space" > 11
+	on visit
+		dialog "You've returned to <origin>, but do not have 11 tons of silver in your cargo hold. Make sure to mine 11 tons of silver and collect it into your cargo before you land."
+	on complete
+		"gegno: mining jobs" ++
+		payment 132000
+		outfit "Silver" -11
+		dialog phrase "gegno mining payment dialog"
+
+
+# Mining Jobs II Rush Missions (Note to be deleted: +10,000 for the rush)
+
+mission "Gegno Asteroid Mining II- Iron Rush"
+	job
+	repeat
+	deadline 14
+	name "Mining rush of 25 tons of iron"
+	description "Mine and collect 25 tons of iron, then bring the minerals back to <origin> by <date>."
+	to offer
+		has "Gegno Asteroid Mining II: offered"
+		random < 10
+	to accept
+		"cargo space" > 25
+	on visit
+		dialog "You've returned to <origin>, but do not have 25 tons of iron in your cargo hold. Make sure to mine 25 tons of iron, collect it into your cargo, and bring it here before <date>."		
+	on complete
+		"gegno: mining jobs" ++
+		payment 70000
+		outfit "Iron" -25
+		dialog phrase "gegno rush mining payment dialog"
+
+
+
+# mission "Gegno Asteroid Mining II- Silicon Rush"
+
+# mission "Gegno Asteroid Mining II- Lead Rush"
+
+
+
+# Mining Jobs III
+
+# mission "Gegno Asteroid Mining III - Gold"
+
+# mission "Gegno Asteroid Mining III - Platinum"
+
+# mission "Gegno Asteroid Mining III - Uranium"
