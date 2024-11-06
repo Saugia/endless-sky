@@ -200,7 +200,7 @@ mission "Gegno Asteroid Mining II- Silver"
 mission "Gegno Asteroid Mining II- Iron Rush"
 	job
 	repeat
-	deadline 14
+	deadline 21
 	name "Mining rush of 25 tons of iron"
 	description "Mine and collect 25 tons of iron, then bring the minerals back to <origin> by <date>."
 	to offer
@@ -217,11 +217,44 @@ mission "Gegno Asteroid Mining II- Iron Rush"
 		dialog phrase "gegno rush mining payment dialog"
 
 
+mission "Gegno Asteroid Mining II- Silicon Rush"
+	job
+	repeat
+	deadline 21
+	name "Mining rush of 40 tons of silicon"
+	description "Mine and collect 40 tons of silicon, then bring the minerals back to <origin> by <date>."
+	to offer
+		has "Gegno Asteroid Mining II: offered"
+		random < 10
+	to accept
+		"cargo space" > 40
+	on visit
+		dialog "You've returned to <origin>, but do not have 40 tons of silicon in your cargo hold. Make sure to mine 40 tons of silicon, collect it into your cargo, and bring it here before <date>."		
+	on complete
+		"gegno: mining jobs" ++
+		payment 42000
+		outfit "Silicon" -40
+		dialog phrase "gegno rush mining payment dialog"
 
-# mission "Gegno Asteroid Mining II- Silicon Rush"
 
-# mission "Gegno Asteroid Mining II- Lead Rush"
-
+mission "Gegno Asteroid Mining II- Lead Rush"
+	job
+	repeat
+	deadline 21
+	name "Mining rush of 30 tons of lead"
+	description "Mine and collect 15 tons of lead, then bring the minerals back to <origin> by <date>."
+	to offer
+		has "Gegno Asteroid Mining II: offered"
+		random < 10
+	to accept
+		"cargo space" > 15
+	on visit
+		dialog "You've returned to <origin>, but do not have 30 tons of lead in your cargo hold. Make sure to mine 15 tons of lead, collect it into your cargo, and bring it here before <date>."		
+	on complete
+		"gegno: mining jobs" ++
+		payment 37000
+		outfit "Lead" -15
+		dialog phrase "gegno rush mining payment dialog"
 
 
 # Mining Jobs III
