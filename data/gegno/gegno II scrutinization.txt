@@ -18,7 +18,7 @@ mission "Gegno Asteroid Mining II"
 	landing
 	source "Tschyss"
 	to offer
-		has "gegno: mining jobs" > 9
+		has "gegno: mining jobs" > 7
 		not "Gegno Genocide Defense: offered"
 	on offer
 		conversation
@@ -33,16 +33,15 @@ mission "Gegno Asteroid Mining II"
 mission "Unexpected Drifters"
 #	invisible
 	landing
-	deadline 21
 	source
 		near "Heutesl" 100
 	to offer
-		"gegno: mining jobs" >= 3
+		"gegno: mining jobs" >= 5
 		not "Gegno Genocide Defense: offered"
 	on enter "Anbrim"
 		conversation
 			`As you enter the system, you are met with the sight of a disabled Gegno ship drifting amongst the nebula. Unlike the Vi or Scin ships in nearby systems, this one appears to be a civilian vessel. It could be that they ran out of fuel, or some internal malfuction, but it is strange that it is far away from Gegno home space.`
-			`	Since the Gegno are very cautious of your involvement with their civilization, it might be better to report the stranded vessel to them on Tchyss so to that they can handle it internally. Then again, who knows how long the crew have before the ship's life support systems fail, so you could also try aiding them.`
+			`	Considering that the Gegno are very cautious of your involvement with their civilization, it might be better to report the stranded vessel to them on Tchyss so to that they can handle it internally. Then again, who knows how long the crew have before the ship's life support systems fail, so you could also try aiding them.`
 			action
 				set "gegno: derelict spotted"
 
@@ -79,8 +78,8 @@ mission "Unexpected Drifters Report"
 		converesation
 			`Would you like to try and report the disabled civilian ship in Anbrim to the Gegno here?`
 			choice
-				` (Yes.)`
-				` (Not right now.)`
+				`	(Yes.)`
+				`	(Not right now.)`
 					defer
 			`	You try your best to get the attention of one of the Gegno in the station, but are brushed off or outright ignored by most of them. Eventually, one of the more bulky Gegno slowly walks over to you with a plain look on their face. You attempt to explain to them the situation using a map device and scanner logs of the stranded ship in Anbrim, but to no avail. They simply glance at your data, back at you, and then walk away.`
 			`	It doesn't seem like you are able to request help. Maybe you can try and assist the crew yourself.`
@@ -110,32 +109,35 @@ mission "Unexpected Drifters Disappear"
 			`The stranded Gegno civilian ship you encountered in this system earlier seems to have disappeared. Hopefully its crew were able to repair the power systems in time, or other Gegno found them and helped them back home safely.`
 
 
-# ????????????? A more interactive derelict mission that offers regardless of the above one, meant to progress the story.
-mission "Stranded Gegno Miners"
-#	invisible
+mission "Tschyss Repairs 1"
 	landing
-	source
-		near "Heutesl" 100
+	source "Tschyss"
 	to offer
-		has: "Gegno Asteroid Mining II: offered"
-		not "Gegno Genocide Defense: offered"
-	on enter "Anbrim"
+		"gegno: mining jobs" > 15
+	on offer
 		conversation
-			`As you enter the system, you are met with the sight of a disabled Gegno ship drifting amongst the nebula. Unlike the Vi or Scin ships in nearby systems, this one appears to be a civilian vessel. It could be that they ran out of fuel, or some internal malfuction, but it is strange that it is far away from Gegno home space.`
-			`	Since the Gegno are very cautious of your involvement with their civilization, it might be better to report the stranded vessel to them on Tchyss so to that they can handle it internally. Then again, who knows how long the crew have before the ship's life support systems fail, so you could also try aiding them.`
-			action
-				set "gegno: derelict a spotted"
+			`While you are traversing the rickety interior of the station, you come across a group of Gegno gathering at one of the nearby sections still only partly constructed, and next to them are a set of construction tools. From the looks of the area they're planning to work on, they're understaffed, and some of them don't seem very enthusiastic about the job to begin with.`
+			choice
+				`	(Approach them and offer assistance.)`
+				`	(Continue on your way.)`
+					decline
+		`	The group of Gegno, which is formed of Gegnos with each varying physique. Some of them appear to be the bulkier body type, with a few others being the more slender type, though a majority of them are of the more average build you've seen common with the civillian population. They are having a conversation with one another, speaking in their deeper-toned voices, seemingly ignoring your approach. You're a little confused when one Gegno punches another at the back of the neck suddenly, but the hit didn't seem to phase the other Gegno at all. A moment after, others look in your direction inquisitively.
+		`	You gesture towards their supplies and the station interior, hoping they are able to understand your offer. The Gegno that were conversing begin looking at one another. One of them grunts at you, and continues to grunt as they turn to the rest, a few of them responding similarly. You aren't sure if they are upset at you, but instead of ignoring you or pushing you away, one of the more slender Gegno reaches for a large industrial-looking tool, and drops it down in front of you with a loud clang.`
+		choice
+			`	(Inspect the tool.)`
+			`	(Try and pick up the tool.)`
+				goto "lift tool"
+			`	(Do nothing.)`
+				goto "nothing"
+		`	The tool itself, on first glance, looks like a mangled mess of metal and appendiges. You can see some sort of grip in the rear of it, and another on the underside of it. On what you presume is the front of it looks like a giant pair of scissors, or at least something akin to that. There is some radiator-like structures on the middle of it. The Gegno that dropped the device makes a strange expression and snorts, as if they're judging how you look at the device.`
+			goto "redirect"
 
-	npc assist
-		government "Gegno"
-		personality derelict mute uninterested staying
-		system "Anbrim"
-		ship "Dolomite (No Power)" "Kkeryn"
-		to despawn
-			has "Unexpected Drifters A Report: offered"
-		on assist
-			conversation
-				`You decide on trying to assist the Gegno ship. After docking with it, you gather the necessary equipment and make your way to a boarding hatch, which opens up before you. The ship is eerily devoid of crew as you don't run into any Gegno for some time until you make your way to the ship's power section. There, you see a few Gegno attempting repairs on a damaged generator, while some others are having a discussion, which is suddenly dropped short once they notice you. Rather than accept your aid, the Gegno aggressively escort you off of their ship. Even with their systems failing, they don't look to be accepting any help from an outsider, even if their lives are on stake.`
-				`	You can't help but think that the crew were notably belligerent, even for Gegno.`
-				action
-					set "gegno: derelict a boarded"
+		label "lift tool"
+		`	The group of Gegno watch you as you try and figure out how to grasp the device. There's some sort of handle on one side of it, but there's no way you can lift the whole thing from just that post. On the underside of it, there appears to be a different grip. You attempt to grap both handles, shifting your weight to lift. You can only raise it for a few seconds before it slams back down into the ground, as it is unexpectedly heavy, and is very awkward to try and hold. One of the larger Gegno grunts some more at you, and some of them begin chatting with one another.`
+			goto "redirect"
+
+		label "nothing"
+		`	You decide not to do anything with the device. Other than it looking like a mangled mess of heavy parts, you have no idea what it is or what it's used for. Some of the Gegno look onward, still waiting for you to do something, while others snort and jab at each other.`
+		
+		label "redirect"
+		`	
