@@ -51,6 +51,13 @@ event "gegno: vi occupy zydee"
 		description `	Unlike its moon, Ghneoe sees few to no colonization efforts from either the Gegno Vi or Scin, perhaps due to the abnormal weather cycles, continued system warfare, or a combination of both.`
 
 
+event "gegno: dwindling workers"
+	system "Ootsuoro"
+		fleet "Gegno Basic" 1400
+		fleet "Gegno Miners" 2100
+		fleet "Gegno Cargo" 2700
+
+
 event "gegno: unified defense"
 	government "Gegno Vi"
 		"attitude toward"
@@ -95,7 +102,6 @@ event "gegno leave quarg space"
 		remove fleet "Gegno Miners"
 	system "Heutesl"
 		remove fleet "Quarg (Gegno)"
-
 
 # Will be defined in the future.
 

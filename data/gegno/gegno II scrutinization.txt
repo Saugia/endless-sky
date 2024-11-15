@@ -18,7 +18,7 @@ mission "Gegno Asteroid Mining II"
 	landing
 	source "Tschyss"
 	to offer
-		has "gegno: mining jobs" > 7
+		has "gegno: mining jobs" > 5
 		not "Gegno Genocide Defense: offered"
 	on offer
 		conversation
@@ -36,7 +36,7 @@ mission "Unexpected Drifters"
 	source
 		near "Heutesl" 100
 	to offer
-		"gegno: mining jobs" >= 5
+		"gegno: mining jobs" >= 3
 		not "Gegno Genocide Defense: offered"
 	on enter "Anbrim"
 		conversation
@@ -109,11 +109,11 @@ mission "Unexpected Drifters Disappear"
 			`The stranded Gegno civilian ship you encountered in this system earlier seems to have disappeared. Hopefully its crew were able to repair the power systems in time, or other Gegno found them and helped them back home safely.`
 
 
-mission "Tschyss Repairs 1"
+mission "Repair Humor"
 	landing
 	source "Tschyss"
 	to offer
-		"gegno: mining jobs" > 15
+		"gegno: mining jobs" > 7
 	on offer
 		conversation
 			`While you are traversing the rickety interior of the station, you come across a group of Gegno gathering at one of the nearby sections still only partly constructed, and next to them are a set of construction tools. From the looks of the area they're planning to work on, they're understaffed, and some of them don't seem very enthusiastic about the job to begin with.`
@@ -121,7 +121,7 @@ mission "Tschyss Repairs 1"
 				`	(Approach them and offer assistance.)`
 				`	(Continue on your way.)`
 					decline
-		`	The group of Gegno, which is formed of Gegnos with each varying physique. Some of them appear to be the bulkier body type, with a few others being the more slender type, though a majority of them are of the more average build you've seen common with the civillian population. They are having a conversation with one another, speaking in their deeper-toned voices, seemingly ignoring your approach. You're a little confused when one Gegno punches another at the back of the neck suddenly, but the hit didn't seem to phase the other Gegno at all. A moment after, others look in your direction inquisitively.
+		`	The group of Gegno is formed of Gegno with varying physique. Some of them appear to be the bulkier body type like the Vi, with a few others being the more slender type like the Scin, though a majority of them are of the more average build you've seen common with the civillian population. They are having a conversation with one another, speaking in their deeper-toned voices, seemingly ignoring your approach. You're a little confused when one Gegno punches another at the back of the neck suddenly, but the hit didn't seem to phase the other Gegno at all. A moment after, others look in your direction inquisitively.
 		`	You gesture towards their supplies and the station interior, hoping they are able to understand your offer. The Gegno that were conversing begin looking at one another. One of them grunts at you, and continues to grunt as they turn to the rest, a few of them responding similarly. You aren't sure if they are upset at you, but instead of ignoring you or pushing you away, one of the more slender Gegno reaches for a large industrial-looking tool, and drops it down in front of you with a loud clang.`
 		choice
 			`	(Inspect the tool.)`
@@ -137,7 +137,58 @@ mission "Tschyss Repairs 1"
 			goto "redirect"
 
 		label "nothing"
-		`	You decide not to do anything with the device. Other than it looking like a mangled mess of heavy parts, you have no idea what it is or what it's used for. Some of the Gegno look onward, still waiting for you to do something, while others snort and jab at each other.`
+		`	You decide not to do anything with the device. Other than it looking like a mangled mess of heavy parts, you have no idea what it is or what it's used for. Some of the Gegno look onward, still waiting for you to do something, while others snort and jab at each other in strange ways.`
 		
 		label "redirect"
-		`	
+		`	A few more monments go by of the Gegno talking to one another, after which they then pick up their supplies and go to work on the yet-to-be-built parts of the station, leaving you behind without so much as a glance. At the very least, thay humored you for a little bit, or perhaps you were humorous to them.`
+			decline
+
+
+mission "Unloading Troubles"
+	source "Tschyss"
+	to offer
+		"gegno: mining jobs" > 10
+	on offer
+		conversation
+			`During your downtime in the central hub, you watch as a large Gegno freighter docks with a nearby hangar entrance. As it does, you feel a not-so-subtle 'clack' once it makes contact with various docking clamps, some dust falling down on your area from the upper levels. A few Gegno exit the ship and leave to another part of the station, while a smaller group remains at the ship to unload its cargo.`
+			`	Typical of Gegno cargo ships, heavy crates of minerals are heaved out of the ship and onto platforms to be moved elsewhere. You're somewhat surprised at how much time passes and the crew are still not yet finished emptying the vessel.`
+			`	Suddenly, a few of the Gegno stop unloading supplies and start to debate with the others across from them. Other than the occasional grunts and snorts, you don't understand any of it, and you aren't sure if it's an argument or not.`
+			choice
+			`	(Walk up to them.)`
+			`	(Leave them be.)`
+				goto leave
+			`	You slowly walk up to the Gegno, and as you get closer, some of them, as well as ones a bit further away from the ship, begin looking in your direction. An awkward silence ensues, until one of the Gegno that started the debate grunts and goes back into the ship. The rest then return to their work, as if the conversation never happened.`
+				decline
+			label leave
+			`	Their conversation continues, and one of the Gegno that started it storms off to some other place in the station. Not another moment passes and the rest of the crew are back to working as if nothing had happened.`
+				decline
+
+mission "Gegno Asteroid Mining III"
+	source "Tschyss"
+	to offer
+		"gegno: mining jobs" > 11
+		has "Unloading Troubles: offered"
+	on offer
+		event "gegno: dwindling workers"
+		conversation
+			`Normally the hub has many Gegno working at a time, whether it be shipwork, Gegno in transit, or construction workers. However, it appears there are a lot less Gegno moving about, or perhaps you haven't noticed a decline in the workforce until now. Many crews seem understaffed to be unloading ships, and the amount of Gegno leaving transports seems to have dwindled compared to what you've seen previously.`
+			`	A minute later you are approached by a Gegno adorned with the brown badge-covered vest you've seen before around the job board. You don't know if it's the same Gegno you've met with previously, but you don't have time to ponder as they hold out a tablet with a blank screen and then push their fist on it, leaving behind an imprint that the device records. They then hold out the device to you.`
+			choice
+			`	(Place your hand on the device.)`
+			`	(Place your fist against the device.)`
+				goto fist
+			`	(Take the device.)`
+				goto take
+			`	You place your hand on the device, leaving behind your handprint. The Gegno looks at you with a strange look, then down to the device, turning it back towards them. After a few taps, a short list of what you can tell are new mining jobs momentarily appears, and the device shuts off.`
+				goto missions
+			label fist
+			`	You place your fist against the device, leaving behind an imprint of your knuckles. Following a beep, a small list of what you can tell are new mining jobs momentarily pops up, and the device shuts off.`
+				goto missions
+			label take
+			`	You reach out and grasp the device, assuming they are handing it to you. The Gegno looks at you and then pulls the device back out of your grasp. They glare at you for a few seconds, then turn the device towards them, tapping it a few times. They briefly show you the screen again, listing a few new mining jobs momentarily, and the device shuts off.`
+			label missions
+			`	The Gegno quietly leaves you, and although there aren't many other Gegno nearby, you can tell a few of them gave you quick glances before going back to minding their own business.`
+				decline
+
+event "gegno: dwindling workers"
+
