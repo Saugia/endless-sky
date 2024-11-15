@@ -31,7 +31,7 @@ mission "Gegno Asteroid Mining II"
 
 # An earlier derelict mission with no resolution that sets up some background lore for later, meant as a "stumble upon" mission for players who catch it.
 mission "Unexpected Drifters"
-#	invisible
+	invisible
 	landing
 	source
 		near "Heutesl" 100
@@ -51,7 +51,9 @@ mission "Unexpected Drifters"
 		system "Anbrim"
 		ship "Dolomite (No Power)" "Kkeryn"
 		to despawn
-			has "Unexpected Drifters Report: offered"
+			or
+				has "Unexpected Drifters Report: offered"
+				has "Unloading Troubles: offered"
 		on assist
 			conversation
 				`You decide on trying to assist the Gegno ship. After docking with it, you gather the necessary equipment and make your way to a boarding hatch, which opens up before you. The ship is eerily devoid of crew as you don't run into any Gegno for some time until you make your way to the ship's power section. There, you see a few Gegno attempting repairs on a damaged generator, while some others are having a discussion, which is suddenly dropped short once they notice you. Rather than accept your aid, the Gegno aggressively escort you off of their ship. Even with their systems failing, they don't look to be accepting any help from an outsider, even if their lives are on stake.`
@@ -149,8 +151,9 @@ mission "Unloading Troubles"
 	to offer
 		"gegno: mining jobs" > 10
 	on offer
+		fail "Unexpected Drifters"
 		conversation
-			`During your downtime in the central hub, you watch as a large Gegno freighter docks with a nearby hangar entrance. As it does, you feel a not-so-subtle 'clack' once it makes contact with various docking clamps, some dust falling down on your area from the upper levels. A few Gegno exit the ship and leave to another part of the station, while a smaller group remains at the ship to unload its cargo.`
+			`During your downtime in the spaceport, you watch as a large Gegno freighter docks with a nearby hangar entrance. As it does, you feel a not-so-subtle 'clack' once it makes contact with various docking clamps, some dust falling down on your area from the upper levels. A few Gegno exit the ship and leave to another part of the station, while a smaller group remains at the ship to unload its cargo.`
 			`	Typical of Gegno cargo ships, heavy crates of minerals are heaved out of the ship and onto platforms to be moved elsewhere. You're somewhat surprised at how much time passes and the crew are still not yet finished emptying the vessel.`
 			`	Suddenly, a few of the Gegno stop unloading supplies and start to debate with the others across from them. Other than the occasional grunts and snorts, you don't understand any of it, and you aren't sure if it's an argument or not.`
 			choice
@@ -166,12 +169,12 @@ mission "Unloading Troubles"
 mission "Gegno Asteroid Mining III"
 	source "Tschyss"
 	to offer
-		"gegno: mining jobs" > 11
+		"gegno: mining jobs" > 13
 		has "Unloading Troubles: offered"
 	on offer
 		event "gegno: dwindling workers"
 		conversation
-			`Normally the hub has many Gegno working at a time, whether it be shipwork, Gegno in transit, or construction workers. However, it appears there are a lot less Gegno moving about, or perhaps you haven't noticed a decline in the workforce until now. Many crews seem understaffed to be unloading ships, and the amount of Gegno leaving transports seems to have dwindled compared to what you've seen previously.`
+			`Normally the spaceport has many Gegno working at a time, whether it be shipwork, Gegno in transit, or construction workers. However, it appears there are a lot less Gegno moving about, or perhaps you haven't noticed a decline in the workforce until now. Many crews seem understaffed to be unloading ships, and the amount of Gegno leaving transports seems to have dwindled compared to what you've seen previously.`
 			`	A minute later you are approached by a Gegno adorned with the brown badge-covered vest you've seen before around the job board. You don't know if it's the same Gegno you've met with previously, but you don't have time to ponder as they hold out a tablet with a blank screen and then push their fist on it, leaving behind an imprint that the device records. They then hold out the device to you.`
 			choice
 			`	(Place your hand on the device.)`
@@ -190,5 +193,15 @@ mission "Gegno Asteroid Mining III"
 			`	The Gegno quietly leaves you, and although there aren't many other Gegno nearby, you can tell a few of them gave you quick glances before going back to minding their own business.`
 				decline
 
-event "gegno: dwindling workers"
 
+mission "A Major Miner Incident"
+	landing
+	source "Tschyss"
+	to offer
+		"gegno: mining jobs" > 20
+		has "Gegno Asteroid Mining III: offered"
+	on offer
+		event "gegno: tschyss breach"
+		conversation
+			`You are traversing the station interior after.`
+				decline
