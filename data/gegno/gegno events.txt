@@ -52,10 +52,13 @@ event "gegno: vi occupy zydee"
 
 
 event "gegno: dwindling workers"
-	system "Ootsuoro"
+	system "Oosuoro"
 		fleet "Gegno Basic" 1400
 		fleet "Gegno Miners" 2100
 		fleet "Gegno Cargo" 2700
+
+
+event "gegno: tschyss breach"
 
 
 event "gegno: unified defense"
