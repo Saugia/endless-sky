@@ -204,5 +204,16 @@ mission "A Major Miner Incident"
 	on offer
 		event "gegno: tschyss breach"
 		conversation
-			`You are traversing the station interior after.`
+			`Yet another day is passing while you spend your time on this partially functional station. Although in some places the Gegno have built up on the interior, other places start to fall victim to a lack of maintenance, effectively making any progression on the station's construction net-neutral. Despite the size of the station, the recent decline in activity only continues the trend. There's not much you have to say in it, as your interactions remain limited to working with the Gegno dockworkers that haul the various mined minerals you've been gathering for them.`
+			`	Suddenly, you find yourself trying to fight for balance as it feels like the entire station suddenly shifted, with what sounds like booming thunder coming from below you. Several loose parts flail about, clanging against the walls and floors. After the rumnbling stops, you look around to see the few nearby Gegno paused in thought of sorts, one of them actually falling to the ground with a thud. Faint sounds of deeply-pitched buzzers begin emminating from the halls, and most Gegno slowly begin marching down towards the source of the commotion. Surprisingly, there are a few Gegno that are much more energetic than you've seen, speaking with raised voices to the others and hurring much faster. Out of the corner of your eye, you watch several pieces of structural debris float outside one of the large windows.`
+			`	This can be anything but good.`
+			choice
+				`	(Remain in the area you're in until someone addresses you.)`
+				`	(Try to follow the others and investigate what happened.)`
+					goto investigate
+			
+			
+			label investigate
+			`	.`
 				decline
+
