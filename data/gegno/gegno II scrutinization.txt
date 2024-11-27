@@ -211,8 +211,10 @@ mission "A Major Miner Incident"
 				`	(Remain here until someone addresses you.)`
 				`	(Follow the others and investigate what happened.)`
 					goto investigate
-			
-			
+
+			`	.`
+				decline
+
 			label investigate
 			`	Leaving the section you're in, you follow several Gegno rushing down the halls. As you do, you pass by other Gegno that are either not rushing, heading in other directions, or having conversations with one another on the side, occasionally peering at you. A few of the hurried Gegno also give you a quick glance as they march past you.`
 			`	After going down several hallways, you come to a large, open section of the station that branches into several directions. In the middle of the area are three Gegno in various attire standing around one of the station's support beams, leading others down the various corridors with the aid of tablet devices. Two of the Gegno are around the average civilian build, with one of them in gear similar to those you've seen cargo haulers wear, and the other in a much heavier gear set with various tools attached to it, like those who work on infrastructural maintenance. The third Gegno, larger in stature, you recognize as the one that has been addressing your work and opportunities at the job board.`
@@ -263,25 +265,38 @@ mission "A Major Miner Incident"
 				`	(Try to search for survivors.)`
 					goto survivors
 			`	You float over to aid the Gegno in dismantling various devices. They're using the many different tools to take apart valuable parts or intricate machinery, anywhere from computer displays to docking arms. They seem almost primal in their work, not giving regard to the fragility of such mechanisms and ripping them apart at a fast pace, throwing what they can savage either aside or into the large basin from before. It's not your place to tell them they're being wasteful, though, or rather, you probably couldn't.`
-			`	Looking to see if you can operate something, you look for an unused tool and come to one that looks like a mangled mess of metal and appendiges. Some sort of grip in is the rear of it, and another on the underside of it. On what you presume is the front of it looks like a giant pair of scissors, and some radiator-like structures are on the middle of it. Though it looks heavy, the lack of gravity makes it no issue, and you eventually fiddle around with the device enough to get it to work, watching how others use similar ones to snap parts either off of the walls or in half.`
+			`	Looking for something to operate, you come across a device that looks like a mangled mess of metal and appendiges. Some sort of grip in is the rear of it, and another on the underside of it. On what you presume is the front of it looks like a giant pair of scissors, and some radiator-like structures are on the middle of it. Though it looks heavy, the lack of gravity makes it no issue, and you eventually fiddle around with the device enough to get it to work, watching how others use similar ones to snap parts either off of the walls or in half.`
 				to display
 					not "Repair Humor: offered"
-			`	Looking to see if you can operate something, you look for an unused tool, coming across one that you've seen before. It's the same heavy scissor-like device from when you previously had a run-in with a repair crew. This time, the lack of gravity makes it no issue to lift, and you eventually fiddle around with the device enough to get it to work, watching how others use similar ones to snap parts either off of the walls or in half.`
+			`	Looking for something to operate, you come across a device that you've seen before. It's the same heavy scissor-like device from when you previously had a run-in with a maintenance crew. This time, the lack of gravity makes it no issue to lift, and you eventually fiddle around with the device enough to get it to work, watching how others use similar ones to snap parts either off of the walls or in half.`
 				to display
 					has "Repair Humor: offered"
-
-
+			`	You spend some time in the docking bay assisting the Gegno, eventually stacking up your own pile of salvaged parts. With each new part you add, at least one of the Gegno look into your direction, silently judging you- and your parts'- worth. At one point, a small squad, with the maintenance lead at the front, returns to the bay from outside, carrying several bodies with them, some suited and others suffering exposure to the vacuum. Later on, other squads rotate crates in and out of the airlock after they're filled up with salvage, and one group eventually makes their way to you. From your pile of parts, they separate smaller ones systematically, taking them away without hesitation. Some more time passes, and a loud buzzer goes off again, with the Gegno returning to the airlock.`
+				choice
+				`	(Meet up with them.)`
+					goto meet
+				`	(Continue trying to find parts to salvage.)`
+			action
+				set "gegno: salvage overtime"
+			`	Ignoring the call back to the door, you continue to look around for parts to save. The sevearl Gegno now at the airlock stare you down in tired or lazy expressions, and one of them begins heading in your direction, possibly frustrated. Before they reach you, however, another Gegno from behind you starts collecting parts of their own nearby you, continuing their work as well. The group looks at one another, and are surprised to see even the maintenance lead grab their own set of tools and begin dismantling nearby systems. Your choice to continune seems to have inspired other Gegno to put extra work into their efforts, and the operation lasts a bit longer.`
 
 
 			label survivors
+			`	You shuffle yourself around the bay, looking for any bodies among the flaoting debris. If there were any unlucky Gegno not prepared for the incident, they easily could have been launched into space, possibly even without the proper gear. Rather than dwell on the thought, you continue looking for Gegno that could have been launched back further into the bay. The lack of gravity makes it somewhat easy to move the larger obstructive parts, but there are still several places where the buildup is impossible to take apart, at least without the proper equipment.
+			`	That said, there are a good amount of Gegno going about and salvaging what they can in the form of machinery, computers and the likes, though they aren't exactly careful about it, using various strange-looking devices to dismantle things in hazardous manners.`
+				to display
+					not "Repair Humor: offered"
+			`	That said, there are a good amount of Gegno going about and salvaging what they can in the form of machinery, computers and the likes, though they aren't exactly careful about it, ripping things apart aggressively. You notice some of them are using the large, scissor-like machine you've encountered from your previous encounter with a maintenance crew.`
+				to display
+					has "Repair Humor: offered"
+			`	.`
+				decline
 
-
-			
-
-
+			label meet
+			`	Finally, you gather with the Gegno at the airlock, having done what you can in the current situation. As you wait for them to work the door, a huge Gegno cargo ship slowly pulls up to the bay, and out from it pours a much larger group of Gegno than the ones you're with, all wearing even more advanced-looking gear and much more intricate power suits. They move with a swiftness and precision several levels beyond what you saw before.`
+			`	Back inside the station, you're escorted back to where your ship is docked. The maintenance lead then approaches you personally, fully acknowledging you for the first time. They lean down aside you on one knee, and with a fist, pound on the back of your neck, which almost makes you fall forward. You're not sure what that means, though if they actually wanted to knock you to the ground, they very easily would have done so. With one last look, they walk away with the group of Gegno, many of whom are hitting one another or snorting loudly. Though some still remain cold and silent, the sight of enthusiasm from the rest is certainly something you're not used to.`
 				decline
 
 			label refuse
 			`	Since the station is half a hazard in itself, working in a dangeorus environment, especially with the Gegno that you have a difficult time so much as exchanging a word with, doesn't sound appealing. You attempt to convey this to the Gegno, shaking your head and arms to their request. They glare at you once more and snort, before marching off somewhat upset back to the other in the corner, handing back their tablet. They raise their voice at the other Gegno, and after pointing in your direction aggressively, leave the docking bay and you back to your business.`
 				decline
-
