@@ -137,11 +137,11 @@ mission "Gegno Asteroid Mining - Titanium"
 
 # Mining Jobs II
 
-mission "Gegno Asteroid Mining II- Neodymium + Copper"
+mission "Gegno Asteroid Mining II - Neodymium + Copper"
 	job
 	repeat
 	name "Gather 20 tons of copper and 10 tons of neodymium"
-	description "Mine and collect 15 tons of copper, and 5 tons of neodymium. Bring the minerals back to the Gegno at <origin>."
+	description "Mine and collect 15 tons of copper and 5 tons of neodymium. Bring the minerals back to the Gegno at <origin>."
 	to offer
 		has "Gegno Asteroid Mining II: offered"
 		random < 10 + "Gegno Asteroid Mining III: offered" * 10
@@ -157,11 +157,11 @@ mission "Gegno Asteroid Mining II- Neodymium + Copper"
 		dialog phrase "gegno mining payment dialog"
 
 
-mission "Gegno Asteroid Mining II- Tungsten + Titanium"
+mission "Gegno Asteroid Mining II - Tungsten + Titanium"
 	job
 	repeat
 	name "Gather 12 tons of titanium and 6 tons of tungsten"
-	description "Mine and collect 12 tons of titanium, and 6 tons of tungsten. Bring the minerals back to the Gegno at <origin>."
+	description "Mine and collect 12 tons of titanium and 6 tons of tungsten. Bring the minerals back to the Gegno at <origin>."
 	to offer
 		has "Gegno Asteroid Mining II: offered"
 		random < 10 + "Gegno Asteroid Mining III: offered" * 10
@@ -179,7 +179,7 @@ mission "Gegno Asteroid Mining II- Tungsten + Titanium"
 
 # Mining Jobs II Rush Missions (+10,000 for the rush)
 
-mission "Gegno Asteroid Mining II- Iron Rush"
+mission "Gegno Asteroid Mining II - Iron Rush"
 	job
 	repeat
 	deadline 21
@@ -199,7 +199,7 @@ mission "Gegno Asteroid Mining II- Iron Rush"
 		dialog phrase "gegno mining payment dialog"
 
 
-mission "Gegno Asteroid Mining II- Silicon Rush"
+mission "Gegno Asteroid Mining II - Silicon Rush"
 	job
 	repeat
 	deadline 21
@@ -219,7 +219,7 @@ mission "Gegno Asteroid Mining II- Silicon Rush"
 		dialog phrase "gegno mining payment dialog"
 
 
-mission "Gegno Asteroid Mining II- Lead Rush"
+mission "Gegno Asteroid Mining II - Lead Rush"
 	job
 	repeat
 	deadline 21
@@ -242,7 +242,7 @@ mission "Gegno Asteroid Mining II- Lead Rush"
 
 # Mining Jobs III
 
-mission "Gegno Asteroid Mining III- Neodymium"
+mission "Gegno Asteroid Mining III - Neodymium"
 	job
 	repeat
 	name "Gather 23 tons of Neodymium"
@@ -261,7 +261,7 @@ mission "Gegno Asteroid Mining III- Neodymium"
 		dialog phrase "gegno mining payment dialog"
 
 
-mission "Gegno Asteroid Mining III- Tungsten"
+mission "Gegno Asteroid Mining III - Tungsten"
 	job
 	repeat
 	name "Gather 17 tons of Neodymium"
@@ -280,7 +280,7 @@ mission "Gegno Asteroid Mining III- Tungsten"
 		dialog phrase "gegno mining payment dialog"
 
 
-mission "Gegno Asteroid Mining III- Iron II"
+mission "Gegno Asteroid Mining III - Iron II"
 	job
 	repeat
 	name "Gather 42 tons of Iron"
@@ -299,9 +299,7 @@ mission "Gegno Asteroid Mining III- Iron II"
 		dialog phrase "gegno mining payment dialog"
 
 
-# Mining Jobs III Rush Missions (+10,000 for the rush)
-
-mission "Gegno Asteroid Mining III- Silver"
+mission "Gegno Asteroid Mining III - Silver"
 	job
 	repeat
 	name "Gather 11 tons of silver"
@@ -320,7 +318,10 @@ mission "Gegno Asteroid Mining III- Silver"
 		dialog phrase "gegno mining payment dialog"
 
 
-mission "Gegno Asteroid Mining III- Aluminum Rush"
+# Mining Jobs III Rush Missions (+10,000 for the rush)
+
+
+mission "Gegno Asteroid Mining III - Aluminum Rush"
 	job
 	repeat
 	deadline 21
@@ -340,7 +341,7 @@ mission "Gegno Asteroid Mining III- Aluminum Rush"
 		dialog phrase "gegno mining payment dialog"
 
 
-mission "Gegno Asteroid Mining III- Titanium Rush"
+mission "Gegno Asteroid Mining III - Titanium Rush"
 	job
 	repeat
 	deadline 21
