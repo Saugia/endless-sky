@@ -23,14 +23,14 @@ mission "Gegno Asteroid Mining II"
 	on offer
 		conversation
 			`Aside from the occasional unloading of mined minerals from your cargo hold, the Gegno at this station have continued to ignore your presence one way or another, whether it's actively or passively. However, today seems to be different as you are approached directly by one of Gegno, who is carrying a tablet device larger than ones you've seen others handle before.`
-			`	Standing before you, they hold their device to their chest as they begin tapping and dragging on it with their free hand. Their appearance is more similar to members of the Scin you've interacted with before; somewhat thinner than other Gegno but still one of the taller ones. Unlike others around the hanger, they're wearing a dark-brown vest of sorts, adorned with various small badges.`
-			`	Finally, they gesture you to follow them outside of the hanger, leading you to a smaller area, albeit still only partially constructed like the rest of the station. In it are some other Gegno going to and from another wall-mounted display that also lists various jobs. Thankfully, these share the same visuals as the others, showing more mineable asteroids with tally-marks, though these jobs seem to request more than the others, and pay more as well.`
-			`	You turn around to address at the Gegno that led you here once more, but they already have vanished to somewhere else in the station. Although they continue to treat you dismissively, it appears you've now been given access to more demanding and rewarding jobs. Perhaps they are beginning to place some value in you after all.`
+			`	Standing before you, they hold their device to their chest as they begin tapping and dragging on it with their free hand. Their appearance is more similar to members of the Scin you've interacted with before; somewhat thinner than other Gegno but still one of the taller ones. Unlike others around the hangar, they're wearing a dark-brown vest of sorts, adorned with various small badges.`
+			`	Finally, they gesture you to follow them outside of the hanger, leading you to a smaller area, albeit still only partially constructed like the rest of the station. In it are some other Gegno going to and from another wall-mounted display that also lists various jobs. Thankfully, these share the same visuals as the others, showing more minable asteroids with tally-marks, though these jobs seem to request more than the others, and pay more as well.`
+			`	You turn around to address at the Gegno that led you here once more, but they already have vanished to somewhere else in the station. Although the Gegno continue to treat you dismissively, it appears you've now been given access to more demanding and rewarding jobs. Perhaps they are beginning to place some value in you after all.`
 				decline
 
 
 # An earlier derelict mission with no resolution that sets up some background lore for later, meant as a "stumble upon" mission for players who catch it.
-mission "Unexpected Drifters"
+mission "Gegno Unexpected Drifters"
 	invisible
 	landing
 	source
@@ -44,19 +44,19 @@ mission "Unexpected Drifters"
 		conversation
 			action
 				set "gegno: derelict spotted"
-			`As you enter the system, you are met with the sight of a disabled Gegno ship silently drifting amongst the stars. Unlike the Vi or Scin ships in nearby systems, this one appears to be a civilian vessel. It could be that they ran out of fuel, or some internal malfuction, but it is strange that it is far away from Gegno home space.`
+			`As you enter the system, you are met with the sight of a disabled Gegno ship silently drifting amongst the stars. Unlike the Vi or Scin ships in nearby systems, this one appears to be a civilian vessel. It could be that they ran out of fuel, or had some internal malfuction, but it is strangely far away from Gegno home space.`
 			`	Considering that the Gegno are very cautious of your involvement with their civilization, it might be better to report the stranded vessel to them on Tchyss so to that they can handle it internally. Then again, who knows how long the crew have before the ship's life support systems fail, so you could also try aiding them.`
 
 
 	npc assist
 		government "Gegno"
-		personality derelict mute uninterested staying
+		personality derelict mute staying uninterested
 		system "Cotpoxi"
 		ship "Dolomite (No Power)" "Kkeryn"
 		to despawn
 			or
-				has "Unexpected Drifters Report: offered"
-				has "Unloading Troubles: offered"
+				has "Gegno Unexpected Drifters Report: offered"
+				has "Gegno Unloading Troubles: offered"
 		on assist
 			set "gegno: derelict boarded"
 			conversation
@@ -69,13 +69,13 @@ ship "Dolomite" "Dolomite (No Power)"
 
 		"Hyperdrive"
 
-mission "Unexpected Drifters Report"
+mission "Gegno Unexpected Drifters Report"
 	invisible
 	landing
 	source "Tschyss"
 	to offer
 		has "gegno: derelict spotted"
-		not "Unexpected Drifters Disappear: failed"
+		not "Gegno Unexpected Drifters Disappear: failed"
 		not "Gegno Genocide Defense: offered"
 	on offer
 		conversation
@@ -84,7 +84,7 @@ mission "Unexpected Drifters Report"
 				`	(Yes.)`
 				`	(Not right now.)`
 					defer
-			`	You try your best to get the attention of one of the Gegno in the station, but are brushed off or outright ignored by most of them. Eventually, one of the more bulky Gegno slowly walks over to you with a plain look on their face. You attempt to explain to them the situation using a map device and scanner logs of the stranded ship in Cotpoxi, but to no avail. They simply glance at your data, back at you, and then walk away.`
+			`	You try your best to get the attention of one of the Gegno in the station, but are brushed off or outright ignored by most of them. Eventually, one of the more bulky Gegno slowly walks over to you with a blank look on their face. You attempt to explain to them the situation using a map device and scanner logs of the stranded ship in Cotpoxi, but to no avail. They simply glance at your data, back at you, and then walk away.`
 			`	It doesn't seem like you are able to request help. Maybe you can try and assist the crew yourself.`
 				to display
 					not "gegno: derelict boarded"
@@ -92,9 +92,9 @@ mission "Unexpected Drifters Report"
 			`	With the crew unwilling to accept your help, and you unable to request help for them here, all you can do is hope someone eventually comes to their aid.`
 				to display
 					has "gegno: derelict boarded"
-				decline					
+				decline
 
-mission "Unexpected Drifters Disappear"
+mission "Gegno Unexpected Drifters Disappear"
 	invisible
 	landing
 	source
@@ -113,7 +113,7 @@ mission "Unexpected Drifters Disappear"
 
 # Figure out how to fail the above and the dialog appear on enter the first time (currently it is doing so only if you land first).		
 
-mission "Repair Humor"
+mission "Gegno Repair Humor"
 	source "Tschyss"
 	to offer
 		"gegno: mining jobs" > 7
@@ -124,7 +124,7 @@ mission "Repair Humor"
 				`	(Approach them and offer assistance.)`
 				`	(Continue on your way.)`
 					decline
-			`	The group of Gegno is formed of Gegno with varying physique. Some of them appear to be the bulkier body type like the Vi, with a few others being the more slender type like the Scin, though a majority of them are of the more average build you've seen common with the civillian population. They are having a conversation with one another, speaking in their deeper-toned voices, seemingly ignoring your approach. You're a little confused when one Gegno punches another at the back of the neck suddenly, but the hit didn't seem to phase the other Gegno at all. A moment after, others look in your direction inquisitively.`
+			`	The group is formed of Gegno with varying physique. Some of them appear to have the bulkier body type of the Vi, with a few others being the more slender type like the Scin, though a majority of them are of the more average build you've seen common with the civilian population. They are having a conversation with one another, speaking in their deeper-toned voices, seemingly ignoring your approach. You're a little confused when one Gegno punches another at the back of the neck suddenly, but the hit doesn't seem to phase the other Gegno at all. A moment after, the others look in your direction inquisitively.`
 			`	You gesture towards their supplies and the station interior, hoping they are able to understand your offer. The Gegno that were conversing begin looking at one another. One of them grunts at you, and continues to grunt as they turn to the rest, a few of them responding similarly. You aren't sure if they are upset at you, but instead of ignoring you or pushing you away, one of the more slender Gegno reaches for a large industrial-looking tool, and drops it down in front of you with a loud clang.`
 			choice
 				`	(Inspect the tool.)`
@@ -132,39 +132,39 @@ mission "Repair Humor"
 					goto "lift tool"
 				`	(Do nothing.)`
 					goto nothing
-			`	The tool itself, on first glance, looks like a mangled mess of metal and appendiges. You can see some sort of grip in the rear of it, and another on the underside of it. On what you presume is the front of it looks like a giant pair of scissors, or at least something akin to that. There is some radiator-like structures on the middle of it. The Gegno that dropped the device makes a strange expression and snorts, as if they're judging how you look at the device.`
+			`	The tool itself, on first glance, looks like a mangled mess of metal and appendages. You can see some sort of grip in the rear of it, and another on the underside of it. On what you presume is the front of it looks like a giant pair of scissors, or at least something akin to that. There are some radiator-like structures on the middle of it. The Gegno that dropped the device makes a strange expression and snorts, as if they're judging how you look at the device.`
 				goto redirect
 
 			label "lift tool"
-			`	The group of Gegno watch you as you try and figure out how to grasp the device. There's some sort of handle on one side of it, but there's no way you can lift the whole thing from just that post. On the underside of it, there appears to be a different grip. You attempt to grap both handles, shifting your weight to lift. You can only raise it for a few seconds before it slams back down into the ground, as it is unexpectedly heavy, and is very awkward to try and hold. One of the larger Gegno grunts some more at you, and some of them begin chatting with one another.`
+			`	The group of Gegno watch you as you try to figure out how to grasp the device. There's some sort of handle on one side of it, but there's no way you can lift the whole thing from just that post. On the underside of it, there appears to be a different grip. You attempt to grap both handles, shifting your weight to lift. You can only raise it for a few seconds before it slams back down into the ground, as it is unexpectedly heavy and very awkward to try hold. One of the larger Gegno grunts some more at you, and some of them begin chatting with one another.`
 				goto redirect
 
 			label nothing
-			`	You decide not to do anything with the device. Other than it looking like a mangled mess of heavy parts, you have no idea what it is or what it's used for. Some of the Gegno look onward, still waiting for you to do something, while others snort and jab at each other in strange ways.`
+			`	You decide not to do anything with the device. Other than it looking like a mangled mess of heavy parts, you have no idea what it is or what it's used for. Some of the Gegno look on, still waiting for you to do something, while others snort and jab at each other in strange ways.`
 		
 			label redirect
-			`	A few more monments go by of the Gegno talking to one another, after which they then pick up their supplies and go to work on the yet-to-be-built parts of the station, leaving you behind without so much as a glance. At the very least, thay humored you for a little bit, or perhaps you were humorous to them.`
+			`	A few more moments go by of the Gegno talking to one another, after which they then pick up their supplies and go to work on the yet-to-be-built parts of the station, leaving you behind without so much as a glance. At the very least, thay humored you for a little bit, or perhaps you were humorous to them.`
 				decline
 
 
-mission "Unloading Troubles"
+mission "Gegno Unloading Troubles"
 	source "Tschyss"
 	to offer
 		"gegno: mining jobs" > 10
 	on offer
-		fail "Unexpected Drifters"
+		fail "Gegno Unexpected Drifters"
 		conversation
 			`During your downtime in the spaceport, you watch as a large Gegno freighter docks with a nearby hangar entrance. As it does, you feel a not-so-subtle 'clack' once it makes contact with various docking clamps, some dust falling down on your area from the upper levels. A few Gegno exit the ship and leave to another part of the station, while a smaller group remains at the ship to unload its cargo.`
-			`	Typical of Gegno cargo ships, heavy crates of minerals are heaved out of the ship and onto platforms to be moved elsewhere. You're somewhat surprised at how much time passes and the crew are still not yet finished emptying the vessel.`
-			`	Suddenly, a few of the Gegno stop unloading supplies and start to debate with the others across from them. Other than the occasional grunts and snorts, you don't understand any of it, and you aren't sure if it's an argument or not.`
+			`	Typical of Gegno cargo ships, heavy crates of minerals are heaved out of the ship and onto platforms to be moved elsewhere. You're somewhat surprised at how much time has past, and the crew are still not yet finished emptying the vessel.`
+			`	Suddenly, a few of the Gegno stop unloading supplies and begin to debate with the others across from them. Other than the occasional grunts and snorts, you don't understand any of it, and you aren't sure if it's an argument or not.`
 			choice
 				`	(Walk up to them.)`
 				`	(Leave them be.)`
 					goto leave
-			`	You slowly walk up to the Gegno, and as you get closer, some of them, as well as ones a bit further away from the ship, begin looking in your direction. An awkward silence ensues, until one of the Gegno that started the debate grunts and goes back into the ship. The rest then return to their work, as if the conversation never happened.`
+			`	You slowly approach the Gegno, and as you get closer, some of them, as well as ones a bit further away from the ship begin looking in your direction. An awkward silence ensues, until one of the Gegno that started the debate grunts and goes back into the ship. The rest then return to their work, as if the conversation never happened.`
 				decline
 			label leave
-			`	Their conversation continues, and one of the Gegno that started it storms off to some other place in the station. Not another moment passes and the rest of the crew are back to working as if nothing had happened.`
+			`	Their conversation continues, and one of the Gegno that started it storms off to some other place in the station. Not another moment passes before the rest of the crew get back to working as if nothing happened.`
 				decline
 
 mission "Gegno Asteroid Mining III"
@@ -172,12 +172,12 @@ mission "Gegno Asteroid Mining III"
 	source "Tschyss"
 	to offer
 		"gegno: mining jobs" > 13
-		has "Unloading Troubles: offered"
+		has "Gegno Unloading Troubles: offered"
 	on offer
 		event "gegno: dwindling workers"
 		conversation
-			`Normally the station has many Gegno working at a time, whether it be shipwork, Gegno in transit, or construction workers. However, it appears there are a lot less Gegno moving about, or perhaps you haven't noticed a decline in the workforce until now. Many crews seem understaffed to be unloading ships, and the amount of Gegno leaving transports seems to have dwindled compared to what you've seen previously.`
-			`	A minute later you are approached by a Gegno adorned with the brown badge-covered vest you've seen before around the job board. You don't know if it's the same Gegno you've met with previously, but you don't have time to ponder as they hold out a tablet with a blank screen and then push their fist on it, leaving behind an imprint that the device records. They then hold out the device to you.`
+			`Normally the station has many Gegno working at a time, whether it be shipwork, Gegno in transit, or construction workers. However, it appears there are a lot less Gegno moving about, or perhaps you haven't noticed a decline in the workforce until now. Many crews seem understaffed to be unloading ships, and the amount of Gegno exiting transports seems to have dwindled compared to what you've seen previously.`
+			`	A minute later you are approached by a Gegno adorned with the brown badge-covered vest you've seen before around the job board. You don't know if it's the same Gegno you met with previously, but you don't have time to ponder as they hold out a tablet with a blank screen and then push their fist on it, leaving behind an imprint that the device records. They then hold out the device to you.`
 			choice
 				`	(Place your hand on the device.)`
 				`	(Place your fist against the device.)`
@@ -196,7 +196,7 @@ mission "Gegno Asteroid Mining III"
 				decline
 
 
-mission "A Major Miner Incident"
+mission "Gegno A Major Miner Incident"
 	source "Tschyss"
 	to offer
 		"gegno: mining jobs" > 20
@@ -204,8 +204,8 @@ mission "A Major Miner Incident"
 	on offer
 		event "gegno: tschyss breach"
 		conversation
-			`Yet another day is passing while you spend your time on this partially functional station. Although in some places the Gegno have built up on the interior, other places start to fall victim to a lack of maintenance, effectively making any progression on the station's construction net-neutral. Despite the size of the station, the recent decline in activity only continues the trend. There's not much you have to say in it, as your interactions remain limited to working with the Gegno dockworkers that haul the various mined minerals you've been gathering for them.`
-			`	Suddenly, you find yourself trying to fight for balance as it feels like the entire station suddenly shifted, with what sounds like booming thunder coming from below you. Several loose parts flail about, clanging against the walls and floors. After the rumnbling stops, you look around to see the few nearby Gegno paused in thought of sorts, one of them actually falling to the ground with a thud. Faint sounds of deeply-pitched buzzers begin emminating from the halls, and most Gegno slowly begin marching down towards the source of the commotion. Surprisingly, there are a few Gegno that are much more energetic than you've seen, speaking with raised voices to the others and hurring much faster. Out of the corner of your eye, you watch several pieces of structural debris float into view of some large windows.`
+			`Yet another day is passing while you spend your time on this partially functional station. Although in some places the Gegno have built up on the interior, other places have begun to fall victim due to a lack of maintenance, effectively making any progression on the station's construction net-neutral. Despite the size of the station, the recent decline in activity only continues the trend. There's not much you have to say in it, as your interactions remain limited to working with the Gegno dockworkers that haul the various mined minerals you've been gathering for them.`
+			`	Suddenly, you find yourself trying to fight for balance as it feels like the entire station suddenly shifted, with what sounds like booming thunder coming from below you. Several loose parts flail about, clanging against the walls and floors. After the rumbling stops, you look around to see the few nearby Gegno paused in thought of sorts, one of them actually falling to the ground with a thud. Faint sounds of deeply-pitched buzzers begin eminating from the halls, and most Gegno slowly begin marching down towards the source of the commotion. Surprisingly, there are a few Gegno that are much more energetic than you've seen, speaking with raised voices to the others and hurrying much faster. Out of the corner of your eye, you watch several pieces of structural debris float into view of some large windows.`
 			`	This can be anything but good.`
 			choice
 				`	(Follow the others and investigate what happened.)`
@@ -218,29 +218,29 @@ mission "A Major Miner Incident"
 
 			label investigate
 			`	Leaving the section you're in, you follow several Gegno rushing down the halls. As you do, you pass by other Gegno that are either not rushing, heading in other directions, or having conversations with one another on the side, occasionally peering at you. A few of the hurried Gegno also give you a quick glance as they march past you.`
-			`	After going down several hallways, you come to a large, open section of the station that branches into several directions. In the middle of the area are three Gegno in various attire standing around one of the station's support beams, leading others down the various corridors with the aid of tablet devices. Two of the Gegno are around the average civilian build, with one of them in gear similar to those you've seen cargo haulers wear, and the other in a much heavier gear set with various tools attached to it, like those who work on infrastructural maintenance. The third Gegno, larger in stature, you recognize as the one that has been addressing your work and opportunities at the job board.`
+			`	After going down several hallways, you come to a large, open section of the station that branches into several directions. In the middle of the area are three Gegno in various attire standing around one of the station's support beams, deploying others down the various corridors with the aid of tablet devices. Two of the Gegno are around the average civilian build, with one of them in gear similar to those you've seen cargo haulers wear, and the other in a much heavier gear set with various tools attached to it, like those who work on infrastructural maintenance. The third Gegno, larger in stature, you recognize as the one that has been addressing your work and opportunities at the job board.`
 			choice
-				`	(Approach the one in hauling gear.)
+				`	(Approach the one in hauling gear.)`
 					goto hauling
-				`	(Approach the one in maintenance gear.)
+				`	(Approach the one in maintenance gear.)`
 					goto maintenance
-				`	(Approach the one from the job board.)
+				`	(Approach the one from the job board.)`
 
 			action
 				set "gegno: transport redirect"
 			`	The larger Gegno quickly acknowledges you with a fixed look as you walk up to them. While the maintenance lead continues to direct other Gegno, the hauling lead pauses, looking to your direction, then to the job board lead. After an awkward silence, the two exchange a few words, occasionally gesturing in your direction. For a brief moment, the maintenance lead pauses to listen, but quickly returns to instructing others.`
-			`	Several grunts and motions later, the job board lead addresses you. They lower their posture slightly, leering at you silently for a few seconds. They then raise back up, speak a few more words to the other two, and then step away from them. Pushing you slightly, they begin to escort you down the corridor you came from, back to the docking back your ship is in.`
+			`	Several grunts and motions later, the job board lead addresses you. They lower their posture slightly, leering at you silently for a few seconds. They then raise back up, speak a few more words to the other two, and then step away from them. Pushing you slightly, they begin to escort you down the corridor you came from, back to the docking bay your ship is in.`
 				decline
 					
 			label hauling
 			action
 				set "gegno: hauling redirect"
-			`	As you walk up to the Gegno in hauling gear, they pause for a moment, gazing at you, then turn to the other two. While the maintenance lead pays no attention, continuing to instruct others, the job board lead begins a conversation with the hauling lead. Between statements are long, awkward pauses, however during one of them, another Gegno waiting behind you raises their voice. They too are wearing hauling gear, and as they join the discussion, even the maintenance lead pauses to listen for a brief moment.`
+			`	As you walk up to the Gegno in hauling gear, they pause for a moment, gazing at you, then turn to the other two. While the maintenance lead pays no attention, continuing to instruct others, the job board lead begins a conversation with the hauling lead. Between statements are long, awkward pauses. During one of them, another Gegno waiting behind you raises their voice. They too are wearing hauling gear, and as they join the discussion, even the maintenance lead pauses to listen for a brief moment.`
 			`	Several grunts and gestures later, the hauling lead addresses you as they tap several times on their tablet. They suddenly hand it to you, to the surprise of the other two. Before you get a chance to look at the display, they gesture quickly to the Gegno behind you that spoke up, who then assertively escorts you back down the halls to the docking bay your ship is at.`
 				decline
 
 			label maintenance
-			`	You walk up to the Gegno in they heavy maintenance gear. For a few moments, they completely ignore you, continuing to give out directions to a few other Gegno that stop by. The two other leads then pause, beginning a discussion with one another in their deep-toned voices. The maintenance lead, after an awkward pause in the conversation between the others, then joins the discussion, though they don't directly look at the other two as they speak.`
+			`	You walk up to the Gegno in heavy maintenance gear. For a few moments, they completely ignore you, continuing to give out directions to a few other Gegno that stop by. The two other leads then pause, beginning a discussion with one another in their deep-toned voices. The maintenance lead, after an awkward pause in the conversation between the others, then joins the discussion, though they don't directly look at the other two as they speak.`
 			`	Several grunts and exchanges later, they finally address you with a long, silent glare. Looking down to their tablet, they drag their large fingers around a few times, scrolling through various pages of information. Another Gegno comes up behind you in a lighter gear set, and the maintenance lead speaks to them briefly. Another awkward pause ensues, with the other Gegno looking at you, and then back at the lead, who instructs them to quickly escort you back down the corridor you came from.`
 			`	As you're escorted back down the halls, a few more Gegno along the way give you passing glares, and on occasion, the one escorting you grunts at them, though you're not sure in what manner. Once you're back in the bay your ship is parked in, your escort then hits you a few times to get your attention. "Istsemispi," they say, while holding their arms out and gesturing up and down.`
 			choice
@@ -249,90 +249,90 @@ mission "A Major Miner Incident"
 					goto suit
 				`	"I'm sorry, I don't know what you're saying."`
 					goto suit
-			`	"Istsemispi", you say, trying to mimic the way the Gegno said, though you're sure you butchered the pronounciation somehow. "Istsemispi", the Gegno says again, gesturing once more, this time to their body. You're still unsure what they mean, which they clearly understand after a few more seconds pass by.`
+			`	"Istsemispi," you say, trying to mimic the way the Gegno said the word, though you're sure you butchered the pronounciation somehow. "Istsemispi," the Gegno says again, gesturing once more, this time to their body. You're still unsure what they mean, which they clearly understand after a few more seconds pass by.`
 			
 			label suit
-			`	 Your escort then looks around the bay until they catch glimpse of another Gegno off in the corner on their own tablet, marching over to them. Both speak a few words to one another, somewhat frustrated, until the tablet is handed to your escort, who walks back over to you while fiddling with it. They turn the display to you, and on it shows a sort of blueprint of the station interior, with some of the blocks being hatched off. From what you can gather, those are the sections that don't have a working atmosphere, which require you to wear your environmental suit. "Istsemispi," they say once more, pointing to their outfit, which at this point you figure out is referencing the suit. If they're requesting you to bring it, they must have some plan for you to assist them in one of those areas.`
-				choice
+			`	 Your escort then looks around the bay until they catch a glimpse of another Gegno off in the corner on their own tablet and march over to them. Both speak a few words to one another, somewhat frustrated, until the tablet is handed to your escort, who walks back over to you while fiddling with it. They turn the display to you, and it shows a sort of blueprint of the station interior, with some of the blocks being hatched off. From what you can gather, those are the sections that don't have a working atmosphere, which require you to wear your environmental suit. "Istsemispi," they say once more, pointing to their outfit, which at this point you figure out is referencing the suit. If they're requesting you to bring it, they must have some plan for you to assist them in one of those areas.`
+			choice
 				`	(Retrieve your environment suit.)`
 				`	(Refuse to assist them.)`
 					goto refuse
 
-			`	Being the Gegno are going this far to try and work you into the situation, you go back to your ship and equip your environment suit, prepared to help them with whatever they're needing assistance with. You're then escorted to the entrance of another docking bay, with red lights glowing all around. Waiting by it is a small group of Gegno, all wearing the same heavy equipment as the lead, who is also present. Some of them are equipped with strange, large tools, and a few others are surrounding a large crate of various other tools. It is eerily silent once the three of you arrive, several of them gazing in your direction.`
-			`	Not a word is said, and a few of them prepare to open the air lock to the hangar. With a few clanks and harsh metal sounds, the warning lights and buzzers go out, and the door opens, revealing the docking bay - or at least, where it is supposed to be. Instead, is a gaping hole into space, with tons of debris floating about. Drifting slowly away from the station in the distance is a large Gegno mining ship, with the front section dented and banged up.`
-			`	As you take in the environment, you watch as the Gegno immediately get to work. Some of them walk around, manually moving debris around, and others use their large tools to take apart certain devices. A few Gegno in the heaviest gear, including the lead, begin launching off towards the debris drifting outward into space using propulsion units. You try and look for a way to help them in their endeavours.`
-				choice
+			`	Given the Gegno are going this far to try and work you into the situation, you go back to your ship and equip your environment suit, prepared to help them with whatever they're needing assistance with. You're then escorted to the entrance of another docking bay, with red lights glowing all around. Waiting by it is a small group of Gegno, all wearing the same heavy equipment as the lead, who is also present. Some of them are equipped with strange, large tools, and a few others are surrounding a large crate of various other tools. It is eerily silent once the three of you arrive, several of them gazing in your direction.`
+			`	Not a word is said, and a few of them prepare to open the air lock to the hangar. With a few clanks and harsh metal sounds, the warning lights and buzzers go out, and the door opens, revealing the docking bay - or at least, where one is supposed to be. Instead, is a gaping hole into space, with tons of debris floating about. Drifting slowly away from the station in the distance is a large Gegno mining ship, with the front section dented and banged up.`
+			`	As you take in the environment, you watch as the Gegno immediately get to work. Some of them walk around, manually moving debris around, and others use their large tools to take apart certain devices. A few Gegno in the heaviest gear, including the lead, begin launching off towards the debris drifting outward into space using propulsion units. You look for a way to help them in their endeavours.`
+			choice
 				`	(Try to help dismantle devices.)`
 				`	(Try to search for survivors.)`
 					goto survivors
 
 
-			`	You float over to aid the Gegno in dismantling various devices. They're using the many different tools to take apart valuable parts or intricate machinery, anywhere from computer displays to docking arms. They seem almost primal in their work, not giving regard to the fragility of such mechanisms and ripping them apart at a fast pace, throwing what they can savage either aside or into the large basin from before. It's not your place to tell them they're being wasteful, though, or rather, you probably couldn't.`
-			`	Looking for something to operate, you come across a device that looks like a mangled mess of metal and appendiges. Some sort of grip in is the rear of it, and another on the underside of it. On what you presume is the front of it looks like a giant pair of scissors, and some radiator-like structures are on the middle of it. Though it looks heavy, the lack of gravity makes it no issue, and you eventually fiddle around with the device enough to get it to work, watching how others use similar ones to snap parts either off of the walls or in half.`
+			`	You float over to aid the Gegno in dismantling various devices. They're using the many different tools to take apart valuable parts or intricate machinery, anywhere from computer displays to docking arms. They seem almost primal in their work, not giving regard to the fragility of such mechanisms and ripping them apart at a fast pace, throwing what they can salvage either aside or into the large basin from before. It's not your place to tell them they're being wasteful, though, or rather, you probably couldn't.`
+			`	Looking for something to operate, you come across a device that looks like a mangled mess of metal and appendages. Some sort of grip in is the rear of it, and another on the underside of it. On what you presume is the front of it looks like a giant pair of scissors, and some radiator-like structures are on the middle of it. Though it looks heavy, the lack of gravity makes lifting it no issue, and you eventually fiddle around with the device enough to get it to work, watching how others use similar ones to snap parts either off of the walls or in half.`
 				to display
-					not "Repair Humor: offered"
+					not "Gegno Repair Humor: offered"
 			`	Looking for something to operate, you come across a device that you've seen before. It's the same heavy scissor-like device from when you previously had a run-in with a maintenance crew. This time, the lack of gravity makes it no issue to lift, and you eventually fiddle around with the device enough to get it to work, watching how others use similar ones to snap parts either off of the walls or in half.`
 				to display
-					has "Repair Humor: offered"
-			`	You spend some time in the docking bay assisting the Gegno, eventually stacking up your own pile of salvaged parts. With each new part you add, at least one of the Gegno look into your direction, silently judging you- and your parts'- worth. At one point, a small squad, with the maintenance lead at the front, returns to the bay from outside, carrying several bodies with them, some suited and others suffering exposure to the vacuum. Later on, other squads rotate crates in and out of the airlock after they're filled up with salvage, and one group eventually makes their way to you. From your pile of parts, they separate smaller ones systematically, taking them away without hesitation. Some more time passes, and a loud buzzer goes off again, with the Gegno returning to the airlock.`
+					has "Gegno Repair Humor: offered"
+			`	You spend some time in the docking bay assisting the Gegno, eventually stacking up your own pile of salvaged parts. With each new part you add, at least one of the Gegno look into your direction, silently judging you - and your parts' - worth. At one point, a small squad, with the maintenance lead at the front, returns to the bay from outside, carrying several bodies with them, some suited and others suffering from exposure to the vacuum. Later on, other squads rotate crates in and out of the airlock after they're filled up with salvage, and one group eventually makes their way to you. From your pile of parts, they separate smaller ones systematically, taking them away without hesitation. Some more time passes, and a loud buzzer goes off again, with the Gegno returning to the airlock.`
 				choice
 				`	(Meet up with them.)`
 					goto meet
 				`	(Continue trying to find parts to salvage.)`
 			action
 				set "gegno: tschyss overtime"
-			`	Ignoring the call back to the door, you continue to look around for parts to save. The sevearl Gegno now at the airlock stare you down in tired or lazy expressions, and one of them begins heading in your direction, possibly frustrated. Before they reach you, however, another Gegno from behind you starts collecting parts of their own nearby you, continuing their work as well. The group looks at one another, and are surprised to see even the maintenance lead grab their own set of tools and begin dismantling nearby systems. Your choice to continune seems to have inspired other Gegno to put extra work into their efforts, and the operation lasts a bit longer.`
+			`	Ignoring the call back to the door, you continue to look around for parts to save. The several Gegno now at the airlock stare you down in tired or lazy expressions, and one of them begins heading in your direction, possibly frustrated. Before they reach you, however, another Gegno from behind you starts collecting parts of their own nearby you, continuing their work as well. The group looks at one another, and are surprised to see even the maintenance lead grab their own set of tools and begin dismantling nearby systems. Your choice to continune seems to have inspired other Gegno to put extra work into their efforts, and the operation lasts a bit longer.`
 				goto meet
 
 
 			label survivors
-			`	You shuffle yourself around the bay, looking for any bodies among the flaoting debris. If there were any unlucky Gegno not prepared for the incident, they easily could have been launched into space, possibly even without the proper gear. Rather than dwell on the thought, you continue looking for Gegno that could have been launched back further into the bay. The lack of gravity makes it somewhat easy to move the larger obstructive parts, but there are still several places where the buildup is impossible to take apart, at least without the proper equipment.
+			`	You shuffle yourself around the bay, looking for any bodies among the floating debris. If there were any unlucky Gegno not prepared for the incident, they easily could have been launched into space, possibly even without the proper gear. Rather than dwell on the thought, you continue looking for Gegno that could have been launched back further into the bay. The lack of gravity makes it somewhat easy to move the larger obstructive parts, but there are still several places where the buildup is impossible to take apart, at least without the proper equipment.`
 			`	That said, there are a good amount of Gegno going about and salvaging what they can in the form of machinery, computers and the likes, though they aren't exactly careful about it, using various strange-looking devices to dismantle things in hazardous manners.`
 				to display
-					not "Repair Humor: offered"
+					not "Gegno Repair Humor: offered"
 			`	That said, there are a good amount of Gegno going about and salvaging what they can in the form of machinery, computers and the likes, though they aren't exactly careful about it, ripping things apart aggressively. You notice some of them are using the large, scissor-like machine you've encountered from your previous encounter with a maintenance crew.`
 				to display
-					has "Repair Humor: offered"
+					has "GegnonRepair Humor: offered"
 			`	Out of the corner of your eye, you notice a humanoid mass floating in a dimly lit part of the bay. Carefully following along the wall of the bay, you make your way over to the figure. Upon closer inspection, it is simply an empty environment suit, showing no signs of occupation. Turning to the right, you see two more empty suits hiding behind several large spars jammed against the wall. They were probably part of some storage section that held gear, but as you ponder the thought, a shadow briefly moves in the background. Trapped behind the mess of infrastructure is a third suit, which a Gegno is clearly within.`
-				choice
+			choice
 				`	(Try to help them escape.)`
 					goto escape
 				`	(Signal the other Gegno for help.)`
 			`	Looking around, you try and get the attention of other Gegno for help. At first, any within your vicinity seem too focused in whatever they're doing. You try waving, gesturing, even banging on the heavy metal before you, but nothing seems to get their attention. The trapped Gegno barely seems to be moving, and in the darkness it's hard to tell if they're even alive. If they are, they might not have much longer.`
-				choice
+			choice
 				`	(Try to get to the body.)`
 					goto rescue
-				`	(Try firing your pistol).`
+				`	(Try firing your pistol.)`
 			`	Though it's a risky choice, the pistol that you keep on you with your environment suit might be all you have to get the Gegno's attention quickly. Holding it up, you fire it into the air, and it briefly lights up the area around you. Somehow, the vacuum around becomes even more silent than it was, and the many Gegno look to your direction. A few of them start making their way over, but what catches your attention is the Gegno maintenance lead speeding towards your location past the others with their propulsion device.`
 				goto save
 
 			label rescue
 			action
 				set "gegno: tschyss rescue"
-			`	Amongst the debris you try and look for a way to free the body. Some smaller scrap metals are easy to push aside, however the larger parts are much more difficult to budge. After a few good tugs and jerks, you manage to move away something akin to a large grated frame, however the large spars still remaining deeply impale the wall. There's no way you can move them on your own. Though it's a futile effort, you try all that you can to find a way to move one of them at least a bit, until you realize that the Gegno have noticed your efforts. Notably, the maintenance lead has returned, and is speeding over to your location with their propulsion gear.`
+			`	Amongst the debris you try and look for a way to free the body. Some smaller scrap metals are easy to push aside, however, the larger parts are much more difficult to budge. After a few good tugs and jerks, you manage to move away something akin to a large grated frame, but the large spars still remaining deeply impale the wall. There's no way you can move them on your own. Though it's a futile effort, you try all that you can to find a way to move one of them at least a bit, until you realize that the Gegno have noticed your efforts. Notably, the maintenance lead has returned, and is speeding over to your location with their propulsion gear.`
 
 			label save
 			`	The lead Gegno floats up to you, giving you a deep stare for a quick moment from behind their visor. They move closer to the gap in the station, forcing you to move a bit out of their way, as they shine lights onto the body within, revealing the Gegno fully. Signaling their crew, others come over and begin using their machines to move parts away until the lead is able to get to the body.`
-				choice
+			choice
 				`	(Offer to assist them.)`
 				`	(Continue looking for survivors.)`
-			`	At this point, the lead and their crew put all their attention into the body, and the Gegno once again completely ignore you, focused only on their tasks. You spend a bit more time continuing to look for any survivors, though you're unable to find any more. You don't have time to wonder if that's a good or bad sign, as a loud buzzer goes off, and the Gegno begin returning to the airlock, a few escorting you over there with them.`
+			`	At this point, the lead and their crew put all their attention into the body, and the Gegno once again completely ignore you, focused only on their tasks. You spend a bit more time continuing to look for any survivors, though you're unable to find any more. You don't have time to wonder if that's a good or bad sign, as a loud buzzer goes off and the Gegno begin returning to the airlock, a few escorting you with them.`
 
 
 			label meet
 			action
-				set "gegno: 
+				set "gegno: "
 			`	Finally, you gather with the Gegno at the airlock, having done what you can in the current situation. As you wait for them to work the door, a huge Gegno cargo ship slowly pulls up to the bay, and out from it pours a much larger group of Gegno than the ones you're with, all wearing even more advanced-looking gear and much more intricate power suits. They move with a swiftness and precision several levels beyond what you saw before.`
-			`	Back inside the station, you're escorted back to where your ship is docked. The maintenance lead then approaches you personally, fully acknowledging you for the first time. They lean down aside you on one knee, and with a fist, pound on the back of your neck, which almost makes you fall forward. You're not sure what that means, though if they actually wanted to knock you to the ground, they very easily would have done so. With one last look, they walk away with the group of Gegno, many of whom are hitting one another or snorting loudly. Though some still remain cold and silent, the sight of enthusiasm from the rest is certainly something you're not used to.`
+			`	Back inside the station, you're escorted back to where your ship is docked. The maintenance lead then approaches you personally, fully acknowledging you for the first time. They lean down beside you on one knee, and with a fist, pound on the back of your neck, which almost makes you fall forward. You're not sure what that means, though if they actually wanted to knock you to the ground, they very easily would have done so. With one last look, they walk away with the group of Gegno, many of whom are hitting one another or snorting loudly. Though some still remain cold and silent, the sight of enthusiasm from the rest is certainly something you're not used to.`
 				decline
 
 			label refuse
 			action
 				set "gegno: refused tschyss help"
-			`	Since the station is half a hazard in itself, working in a dangeorus environment, especially with the Gegno that you have a difficult time so much as exchanging a word with, doesn't sound appealing. You attempt to convey this to the Gegno, shaking your head and arms to their request. They glare at you once more and snort, before marching off somewhat upset back to the other in the corner, handing back their tablet. They raise their voice at the other Gegno, and after pointing in your direction aggressively, leave the docking bay and you back to your business.`
+			`	Since the station is half a hazard in itself, working in a dangeorus environment, especially with the Gegno that you have a difficult time so much as exchanging a word with, doesn't sound appealing. You attempt to convey this to the Gegno, shaking your head and arms to their request. They glare at you once more and snort, before marching off somewhat upset back to the other in the corner, handing back their tablet. They raise their voice at the other Gegno, and after pointing in your direction aggressively, leave the docking bay and you go back to your business.`
 				decline
 
-mission "A Major Miner Incident: Hauling"
+mission "Gegno A Major Miner Incident: Hauling"
 	landing
 	source "Tschyss"
 	to offer
@@ -343,7 +343,7 @@ mission "A Major Miner Incident: Hauling"
 				decline
 
 
-mission "A Major Miner Incident: Transport"
+mission "Gegno A Major Miner Incident: Transport"
 	landing
 	source "Tschyss"
 	to offer
