@@ -584,6 +584,8 @@ mission "Gegno Anticipation"
 		not "event: gegno: apprehension"
 		"reputation: Gegno Vi" > -100
 		"reputation: Gegno Scin" > -50
+	to fail
+		"reputation: Gegno" < 0
 	on offer
 		conversation
 			branch "negative rep"
