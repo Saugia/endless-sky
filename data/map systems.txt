@@ -26157,10 +26157,10 @@ system Oosuoro
 	object
 		sprite star/g3
 		period 10
-		object Tschyss
-			sprite planet/tschyss
-			distance 325
-			period 120
+	object Tschyss
+		sprite planet/tschyss
+		distance 325
+		period 120
 	object
 		sprite planet/ice7
 		distance 2229.4

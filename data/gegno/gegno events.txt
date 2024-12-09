@@ -51,6 +51,12 @@ event "gegno: vi occupy zydee"
 		description `	Unlike its moon, Ghneoe sees few to no colonization efforts from either the Gegno Vi or Scin, perhaps due to the abnormal weather cycles, continued system warfare, or a combination of both.`
 
 
+event "gegno: zydee war escalates"
+	system "Zydee"
+		fleet
+		fleet
+		fleet
+
 event "gegno: dwindling workers"
 	system "Oosuoro"
 		fleet "Gegno Basic" 1400
@@ -59,6 +65,15 @@ event "gegno: dwindling workers"
 
 
 event "gegno: tschyss breach"
+	system "Oosuoro"
+		remove object "Tschyss"
+			sprite planet/tschyss
+			distance 325
+			period 120
+		add object "Tschyss"
+			sprite "planet/tschyss damaged"
+			distance 325
+			period 120
 
 
 event "gegno: unified defense"
