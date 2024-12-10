@@ -381,10 +381,10 @@ mission "Damaged Gypsum"
 	npc
 
 
-mission "Miner Incident - Hauling"
+mission "Miner Incident - Transport"
 	description `.`
 	landing
-	cargo
+	cargo ""
 	source "Ef Aourtdye"
 	destination "Tschyss"
 	to offer
@@ -395,7 +395,6 @@ mission "Miner Incident - Hauling"
 			`Test.`
 			accept
 	on complete
-		payment
 		conversation
 			`Test.`
 
@@ -405,6 +404,7 @@ mission "Miner Incident - Hauling"
 	landing
 	passengers 15
 	source "Ef Aourtdye"
+
 	to offer
 		has "gegno: hauling redirect"
 		not "Gegno Genocide Defense: offered"
@@ -413,6 +413,5 @@ mission "Miner Incident - Hauling"
 			`Test.`
 			accept
 	on complete
-		payment
 		conversation
 			`Test.`
