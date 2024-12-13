@@ -200,13 +200,13 @@ mission "Gegno Asteroid Mining III"
 
 
 mission "A Major Miner Incident"
-	description `Words.`
+	description `Head to the .`
 	source "Tschyss"
+	clearance
 	to offer
 		"gegno: mining jobs" > 20
 		has "Gegno Asteroid Mining III: offered"
 	destination "Ef Aourtdye"
-	clearance `Words.`
 	on offer
 		event "gegno: tschyss breach"
 		conversation
@@ -325,28 +325,28 @@ mission "A Major Miner Incident"
 			label transport
 			action
 				set "gegno: bunk check dialog"
-			`	Approach job, not enough bunks.`
+			`	The larger Gegno quickly acknowledges you with a fixed look as you walk up to them and then begins scrolling on their tablet device with some knuckle presses. As they take some time to sift though some data, the other two near them continue their own directives without giving you any attention. Once they find the data they're looking for, the Gegno turns the display to you, showing a graphic of 12 Gegno-like silhouettes, indicating passengers. Your ship doesn't have twelve bunks, so you won't be able to assist with this particular request.`
 				to display
 					"bunks" < 12
 				goto leaders
 			action
 				set "gegno: transport redirect"
 			`	The larger Gegno quickly acknowledges you with a fixed look as you walk up to them. While the maintenance lead continues to direct other Gegno, the hauling lead pauses, looking to your direction, then to the job board lead. After an awkward silence, the two exchange a few words, occasionally gesturing in your direction. For a brief moment, the maintenance lead pauses to listen, but quickly returns to instructing others.`
-			`	Several grunts and motions later, the job board lead addresses you. They lower their posture slightly, leering at you silently for a few seconds. They then raise back up, speak a few more words to the other two, and then step away from them. Pushing you slightly, they begin to escort you down the corridor you came from, back to the docking bay your ship is in.`
+			`	Several grunts and motions later, the job board lead addresses you. They lower their posture slightly, leering at you silently for a few seconds. They then raise back up, speak a few more words to the other two, and then step away from them. Pushing you slightly, they begin to escort you down the corridor you came from, back to the docking bay your ship is in. Handing you a smaller tablet, and on it is a marked system one jump from here. They barely give you time to respond as they begin heading to a ship of their own, though it looks much older and worn than most other Gegno ships you've seen.`
 				accept
 					
 
 			label hauling
 			action
 				set "gegno: haul check dialog"
-			`	Approach hauler, not enough cargo.`
+			`	As you walk up to the Gegno in hauling gear, they pause for a moment, gaze at you, then turn to the other two. While the maintenance lead pays no attention, the job board lead briefly says something, followed by an awkward pause. The hauling lead unenthusiastically goes back to their own data pad. Surprisingly, they reveal data of your ship's cargo bay, showing tally marks similar to the ones at the job board. There are clearly more than 20 marks, which is more than your ship's cargo space, so this request isn't one you can accept.`
 				to display
 					"cargo space" < 20
 				goto leaders
 			action
 				set "gegno: hauling redirect"
-			`	As you walk up to the Gegno in hauling gear, they pause for a moment, gazing at you, then turn to the other two. While the maintenance lead pays no attention, continuing to instruct others, the job board lead begins a conversation with the hauling lead. Between statements are long, awkward pauses. During one of them, another Gegno waiting behind you raises their voice. They too are wearing hauling gear, and as they join the discussion, even the maintenance lead pauses to listen for a brief moment.`
-			`	Several grunts and gestures later, the hauling lead addresses you as they tap several times on their tablet. They suddenly hand it to you, to the surprise of the other two. Before you get a chance to look at the display, they gesture quickly to the Gegno behind you that spoke up, who then assertively escorts you back down the halls to the docking bay your ship is at.`
+			`	As you walk up to the Gegno in hauling gear, they pause for a moment, gaze at you, then turn to the other two. While the maintenance lead pays no attention, continuing to instruct others, the job board lead begins a conversation with the hauling lead. Between statements are long, awkward pauses. During one of them, another Gegno waiting behind you raises their voice. They too are wearing hauling gear, and as they join the discussion, even the maintenance lead pauses to listen for a brief moment.`
+			`	Several grunts and gestures later, the hauling lead addresses you as they tap several times on their tablet. They suddenly hand it to you, to the surprise of the other two. Before you get a chance to look at the display, they gesture quickly to the Gegno behind you that spoke up, who then assertively escorts you back down the halls to the docking bay your ship is at. Back at the docking bay, you're handed a smaller tablet device that has a system one jump from here marked. With one long glance, the Gegno begins heading towards a shuttle-like ship, preparing to depart with you.`
 				accept
 
 
@@ -364,9 +364,19 @@ mission "A Major Miner Incident"
 		clear "gegno: haul check dialog"
 		clear "gegno: bunk check dialog"
 
-	npc
+	npc save
+		to spawn
+			has "gegno: transport redirect"
+		government "Gegno"
+		personality timid
+		ship "Marl" "Bielruo Oou"
 
-	npc
+	npc save
+		to spawn
+			has "gegno: hauling redirect"
+		government "Gegno"
+		personality timid
+		ship "Shale" "Tiibyeh"
 
 
 mission "Damaged Gypsum"
@@ -379,6 +389,13 @@ mission "Damaged Gypsum"
 	on enter "Oosuoro"
 		fail
 	npc
+		government "Gegno"
+		personality derelict mute staying uninterested
+		ship "Gypsum" "Syydei Tscheg"
+		on assist
+			set "gegno: tschyss gypsum boarded"
+			conversation
+				`.`
 
 
 mission "Miner Incident - Transport"
