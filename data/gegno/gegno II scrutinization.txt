@@ -52,7 +52,7 @@ mission "Unexpected Drifters"
 		government "Gegno"
 		personality derelict mute staying uninterested
 		system "Cotpoxi"
-		ship "Dolomite (No Power)" "Kkeryn"
+		ship "Dolomite (Damaged)" "Kkeryn"
 		to despawn
 			or
 				has "Unexpected Drifters Report: offered"
@@ -63,7 +63,7 @@ mission "Unexpected Drifters"
 				`You decide on trying to assist the Gegno ship. After docking with it, you gather the necessary equipment and make your way to a boarding hatch, which opens up before you. The ship is eerily devoid of crew as you don't run into any Gegno for some time until you make your way to the ship's power section. There, you see a few Gegno attempting repairs on a damaged generator, while some others are having a discussion, which is suddenly dropped short once they notice you. Rather than accept your aid, the Gegno aggressively escort you off of their ship. Even with their systems failing, they don't look to be accepting any help from an outsider, even if their lives are on stake.`
 				`	You can't help but think that the crew were notably belligerent, even for Gegno.`
 
-ship "Dolomite" "Dolomite (No Power)"
+ship "Dolomite" "Dolomite (Damaged)"
 	outfits
 		"R01 Skirmish Battery"
 
@@ -379,7 +379,7 @@ mission "A Major Miner Incident"
 		ship "Shale" "Tiibyeh"
 
 
-mission "Damaged Gypsum"
+mission "Crashed Gypsum"
 	invisible
 	landing
 	to offer
@@ -393,9 +393,19 @@ mission "Damaged Gypsum"
 		personality derelict mute staying uninterested
 		ship "Gypsum" "Syydei Tscheg"
 		on assist
-			set "gegno: tschyss gypsum boarded"
+			set "gegno: crashed gypsum boarded"
 			conversation
-				`.`
+				branch "derelict boarded"
+					has "gegno: derelict boarded"
+
+				`This ship looks to be the one that crashed into the Gegno station. You bring some supplies with you to attempt to help the crew, but the ship seems almost empty as you only come across three Gegno at the bridge. Either the others were lost in the accident, or the ship was undercrewed to begin with, which may not be all that impossible based on your experiences with those at the station.`
+				`	Surprisingly, the Gegno accept your help, though they do very little to assist you in repairs apart from doing their best to guide you around the infrastructure. Without uttering a word they then brusquely see you off their ship.`
+					decline
+
+				label "derelict boarded"
+				`This ship looks to be the one that crashed into the Gegno station. You bring some supplies with you to attempt to help the crew, but the ships seems almost empty, much like the derelict ship you tried assisting before. You similarly expect to find a small number of Gegno trying to repair the ship's systems, but the only Gegno you find are at the bridge of the ship, not doing much of anything. They do, however, react to your presence, hesitant to interact with you.`
+				`	Surprisingly, the Gegno accept your help, though they do very little to assist you in repairs apart from doing their best to guide you around the infrastructure, and seem to watch your every move. Without uttering a word they then brusquely see you off their ship, and you feel their gazes linger as you leave.`
+					decline
 
 
 mission "Miner Incident - Transport"
