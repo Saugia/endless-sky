@@ -211,7 +211,8 @@ mission "A Major Miner Incident"
 		event "gegno: tschyss breach"
 		conversation
 			`Yet another day is passing while you spend your time on this partially functional station. Although in some places the Gegno have built up on the interior, other places have begun to fall victim to a lack of maintenance, effectively making any progression on the station's construction net-neutral. Despite the size of the station, the recent decline in activity only continues the trend. There's not much you have to say in it, as your interactions remain limited to working with the Gegno dockworkers that haul the various mined minerals you've been gathering for them.`
-			`	Suddenly, you find yourself trying to fight for balance as it feels like the entire station suddenly shifted, with what sounds like booming thunder coming from below you. Several loose parts flail about, clanging against the walls and floors. After the rumbling stops, you look around to see the few nearby Gegno paused in thought of sorts, one of them actually falling to the ground with a thud. Faint sounds of deeply-pitched buzzers begin eminating from the halls, and most Gegno slowly begin marching down towards the source of the commotion. Surprisingly, there are a few Gegno that are much more energetic than you've seen, speaking with raised voices to the others and hurrying much faster. Out of the corner of your eye, you watch several pieces of structural debris float into view of some large windows.`
+			`	Suddenly, you find yourself trying to fight for balance as it feels like the entire station suddenly shifted, with what sounds like booming thunder coming from below you. Several loose parts flail about, clanging against the walls and floors. After the rumbling stops, you look around to see the few nearby Gegno paused in thought of sorts, one of them actually falling to the ground with a thud. Faint sounds of deeply-pitched buzzers begin eminating from the halls, and most Gegno slowly begin marching down towards the source of the commotion.`
+			`	Surprisingly, there are a few Gegno that are much more energetic than you've seen, speaking with raised voices to the others and hurrying much faster. Out of the corner of your eye, you watch several pieces of structural debris float into view of some large windows.`
 			choice
 				`	(Follow the others and investigate what happened.)`
 					goto investigate
@@ -377,6 +378,10 @@ mission "A Major Miner Incident"
 		government "Gegno"
 		personality timid
 		ship "Shale" "Tiibyeh"
+	npc
+		government "Gegno"
+		personality timid uninterested
+		fleet "Gegno Cargo" 2
 		
 	npc
 		government "Gegno Vi (Neutral)"
@@ -386,7 +391,7 @@ mission "A Major Miner Incident"
 			variant
 				"Hornfel"
 				"Eclogite"
-	
+
 	npc
 		government "Gegno Scin (Neutral)"
 		personality entering staying
@@ -395,40 +400,32 @@ mission "A Major Miner Incident"
 			variant
 				"Felsic"
 				"Coesite" 2
-
-
-mission "Crashed Gypsum"
-	invisible
-	landing
-	to offer
-		has "A Major Miner Incident: offered"
-	to complete
-		never
-	on enter "Oosuoro"
-		fail
 	npc
 		government "Gegno"
 		personality derelict mute uninterested
 		ship "Gypsum" "Syydei Tscheg"
 		on assist
 			set "gegno: crashed gypsum boarded"
-			conversation
-				branch "derelict boarded"
-					has "gegno: derelict boarded"
-				`This ship looks to be the one that crashed into the Gegno station. You bring some supplies with you to attempt to help the crew, but the ship seems almost empty as you only come across three Gegno at the bridge. Either the others were lost in the accident, or the ship was undercrewed to begin with, which may not be all that impossible based on your experiences with those at the station.`
+			dialog
+				`This ship looks to be the one that crashed into the Gegno station. You bring some supplies with you to attempt to help the crew, but the interior seems almost empty as you only come across three Gegno at the bridge. Either the others were lost in the accident, or the ship was undercrewed to begin with, which may not be all that impossible based on your experiences with those at the station.`
+					to display
+						not "gegno: derelict boarded"
 				`	Surprisingly, the Gegno accept your help, though they do very little to assist you in repairs apart from doing their best to guide you around the infrastructure. Without uttering a word they then brusquely see you off their ship.`
-					decline
+					to display
+						not "gegno: derelict boarded"
 
-				label "derelict boarded"
-				`This ship looks to be the one that crashed into the Gegno station. You bring some supplies with you to attempt to help the crew, but the ships seems almost empty, much like the derelict ship you tried assisting before. You similarly expect to find a small number of Gegno trying to repair the ship's systems, but the only Gegno you find are at the bridge of the ship, not doing much of anything. They do, however, react to your presence, hesitant to interact with you.`
+				`This ship looks to be the one that crashed into the Gegno station. You bring some supplies with you to attempt to help the crew, but the interior seems almost empty, much like the derelict ship you tried assisting before. You similarly expect to find a small number of Gegno trying to repair the ship's systems, but the only Gegno you find are at the bridge of the ship, not doing much of anything. They do, however, react to your presence, hesitant to interact with you.`
+					to display
+						has "gegno: derelict boarded"
 				`	Surprisingly, the Gegno accept your help, though they do very little to assist you in repairs apart from doing their best to guide you around the infrastructure, and seem to watch your every move. Without uttering a word they then brusquely see you off their ship, and you feel their gazes linger as you leave.`
-					decline
+					to display
+						has "gegno: derelict boarded"
 
 
 mission "Miner Incident - Transport"
-	description `.`
+	description `Mid transport.`
 	landing
-	cargo "industrial equipment" 15
+	passengers 15
 	source "Ef Aourtdye"
 	destination "Tschyss"
 	to offer
@@ -437,16 +434,16 @@ mission "Miner Incident - Transport"
 	on offer
 		conversation
 			`Test accept.`
-			accept
+				accept
 	on complete
 		conversation
 			`Test complete.`
 
 
 mission "Miner Incident - Hauling"
-	description `.`
+	description `Mid hauling.`
 	landing
-	passengers 15
+	cargo "industrial equipment" 20
 	source "Ef Aourtdye"
 	destination "Tschyss"
 	to offer
@@ -455,7 +452,7 @@ mission "Miner Incident - Hauling"
 	on offer
 		conversation
 			`Test accept.`
-			accept
+				accept
 	on complete
 		conversation
 			`Test complete.`

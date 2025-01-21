@@ -752,6 +752,8 @@ mission "Gegno Genocide Defense"
 		fail "Gegno Anticipation"
 		fail "Gegno Intervention"
 		fail "Acquiescence"
+		fail "Miner Incident - Hauling"
+		fail "Miner Incident - Transport"
 		"reputation: Gegno" = -1000
 		"reputation: Gegno Vi" = -1000
 		"reputation: Gegno Scin" = -1000
