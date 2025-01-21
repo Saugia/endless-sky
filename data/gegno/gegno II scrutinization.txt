@@ -200,7 +200,7 @@ mission "Gegno Asteroid Mining III"
 
 
 mission "A Major Miner Incident"
-	description `Head to the .`
+	description `After inquiring the Gegno on how you can help with the Tchyss accident, you have been instructed to go to <destination>.`
 	source "Tschyss"
 	clearance
 	to offer
@@ -377,6 +377,24 @@ mission "A Major Miner Incident"
 		government "Gegno"
 		personality timid
 		ship "Shale" "Tiibyeh"
+		
+	npc
+		government "Gegno Vi (Neutral)"
+		personality entering staying
+		fleet
+			names "gegno vi"
+			variant
+				"Hornfel"
+				"Eclogite"
+	
+	npc
+		government "Gegno Scin (Neutral)"
+		personality entering staying
+		fleet
+			names "gegno scin"
+			variant
+				"Felsic"
+				"Coesite" 2
 
 
 mission "Crashed Gypsum"
@@ -390,14 +408,13 @@ mission "Crashed Gypsum"
 		fail
 	npc
 		government "Gegno"
-		personality derelict mute staying uninterested
+		personality derelict mute uninterested
 		ship "Gypsum" "Syydei Tscheg"
 		on assist
 			set "gegno: crashed gypsum boarded"
 			conversation
 				branch "derelict boarded"
 					has "gegno: derelict boarded"
-
 				`This ship looks to be the one that crashed into the Gegno station. You bring some supplies with you to attempt to help the crew, but the ship seems almost empty as you only come across three Gegno at the bridge. Either the others were lost in the accident, or the ship was undercrewed to begin with, which may not be all that impossible based on your experiences with those at the station.`
 				`	Surprisingly, the Gegno accept your help, though they do very little to assist you in repairs apart from doing their best to guide you around the infrastructure. Without uttering a word they then brusquely see you off their ship.`
 					decline
@@ -411,7 +428,7 @@ mission "Crashed Gypsum"
 mission "Miner Incident - Transport"
 	description `.`
 	landing
-	cargo ""
+	cargo "industrial equipment" 15
 	source "Ef Aourtdye"
 	destination "Tschyss"
 	to offer
@@ -419,11 +436,11 @@ mission "Miner Incident - Transport"
 		not "Gegno Genocide Defense: offered"
 	on offer
 		conversation
-			`Test.`
+			`Test accept.`
 			accept
 	on complete
 		conversation
-			`Test.`
+			`Test complete.`
 
 
 mission "Miner Incident - Hauling"
@@ -431,14 +448,14 @@ mission "Miner Incident - Hauling"
 	landing
 	passengers 15
 	source "Ef Aourtdye"
-
+	destination "Tschyss"
 	to offer
 		has "gegno: hauling redirect"
 		not "Gegno Genocide Defense: offered"
 	on offer
 		conversation
-			`Test.`
+			`Test accept.`
 			accept
 	on complete
 		conversation
-			`Test.`
+			`Test complete.`
