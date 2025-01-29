@@ -200,9 +200,9 @@ mission "Gegno Asteroid Mining III"
 
 
 mission "A Major Miner Incident"
-	description `After inquiring the Gegno on how you can help with the Tchyss accident, you have been instructed to go to <destination>.`
+	description `After inquiring the Gegno on how you can help with the Tchyss incident, you have been instructed to go to <destination>.`
 	source "Tschyss"
-	clearance
+	clearance "You hail the planet. After a momentary silence, there is some static, or what sounds like rummaging. Following this, the Gegno overseeing the planet's traffic clear you to land."
 	to offer
 		"gegno: mining jobs" > 20
 		has "Gegno Asteroid Mining III: offered"
@@ -264,7 +264,6 @@ mission "A Major Miner Incident"
 				`	(Try to search for survivors.)`
 					goto survivors
 
-
 			`	You float over to aid the Gegno in dismantling various devices. They're using the many different tools to take apart valuable parts or intricate machinery, anywhere from computer displays to docking arms. They seem almost primal in their work, not giving regard to the fragility of such mechanisms and ripping them apart at a fast pace, throwing what they can salvage either aside or into the large basin from before. It's not your place to tell them they're being wasteful, though, or rather, you probably couldn't.`
 			`	Looking for something to operate, you come across a device that looks like a mangled mess of metal and appendages. Some sort of grip in is the rear of it, and another on the underside of it. On what you presume is the front of it looks like a giant pair of scissors, and some radiator-like structures are on the middle of it. Though it looks heavy, the lack of gravity makes lifting it no issue, and you eventually fiddle around with the device enough to get it to work, watching how others use similar ones to snap parts either off of the walls or in half.`
 				to display
@@ -281,7 +280,6 @@ mission "A Major Miner Incident"
 				set "gegno: tschyss overtime"
 			`	Ignoring the call back to the door, you continue to look around for parts to save. The several Gegno now at the airlock stare you down in tired or lazy expressions, and one of them begins heading in your direction, possibly frustrated. Before they reach you, however, another Gegno from behind you starts collecting parts of their own nearby you, continuing their work as well. The group looks at one another, and are surprised to see even the maintenance lead grab their own set of tools and begin dismantling nearby systems. Your choice to continune seems to have inspired other Gegno to put extra work into their efforts, and the operation lasts a bit longer.`
 				goto meet
-
 
 			label survivors
 			`	You shuffle yourself around the bay, looking for any bodies among the floating debris. If there were any unlucky Gegno not prepared for the incident, they easily could have been launched into space, possibly even without the proper gear. Rather than dwell on the thought, you continue looking for Gegno that could have been launched back further into the bay. The lack of gravity makes it somewhat easy to move the larger obstructive parts, but there are still several places where the buildup is impossible to take apart, at least without the proper equipment.`
@@ -316,12 +314,10 @@ mission "A Major Miner Incident"
 				`	(Continue looking for survivors.)`
 			`	At this point, the lead and their crew put all their attention into the body, and the Gegno once again completely ignore you, focused only on their tasks. You spend a bit more time continuing to look for any survivors, though you're unable to find any more. You don't have time to wonder if that's a good or bad sign, as a loud buzzer goes off and the Gegno begin returning to the airlock, a few escorting you with them.`
 
-
 			label meet
 			`	Finally, you gather with the Gegno at the airlock, having done what you can in the current situation. As you wait for them to work the door, a huge Gegno cargo ship slowly pulls up to the bay, and out from it pours a much larger group of Gegno than the ones you're with, all wearing even more advanced-looking gear and much more intricate power suits. They move with a swiftness and precision several levels beyond what you saw before.`
 			`	Back inside the station, you're escorted back to where your ship is docked. The maintenance lead then approaches you personally, fully acknowledging you for the first time. They lean down beside you on one knee, and with a fist, pound on the back of your neck, which almost makes you fall forward. You're not sure what that means, though if they actually wanted to knock you to the ground, they very easily would have done so. With one last look, they walk away with the group of Gegno, many of whom are hitting one another or snorting loudly. Though some still remain cold and silent, the sight of enthusiasm from the rest is certainly something you're not used to.`
 				decline
-
 
 			label transport
 			action
@@ -335,7 +331,6 @@ mission "A Major Miner Incident"
 			`	The larger Gegno quickly acknowledges you with a fixed look as you walk up to them. While the maintenance lead continues to direct other Gegno, the hauling lead pauses, looking to your direction, then to the job board lead. After an awkward silence, the two exchange a few words, occasionally gesturing in your direction. For a brief moment, the maintenance lead pauses to listen, but quickly returns to instructing others.`
 			`	Several grunts and motions later, the job board lead addresses you. They lower their posture slightly, leering at you silently for a few seconds. They then raise back up, speak a few more words to the other two, and then step away from them. Pushing you slightly, they begin to escort you down the corridor you came from, back to the docking bay your ship is in. Handing you a smaller tablet, and on it is a marked system one jump from here. They barely give you time to respond as they begin heading to a ship of their own, though it looks much older and worn than most other Gegno ships you've seen.`
 				accept
-					
 
 			label hauling
 			action
@@ -349,7 +344,6 @@ mission "A Major Miner Incident"
 			`	As you walk up to the Gegno in hauling gear, they pause for a moment, gaze at you, then turn to the other two. While the maintenance lead pays no attention, continuing to instruct others, the job board lead begins a conversation with the hauling lead. Between statements are long, awkward pauses. During one of them, another Gegno waiting behind you raises their voice. They too are wearing hauling gear, and as they join the discussion, even the maintenance lead pauses to listen for a brief moment.`
 			`	Several grunts and gestures later, the hauling lead addresses you as they tap several times on their tablet. They suddenly hand it to you, to the surprise of the other two. Before you get a chance to look at the display, they gesture quickly to the Gegno behind you that spoke up, who then assertively escorts you back down the halls to the docking bay your ship is at. Back at the docking bay, you're handed a smaller tablet device that has a system one jump from here marked. With one long glance, the Gegno begins heading towards a shuttle-like ship, preparing to depart with you.`
 				accept
-
 
 			label refuse
 			action
@@ -382,7 +376,6 @@ mission "A Major Miner Incident"
 		government "Gegno"
 		personality timid uninterested
 		fleet "Gegno Cargo" 2
-		
 	npc
 		government "Gegno Vi (Neutral)"
 		personality entering staying
@@ -391,7 +384,6 @@ mission "A Major Miner Incident"
 			variant
 				"Hornfel"
 				"Eclogite"
-
 	npc
 		government "Gegno Scin (Neutral)"
 		personality entering staying
@@ -407,7 +399,7 @@ mission "A Major Miner Incident"
 		on assist
 			set "gegno: crashed gypsum boarded"
 			dialog
-				`This ship looks to be the one that crashed into the Gegno station. You bring some supplies with you to attempt to help the crew, but the interior seems almost empty as you only come across three Gegno at the bridge. Either the others were lost in the accident, or the ship was undercrewed to begin with, which may not be all that impossible based on your experiences with those at the station.`
+				`This ship looks to be the one that crashed into the Gegno station. You bring some supplies with you to attempt to help the crew, but the interior seems almost empty as you only come across three Gegno at the bridge. Either the others were lost in the incident, or the ship was undercrewed to begin with, which may not be all that impossible based on your experiences with those at the station.`
 					to display
 						not "gegno: derelict boarded"
 				`	Surprisingly, the Gegno accept your help, though they do very little to assist you in repairs apart from doing their best to guide you around the infrastructure. Without uttering a word they then brusquely see you off their ship.`
@@ -423,7 +415,7 @@ mission "A Major Miner Incident"
 
 
 mission "Miner Incident - Transport"
-	description `Mid transport.`
+	description `Transport 15 Gegno workers back to <destination planet> that will aid in relief efforts following the incident.`
 	landing
 	passengers 15
 	source "Ef Aourtdye"
@@ -441,7 +433,7 @@ mission "Miner Incident - Transport"
 
 
 mission "Miner Incident - Hauling"
-	description `Mid hauling.`
+	description `Transport 20 tons of industrial equipment back to <destination planet> for use in relief efforts following the incident.`
 	landing
 	cargo "industrial equipment" 20
 	source "Ef Aourtdye"
