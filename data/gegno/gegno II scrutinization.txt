@@ -444,11 +444,11 @@ mission "Miner Incident - Transport"
 
 	on complete
 		event "gegno: tschyss repairs"
-		payment 150000
+		payment 100000
 		conversation
 			`The Gegno abruptly leave your ship as soon as you dock with much more energy than you've seen most others on the station have. As they head off down the various corridors, another briskly approaches you. They're one of those with a slimmer build, and seem to be wearing some sort of fancy outfit, rather than heavy hauling gear. They hold up some sort of computational device, and you soon find that a sum of <payment> has been added to your account. They glance at you afterwards, though the look they give you seems much less that of indifference, or at least, it's a look you have yet to see the Gegno give you.`
 			`	As they walk off, you look around to see that there are much less Gegno loafing about. The station's activity has picked up a bit more with a larger volume of ships docking and leaving, also bringing other Gegno to help assist in repair efforts, with some larger vessels bring in big cargo hauls of supplies. Unfortunately, any desire of yours to try and go to the more busy areas is declined, but there's more work being put into it than when the incident had first occured.`
-			`	At the very least, the Gegno seem to have acknowledged your role in the situation.`
+			`	At the very least, the Gegno seem to have acknowledged your role in everything.`
 
 
 mission "Miner Incident - Hauling"
@@ -462,8 +462,50 @@ mission "Miner Incident - Hauling"
 		not "Gegno Genocide Defense: offered"
 	on offer
 		conversation
-			`Landing, you are lead to crawler or factory.`
-				accept
+			`This world is a vast desert expanse, a majority of the surface covered in a deep layer of sands and sediments. Aside from distant mountainous rock formations, it almost appears as there is a lack of any civilization, but you start to notice long, spindling roads crossing from one horizon to another. The blocky Gegno ship, owned by the hauling lead that personally escorted you here, slowly appears from above and moves to escort you ahead.`
+			`	You are taken down to the level of the roads, which are much more massive than they first appeared from above. They're something like giant bridges, towering above the seas of sand. Occasionally inbetween the roads are small towers, likely checkpoints of sorts for those traveling the great plains. Up ahead, a small city on the floor of the desert comes into view, likely being your destination. However, as the Gegno leads you closer to it, you realize it's not something as simple as that. The whole structure is actually an enormous land-crawler, currently resting on its six gigantic treads.`
+			`	The crawler might as well be a city as it even has its own landing ports, one of which you touch down on. Other Gegno ships of various sizes are parked nearby, loading up on many heavy-looking cargo crates and materials. A group of workers then slowly roll several crates of supplies towards your own ship.`
+			choice
+				`	(Help the Gegno load your ship.)`
+					goto help
+				`	(Let the Gegno do the loading.)`
+			`	You watch as the Gegno continue to load your ship with supplies. Though it's not a huge load, they still move as efficient as they can, as though they are the many gears of one machine. You can tell that these Gegno work with much more pride and purpose than those from the station.`
+				goto loaded
+			label help
+			`	With your ship's sensors reading the environment outside as human friendly, you decide to head over to your cargo hold to see if you can help the Gegno. Some of them seem quite surprised as they get their first look of you, while a few others grunt and motions towards the task at hand. You try and signify your desire to assist in the process, but the Gegno seem to take pride in doing the work themselves their way.
+			
+			label loaded
+			`	Down on the next landing pad is the hauling lead, and they too are loading their older-looking ship with various supplies to take back to <destination planet>. Once both of your ships are full, the Gegno stand back and await your departure, huddling back together and watching with their many looks. It seems like a discussion begins among them, some slowly moving their arms around in several gestures, while others continue to look onward at your ship as you begin your return journey to <destination planet>.`
+				launch
+
 	on complete
+		payment 150000
 		conversation
-			`Test complete.`
+			`A team of Gegno are already awaiting your arrival as you dock, quickly unloading the supplies. Other Gegno see to it that the supplies are routed down the various corridors to get to repairs almost immediately, which is a dedication you haven't previously experienced here on the station. A moment later, you see the hauling lead heading in your direction. They pull out their familiar tablet device, and after some fiddling with it, you soon find a sum of <payment> has been attributed to your account.`
+			`	Rather than directly head over to help the others, they give you a lighter punch on the back, and after a quick glance, begin their way down the halls. Unfortunately, any desire of yours to follow them or go to the more busy areas is denied, but it's clear there's more work being done for the station than before.`
+			`	At the very least, the Gegno seem to have acknowledged your role in everything.`			
+
+
+mission "Under the Nose II"
+	invisible
+	landing
+	source "Tschyss"
+	to offer
+		or
+			has "Miner Incident - Hauling: complete"
+			has "Miner Incident - Transport: complete"
+		not "Gegno Genocide Defense: offered"
+		not "yvx killed"
+	to complete
+		never
+	on enter "Oosuoro"
+		fail
+
+	npc
+		on kill
+			set "yvx killed"
+		government "Gegno Vi"
+		personality heroic vindictive ramming entering fleeing uninterested
+		system "Oosuoro"
+		ship "Rhyolite" "Imtydei"
+

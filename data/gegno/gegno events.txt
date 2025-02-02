@@ -53,10 +53,10 @@ event "gegno: vi occupy zydee"
 
 event "gegno: zydee war escalates"
 	system "Zydee"
-		fleet "Small Vi II" 1300
-		fleet "Vi Warfleet" 2900
-		fleet "Small Scin II" 1500
-		fleet "Scin Warfleet" 3000
+		fleet "Small Vi" 1300
+		fleet "Vi Warfleet" 3000
+		fleet "Small Scin" 1600
+		fleet "Scin Warfleet" 2400
 
 
 event "gegno: dwindling workers"
