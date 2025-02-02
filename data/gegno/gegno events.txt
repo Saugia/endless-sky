@@ -53,9 +53,11 @@ event "gegno: vi occupy zydee"
 
 event "gegno: zydee war escalates"
 	system "Zydee"
-		fleet
-		fleet
-		fleet
+		fleet "Small Vi II" 1300
+		fleet "Vi Warfleet" 2900
+		fleet "Small Scin II" 1500
+		fleet "Scin Warfleet" 3000
+
 
 event "gegno: dwindling workers"
 	system "Oosuoro"
@@ -74,6 +76,13 @@ event "gegno: tschyss breach"
 			sprite "planet/tschyss damaged"
 			distance 325
 			period 120
+
+
+event "gegno: tschyss repairs"
+	system "Oosuoro"
+		fleet "Gegno Basic" 900
+		fleet "Gegno Miners" 1900
+		fleet "Gegno Cargo" 1600
 
 
 event "gegno: unified defense"

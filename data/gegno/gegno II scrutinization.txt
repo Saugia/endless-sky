@@ -425,11 +425,30 @@ mission "Miner Incident - Transport"
 		not "Gegno Genocide Defense: offered"
 	on offer
 		conversation
-			`Test accept.`
-				accept
+			`Similar to the Gegno's homeworld, this planet features vast expanses of barren land, deserts, and mountainous landscapes. At first, it feels oddly devoid of civilization, but as you descend towards the surface, you notice a few enormous, web-like roads stretching far from one side of the horizon to another, connecting to various structures in the distance. The Gegno escorting you slowly appears in their shuttle from above and flies ahead, taking you into the great desert lands.`
+			`	Closer to the surface, you can more clearly see that the roads are decently high off of the ground, almost as if they were bridges above the seas of sand, connecting occasional structures along the way. Eventually they lead to what is likely your destination - four spire-like towers extending high into the dusty skies, arranged in a sort of trapezoidal pattern, with a fifth one half-constructed on the side. Although they aren't as bulky as the one you visited on the Gegno homeworld, they are much taller, and have many more support beams jutting out from them into the ground below.`
+			`	As you arrive to the site, you are escorted to a landing bay on the side of one of the completed towers. While parking next to the shuttle, you see several Gegno walking over, some more hesitant than others.`
+			choice
+				`	(Greet the Gegno.)`
+					goto greet
+				`	(Stay in my ship.)`
+			`	You Gegno escort and some of their crew exits their shuttle, jogging over to the other group. They begin a conversation, and as usual, it leads to some sort of debate with some of the others gesturing or peering towards your ship. The discussion ends rather quickly, with some of the Gegno heading towards the shuttle, and a group of them approaching your ship.`
+				goto board
+
+			label greet
+			`	With the planet's environment reading human-friendly, you decide to exit your ship to greet the Gegno. While some look onward in indifference, others seem the slightest bit taken back due to your appearance, or outright surprised. A conversation in the group begins, with your escort and their crew jogging over and joining in. The discussion ends rather quickly, with some of the Gegno heading towards the shuttle, and a group of them approaching your ship.`
+
+			label board
+			`	All of the Gegno seem to be in some sort of heavy gearsets, some resembling those you've seen worn by others on the station. You let them on board, their gear clangs against the interior of your ship as they shuffle in, trying to find room for themselves. Several of them seem somewhat uncomfortable, and others impatiently grunt. Eventually, they all become silent and keep to themselves, awaiting their commute to <destination planet>.`
+				launch
+
 	on complete
+		event "gegno: tschyss repairs"
+		payment 150000
 		conversation
-			`Test complete.`
+			`The Gegno abruptly leave your ship as soon as you dock with much more energy than you've seen most others on the station have. As they head off down the various corridors, another briskly approaches you. They're one of those with a slimmer build, and seem to be wearing some sort of fancy outfit, rather than heavy hauling gear. They hold up some sort of computational device, and you soon find that a sum of <payment> has been added to your account. They glance at you afterwards, though the look they give you seems much less that of indifference, or at least, it's a look you have yet to see the Gegno give you.`
+			`	As they walk off, you look around to see that there are much less Gegno loafing about. The station's activity has picked up a bit more with a larger volume of ships docking and leaving, also bringing other Gegno to help assist in repair efforts, with some larger vessels bring in big cargo hauls of supplies. Unfortunately, any desire of yours to try and go to the more busy areas is declined, but there's more work being put into it than when the incident had first occured.`
+			`	At the very least, the Gegno seem to have acknowledged your role in the situation.`
 
 
 mission "Miner Incident - Hauling"
@@ -443,7 +462,7 @@ mission "Miner Incident - Hauling"
 		not "Gegno Genocide Defense: offered"
 	on offer
 		conversation
-			`Test accept.`
+			`Landing, you are lead to crawler or factory.`
 				accept
 	on complete
 		conversation
