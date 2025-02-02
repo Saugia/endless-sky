@@ -146,7 +146,7 @@ mission "Repair Humor"
 			`	A few more monments go by of the Gegno talking to one another, after which they then pick up their supplies and go to work on the yet-to-be-built parts of the station, leaving you behind without so much as a glance. At the very least, thay humored you for a little bit, or perhaps you were humorous to them.`
 				decline
 	on decline
-		event "zydee war escalates"
+		event "gegno: zydee war escalates"
 
 
 mission "Unloading Troubles"
@@ -472,7 +472,7 @@ mission "Miner Incident - Hauling"
 			`	You watch as the Gegno continue to load your ship with supplies. Though it's not a huge load, they still move as efficient as they can, as though they are the many gears of one machine. You can tell that these Gegno work with much more pride and purpose than those from the station.`
 				goto loaded
 			label help
-			`	With your ship's sensors reading the environment outside as human friendly, you decide to head over to your cargo hold to see if you can help the Gegno. Some of them seem quite surprised as they get their first look of you, while a few others grunt and motions towards the task at hand. You try and signify your desire to assist in the process, but the Gegno seem to take pride in doing the work themselves their way.
+			`	With your ship's sensors reading the environment outside as human friendly, you decide to head over to your cargo hold to see if you can help the Gegno. Some of them seem quite surprised as they get their first look of you, while a few others grunt and motions towards the task at hand. You try and signify your desire to assist in the process, but the Gegno seem to take pride in doing the work themselves their way.`
 			
 			label loaded
 			`	Down on the next landing pad is the hauling lead, and they too are loading their older-looking ship with various supplies to take back to <destination planet>. Once both of your ships are full, the Gegno stand back and await your departure, huddling back together and watching with their many looks. It seems like a discussion begins among them, some slowly moving their arms around in several gestures, while others continue to look onward at your ship as you begin your return journey to <destination planet>.`
