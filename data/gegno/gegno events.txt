@@ -78,6 +78,18 @@ event "gegno: tschyss breach"
 			period 120
 
 
+mission "Tschyss Repairs"
+	landing
+	invisible
+	to offer
+		or	
+			has "miner incident - bay help"
+			has "Miner Incident - Hauling: complete"
+			has "Miner Incident - Transport: complete"
+	on offer
+		event "gegno: tschyss repairs"
+		fail
+
 event "gegno: tschyss repairs"
 	system "Oosuoro"
 		fleet "Gegno Basic" 900

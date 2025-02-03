@@ -1399,7 +1399,7 @@ planet "Eeu Mnai"
 	government Uninhabited
 
 planet "Ef Aourtdye"
-	attributes gegno
+	attributes gegno mining
 	landscape land/desert18
 	description `Ef Aourtdye is primarily a factory world where a large portion of mined materials are refined, processed, and re-distributed across parts of Gegno space. Large factory and refinery structures can be seen engraved into the mountainous surfaces of the planet, with some cities found in less crowded valleys. Once home to a much larger population, a major portion of the cities are now desolate as efforts have been pushed to either more distant planets, or pulled back to the ever-growing homeworld of the Gegno.`
 	description `	A majority of the mining, cargo, and refinery vessel shipyards in Gegno space are also found here, newly constructed out of the freshly processed materials and quickly prepared to be put into service.`
@@ -5839,7 +5839,7 @@ planet Truklar
 	security 0.9
 
 planet Tschyss
-	attributes gegno station
+	attributes gegno mining station
 	landscape land/sivael6
 	music ambient/machinery
 	description `This massive station is the only orbital structure that can be found in Gegno space, and is still under heavy construction. Although a majority of the exterior seems complete, the interior is noticeably lacking in comparison, and it seems that the progress has slowed down significantly in recent times. A large portion of the station is filled with crew quarters and living sections, all more expansive than those in human space, and the outside is enveloped in many docking bays of various sizes.`

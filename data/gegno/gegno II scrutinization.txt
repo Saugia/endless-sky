@@ -315,6 +315,8 @@ mission "A Major Miner Incident"
 			`	At this point, the lead and their crew put all their attention into the body, and the Gegno once again completely ignore you, focused only on their tasks. You spend a bit more time continuing to look for any survivors, though you're unable to find any more. You don't have time to wonder if that's a good or bad sign, as a loud buzzer goes off and the Gegno begin returning to the airlock, a few escorting you with them.`
 
 			label meet
+			action
+				set "miner incident - bay help"
 			`	Finally, you gather with the Gegno at the airlock, having done what you can in the current situation. As you wait for them to work the door, a huge Gegno cargo ship slowly pulls up to the bay, and out from it pours a much larger group of Gegno than the ones you're with, all wearing even more advanced-looking gear and much more intricate power suits. They move with a swiftness and precision several levels beyond what you saw before.`
 			`	Back inside the station, you're escorted back to where your ship is docked. The maintenance lead then approaches you personally, fully acknowledging you for the first time. They lean down beside you on one knee, and with a fist, pound on the back of your neck, which almost makes you fall forward. You're not sure what that means, though if they actually wanted to knock you to the ground, they very easily would have done so. With one last look, they walk away with the group of Gegno, many of whom are hitting one another or snorting loudly. Though some still remain cold and silent, the sight of enthusiasm from the rest is certainly something you're not used to.`
 				decline
@@ -443,7 +445,6 @@ mission "Miner Incident - Transport"
 				launch
 
 	on complete
-		event "gegno: tschyss repairs"
 		payment 100000
 		conversation
 			`The Gegno abruptly leave your ship as soon as you dock with much more energy than you've seen most others on the station have. As they head off down the various corridors, another briskly approaches you. They're one of those with a slimmer build, and seem to be wearing some sort of fancy outfit, rather than heavy hauling gear. They hold up some sort of computational device, and you soon find that a sum of <payment> has been added to your account. They glance at you afterwards, though the look they give you seems much less that of indifference, or at least, it's a look you have yet to see the Gegno give you.`
@@ -486,12 +487,14 @@ mission "Miner Incident - Hauling"
 			`	At the very least, the Gegno seem to have acknowledged your role in everything.`			
 
 
+
 mission "Under the Nose II"
 	invisible
 	landing
 	source "Tschyss"
 	to offer
-		or
+		or	
+			has "miner incident - bay help"
 			has "Miner Incident - Hauling: complete"
 			has "Miner Incident - Transport: complete"
 		not "Gegno Genocide Defense: offered"
@@ -509,3 +512,30 @@ mission "Under the Nose II"
 		system "Oosuoro"
 		ship "Rhyolite" "Imtydei"
 
+
+mission "Tschyss Recovery Jobs"
+	invisible
+	"job board"
+	source "Tschyss"
+	to offer
+		has "event: gegno: tschyss repairs"
+		not "Gegno Genocide Defense: offered"
+	on offer
+		"reputation: Gegno" = 2
+		conversation
+			`You are making your way around the facility and browsing jobs when you notice that there are new listings available. These jobs, unlike the mining jobs you're used to taking, request either transporting passengers or retrieving cargo from Ef Aourtdye and returning to Tschyss, likely to continue the recovery of the station. It seems like other Gegno are interested in the jobs as well, occasionally walk up to the board and accept one.`
+			`	Hopefully these jobs will help not only finish the station's immediate repairs but also increase the overall workforce.`
+				decline
+
+
+mission "Welcome on Ef Aourtdye"
+	landing
+	invisible
+	source "Ef Aourtdye"
+	to offer
+		has "Tschyss Recovery Job: offered"
+		not "Gegno Genocide Defense: offered"
+	on offer
+		conversation
+			`Test.`
+				decline
