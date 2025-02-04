@@ -537,5 +537,6 @@ mission "Welcome on Ef Aourtdye"
 		not "Gegno Genocide Defense: offered"
 	on offer
 		conversation
-			`Test.`
+			`It seems you're now welcome on this world as you don't have to get express permission to approach anymore, only having to go through a typical landing routine. However, rather than be lead toward a location in the deserts, you are directed to a decently-sized landing port engraved into one of the world's mountainous rock formations.`
+			`	You'll still have to figure out your own way around things considering the language barrier, but based on your recent experniences, the Gegno generally understand the language of hard work.`
 				decline
