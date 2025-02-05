@@ -393,6 +393,7 @@ mission "Gegno Asteroid Mining III - Titanium Rush"
 # Tschyss Recovery Jobs
 
 mission "Gegno: Tschyss Materials I"
+	name ""
 	job
 	repeat
 	description "Test materials mission."
@@ -412,6 +413,7 @@ mission "Gegno: Tschyss Materials I"
 
 
 mission "Gegno: Tschyss Workers I"
+	name ""
 	job
 	repeat
 	description "Test workers mission."
