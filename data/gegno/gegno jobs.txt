@@ -400,7 +400,7 @@ mission "Gegno: Tschyss Materials I"
 	cargo "Industrial" 10 5 .1
 	to offer
 		random < 20
-		has: "Tschyss Recovery Jobs: offered"
+		has "Tschyss Recovery Jobs: offered"
 	stopover "Ef Aourtdye"
 	on stopover
 		dialog "Test pickup materials."
@@ -419,7 +419,7 @@ mission "Gegno: Tschyss Workers I"
 	passengers 5 10 .1
 	to offer
 		random < 20
-		has: "Tschyss Recovery Jobs: offered"
+		has "Tschyss Recovery Jobs: offered"
 	stopover "Ef Aourtdye"
 	on stopover
 		dialog "Test pickup workers."
