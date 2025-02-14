@@ -40,6 +40,10 @@ mission "Unexpected Drifters"
 		not "Gegno Genocide Defense: offered"
 	to complete
 		never
+	to fail
+		or
+			has "Unexpected Drifters Report: declined"
+			has "Gegno Asteroid Mining III: offered"
 	on enter "Cotpoxi"
 		conversation
 			action
@@ -53,15 +57,13 @@ mission "Unexpected Drifters"
 		personality derelict mute staying uninterested
 		system "Cotpoxi"
 		ship "Dolomite (Damaged)" "Kkeryn"
-		to despawn
-			or
-				has "Unexpected Drifters Report: offered"
-				has "Unloading Troubles: offered"
 		on assist
 			set "gegno: derelict boarded"
 			conversation
 				`You decide on trying to assist the Gegno ship. After docking with it, you gather the necessary equipment and make your way to a boarding hatch, which opens up before you. The ship is eerily devoid of crew as you don't run into any Gegno for some time until you make your way to the ship's power section. There, you see a few Gegno attempting repairs on a damaged generator, while some others are having a discussion, which is suddenly dropped short once they notice you. Rather than accept your aid, the Gegno aggressively escort you off of their ship. Even with their systems failing, they don't look to be accepting any help from an outsider, even if their lives are on stake.`
 				`	You can't help but think that the crew were notably belligerent, even for Gegno.`
+		on kill
+			set "gegno: unexpected drifters killed"
 
 ship "Dolomite" "Dolomite (Damaged)"
 	outfits
@@ -75,7 +77,7 @@ mission "Unexpected Drifters Report"
 	source "Tschyss"
 	to offer
 		has "gegno: derelict spotted"
-		not "Unexpected Drifters Disappear: failed"
+		not "gegno: unexpected drifters killed"
 		not "Gegno Genocide Defense: offered"
 	on offer
 		conversation
@@ -92,7 +94,7 @@ mission "Unexpected Drifters Report"
 			`	With the crew unwilling to accept your help, and you unable to request help for them here, all you can do is hope someone eventually comes to their aid.`
 				to display
 					has "gegno: derelict boarded"
-				decline					
+				decline
 
 mission "Unexpected Drifters Disappear"
 	invisible
@@ -101,19 +103,19 @@ mission "Unexpected Drifters Disappear"
 		near "Heutesl" 100
 	to offer
 		has "gegno: derelict spotted"
-		or
-			has "Unexpected Drifters Report: deferred"
-			has "Unexpected Drifters Report: declined"
-		not "Unexpected Drifters: failed"
+		has "Unexpected Drifters: failed"
+		not "gegno: unexpected drifters killed"
 		not "Gegno Genocide Defense: offered"
 	to complete
 		never
 	on enter "Cotpoxi"
-		dialog `The stranded Gegno civilian ship you encountered in this system earlier seems to have disappeared. Hopefully its crew were able to repair the power systems in time, or other Gegno found them and helped them back home safely.`
+		fail
+		dialog `The stranded Gegno civilian ship you encountered in this system before is nowhere to be found. Hopefully its crew were able to repair the power systems in time, or other Gegno found them and helped them back home safely.`
 
-# Figure out how to fail the above and the dialog appear on enter the first time (currently it is doing so only if you land first).		
+
 
 mission "Repair Humor"
+	landing
 	source "Tschyss"
 	to offer
 		"gegno: mining jobs" > 7
@@ -143,7 +145,7 @@ mission "Repair Humor"
 			`	You decide not to do anything with the device. Other than it looking like a mangled mess of heavy parts, you have no idea what it is or what it's used for. Some of the Gegno look onward, still waiting for you to do something, while others snort and jab at each other in strange ways.`
 		
 			label redirect
-			`	A few more monments go by of the Gegno talking to one another, after which they then pick up their supplies and go to work on the yet-to-be-built parts of the station, leaving you behind without so much as a glance. At the very least, thay humored you for a little bit, or perhaps you were humorous to them.`
+			`	A few more monments go by of the Gegno talking to one another, after which they then pick up their supplies and go to work on the yet-to-be-built parts of the station, leaving you behind without so much as a glance. At the very least, they humored you for a little bit, or perhaps it was that you were humorous to them.`
 				decline
 	on decline
 		event "gegno: zydee war escalates"
@@ -154,7 +156,6 @@ mission "Unloading Troubles"
 	to offer
 		"gegno: mining jobs" > 10
 	on offer
-		fail "Unexpected Drifters"
 		conversation
 			`During your downtime in the spaceport, you watch as a large Gegno freighter docks with a nearby hangar entrance. As it does, you feel a not-so-subtle 'clack' once it makes contact with various docking clamps, some dust falling down on your area from the upper levels. A few Gegno exit the ship and leave to another part of the station, while a smaller group remains at the ship to unload its cargo.`
 			`	Typical of Gegno cargo ships, heavy crates of minerals are heaved out of the ship and onto platforms to be moved elsewhere. You're somewhat surprised at how much time has past and the crew are still not yet finished emptying the vessel.`
@@ -174,7 +175,7 @@ mission "Gegno Asteroid Mining III"
 	landing
 	source "Tschyss"
 	to offer
-		"gegno: mining jobs" > 13
+		"gegno: mining jobs" > 12
 		has "Unloading Troubles: offered"
 	on offer
 		event "gegno: dwindling workers"
@@ -201,13 +202,14 @@ mission "Gegno Asteroid Mining III"
 
 mission "A Major Miner Incident"
 	landing
-	description `After inquiring the Gegno on how you can help with the Tchyss incident, you have been instructed to go to <destination>.`
 	source "Tschyss"
-	clearance "You hail the planet. After a momentary silence, there is some static, or what sounds like rummaging. Following this, the Gegno overseeing the planet's traffic clear you to land."
-	to offer
-		"gegno: mining jobs" > 20
-		has "Gegno Asteroid Mining III: offered"
+	description `After inquiring the Gegno on how you can help with the Tchyss incident, you have been instructed to go to <destination>.`
 	destination "Ef Aourtdye"
+	clearance `After hailing the planet there is a momentary silence, followed by some static, or maybe what sounds like distant chatter. There is no response, but it seems the authorities have cleared you to land.`
+	to offer
+		"gegno: mining jobs" > 17
+		has "Gegno Asteroid Mining III: offered"
+
 	on offer
 		event "gegno: tschyss breach"
 		conversation
@@ -418,13 +420,14 @@ mission "A Major Miner Incident"
 
 
 mission "Miner Incident - Transport"
-	description `Transport 15 Gegno workers back to <destination planet> that will aid in relief efforts following the incident.`
 	landing
+	description `Transport 15 Gegno workers back to <destination planet> that will aid in relief efforts following the incident.`
 	passengers 15
 	source "Ef Aourtdye"
 	destination "Tschyss"
 	to offer
 		has "gegno: transport redirect"
+		has "A Major Miner Incident: done"
 		not "Gegno Genocide Defense: offered"
 	on offer
 		conversation
@@ -454,13 +457,14 @@ mission "Miner Incident - Transport"
 
 
 mission "Miner Incident - Hauling"
-	description `Transport 20 tons of industrial equipment back to <destination planet> for use in relief efforts following the incident.`
 	landing
+	description `Transport 20 tons of industrial equipment back to <destination planet> for use in relief efforts following the incident.`
 	cargo "industrial equipment" 20
 	source "Ef Aourtdye"
 	destination "Tschyss"
 	to offer
 		has "gegno: hauling redirect"
+		has "A Major Miner Incident: done"
 		not "Gegno Genocide Defense: offered"
 	on offer
 		conversation
@@ -514,7 +518,8 @@ mission "Under the Nose II"
 		ship "Rhyolite" "Imtydei"
 
 
-mission "Tschyss Recovery Jobs"
+
+mission "Tschyss Recovery Job Access"
 	invisible
 	"job board"
 	source "Tschyss"
@@ -529,7 +534,56 @@ mission "Tschyss Recovery Jobs"
 				decline
 
 
-# mission "Tschyss Recovery Prologue"
+mission "Tschyss Recovery Job Prologue
+	job
+	source "Tschyss"
+	to offer
+		has "event: gegno: tschyss repairs"
+		not "Gegno Genocide Defense: offered"
+	on offer
+		
+
+
+mission "Gegno: Tschyss Materials I"
+	name ""
+	job
+	repeat
+	description "Test materials mission."
+	source "Tschyss"
+	cargo "Industrial" 10 5 .1
+	to offer
+		random < 20
+		has "Tschyss Recovery Jobs: offered"
+	stopover "Ef Aourtdye"
+	on stopover
+		dialog "Test pickup materials."
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		payment
+		dialog phrase "gegno tschyss material support"
+
+
+mission "Gegno: Tschyss Workers I"
+	name ""
+	job
+	repeat
+	description "Test workers mission."
+	source "Tschyss"
+	passengers 5 10 .1
+	to offer
+		random < 20
+		has "Tschyss Recovery Jobs: offered"
+	stopover "Ef Aourtdye"
+	on stopover
+		dialog "Test pickup workers."
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		payment
+		dialog phrase "gegno tschyss worker support"
+
+
 
 
 

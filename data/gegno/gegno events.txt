@@ -92,7 +92,7 @@ mission "Tschyss Repairs"
 
 event "gegno: tschyss repairs"
 	system "Oosuoro"
-		fleet "Gegno Basic" 900
+		fleet "Gegno Basic" 700
 		fleet "Gegno Miners" 1900
 		fleet "Gegno Cargo" 1600
 
