@@ -23,7 +23,7 @@ mission "Gegno Asteroid Mining - Aluminum"
 		attributes gegno mining
 	to offer
 		has "Gegno Asteroid Mining Prologue: done"
-		random < 10 + "Gegno Asteroid Mining II: offered" * 20
+		random < 10 + "Gegno Asteroid Mining II: offered" * 10
 	to accept
 		"cargo space" > 10
 	on visit
@@ -44,7 +44,7 @@ mission "Gegno Asteroid Mining - Copper"
 		attributes gegno mining
 	to offer
 		has "Gegno Asteroid Mining Prologue: done"
-		random < 10 + "Gegno Asteroid Mining II: offered" * 20
+		random < 10 + "Gegno Asteroid Mining II: offered" * 10
 	to accept
 		"cargo space" > 10
 	on visit
@@ -65,7 +65,7 @@ mission "Gegno Asteroid Mining - Iron"
 		attributes gegno mining
 	to offer
 		has "Gegno Asteroid Mining Prologue: done"
-		random < 10 + "Gegno Asteroid Mining II: offered" * 20
+		random < 10 + "Gegno Asteroid Mining II: offered" * 10
 	to accept
 		"cargo space" > 10
 	on visit
@@ -86,7 +86,7 @@ mission "Gegno Asteroid Mining - Lead"
 		attributes gegno mining
 	to offer
 		has "Gegno Asteroid Mining Prologue: done"
-		random < 10 + "Gegno Asteroid Mining II: offered" * 20
+		random < 10 + "Gegno Asteroid Mining II: offered" * 10
 	to accept
 		"cargo space" > 10
 	on visit
@@ -107,7 +107,7 @@ mission "Gegno Asteroid Mining - Silicon"
 		attributes gegno mining
 	to offer
 		has "Gegno Asteroid Mining Prologue: done"
-		random < 10 + "Gegno Asteroid Mining II: offered" * 20
+		random < 10 + "Gegno Asteroid Mining II: offered" * 10
 	to accept
 		"cargo space" > 10
 	on visit
@@ -128,7 +128,7 @@ mission "Gegno Asteroid Mining - Titanium"
 		attributes gegno mining
 	to offer
 		has "Gegno Asteroid Mining Prologue: done"
-		random < 10 + "Gegno Asteroid Mining II: offered" * 20
+		random < 10 + "Gegno Asteroid Mining II: offered" * 10
 	to accept
 		"cargo space" > 10
 	on visit
@@ -146,13 +146,15 @@ mission "Gegno Asteroid Mining - Titanium"
 mission "Gegno Asteroid Mining II - Neodymium + Copper"
 	job
 	repeat
-	name "Gather 20 tons of copper and 10 tons of neodymium"
+	name "Gather copper and neodymium"
 	description "Mine and collect 15 tons of copper and 5 tons of neodymium. Bring the minerals back to the Gegno at <origin>."
 	source
 		attributes gegno mining
 	to offer
 		has "Gegno Asteroid Mining II: offered"
-		random < 10 + "Gegno Asteroid Mining III: offered" * 10
+		or
+			not "Gegno Asteroid Mining II - Neodymium + Copper: offered"
+			random < 10 + "Gegno Asteroid Mining III: offered" * 10
 	to accept
 		"cargo space" > 20
 	on visit
@@ -168,13 +170,13 @@ mission "Gegno Asteroid Mining II - Neodymium + Copper"
 mission "Gegno Asteroid Mining II - Tungsten + Titanium"
 	job
 	repeat
-	name "Gather 12 tons of titanium and 6 tons of tungsten"
+	name "Gather titanium and tungsten"
 	description "Mine and collect 12 tons of titanium and 6 tons of tungsten. Bring the minerals back to the Gegno at <origin>."
 	source
 		attributes gegno mining
 	to offer
 		has "Gegno Asteroid Mining II: offered"
-		random < 10 + "Gegno Asteroid Mining III: offered" * 10
+		random < 10 + "Gegno Asteroid Mining III: offered" * 5
 	to accept
 		"cargo space" > 18
 	on visit
@@ -240,7 +242,7 @@ mission "Gegno Asteroid Mining II - Lead Rush"
 	name "Mining rush of 30 tons of lead"
 	description "Mine and collect 15 tons of lead, then bring the minerals back to <origin> by <date>."
 	source
-		attributes "gegno" "mining economy"
+		attributes gegno mining
 	to offer
 		has "Gegno Asteroid Mining II: offered"
 		random < 10 + "Gegno Asteroid Mining III: offered" * 5
@@ -303,13 +305,15 @@ mission "Gegno Asteroid Mining III - Tungsten"
 mission "Gegno Asteroid Mining III - Iron II"
 	job
 	repeat
-	name "Gather 42 tons of Iron"
+	name "Gather 42 tons of iron"
 	description "Mine and collect 42 tons of iron, then bring the minerals back to the Gegno at <origin>."
 	source
 		attributes gegno mining
 	to offer
 		has "Gegno Asteroid Mining III: offered"
-		random < 10
+		or
+			not "Gegno Asteroid Mining III - Iron II: offered"
+			random < 10
 	to accept
 		"cargo space" > 42
 	on visit
@@ -349,7 +353,7 @@ mission "Gegno Asteroid Mining III - Aluminum Rush"
 	job
 	repeat
 	deadline 21
-	name "Mining rush of 19 tons of Aluminum"
+	name "Mining rush of 19 tons of aluminum"
 	description "Mine and collect 19 tons of aluminum, then bring the minerals back to <origin> by <date>."
 	source
 		attributes gegno mining
@@ -371,7 +375,7 @@ mission "Gegno Asteroid Mining III - Titanium Rush"
 	job
 	repeat
 	deadline 21
-	name "Mining rush of 15 tons of Titanium"
+	name "Mining rush of 15 tons of titanium"
 	description "Mine and collect 15 tons of titanium, then bring the minerals back to <origin> by <date>."
 	source
 		attributes gegno mining
@@ -393,15 +397,17 @@ mission "Gegno Asteroid Mining III - Titanium Rush"
 # Tschyss Recovery Jobs
 
 mission "Gegno: Tschyss Materials I"
-	name ""
+#	name ""
 	job
 	repeat
 	description "Test materials mission."
 	source "Tschyss"
 	cargo "Industrial" 10 5 .1
 	to offer
-		random < 20
 		has "Tschyss Recovery Jobs: offered"
+		or
+            not "Gegno: Tschyss Materials I: offered"
+            random < 30
 	stopover "Ef Aourtdye"
 	on stopover
 		dialog "Test pickup materials."
@@ -413,15 +419,17 @@ mission "Gegno: Tschyss Materials I"
 
 
 mission "Gegno: Tschyss Workers I"
-	name ""
+#	name ""
 	job
 	repeat
 	description "Test workers mission."
 	source "Tschyss"
 	passengers 5 10 .1
 	to offer
-		random < 20
 		has "Tschyss Recovery Jobs: offered"
+		or
+            not "Gegno: Tschyss Workers I: offered"
+            random < 30
 	stopover "Ef Aourtdye"
 	on stopover
 		dialog "Test pickup workers."

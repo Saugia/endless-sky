@@ -83,9 +83,9 @@ mission "Tschyss Repairs"
 	invisible
 	to offer
 		or	
-			has "miner incident - bay help"
-			has "Miner Incident - Hauling: complete"
-			has "Miner Incident - Transport: complete"
+			has "gegno: miner incident bay help"
+			has "Miner Incident - Hauling: done"
+			has "Miner Incident - Transport: done"
 	on offer
 		event "gegno: tschyss repairs"
 		fail

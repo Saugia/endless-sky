@@ -87,7 +87,7 @@ mission "Unexpected Drifters Report"
 				`	(Not right now.)`
 					defer
 			`	You try your best to get the attention of one of the Gegno in the station, but are brushed off or outright ignored by most of them. Eventually, one of the more bulky Gegno slowly walks over to you with a blank look on their face. You attempt to explain to them the situation using a map device and scanner logs of the stranded ship in Cotpoxi, but to no avail. They simply glance at your data, back at you, and then walk away.`
-			`	It doesn't seem like you are able to request help. Maybe you can try and assist the crew yourself.`
+			`	It doesn't seem like you are able to request help. Maybe you can try and assist the crew yourself, assuming they're still out there.`
 				to display
 					not "gegno: derelict boarded"
 				decline
@@ -319,7 +319,7 @@ mission "A Major Miner Incident"
 
 			label meet
 			action
-				set "miner incident - bay help"
+				set "gegno: miner incident bay help"
 			`	Finally, you gather with the Gegno at the airlock, having done what you can in the current situation. As you wait for them to work the door, a huge Gegno cargo ship slowly pulls up to the bay, and out from it pours a much larger group of Gegno than the ones you're with, all wearing even more advanced-looking gear and much more intricate power suits. They move with a swiftness and precision several levels beyond what you saw before.`
 			`	Back inside the station, you're escorted back to where your ship is docked. The maintenance lead then approaches you personally, fully acknowledging you for the first time. They lean down beside you on one knee, and with a fist, pound on the back of your neck, which almost makes you fall forward. You're not sure what that means, though if they actually wanted to knock you to the ground, they very easily would have done so. With one last look, they walk away with the group of Gegno, many of whom are hitting one another or snorting loudly. Though some still remain cold and silent, the sight of enthusiasm from the rest is certainly something you're not used to.`
 				decline
@@ -329,7 +329,7 @@ mission "A Major Miner Incident"
 				set "gegno: bunk check dialog"
 			`	The larger Gegno quickly acknowledges you with a fixed look as you walk up to them and then begins scrolling on their tablet device with some knuckle presses. As they take some time to sift though some data, the other two near them continue their own directives without giving you any attention. Once they find the data they're looking for, the Gegno turns the display to you, showing a graphic of 12 Gegno-like silhouettes, indicating passengers. Your ship doesn't have twelve bunks, so you won't be able to assist with this particular request.`
 				to display
-					"bunks" < 12
+					"bunks" > 12
 				goto leaders
 			action
 				set "gegno: transport redirect"
@@ -342,7 +342,7 @@ mission "A Major Miner Incident"
 				set "gegno: haul check dialog"
 			`	As you walk up to the Gegno in hauling gear, they pause for a moment, gaze at you, then turn to the other two. While the maintenance lead pays no attention, the job board lead briefly says something, followed by an awkward pause. The hauling lead unenthusiastically goes back to their own data pad. Surprisingly, they reveal data of your ship's cargo bay, showing tally marks similar to the ones at the job board. There are clearly more than 20 marks, which is more than your ship's cargo space, so this request isn't one you can accept.`
 				to display
-					"cargo space" < 20
+					"cargo space" > 20
 				goto leaders
 			action
 				set "gegno: hauling redirect"
@@ -421,7 +421,7 @@ mission "A Major Miner Incident"
 
 mission "Miner Incident - Transport"
 	landing
-	description `Transport 15 Gegno workers back to <destination planet> that will aid in relief efforts following the incident.`
+	description `Transport 15 Gegno workers back to <destination> that will aid in relief efforts following the incident.`
 	passengers 15
 	source "Ef Aourtdye"
 	destination "Tschyss"
@@ -445,7 +445,7 @@ mission "Miner Incident - Transport"
 			`	With the planet's environment reading human-friendly, you decide to exit your ship to greet the Gegno. While some look onward in indifference, others seem the slightest bit taken back due to your appearance, or outright surprised. A conversation in the group begins, with your escort and their crew jogging over and joining in. The discussion ends rather quickly, with some of the Gegno heading towards the shuttle, and a group of them approaching your ship.`
 
 			label board
-			`	All of the Gegno seem to be in some sort of heavy gearsets, some resembling those you've seen worn by others on the station. You let them on board, their gear clangs against the interior of your ship as they shuffle in, trying to find room for themselves. Several of them seem somewhat uncomfortable, and others impatiently grunt. Eventually, they all become silent and keep to themselves, awaiting their commute to <destination planet>.`
+			`	All of the Gegno seem to be in some sort of heavy gearsets, some resembling those you've seen worn by others on the station. You let them on board, their gear clangs against the interior of your ship as they shuffle in, trying to find room for themselves. Several of them seem somewhat uncomfortable, and others impatiently grunt. Eventually, they all become silent and keep to themselves, awaiting their commute to <destination>.`
 				launch
 
 	on complete
@@ -458,7 +458,7 @@ mission "Miner Incident - Transport"
 
 mission "Miner Incident - Hauling"
 	landing
-	description `Transport 20 tons of industrial equipment back to <destination planet> for use in relief efforts following the incident.`
+	description `Transport 20 tons of industrial equipment back to <destination> for use in relief efforts following the incident.`
 	cargo "industrial equipment" 20
 	source "Ef Aourtdye"
 	destination "Tschyss"
@@ -481,7 +481,7 @@ mission "Miner Incident - Hauling"
 			`	With your ship's sensors reading the environment outside as human friendly, you decide to head over to your cargo hold to see if you can help the Gegno. Some of them seem quite surprised as they get their first look of you, while a few others grunt and motions towards the task at hand. You try and signify your desire to assist in the process, but the Gegno seem to take pride in doing the work themselves their way.`
 			
 			label loaded
-			`	Down on the next landing pad is the hauling lead, and they too are loading their older-looking ship with various supplies to take back to <destination planet>. Once both of your ships are full, the Gegno stand back and await your departure, huddling back together and watching with their many looks. It seems like a discussion begins among them, some slowly moving their arms around in several gestures, while others continue to look onward at your ship as you begin your return journey to <destination planet>.`
+			`	Down on the next landing pad is the hauling lead, and they too are loading their older-looking ship with various supplies to take back to <destination>. Once both of your ships are full, the Gegno stand back and await your departure, huddling back together and watching with their many looks. It seems like a discussion begins among them, some slowly moving their arms around in several gestures, while others continue to look onward at your ship as you begin your return journey.`
 				launch
 
 	on complete
@@ -499,9 +499,9 @@ mission "Under the Nose II"
 	source "Tschyss"
 	to offer
 		or	
-			has "miner incident - bay help"
-			has "Miner Incident - Hauling: complete"
-			has "Miner Incident - Transport: complete"
+			has "gegno: miner incident bay help"
+			has "Miner Incident - Hauling: done"
+			has "Miner Incident - Transport: done"
 		not "Gegno Genocide Defense: offered"
 		not "yvx killed"
 	to complete
@@ -519,8 +519,7 @@ mission "Under the Nose II"
 
 
 
-mission "Tschyss Recovery Job Access"
-	invisible
+mission "Tschyss Recovery Jobs"
 	"job board"
 	source "Tschyss"
 	to offer
@@ -534,58 +533,6 @@ mission "Tschyss Recovery Job Access"
 				decline
 
 
-mission "Tschyss Recovery Job Prologue
-	job
-	source "Tschyss"
-	to offer
-		has "event: gegno: tschyss repairs"
-		not "Gegno Genocide Defense: offered"
-	on offer
-		
-
-
-mission "Gegno: Tschyss Materials I"
-	name ""
-	job
-	repeat
-	description "Test materials mission."
-	source "Tschyss"
-	cargo "Industrial" 10 5 .1
-	to offer
-		random < 20
-		has "Tschyss Recovery Jobs: offered"
-	stopover "Ef Aourtdye"
-	on stopover
-		dialog "Test pickup materials."
-	on visit
-		dialog phrase "generic cargo on visit"
-	on complete
-		payment
-		dialog phrase "gegno tschyss material support"
-
-
-mission "Gegno: Tschyss Workers I"
-	name ""
-	job
-	repeat
-	description "Test workers mission."
-	source "Tschyss"
-	passengers 5 10 .1
-	to offer
-		random < 20
-		has "Tschyss Recovery Jobs: offered"
-	stopover "Ef Aourtdye"
-	on stopover
-		dialog "Test pickup workers."
-	on visit
-		dialog phrase "generic cargo on visit"
-	on complete
-		payment
-		dialog phrase "gegno tschyss worker support"
-
-
-
-
 
 mission "Welcome on Ef Aourtdye"
 	landing
@@ -597,13 +544,12 @@ mission "Welcome on Ef Aourtdye"
 	on offer
 		conversation
 			branch "first visit"
-				has "miner incident - bay help"
+				has "gegno: miner incident bay help"
 
-			`It seems you're now welcome on this world as you don't have to get express permission to approach anymore, only having to go through a typical landing routine. However, rather than be lead toward a location in the deserts, you are directed to a decently-sized landing port engraved into one of the world's mountainous rock formations.`
+			`It seems you're now welcome on this world as you don't have to get express permission to land anymore, only having to go through a typical landing routine. However, rather than be lead toward a location in the deserts, you are directed to a decently-sized landing port engraved into one of the world's mountainous rock formations.`
 			`	You'll still have to figure out your own way around things considering the language barrier, but based on your recent experniences, the Gegno generally understand the language of hard work.`
 				decline
 			
 			label "first visit"
 			`	Test.`
 				decline
-
