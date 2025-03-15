@@ -455,7 +455,7 @@ mission "Under the Nose"
 	npc
 		on kill
 			set "yvx killed"
-		government "Gegno Vi"
+		government "Gegno Vi (Neutral)"
 		personality heroic vindictive ramming entering fleeing uninterested
 		system "Aleit"
 		ship "Rhyolite" "Imtydei"

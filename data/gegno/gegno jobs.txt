@@ -415,6 +415,7 @@ mission "Gegno: Tschyss Materials I"
 		dialog phrase "generic cargo on visit"
 	on complete
 		payment
+		"gegno: recovery jobs" ++
 		dialog phrase "gegno tschyss material support"
 
 
@@ -437,4 +438,5 @@ mission "Gegno: Tschyss Workers I"
 		dialog phrase "generic cargo on visit"
 	on complete
 		payment
+		"gegno: recovery jobs" ++
 		dialog phrase "gegno tschyss worker support"

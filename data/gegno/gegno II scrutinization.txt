@@ -488,8 +488,7 @@ mission "Miner Incident - Hauling"
 		payment 150000
 		conversation
 			`A team of Gegno are already awaiting your arrival as you dock, quickly unloading the supplies. Other Gegno see to it that the supplies are routed down the various corridors to get to repairs almost immediately, which is a dedication you haven't previously experienced here on the station. A moment later, you see the hauling lead heading in your direction. They pull out their familiar tablet device, and after some fiddling with it, you soon find a sum of <payment> has been attributed to your account.`
-			`	Rather than directly head over to help the others, they give you a lighter punch on the back, and after a quick glance, begin their way down the halls. Unfortunately, any desire of yours to follow them or go to the more busy areas is denied, but it's clear there's more work being done for the station than before.`
-			`	At the very least, the Gegno seem to have acknowledged your role in everything.`			
+			`	Rather than directly head over to help the others, they give you a lighter punch on the back, and after a quick glance, begin their way down the halls. Unfortunately, any desire of yours to follow them or go to the more busy areas is denied, but it's clear there's more work being done for the station than before.`		
 
 
 
@@ -512,7 +511,7 @@ mission "Under the Nose II"
 	npc
 		on kill
 			set "yvx killed"
-		government "Gegno Vi"
+		government "Gegno Vi (Neutral)"
 		personality heroic vindictive ramming launching fleeing uninterested
 		system "Oosuoro"
 		ship "Rhyolite" "Imtydei"
@@ -551,5 +550,154 @@ mission "Welcome on Ef Aourtdye"
 				decline
 			
 			label "first visit"
-			`	Test.`
+			`This large desert world is home to seas of sand that extend for hundreds of thousands of miles. While it initially seems to lack an established civilization, some areas in the deserts are sprinkled with manufacturng plants or spires. The Gegno that cleared your landing direct you instead to a decently-sized landing port engraved into one of the world's mountainous rock formations. As you dock in the port, you notice that the same type of jobs on the station are handed out here as well, although the Gegno here seem far more motivated, or perhaps more serious, when it comes to applying for them. On top of that, they seldomly give you attention, far more focused on whatever work they're occupied by.`
+			`	Based on your experiences up until now, the Gegno generally understand the language of hard work, which could be why they've given you permission to land here. Despite the language barrier. they understand the value of your labor.`
 				decline
+
+
+# ** Don't forget various background war missions
+
+# Next two missions are based on rep with Scin/Vi and if the player interacted with the Scin encounter deeply or not(?) 
+
+mission "Meeting Yvx" (Leads to a few later ones)
+	name ``
+	description ``
+	source "Tschyss"
+	to offer
+		has "Tschyss Recovery Jobs: offered"
+		or	
+			and
+				not "Meeting Iugil: offered"
+				random 0 + "gegno: mining jobs" + "gegno: recovery jobs"
+			and
+				has "Meeting Iugil: deferred"
+		not "provoked military"
+		not "Gegno Genocide Defense: offered"
+
+	destination "Var Oti"
+	on offer
+		conversation
+			branch deferred
+				has "Meeting Yvx: deferred"
+			`As you are wandering the spaceport, you notice a large Gegno leaning against a wall across the room. They are clearly a warrior of the Vi, based on the style of their armor. Neither of the Gegno factions ever seem to visit the station, so they stand out quite a bit amongst the rest of the Gegno, and it seems others are actively avoiding them. Or perhaps that's normal behavior, since Gegno are all about what their current focus us.`
+			`	Some time passes by, however they continue to be left alone in the corner. It could be that they're waiting for someone, though it doesn't seem like anyone will be approaching them soon.`
+			choice 
+			`	(Approach them and see if you can help.)`
+				goto approach
+			`	(Leave them be).`
+			`You decide to let the Gegno be. Whoever or whatever they're waiting for could be important, or maybe there's something you still don't understand about Gegno culture. As they aren't reaching out to other Gegno for anything, it also could be that they're simply just passing time.`
+				defer
+				
+			label deferred
+			`While you're in the spaceport, you notice that same Gegno Vi warrior from the other day is still here, alone in a corner leaning against the wall. Either they are very patient with whoever or whatever they're here for. The other Gegno in the spaceport continue to walk past them as if it's none of their business, though occasionally a few of them briefly glance in the direction of the Vi.`
+			choice
+			`	(Try asking another Gegno about the Vi.)`
+			`	(See if you can assist the Vi somehow.)`
+				goto approach
+			`	(Continue on your way.)`
+				decline
+			
+			label ask
+			`	It takes you a few minutes to get the attention of another Gegno in the port as most are either too busy to acknowledge you or simply aren't interested in talking. One of them finally walks over to you, slightly disgruntled, and you try to turn their attenion towards the Vi warrior. The Gegno looks over to them, then back to you, then looks down and stands in silence for a moment in thought. After looking back up to you once more, they simply shake their head and leave you.`
+			`	
+			label approach
+			`	You walk over to the Vi, and as you do, they raise to their full height and turn to your direction. Now standing before them, you see just how tall and bulky they are as they look down to you. Several markings adorn their body, with several appearing scar-like, especially beneath their eyes. Their response to your approach suggests that it is you they have business with, and a silence ensues as they continue to glare.`
+			`	The Vi begins muttering something under their breath, then addresses you fully, slightly leaning down to speak to you. "Jueypie Tobb," they say, reaching into a section of their armor and pulling out a tablet, an act you've witnessed many times now. On the device is a planet marked on a local map - seemingly a request for transport. However, the planet they wish to be taken to is the one you had your very first encounter with the Gegno on - the desert world crawling with those large serpentine-like creatures.`
+			choice
+			`	(Accept the job.)`
+				goto accept
+			`	(Decline the job.)`
+			`	Considering what happened on <destination> previously, you're a bit unsure what a return trip there would entail. Being alone for what would be a second time with a Vi warrior on a world full of deadly creatures might not be ideal, on top of what repercussions could come of it that might involve the Gegno as a whole again. You do your best to communicate to the Vi that you're not interesterd in the job.`
+			`	They seem disappointed by your choice, and although that reaction isn't something you're new to, the level of it is more exaggerated than what you've witnessed before. With a deep snort, the Vi leaves you, their hulking form slowly marching away from you. In contrast to how out of place they seemed earlier, they begin a conversation with another Gegno rather quickly. Before they leave your view, they give you one last look from afar, and you're once more alone in the spaceport.`
+				decline
+				
+			label accept
+			`	You do your best to communicate to the Vi you are willing to accept the job. After a pause, they abruptly shove the tablet into your possession and immediately start to march towards to the docking bay your ship is parked at. On their way off, they loudly speak the words, "Dueou Arduou," with you only being able to guess what that means. The more you interact with the Vi, the more it feels like all of them are this brazen.`
+				accept
+
+	on defer
+		set "Meeting Yvx: deferred"
+	on complete
+		conversation
+			`During your trip, the Gegno Vi didn't stalk directly behind you like the first one you met. However, there were several times where you could hear shuffling or supplies being thrown around in the back, but every time you checked, the Gegno was either standing or sitting in stillness. Occasionally, they shouted or grunted loudly in their own language to themselves, sometimes pounding on a nearby object. Again, whenever you addressed them, they became more stoic. At the very least, nothing in the ship seems damaged, but you swear you notice a few new dents on the infrastructure.`
+			`	<destination> is just as it was before - a giant desert world with mountain-high dunes, storms of sand and valleys of nothingness. At least, when you first visited, it appeared that way, but you now know that below that nothingness are uncounted numbers of large, deadly creatures.`
+
+
+
+mission "Yvx Leaves"
+	invisible
+	landing
+	source "Tschyss"
+	to offer
+		has "Meeting Yvx: declined"
+		not "Gegno Genocide Defense: offered"
+		not "yvx killed"
+	to complete
+		never
+	on enter "Oosuoro"
+		fail
+
+	npc
+		on kill
+			set "yvx killed"
+		government "Gegno Vi (Neutral)"
+		personality heroic vindictive ramming launching fleeing uninterested
+		system "Oosuoro"
+		ship "Rhyolite" "Imtydei"
+
+
+
+
+
+
+# mission "Meeting Iugil"
+
+
+
+# A couple "hostile" missions if the player is hostile with either the scin or vi
+
+# Vi Duel
+
+# Scin Test
+
+
+
+# Job to get the player's toes to test the pond of other territory (based on rep with vi or scin, if rep is even, give player a chance, if both negative, it's just a decline)
+
+# mission "A Passed Effort"
+
+
+
+# Mining ship's captain thanks for "helping" them
+
+# mission "A Miner's Favor"
+
+
+
+# Do one of which the player didn't do: If did hauling, do transport, and vice versa. Have gegno unhappy but respective lead helps them out
+
+# mission "Continued Assistance (Hauling)"
+
+# mission "Continued Assistance (Transport)"
+
+
+
+If player did maint, do extended maint on the moon at the shipyard, show off protoliths, gegno unhappy but maint lead respects player
+
+# mission "Continued Assistance (Maintenance)"
+
+
+
+# mission "Foreign Spectator II"
+
+
+
+
+
+# Ending missions that judge player's rep and gives them in the end a Marl (but still no license). Marl unlocks jobs to faction planets (must be in Marl to do and complete.)
+
+# mission "Gegno Approbation"
+
+# mission "Gegno Condemnation"
+
+# mission "Renumeration"
