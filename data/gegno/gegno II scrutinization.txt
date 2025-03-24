@@ -559,9 +559,9 @@ mission "Welcome on Ef Aourtdye"
 
 # Next two missions are based on rep with Scin/Vi and if the player interacted with the Scin encounter deeply or not(?) 
 
-mission "Meeting Yvx" (Leads to a few later ones)
-	name ``
-	description ``
+mission "Meeting Yvx"
+	name `Transport job to <destination planet>`
+	description `A lone Gegno Vi showed up on <origin> in search of assistance and has requested that you, not another Gegno, take them to <destination>.`
 	source "Tschyss"
 	to offer
 		has "Tschyss Recovery Jobs: offered"
@@ -569,8 +569,13 @@ mission "Meeting Yvx" (Leads to a few later ones)
 			and
 				not "Meeting Iugil: offered"
 				random 0 + "gegno: mining jobs" + "gegno: recovery jobs"
-			and
-				has "Meeting Iugil: deferred"
+			or
+				has "Meeting Iugil A: deferred"
+				has "Meeting Iugil B: deferred"
+		not
+			or
+				"Meeting Iugil A: accepted"
+				"Meeting Iugil B: accepted"
 		not "provoked military"
 		not "Gegno Genocide Defense: offered"
 
@@ -579,7 +584,7 @@ mission "Meeting Yvx" (Leads to a few later ones)
 		conversation
 			branch deferred
 				has "Meeting Yvx: deferred"
-			`As you are wandering the spaceport, you notice a large Gegno leaning against a wall across the room. They are clearly a warrior of the Vi, based on the style of their armor. Neither of the Gegno factions ever seem to visit the station, so they stand out quite a bit amongst the rest of the Gegno, and it seems others are actively avoiding them. Or perhaps that's normal behavior, since Gegno are all about what their current focus us.`
+			`As you are wandering the spaceport, you notice a large Gegno leaning against a wall across the room. They are clearly a warrior of the Vi, based on the style of their armor. On their back is the spear-like weapon you've seen before, along with assortive baggages for supplies. Neither of the Gegno factions ever seem to visit the station, so they stand out quite a bit amongst the rest of the Gegno, and it seems others are actively avoiding them. Or perhaps that's normal behavior, since Gegno are all about what their current focus us.`
 			`	Some time passes by, however they continue to be left alone in the corner. It could be that they're waiting for someone, though it doesn't seem like anyone will be approaching them soon.`
 			choice 
 			`	(Approach them and see if you can help.)`
@@ -619,8 +624,8 @@ mission "Meeting Yvx" (Leads to a few later ones)
 		set "Meeting Yvx: deferred"
 	on complete
 		conversation
-			`During your trip, the Gegno Vi didn't stalk directly behind you like the first one you met. However, there were several times where you could hear shuffling or supplies being thrown around in the back, but every time you checked, the Gegno was either standing or sitting in stillness. Occasionally, they shouted or grunted loudly in their own language to themselves, sometimes pounding on a nearby object. Again, whenever you addressed them, they became more stoic. At the very least, nothing in the ship seems damaged, but you swear you notice a few new dents on the infrastructure.`
-			`	<destination> is just as it was before - a giant desert world with mountain-high dunes, storms of sand and valleys of nothingness. At least, when you first visited, it appeared that way, but you now know that below that nothingness are uncounted numbers of large, deadly creatures.`
+			`During your trip, the Gegno Vi didn't stalk directly behind you like the first one you met. However, there were several times where you could hear shuffling or supplies being thrown around in the back, but every time you checked, the Gegno was either standing or sitting in stillness. Occasionally, they shouted or grunted loudly in their own language to themselves, sometimes pounding on a nearby object, but returned to silence when in your presence. At the very least, nothing in the ship seems damaged, but you swear you notice a few new dents on the infrastructure.`
+			`	<destination> is just as it was before - a giant desert world with mountain-high dunes, storms of sand and valleys of nothingness. At least, when you first visited, it appeared that way, but you now know that below that nothingness are uncounted numbers of large, deadly creatures. That doesn't seem to deter the Vi though, as they seem eager to head out into the dangerous deserts with nothing but their few supplies, the spear, and the skin on their back. They hadn't communicated anything about a return journey, or an expectation for you to wait for them. It seems this is where you part ways.`
 
 
 
@@ -646,11 +651,113 @@ mission "Yvx Leaves"
 		ship "Rhyolite" "Imtydei"
 
 
+# Goes into the "calmer" Scin side first, based on observations and exploration (the player kept their distance with the Scin in the intro)
+mission "Meeting Iugil A"
+	name ``
+	description `.`
+	source "Tschyss"
+	to offer
+		has "Tschyss Recovery Jobs: offered"
+		has "scin: approached epidote"
+		or	
+			and
+				not "Meeting Yvx: offered"
+				random 0 + "gegno: mining jobs" + "gegno: recovery jobs"
+			has "Meeting Yvx: deferred"
+		not "Meeting Yvx: accepted"
+		not "Gegno Genocide Defense: offered"
+
+	on offer
+		conversation
+			`Normally when you enter the spaceport, the amount of interactions you're involved in are minimal, most of which are exchangements with faculty or job work. This time around, you are greeted by the gazes of three Gegno, clearly looking in your direction. Not only that, but the dark green hues of intricate armor and predominantly leaner builds denote Gegno of the Scin faction, members of which you've never seen here on the station before. Even some of the non-aligned Gegno glance over to them warily.`
+
+			`As soon as you return their gaze, they immediately stride towards you. Once they've approached you, one of them steps forward and makes a gesture with their hands, placing only the digits of their fingers and the bottom of their palms together in an egg-like shape. They then move their arms to their left in a manner similar to the first time you met the robed Scin on an unhabited world. Out loud, one of the Scin speaks, "Sceinn treiscye imm oein?"`
+				to display
+					or
+						has "scin: gestures"
+						not "scin: imagery"
+				goto "gestures response"
+			
+			`As soon as you return their gaze, they immediately stride towards you. Once they've approached you, one of them steps forward and pulls out large rolled-up sheet of sorts. When they unravel it, it snaps, almost mechanically, into a full poster with several illustrations and graphics on it. One of the images is a grid-like representation of the local systems, while another is a depiction of one of the Scin's larger ships. Out loud, one of the Scin speaks, "Sceinn treiscye imm oein?"`
+				to display
+					has "scin: images"
+				goto "images response"
+
+			label "gestures response"
+			choice
+			`	(Gesture to the left.)`
+			`	(Gesture to the right.)`
+				goto "leave"
+			`	(Mimic the Scin.)`
+			`	(Leave.)`
+				goto "leave"
+
+			label "images response"
+			choice
+			`	(Try to ask what they're saying.)`
+			`	(Point at the image.)`
+			`	(Mimic the Scin.)`
+			`	(Leave.)`
+				goto "leave"			
+
+			label "provocative"				
 
 
 
 
-# mission "Meeting Iugil"
+
+# Goes into the "active" Scin side first, based on direct confrontations (the player went with the Scin in the intro)
+mission "Meeting Iugil B"
+	name ``
+	description `.`
+	source "Tschyss"
+	to offer
+		has "Tschyss Recovery Jobs: offered"
+		has "scin: entered epidote"
+		or	
+			and
+				not "Meeting Yvx: offered"
+				random 0 + "gegno: mining jobs" + "gegno: recovery jobs"
+			has "Meeting Yvx: deferred"
+		not "Meeting Yvx: accepted"
+		not "Gegno Genocide Defense: offered"
+
+	on offer
+		conversation
+			`Normally when you enter the spaceport, the amount of interactions you're involved in are minimal, most of which are exchangements with faculty or job work. This time around, you are greeted by the gazes of three Gegno, clearly looking in your direction. Not only that, but the dark green hues of intricate armor and predominantly leaner builds denote Gegno of the Scin faction, members of which you've never seen here on the station before. Even some of the non-aligned Gegno glance over to them warily.`
+
+			`As soon as you return their gaze, they immediately stride towards you. Once they've approached you, one of them steps forward and makes a gesture with their hands, placing only the digits of their fingers and the bottom of their palms together in an egg-like shape. They then move their arms to their left in a manner similar to the first time you met the robed Scin on an unhabited world. Out loud, one of the Scin speaks, "Sceinn treiscye imm oein?"`
+				to display
+					or
+						has "scin: gestures"
+						not "scin: imagery"
+				goto "gestures response"
+			
+			`As soon as you return their gaze, they immediately stride towards you. Once they've approached you, one of them steps forward and pulls out large rolled-up sheet of sorts. When they unravel it, it snaps, almost mechanically, into a full poster with several illustrations and graphics on it. One of the images is a grid-like representation of the local systems, while another is a depiction of one of the Scin's larger ships. Out loud, one of the Scin speaks, "Sceinn treiscye imm oein?"`
+				to display
+					has "scin: images"
+				goto "images response"
+
+			label "gestures response"
+			choice
+			`	(Gesture to the left.)`
+			`	(Gesture to the right.)`
+				goto "leave"
+			`	(Mimic the Scin.)`
+			`	(Leave.)`
+				goto "leave"
+
+			label "images response"
+			choice
+			`	(Try to ask what they're saying.)`
+			`	(Point at the image.)`
+			`	(Mimic the Scin.)`
+			`	(Leave.)`
+				goto "leave"			
+
+			label "provocative"			
+
+
 
 
 
