@@ -113,7 +113,6 @@ mission "Unexpected Drifters Disappear"
 		dialog `The stranded Gegno civilian ship you encountered in this system before is nowhere to be found. Hopefully its crew were able to repair the power systems in time, or other Gegno found them and helped them back home safely.`
 
 
-
 mission "Repair Humor"
 	landing
 	source "Tschyss"
@@ -491,7 +490,6 @@ mission "Miner Incident - Hauling"
 			`	Rather than directly head over to help the others, they give you a lighter punch on the back, and after a quick glance, begin their way down the halls. Unfortunately, any desire of yours to follow them or go to the more busy areas is denied, but it's clear there's more work being done for the station than before.`		
 
 
-
 mission "Under the Nose II"
 	invisible
 	landing
@@ -517,7 +515,6 @@ mission "Under the Nose II"
 		ship "Rhyolite" "Imtydei"
 
 
-
 mission "Tschyss Recovery Jobs"
 	"job board"
 	source "Tschyss"
@@ -530,7 +527,6 @@ mission "Tschyss Recovery Jobs"
 			`You are making your way around the facility and browsing jobs when you notice that there are new listings available. These jobs, unlike the mining jobs you're used to taking, request either transporting passengers or retrieving cargo from Ef Aourtdye and returning to Tschyss, likely to continue the recovery of the station. It seems like other Gegno are interested in the jobs as well, occasionally walk up to the board and accept one.`
 			`	Hopefully these jobs will help not only finish the station's immediate repairs but also increase the overall workforce.`
 				decline
-
 
 
 mission "Welcome on Ef Aourtdye"
@@ -555,9 +551,8 @@ mission "Welcome on Ef Aourtdye"
 				decline
 
 
-# ** Don't forget various background war missions
 
-# Next two missions are based on rep with Scin/Vi and if the player interacted with the Scin encounter deeply or not(?) 
+# Next two missions are what decide which faction the player interacts with for translation later on, starting with the Vi, which if deferred, goes into the Scin, which if declined (or failed), goes back into the Vi.
 
 mission "Meeting Yvx"
 	name `Transport job to <destination planet>`
@@ -570,9 +565,12 @@ mission "Meeting Yvx"
 				not "Meeting Iugil: offered"
 				random 0 + "gegno: mining jobs" + "gegno: recovery jobs"
 			or
-				has "Meeting Iugil A: deferred"
-				has "Meeting Iugil B: deferred"
+				has "Meeting Iugil A: declined"
+				has "Meeting Iugil A: failed"
+				has "Meeting Iugil B: declined"
+				has "Meeting Iugil B: failed"
 		not
+			"scin: meeting iugil alt"
 			or
 				"Meeting Iugil A: accepted"
 				"Meeting Iugil B: accepted"
@@ -592,7 +590,9 @@ mission "Meeting Yvx"
 			`	(Leave them be).`
 			`You decide to let the Gegno be. Whoever or whatever they're waiting for could be important, or maybe there's something you still don't understand about Gegno culture. As they aren't reaching out to other Gegno for anything, it also could be that they're simply just passing time.`
 				defer
-				
+
+
+# To do: Update with more detail since you interacted with the Scin before this.
 			label deferred
 			`While you're in the spaceport, you notice that same Gegno Vi warrior from the other day is still here, alone in a corner leaning against the wall. Either they are very patient with whoever or whatever they're here for. The other Gegno in the spaceport continue to walk past them as if it's none of their business, though occasionally a few of them briefly glance in the direction of the Vi.`
 			choice
@@ -620,13 +620,14 @@ mission "Meeting Yvx"
 			`	You do your best to communicate to the Vi you are willing to accept the job. After a pause, they abruptly shove the tablet into your possession and immediately start to march towards to the docking bay your ship is parked at. On their way off, they loudly speak the words, "Dueou Arduou," with you only being able to guess what that means. The more you interact with the Vi, the more it feels like all of them are this brazen.`
 				accept
 
+# To do: Add a branch for negative reputation.
+
 	on defer
 		set "Meeting Yvx: deferred"
 	on complete
 		conversation
 			`During your trip, the Gegno Vi didn't stalk directly behind you like the first one you met. However, there were several times where you could hear shuffling or supplies being thrown around in the back, but every time you checked, the Gegno was either standing or sitting in stillness. Occasionally, they shouted or grunted loudly in their own language to themselves, sometimes pounding on a nearby object, but returned to silence when in your presence. At the very least, nothing in the ship seems damaged, but you swear you notice a few new dents on the infrastructure.`
 			`	<destination> is just as it was before - a giant desert world with mountain-high dunes, storms of sand and valleys of nothingness. At least, when you first visited, it appeared that way, but you now know that below that nothingness are uncounted numbers of large, deadly creatures. That doesn't seem to deter the Vi though, as they seem eager to head out into the dangerous deserts with nothing but their few supplies, the spear, and the skin on their back. They hadn't communicated anything about a return journey, or an expectation for you to wait for them. It seems this is where you part ways.`
-
 
 
 mission "Yvx Leaves"
@@ -651,7 +652,8 @@ mission "Yvx Leaves"
 		ship "Rhyolite" "Imtydei"
 
 
-# Goes into the "calmer" Scin side first, based on observations and exploration (the player kept their distance with the Scin in the intro)
+
+# Locks in the "calmer" Scin side first, based on observations and exploration (the player kept their distance with the Scin in the intro)
 mission "Meeting Iugil A"
 	name ``
 	description `.`
@@ -671,14 +673,15 @@ mission "Meeting Iugil A"
 		conversation
 			`Normally when you enter the spaceport, the amount of interactions you're involved in are minimal, most of which are exchangements with faculty or job work. This time around, you are greeted by the gazes of three Gegno, clearly looking in your direction. Not only that, but the dark green hues of intricate armor and predominantly leaner builds denote Gegno of the Scin faction, members of which you've never seen here on the station before. Even some of the non-aligned Gegno glance over to them warily.`
 
-			`As soon as you return their gaze, they immediately stride towards you. Once they've approached you, one of them steps forward and makes a gesture with their hands, placing only the digits of their fingers and the bottom of their palms together in an egg-like shape. They then move their arms to their left in a manner similar to the first time you met the robed Scin on an unhabited world. Out loud, one of the Scin speaks, "Sceinn treiscye imm oein?"`
+			`As soon as you return their gaze, they immediately stride towards you. Once they've approached you, one of them steps forward and makes a gesture with their hands, placing only the digits of their fingers and the bottom of their palms together in an egg-like shape. They then move their arms to their left, in a manner similar to the first time you met the robed Scin on an unhabited world. Out loud, one of the Scin speaks "Sceinn treiscye imm oein," and pauses as if waiting for a response.`
 				to display
 					or
 						has "scin: gestures"
 						not "scin: imagery"
 				goto "gestures response"
 			
-			`As soon as you return their gaze, they immediately stride towards you. Once they've approached you, one of them steps forward and pulls out large rolled-up sheet of sorts. When they unravel it, it snaps, almost mechanically, into a full poster with several illustrations and graphics on it. One of the images is a grid-like representation of the local systems, while another is a depiction of one of the Scin's larger ships. Out loud, one of the Scin speaks, "Sceinn treiscye imm oein?"`
+			`As soon as you return their gaze, they immediately stride towards you. Once they've approached you, one of them steps forward and pulls out large rolled-up sheet of sorts. When they unravel it, it snaps, almost mechanically, into a full poster with several graphics of stars on it, neatly separated into sections. One of them is a binary star system with two white stars paired together, one slightly tinted blue. Another image is of a large red star, paired with a cloudy planet. The third and last image is of a a smaller yellowish-red star by itself.`
+			`	Out loud, one of the Scin speaks, "Sceinn treiscye imm oein," and the one holding the star graphics moves the sheet slightly closer to you, as if waiting for a response.`
 				to display
 					has "scin: images"
 				goto "images response"
@@ -687,22 +690,84 @@ mission "Meeting Iugil A"
 			choice
 			`	(Gesture to the left.)`
 			`	(Gesture to the right.)`
-				goto "leave"
-			`	(Mimic the Scin.)`
+				goto "gesture right"
+			`	(Mimic the Scin's gesture.)`
+				goto "mimic"
 			`	(Leave.)`
 				goto "leave"
+
+			`	You gesture an arm leftward, which the most forward Scin reacts to with a sort of paced bouncing of their upper torso. Almost abruptly, the group of Scin then begin leaving the spaceport without further interaction. As they do, you notice that there are quite a few more leaving that the ones that had addressed you - the others might have been in the background with other Gegno, or maybe you miscounted to begin with. Still, they seemed pretty interested with you for some reason or another.`
+				accept
+
+			label "gesture right"
+			`	After gesturing an arm towards your right, the Scin give you a puzzled look, with the most forward one craning their head to the right. They turn around and talk with one of the others, and after a brief moment, they all begin leaving the spaceport almost abruptly. After only a few moments they're gone, and the uneasy atmosphere they brought to the facility dissipates, with the other Gegno going about their business.`
+				decline
+				
+			label "mimic"
+			`	You do your best to mimic the gesture the Scin did, making some sort of oval shape with your hands. The most forward Scin watches you perform the action with what might be intrigue, looking at you with a calculated expression. They suddenly pull out a small device, writing down a few notes on it using two of their fingers. Looking back to you, they tilt their head to the left, and along with the other Scin, abruptly leave the facility. Strangely, more Scin are leaving than you had first counted to begin with - perhaps some were hidden in the crowd amongst other Gegno. For one reason or another, the Scin seemed pretty interested in their interaction with you.`
+				accept
+
 
 			label "images response"
 			choice
-			`	(Try to ask what they're saying.)`
-			`	(Point at the image.)`
-			`	(Mimic the Scin.)`
+			`	(Reach out to the binary stars.)`
+			`	(Reach out to the red star.)`
+				goto "red star"
+			`	(Reach out to the yellow star.)`
+				goto "yellow star"
 			`	(Leave.)`
 				goto "leave"			
 
-			label "provocative"				
+			`	You reach out to the image representing the binary stars, and as you do, the Scin that had spoke tilts their head to the left while their upper body bounces a little bit in a paced manner. Almost abruptly, the group of Scin then begin leaving the spaceport without further interaction. As they do, you notice that there are quite a few more leaving that the ones that had addressed you - the others might have been in the background with other Gegno, or maybe you miscounted to begin with. Still, they seemed pretty interested with you for some reason or another.`
+				accept
+			
+			label "red star"
+				set "scin: meeting iugil alt"
+			`	After reaching out to the red star, all three Scin begin talking with one another for some time. You aren't sure what they're saying, but whatever it is they seem pretty interested in discussing it. A few more moments go by until the Scin that had addressed you cranes their head to the left while looking at you. Right after they turn towards the other Scin again, all of them begin leaving the spaceport abruptly. The uneasy atmosphere the Scin brought to the facility dissipates quickly, and everything returns to normal with the other Gegno going about their business.`
+				decline
+			
+			label "yellow star"
+			`	The Scin that had spoken out to you gives you a strange look as you point to the yellow star. As they do, the other two Scin simply look at each other in silence, then back to the third, who now has their palm placed against one of their cheeks. They seem to be pondering something, but it's not long before they signal the others to leave the spaceport. They leave quickly, although strangely, there are more than three Scin leaving by the time they make it to the other side of the facility. You aren't sure where the others came from - maybe they were hidden in the crowd amongst the other Gegno.`
+			`	Although they left abruptly, the Scin at least showed some interested in you. Whatever the reason is, though, is anyone's guess.`
+				decline
 
 
+# For if the player pulled their gun out.
+			label "provocative"
+
+
+# Leaves and lets Yvx get a second chance.
+			label "leave"
+
+
+# To do: Add a branch for negative reputation.
+
+
+	on enter "Mohuwo"
+		dialog `.`
+
+	npc assist
+		on provoke
+			
+		government "Gegno Scin (Neutral)"
+		personality derelict staying
+		system "Mohuwo"
+		ship "Epidote" ""
+		
+	npc
+		on provoke
+			
+		government "Gegno Scin (Neutral)"
+		personality staying
+		system "Mohuwo"
+		fleet
+			names "scin"
+			variant
+				"Halite" 2
+				
+	on complete
+		conversation
+			`.`
 
 
 
@@ -724,38 +789,35 @@ mission "Meeting Iugil B"
 
 	on offer
 		conversation
-			`Normally when you enter the spaceport, the amount of interactions you're involved in are minimal, most of which are exchangements with faculty or job work. This time around, you are greeted by the gazes of three Gegno, clearly looking in your direction. Not only that, but the dark green hues of intricate armor and predominantly leaner builds denote Gegno of the Scin faction, members of which you've never seen here on the station before. Even some of the non-aligned Gegno glance over to them warily.`
+			`Test.`
+				accept
+				
+	on enter "Iinjma"
+		conversation
+			`.`
 
-			`As soon as you return their gaze, they immediately stride towards you. Once they've approached you, one of them steps forward and makes a gesture with their hands, placing only the digits of their fingers and the bottom of their palms together in an egg-like shape. They then move their arms to their left in a manner similar to the first time you met the robed Scin on an unhabited world. Out loud, one of the Scin speaks, "Sceinn treiscye imm oein?"`
-				to display
-					or
-						has "scin: gestures"
-						not "scin: imagery"
-				goto "gestures response"
+	npc assist
+		on provoke
 			
-			`As soon as you return their gaze, they immediately stride towards you. Once they've approached you, one of them steps forward and pulls out large rolled-up sheet of sorts. When they unravel it, it snaps, almost mechanically, into a full poster with several illustrations and graphics on it. One of the images is a grid-like representation of the local systems, while another is a depiction of one of the Scin's larger ships. Out loud, one of the Scin speaks, "Sceinn treiscye imm oein?"`
-				to display
-					has "scin: images"
-				goto "images response"
+		government "Gegno Scin (Neutral)"
+		personality derelict staying
+		system "Mohuwo"
+		ship "Epidote" ""
+		
+	npc
+		on provoke
+			
+		government "Gegno Scin (Neutral)"
+		personality staying
+		system "Mohuwo"
+		fleet
+			names "scin"
+			variant
+				"Halite" 2
 
-			label "gestures response"
-			choice
-			`	(Gesture to the left.)`
-			`	(Gesture to the right.)`
-				goto "leave"
-			`	(Mimic the Scin.)`
-			`	(Leave.)`
-				goto "leave"
+	on complete
+		conversation
 
-			label "images response"
-			choice
-			`	(Try to ask what they're saying.)`
-			`	(Point at the image.)`
-			`	(Mimic the Scin.)`
-			`	(Leave.)`
-				goto "leave"			
-
-			label "provocative"			
 
 
 
