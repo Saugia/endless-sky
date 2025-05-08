@@ -583,52 +583,55 @@ mission "Meeting Yvx"
 		conversation
 			branch deferred
 				has "Meeting Yvx: deferred"
-			`As you are wandering the spaceport, you notice a large Gegno leaning against a wall across the room. They are clearly a warrior of the Vi, based on the style of their armor. On their back is the spear-like weapon you've seen before, along with assortive baggages for supplies. Neither of the Gegno factions ever seem to visit the station, so they stand out quite a bit amongst the rest of the Gegno, and it seems others are actively avoiding them. Or perhaps that's normal behavior, since Gegno are all about what their current focus us.`
-			`	Some time passes by, however they continue to be left alone in the corner. It could be that they're waiting for someone, though it doesn't seem like anyone will be approaching them soon.`
+			`As you are wandering the spaceport, you notice a large Gegno leaning against a wall across the room. They are clearly a warrior of the Vi, based on the style of their armor. Strapped to their back is a spear-like weapon you've seen before, along with assortive baggages of supplies. Neither of the Gegno factions ever seem to visit the station, so they stand out quite a bit amongst the rest of the Gegno, who are actively avoiding them. Or perhaps that's normal behavior for Gegno, or some form of courtesy amongst them.`
+			`	Time passes by as they continue to be left alone in the corner. It could be that they're waiting for someone, though it doesn't seem like anyone will be approaching them anytime soon.`
 			choice 
-			`	(Approach them and see if you can help.)`
+			`	(Approach them.)`
 				goto approach
 			`	(Leave them be).`
-			`You decide to let the Gegno be. Whoever or whatever they're waiting for could be important, or maybe there's something you still don't understand about Gegno culture. As they aren't reaching out to other Gegno for anything, it also could be that they're simply just passing time.`
+			`You decide to leave the Gegno be. Whoever or whatever they're waiting for could be important, or maybe there's something you still don't understand about Gegno culture. As they aren't actively reaching out to the other Gegno for anything, it could simply be that they're passing the time.`
 				defer
 
-
-# To do: Update with more detail since you interacted with the Scin before this.
 			label deferred
-			`While you're in the spaceport, you notice that same Gegno Vi warrior from the other day is still here, alone in a corner leaning against the wall. Either they are very patient with whoever or whatever they're here for. The other Gegno in the spaceport continue to walk past them as if it's none of their business, though occasionally a few of them briefly glance in the direction of the Vi.`
+			`While you're in the spaceport, you notice the same Gegno Vi warrior from the other day is here once more, or perhaps was here all along. Theye must be very patient with whoever or whatever they're here for, as the rest of the Gegno in the spaceport continue to walk past them as if it's none of their business. Occasionally, a few of the others briefly glance in the direction of the Vi, but nothing more.`
+			
+			label choice
 			choice
 			`	(Try asking another Gegno about the Vi.)`
+				to display
+					not "meeting yvx: asked"
 			`	(See if you can assist the Vi somehow.)`
 				goto approach
 			`	(Continue on your way.)`
 				decline
-			
-			label ask
-			`	It takes you a few minutes to get the attention of another Gegno in the port as most are either too busy to acknowledge you or simply aren't interested in talking. One of them finally walks over to you, slightly disgruntled, and you try to turn their attenion towards the Vi warrior. The Gegno looks over to them, then back to you, then looks down and stands in silence for a moment in thought. After looking back up to you once more, they simply shake their head and leave you.`
+
+			action
+				set "meeting yvx: asked"
+			`	It takes you a few minutes to get the attention of another Gegno as most are either too busy to acknowledge you or simply aren't interested in talking. One of them finally walks over to you, slightly disgruntled, and you direct their attenion towards the Vi warrior. The Gegno looks over to them, then back to you, then looks down and stands in silence for a moment in thought. After looking back up to you once more, they simply shake their head and leave you.`
+				goto choice
 			`	
 			label approach
-			`	You walk over to the Vi, and as you do, they raise to their full height and turn to your direction. Now standing before them, you see just how tall and bulky they are as they look down to you. Several markings adorn their body, with several appearing scar-like, especially beneath their eyes. Their response to your approach suggests that it is you they have business with, and a silence ensues as they continue to glare.`
-			`	The Vi begins muttering something under their breath, then addresses you fully, slightly leaning down to speak to you. "Jueypie Tobb," they say, reaching into a section of their armor and pulling out a tablet, an act you've witnessed many times now. On the device is a planet marked on a local map - seemingly a request for transport. However, the planet they wish to be taken to is the one you had your very first encounter with the Gegno on - the desert world crawling with those large serpentine-like creatures.`
+			`	You walk over to the Vi, and as you do, they raise to their full height and turn to your direction. Now standing before them, you see just how tall and bulky they are as they look down to you. Several markings adorn their body, with several appearing scar-like, especially beneath their eyes. Their response to your approach suggests that it is you they have business with, and a silence ensues as they continue their glare.`
+			`	The Vi begins muttering something under their breath, then addresses you fully, slightly leaning down to speak to you. "Jueypie Tobb," they say, reaching into a section of their armor and pulling out a tablet, an act you've been witness to many times on this station. On the device is a planet marked on a local map - seemingly a request for transport. Curiously, the planet they wish to be taken to is the one you had your very first encounter with the Gegno on - the desert world crawling with those large serpentine-like creatures.`
 			choice
 			`	(Accept the job.)`
-				goto accept
 			`	(Decline the job.)`
-			`	Considering what happened on <destination> previously, you're a bit unsure what a return trip there would entail. Being alone for what would be a second time with a Vi warrior on a world full of deadly creatures might not be ideal, on top of what repercussions could come of it that might involve the Gegno as a whole again. You do your best to communicate to the Vi that you're not interesterd in the job.`
-			`	They seem disappointed by your choice, and although that reaction isn't something you're new to, the level of it is more exaggerated than what you've witnessed before. With a deep snort, the Vi leaves you, their hulking form slowly marching away from you. In contrast to how out of place they seemed earlier, they begin a conversation with another Gegno rather quickly. Before they leave your view, they give you one last look from afar, and you're once more alone in the spaceport.`
-				decline
-				
-			label accept
-			`	You do your best to communicate to the Vi you are willing to accept the job. After a pause, they abruptly shove the tablet into your possession and immediately start to march towards to the docking bay your ship is parked at. On their way off, they loudly speak the words, "Dueou Arduou," with you only being able to guess what that means. The more you interact with the Vi, the more it feels like all of them are this brazen.`
+				goto "decline"
+
+			`	You do your best to communicate to the Vi you are willing to accept the job. After a pause, they abruptly shove the tablet into your possession and immediately start to march towards to the docking bay your ship is parked in. On their way off, they loudly speak the words, "Dueou Arduou," with you only being able to guess what that means, leaving you to wonder if all Vi are this brazen.`
 				accept
 
-# To do: Add a branch for negative reputation.
+			label "decline"
+			`	Being alone for what would be a second time with a Vi warrior on a world full of deadly creatures might not be ideal, on top of what repercussions could come of it that might involve the Gegno as a whole again. You do your best to communicate to the Vi that you're not interesterd in the job.`
+			`	With a deep snort, the Vi leaves you, their hulking form slowly marching away from you. In contrast to how out of place they seemed earlier, they begin a conversation with another Gegno rather quickly. Before they leave your view, they give you one last look from afar, and you're once more alone in the spaceport.`
+				decline
 
 	on defer
 		set "meeting yvx: deferred"
 	on complete
 		conversation
-			`During your trip, the Gegno Vi didn't stalk directly behind you like the first one you met. However, there were several times where you could hear shuffling or supplies being thrown around in the back, but every time you checked, the Gegno was either standing or sitting in stillness. Occasionally, they shouted or grunted loudly in their own language to themselves, sometimes pounding on a nearby object, but returned to silence when in your presence. At the very least, nothing in the ship seems damaged, but you swear you notice a few new dents on the infrastructure.`
-			`	<destination> is just as it was before - a giant desert world with mountain-high dunes, storms of sand and valleys of nothingness. At least, when you first visited, it appeared that way, but you now know that below that nothingness are uncounted numbers of large, deadly creatures. That doesn't seem to deter the Vi though, as they seem eager to head out into the dangerous deserts with nothing but their few supplies, the spear, and the skin on their back. They hadn't communicated anything about a return journey, or an expectation for you to wait for them. It seems this is where you part ways.`
+			`During your trip, the Gegno Vi didn't stalk directly behind you like the first one you've met. There were several times where you could hear shuffling, or supplies being thrown around in the back, but the Gegno was either standing or sitting in stillness whenever you saw them. It sounded like they occasionally shouted or grunted loudly in their own language to themselves, sometimes pounding on a nearby object, but in your presence they remained silent. At the very least, nothing in the ship seems damaged, but you feel as though there are a few new dents on the infrastructure.`
+			`	<destination> is just as it was before - a giant desert world with mountain-high dunes, storms of sand, and valleys of nothingness. At least, when you first visited, it appeared that way, but you now know that below that nothingness are uncounted numbers of large, deadly creatures. That doesn't seem to deter the Vi though, as they seem eager to head into the dangerous deserts with nothing but their few supplies, the spear, and the skin on their back. They hadn't communicated anything about a return journey, or an expectation for you to wait for them, and are quick to leave your ship. It seems this is where you part ways.`
 
 
 mission "Yvx Leaves"
@@ -674,22 +677,22 @@ mission "Meeting Iugil A"
 
 	on offer
 		conversation
-			`Normally when you enter the spaceport the amount of interaction between you and the Gegno is minimal, most cases being exchangements with faculty or job work. This time around, you are greeted by the gazes of three Gegno, clearly looking in your direction. Not only that, but the dark green hues of intricate armor and predominantly leaner builds denote Gegno of the Scin faction, members of which you've never seen here on the station before. Even some of the non-aligned Gegno glance over to them warily.`
+			`Normally, the Gegno seldom interact with you in the spaceport outside of facilities. This time around, you are greeted by the gazes of not one but three Gegno, clearly looking in your direction. The dark green hues of intricate armor and predominantly leaner builds denote the Gegno as of the Scin faction, members of which you've never seen here on the station. Even some of the other Gegno glance over to them warily.`
 
-			`As soon as you return their gaze, they immediately stride towards you. Once they've approached you, one of them steps forward and makes a gesture with their hands, placing only the digits of their fingers and the bottom of their palms together in an egg-like shape. They then move their arms to their left, in a manner similar to the first time you met the robed Scin on an unhabited world. Out loud, one of the Scin speaks "Sceinn treiscye imm oein," and pauses as if waiting for a response.`
+			`	As soon as you return their gaze, the three immediately stride towards you. One of them steps forward and makes a gesture with their hands, placing only the digits of their fingers and the bottom of their palms together in an egg-like shape. They then move their arms to their left, in a manner similar to the time you met a robed Scin on an unhabited world. Out loud, one of them speaks, "Sceinn treiscye imm oein," and pauses as if waiting for a response.`
 				to display
 					or
 						has "scin: gestures"
 						not "scin: imagery"
 				goto "gestures response"
 			
-			`As soon as you return their gaze, they immediately stride towards you. Once they've approached you, one of them steps forward and pulls out large rolled-up sheet of sorts. When they unravel it, it snaps, almost mechanically, into a full poster with several graphics of stars on it, neatly separated into sections. One of them is a binary star system with two white stars paired together, one slightly tinted blue. Another image is of a large red star, paired with a cloudy planet. The third and last image is of a a smaller yellowish-red star by itself.`
+			`	As soon as you return their gaze, the three immediately stride towards you. One of them steps forward and pulls out a large rolled-up sheet of sorts that snaps together when unravelled, almost mechanically, presenting a full poster with several graphics of stars on it. The first graphic is of a binary star system with two white stars paired together, one slightly tinted blue. Another image is of a large red star, paired with a cloudy planet. The third and last image is of a a smaller yellowish-red star by itself.`
 			`	Out loud, one of the Scin speaks, "Sceinn treiscye imm oein," and the one holding the star graphics moves the sheet slightly closer to you, as if waiting for a response.`
 				to display
 					has "scin: images"
 				goto "images response"
 				
-			`As soon as you return their gaze, one of quickly raises a pistol-like weapon. Before you can react in time, they immediately fire a round of plasma at you, although instead of striking you, it hits the floor just before your feet with a harsh sizzling sound filling the silence after. The spaceport goes deadly silent, and you notice that all the Gegno around have stopped whatever they were doing and are looking towards you and the Scin.`
+			`	As soon as you return their gaze, one of them quickly raises a pistol-like weapon. Before you can react in time, they immediately fire a round of plasma at you, although instead of striking you, it hits the floor just before your feet with a harsh sizzling sound filling the silence after. The spaceport goes deadly silent, and you notice that all the Gegno around have stopped whatever they were doing and are looking towards you and the Scin.`
 				to display
 					has "scin: provocative"
 				goto "provocative response"
@@ -736,40 +739,37 @@ mission "Meeting Iugil A"
 				set "scin: meeting iugil alt"
 			`	After reaching out to the red star, all three Scin begin talking with one another for some time. You aren't sure what they're saying, but whatever it is they seem pretty interested in discussing it. A few more moments go by until the Scin that had addressed you cranes their head to the left while looking at you. Right after they turn towards the other Scin again, all of them begin leaving the spaceport abruptly. The uneasy atmosphere the Scin brought to the facility dissipates quickly, and everything returns to normal with the other Gegno going about their business.`
 				decline
-			
+
 			label "yellow star"
 			`	The Scin that had spoken out to you gives you a strange look as you point to the yellow star. As they do, the other two Scin simply look at each other in silence, then back to the third, who now has their palm placed against one of their cheeks. They seem to be pondering something, but it's not long before they signal the others to leave the spaceport. They leave quickly, although strangely, there are more than three Scin leaving by the time they make it to the other side of the facility. You aren't sure where the others came from - maybe they were hidden in the crowd amongst the other Gegno.`
 			`	Although they left abruptly, the Scin at least showed some interested in you. Whatever the reason is, though, you're not sure.`
 				decline
 
-
-# For if the player pulled their gun out (meaning they triggered combative Scin; if they killed them, their rep with regular scin still isn't negative unless they killed regular scin)
 			label "provocative response"
 			choice
 			`	(Unholster my pistol and fire back.)`
-			`	(Raise my hands.)`
+				goto "attack"
 			`	(Stay calm and wait.)`
 
-			`	Without making any sudden movements, you stay still and wait to see what happens next. The Scin, on the other hand, are staring intently at you, judging your choice against further action as they lower their pistol slightly. For a moment everything appears to be calm until they fire once more at the floor, this time closer to them. Before they can fire another shot, a loud bellowing comes from the side of the room, and a group of Gegno who are not Scin march up angrily, gesturing towards the one who fired the gun. The upset Gegno begin shouting and grunting in their own language, and one of the other Scin approaches them, attempting to appease them.`
-			`	In what might be ignorance, the Scin with the pistol then continues to fire at the floor between you and them. The shots seem random at first, but with each new scar on the metallic surface you realize they're drawing some sort of pattern. Once they finish, they fire to your feet once more, causing you to jump a little bit. On the flooring in front of you is a decently-made drawing of a planet, though you have no idea which one it is. The fact that the Scin started shooting near you without hesitation, and several times at that, might be more concerning.`
+			`	You stay still and wait to see what happens next. For a moment everything appears to be calm, until they fire once more at the floor, this time closer to where they stand. Before they can fire another shot, a loud bellowing comes from the side of the room, and a group of Gegno who are not Scin march up angrily, shouting and grunting in their own language.`
+			`	In what might be ignorance, the Scin continues to fire at the floor between you and them. The shots seem random at first, but with each new scar on the surface you realize they're drawing some sort of pattern, until they make what looks like a planet. Once more, they fire in your direction, barely hitting the spot in front of your feet, and seemingly wait for some sort of response.`
 			choice
-			`	(Do nothing.)`
-			`	(Fire your pistol at the drawing.)`
-				goto drawing
+			`	(Try to leave the area immediately.)`
+				goto leave
+			`	(Fire at the drawing.)`
 			`	(Fire at the Scin.)`
-				goto murder
-			
-			`	Once more you choose not to act on the situation. You recall that when you first met with the Scin, you had reached for your own pistol, to which they responded with several assassin-like guards almost serving your head on a platter, so who knows what the Scin were thinking about when they approached you today. While the few Gegno continue arging with each other in the background, the Scin that had approached you looks at you for several moments in deep thought. After, they gesture towards the others with their left arm, which silences them, and the group of them almost abruptly begin to leave the spaceport.`
-			`	The other Gegno in the spaceport slowly begin to move their attention back to their work. While their combined attention wasn't something you see every day, even in this case they seemed disinterested in the situation, or at least felt no agency for it. Only the few who had approached, likely administrators of sorts, seemed to care about the situation being resolved.`
-			`	As the Scin exit, you notice there are more of them than you had initially interacted with. You aren't sure where they came from, but it's clear the Scin plan their encounters carefully. They were at least interested to meet you a second time, regardless of if it was aggressive or not.`
-				decline
+				goto attack
 
 			label "drawing"
-			`	In an attempt to mimic the Scin, you fire your pistol at the drawing on the ground. In response, the Scin appears excited, or intrigued in some manner. 
+			`	In an attempt to mimic the Scin, you fire your pistol at the drawing on the ground. In response, the Scin appears excited, or intrigued in some manner. Almost as suddenly as they showed up, they begin to leave the spaceport, but not before arguing with the other Gegno that have approached. Aside from them, the rest of those in the spaceport are much less taken aback by everything, still almost unbothered.`
+			`	You notice that there are more than a few Scin leaving the spaceport, or at least, more than you had first met. Others must have been hidden amongst the crowd. Whatever that may mean, it's clear that the Scin were interested in you for some reason.`
+				decline
 
-			label "murder"
-
-
+			label "attack"
+			`	You pull out your pistol as fast as you can and fire back at them before anything else could happen, hitting them directly in the chest. They stumble backward on the ground, and the entire spaceport once again goes silent.`
+			`	Several other Scin wielding blade weapons jump out from out the crowd and surround you, though they hold their ground while the others are in thought. Other Gegno in the spaceport step a bit back, looking onward in uncertainty. Those arguing with the Scin become even more upset, one of them gesturing to you and shouting in your direction as well.`
+			`	After some sort of debate, the Scin lift their their fallen member and eventually leave the spaceport with them. Surprisingly, the rest of the Gegno go back to their business, with the most you get being occasional glares, despite the life or death situation.`
+				decline
 
 # Leaves and lets Yvx get a second chance.
 			label "leave"
