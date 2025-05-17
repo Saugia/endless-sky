@@ -156,13 +156,13 @@ ship "Wardragon"
 			"hull damage" 500
 			"hit force" 1500
 	outfits
-		"Quarg Skylance" 2
-		"Quarg Anti-Missile" 2
+		"Skylance" 2
+		"Stratospear" 2
 		
 		"Antimatter Core"
-		"Nanotech Battery"
-		"Quantum Shield Generator"
-		"Intrusion Countermeasures" 160
+		"Qunatum Vacuum Battery"
+		"Aegis Shield Generator"
+		"Phalanx System" 160
 		"Cargo Scanner"
 		"Outfit Scanner"
 		"Wanderer Ramscoop"
@@ -173,10 +173,10 @@ ship "Wardragon"
 		
 	engine -14 47
 	engine 14 47
-	turret -9 -14 "Quarg Anti-Missile"
-	turret 9 -14 "Quarg Anti-Missile"
-	turret -28 7 "Quarg Skylance"
-	turret 28 7 "Quarg Skylance"
+	turret -9 -14 "Stratospear"
+	turret 9 -14 "Stratospear"
+	turret -28 7 "Skylance"
+	turret 28 7 "Skylance"
 	explode "tiny explosion" 12
 	explode "small explosion" 16
 	explode "medium explosion" 30
