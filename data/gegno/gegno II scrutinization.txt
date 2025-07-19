@@ -30,7 +30,7 @@ mission "Gegno Asteroid Mining II"
 
 
 # An earlier derelict mission with no resolution that sets up some background lore for later, meant as a "stumble upon" mission for players who catch it.
-mission "Unexpected Drifters"
+mission "Gegno: Unexpected Drifters"
 	invisible
 	landing
 	source
@@ -42,7 +42,7 @@ mission "Unexpected Drifters"
 		never
 	to fail
 		or
-			has "Unexpected Drifters Report: declined"
+			has "Gegno: Unexpected Drifters Report: declined"
 			has "Gegno Asteroid Mining III: offered"
 	on enter "Cotpoxi"
 		conversation
@@ -71,7 +71,7 @@ ship "Dolomite" "Dolomite (Damaged)"
 
 		"Hyperdrive"
 
-mission "Unexpected Drifters Report"
+mission "Gegno: Unexpected Drifters Report"
 	invisible
 	landing
 	source "Tschyss"
@@ -96,14 +96,14 @@ mission "Unexpected Drifters Report"
 					has "gegno: derelict boarded"
 				decline
 
-mission "Unexpected Drifters Disappear"
+mission "Gegno: Unexpected Drifters Disappear"
 	invisible
 	landing
 	source
 		near "Heutesl" 100
 	to offer
 		has "gegno: derelict spotted"
-		has "Unexpected Drifters: failed"
+		has "Gegno: Unexpected Drifters: failed"
 		not "gegno: unexpected drifters killed"
 		not "Gegno Genocide Defense: offered"
 	to complete
@@ -113,7 +113,7 @@ mission "Unexpected Drifters Disappear"
 		dialog `The stranded Gegno civilian ship you encountered in this system before is nowhere to be found. Hopefully its crew were able to repair the power systems in time, or other Gegno found them and helped them back home safely.`
 
 
-mission "Repair Humor"
+mission "Gegno: Repair Humor"
 	landing
 	source "Tschyss"
 	to offer
@@ -147,10 +147,10 @@ mission "Repair Humor"
 			`	A few more monments go by of the Gegno talking to one another, after which they then pick up their supplies and go to work on the yet-to-be-built parts of the station, leaving you behind without so much as a glance. At the very least, they humored you for a little bit, or perhaps it was that you were humorous to them.`
 				decline
 	on decline
-		event "gegno: zydee war escalates"
+		 "gegno: zydee war escalates"
 
 
-mission "Unloading Troubles"
+mission "Gegno: Unloading Troubles"
 	source "Tschyss"
 	to offer
 		"gegno: mining jobs" > 10
@@ -199,7 +199,7 @@ mission "Gegno Asteroid Mining III"
 				decline
 
 
-mission "A Major Miner Incident"
+mission "Gegno: A Major Miner Incident"
 	landing
 	source "Tschyss"
 	description `After inquiring the Gegno on how you can help with the Tchyss incident, you have been instructed to go to <destination>.`
@@ -305,11 +305,11 @@ mission "A Major Miner Incident"
 				goto save
 
 			label rescue
-			action
-				set "gegno: tschyss rescue"
 			`	Amongst the debris you try and look for a way to free the body. Some smaller scrap metals are easy to push aside, however, the larger parts are much more difficult to budge. After a few good tugs and jerks, you manage to move away something akin to a large grated frame, but the large spars still remaining deeply impale the wall. There's no way you can move them on your own. Though it's a futile effort, you try all that you can to find a way to move one of them at least a bit, until you realize that the Gegno have noticed your efforts. Notably, the maintenance lead has returned, and is speeding over to your location with their propulsion gear.`
 
 			label save
+			action
+				set "gegno: tschyss rescue"
 			`	The lead Gegno floats up to you, giving you a deep stare for a quick moment from behind their visor. They move closer to the gap in the station, forcing you to move a bit out of their way, as they shine lights onto the body within, revealing the Gegno fully. Signaling their crew, others come over and begin using their machines to move parts away until the lead is able to get to the body.`
 			choice
 				`	(Offer to assist them.)`
@@ -418,7 +418,7 @@ mission "A Major Miner Incident"
 						has "gegno: derelict boarded"
 
 
-mission "Miner Incident - Transport"
+mission "Gegno Miner Incident - Transport"
 	landing
 	description `Transport 15 Gegno workers back to <destination> that will aid in relief efforts following the incident.`
 	passengers 15
@@ -426,7 +426,7 @@ mission "Miner Incident - Transport"
 	destination "Tschyss"
 	to offer
 		has "gegno: transport redirect"
-		has "A Major Miner Incident: done"
+		has "Gegno: A Major Miner Incident: done"
 		not "Gegno Genocide Defense: offered"
 	on offer
 		conversation
@@ -455,7 +455,7 @@ mission "Miner Incident - Transport"
 			`	At the very least, the Gegno seem to have acknowledged your role in everything.`
 
 
-mission "Miner Incident - Hauling"
+mission "Gegno Miner Incident - Hauling"
 	landing
 	description `Transport 20 tons of industrial equipment back to <destination> for use in relief efforts following the incident.`
 	cargo "industrial equipment" 20
@@ -463,7 +463,7 @@ mission "Miner Incident - Hauling"
 	destination "Tschyss"
 	to offer
 		has "gegno: hauling redirect"
-		has "A Major Miner Incident: done"
+		has "Gegno: A Major Miner Incident: done"
 		not "Gegno Genocide Defense: offered"
 	on offer
 		conversation
@@ -487,7 +487,7 @@ mission "Miner Incident - Hauling"
 		payment 150000
 		conversation
 			`A team of Gegno are already awaiting your arrival as you dock, quickly unloading the supplies. Other Gegno see to it that the supplies are routed down the various corridors to get to repairs almost immediately, which is a dedication you haven't previously experienced here on the station. A moment later, you see the hauling lead heading in your direction. They pull out their familiar tablet device, and after some fiddling with it, you soon find a sum of <payment> has been attributed to your account.`
-			`	Rather than directly head over to help the others, they give you a lighter punch on the back, and after a quick glance, begin their way down the halls. Unfortunately, any desire of yours to follow them or go to the more busy areas is denied, but it's clear there's more work being done for the station than before.`		
+			`	Rather than directly head over to help the others, they give you a lighter punch on the back, and after a quick glance, begin their way down the halls. Unfortunately, any desire of yours to follow them or go to the more busy areas is denied, but it's clear that the Gegno are attentitive to the situation.`		
 
 
 mission "Under the Nose II"
@@ -529,7 +529,7 @@ mission "Tschyss Recovery Jobs"
 				decline
 
 
-mission "Welcome on Ef Aourtdye"
+mission "Gegno: Ef Aourtdye"
 	landing
 	invisible
 	source "Ef Aourtdye"
@@ -541,70 +541,190 @@ mission "Welcome on Ef Aourtdye"
 			branch "first visit"
 				has "gegno: miner incident bay help"
 
-			`It seems you're now welcome on this world as you don't have to get express permission to land anymore, only having to go through a typical landing routine. However, rather than be lead toward a location in the deserts, you are directed to a decently-sized landing port engraved into one of the world's mountainous rock formations.`
+			`For some reason, you are no longer required to get express permission to land on this planet anymore, only having to go through a typical docking routine. However, rather than be lead toward a location in the deserts, you are directed to a mid-sized port facility engraved into one of the world's mountainous rock formations.`
 			`	You'll still have to figure out your own way around things considering the language barrier, but based on your recent experniences, the Gegno generally understand the language of hard work.`
 				decline
 			
 			label "first visit"
-			`This large desert world is home to seas of sand that extend for hundreds of thousands of miles. While it initially seems to lack an established civilization, some areas in the deserts are sprinkled with manufacturng plants or spires. The Gegno that cleared your landing direct you instead to a decently-sized landing port engraved into one of the world's mountainous rock formations. As you dock in the port, you notice that the same type of jobs on the station are handed out here as well, although the Gegno here seem far more motivated, or perhaps more serious, when it comes to applying for them. On top of that, they seldomly give you attention, far more focused on whatever work they're occupied by.`
+			`This large desert world is home to seas of sand that extend for hundreds of thousands of miles. While it initially seems to lack an established civilization, some areas in the deserts are sprinkled with manufacturng plants or spires. The Gegno direct you to a decently-sized landing port engraved into one of the world's mountainous rock formations. As you dock in the port, you find that the same type of jobs on the station are handed out here as well, although the Gegno here seem far more motivated, or perhaps more serious, when it comes to applying for them. They seldomly give you attention, far more focused on whatever work they're occupied by.`
 			`	Based on your experiences up until now, the Gegno generally understand the language of hard work, which could be why they've given you permission to land here. Despite the language barrier. they understand the value of your labor.`
 				decline
+	on decline
+		event "gegno: tschyss repairing" 14
+		event "gegno: tschyss recovery" 28
+
+
+mission "Tschyss Repairs Continue"
+	landing
+	invisible
+	source "gegno" "mining"
+	to offer
+		has "Tschyss Recovery Jobs: offered"
+		has "event: gegno: tschyss repairing"
+		not "event: gegno: tschyss recovery"
+	on offer
+		conversation
+			`It has been a few weeks since the Gegno started repairs to the station, and in that time it has transformed from a desolate, nearly-abandoned project to a `
+			decline
+
+# Mining ship's captain thanks for "helping" them
+
+mission "Gegno: A Miner's Favor"
+	landing
+	source "Tschyss"
+	to offer
+		random 0 + "gegno: mining jobs" + "gegno: recovery jobs"
+		has "gegno: tschyss rescue"
+		has "Gegno: Ef Aourtdye: offered"
+	on offer
+		conversation
+			`.`
+			decline
+
+# Suspicion if you boarded the mining ship
+
+mission "Gegno: Peering Eyes"
+	landing
+	source "Tschyss"
+	to offer
+		random 0 + "gegno: mining jobs" + "gegno: recovery jobs"
+		has "gegno: crashed gypsum boarded"
+		has "Gegno: Ef Aourtdye: offered"
+	on offer
+		conversation
+			`.`
+			decline
+
+# Job to get the player's toes to test the pond of other territory (based on rep with vi or scin, if rep is even, give player a choice, if both negative, it's just a decline)
+
+mission "Gegno: Passed Effort (Vi)"
+	name ""
+	description ""
+	landing
+	source "gegno" "mining"
+	to offer
+		has "Gegno: Ef Aourtdye: offered"
+		"reputation: Gegno Vi" >= 0
+		or
+			random 5 * "gegno: recovery jobs"
+			has "event: gegno: tschyss recovery"
+	on offer
+		conversation
+			`.`
+			choice
+			`	(Accept.)`
+				goto accept
+			`	(Decline.)`
+		
+		`	Declined.`
+			decline
+		
+		label accept
+		`	 Accepted.`
+			accept
+	
+	on complete
+		`	Completed.`
+
+
+mission "Gegno: Passed Effort (Scin)"
+	name ""
+	description ""
+	landing
+	source "gegno" "mining"
+	to offer
+		"reputation: Gegno Scin" >= 0
+		has "Gegno: Ef Aourtdye: offered"
+		or
+			random 5 * "gegno: recovery jobs"
+			has "event: gegno: tschyss recovery"
+	on offer
+		conversation
+			`.`
+			choice
+			`	(Accept.)`
+				goto accept
+			`	(Decline.)`
+		
+		`	Declined.`
+			decline
+		
+		label accept
+		`	 Accepted.`
+			accept
+	
+	on complete
+		`	Completed.`
 
 
 
-# Next two missions are what decide which faction the player interacts with for translation later on, starting with the Vi, which if deferred, goes into the Scin, which if declined (or failed), goes back into the Vi.
+# Do one of which the player didn't do: If did hauling, do transport, and vice versa. Have gegno unhappy but respective lead helps them out
 
-mission "Meeting Yvx"
+# mission "Continued Assistance (Hauling)"
+
+# mission "Continued Assistance (Transport)"
+
+
+
+
+If player did maint, do extended maint on the moon at the shipyard, show off protoliths, gegno unhappy but maint lead respects player
+
+# mission "Continued Assistance (Maintenance)"
+
+
+
+
+# Various Events will still happen in the background, changing Gegno space slightly, due to war.
+
+# mission "Foreign Spectator II"
+
+
+
+
+# Ending missions that judge player's rep and gives them in the end a Marl (but still no license). Marl unlocks jobs to faction planets (must be in Marl to do and complete.)
+
+# mission "Gegno Approbation"
+
+# mission "Gegno Condemnation"
+
+# mission "Renumeration"
+
+
+--------------------------------------------------------------------------------------------------------------
+
+
+# Next two missions are what decide which faction the player interacts with for translation later on.
+
+mission "Gegno: Meeting Yvx"
 	name `Transport job to <destination planet>`
 	description `A lone Gegno Vi showed up on <origin> in search of assistance and has requested that you, not another Gegno, take them to <destination>.`
 	source "Tschyss"
 	to offer
 		"reputation: Gegno Vi" >= 0
+		random 0 + "gegno: mining jobs" + "gegno: recovery jobs"
 		has "Tschyss Recovery Jobs: offered"
-		or	
-			and
-				not "Meeting Iugil: offered"
-				random 0 + "gegno: mining jobs" + "gegno: recovery jobs"
-			or
-				has "Meeting Iugil A: declined"
-				has "Meeting Iugil A: failed"
-				has "Meeting Iugil B: declined"
-				has "Meeting Iugil B: failed"
-		not
-			"scin: meeting iugil alt"
-			or
-				"Meeting Iugil A: accepted"
-				"Meeting Iugil B: accepted"
-		not "provoked military"
+		not "Gegno: Meeting Iugil: accepted"
 		not "Gegno Genocide Defense: offered"
 
 	destination "Var Oti"
 	on offer
 		conversation
-			branch deferred
-				has "Meeting Yvx: deferred"
-			`As you are wandering the spaceport, you notice a large Gegno leaning against a wall across the room. They are clearly a warrior of the Vi, based on the style of their armor. Strapped to their back is a spear-like weapon you've seen before, along with assortive baggages of supplies. Neither of the Gegno factions ever seem to visit the station, so they stand out quite a bit amongst the rest of the Gegno, who are actively avoiding them. Or perhaps that's normal behavior for Gegno, or some form of courtesy amongst them.`
+			`As you are wandering the spaceport, you notice a large Gegno leaning against a wall across the room. They are clearly a warrior of the Vi, based on the style of their armor. Strapped to their back is a spear-like weapon you've seen before, along with assortive baggages of supplies. Neither of the Gegno factions ever seem to visit the station, so they stand out quite a bit amongst the rest of the Gegno, who actively avoid them. Perhaps that's normal behavior for Gegno, or some form of courtesy amongst them.`
 			`	Time passes by as they continue to be left alone in the corner. It could be that they're waiting for someone, though it doesn't seem like anyone will be approaching them anytime soon.`
+
+			label choice
 			choice 
 			`	(Approach them.)`
 				goto approach
-			`	(Leave them be).`
-			`You decide to leave the Gegno be. Whoever or whatever they're waiting for could be important, or maybe there's something you still don't understand about Gegno culture. As they aren't actively reaching out to the other Gegno for anything, it could simply be that they're passing the time.`
-				defer
-
-			label deferred
-			`While you're in the spaceport, you notice the same Gegno Vi warrior from the other day is here once more, or perhaps was here all along. Theye must be very patient with whoever or whatever they're here for, as the rest of the Gegno in the spaceport continue to walk past them as if it's none of their business. Occasionally, a few of the others briefly glance in the direction of the Vi, but nothing more.`
-			
-			label choice
-			choice
 			`	(Try asking another Gegno about the Vi.)`
+				goto ask
 				to display
 					not "meeting yvx: asked"
-			`	(See if you can assist the Vi somehow.)`
-				goto approach
-			`	(Continue on your way.)`
+			`	(Leave them be).`
+			`You decide to leave the Gegno be. Whoever or whatever they're waiting for could be important, or maybe there's something you still don't understand about Gegno culture. As they aren't actively reaching out to the other Gegno for anything, it could simply be that they're passing the time.`
 				decline
 
+			label ask
 			action
 				set "meeting yvx: asked"
 			`	It takes you a few minutes to get the attention of another Gegno as most are either too busy to acknowledge you or simply aren't interested in talking. One of them finally walks over to you, slightly disgruntled, and you direct their attenion towards the Vi warrior. The Gegno looks over to them, then back to you, then looks down and stands in silence for a moment in thought. After looking back up to you once more, they simply shake their head and leave you.`
@@ -626,8 +746,6 @@ mission "Meeting Yvx"
 			`	With a deep snort, the Vi leaves you, their hulking form slowly marching away from you. In contrast to how out of place they seemed earlier, they begin a conversation with another Gegno rather quickly. Before they leave your view, they give you one last look from afar, and you're once more alone in the spaceport.`
 				decline
 
-	on defer
-		set "meeting yvx: deferred"
 	on complete
 		conversation
 			`During your trip, the Gegno Vi didn't stalk directly behind you like the first one you've met. There were several times where you could hear shuffling, or supplies being thrown around in the back, but the Gegno was either standing or sitting in stillness whenever you saw them. It sounded like they occasionally shouted or grunted loudly in their own language to themselves, sometimes pounding on a nearby object, but in your presence they remained silent. At the very least, nothing in the ship seems damaged, but you feel as though there are a few new dents on the infrastructure.`
@@ -657,28 +775,19 @@ mission "Yvx Leaves"
 
 
 
-# Locks in the "calmer" Scin side first, based on observations and exploration (the player kept their distance with the Scin in the intro)
-mission "Meeting Iugil A"
-	name ``
-	description `.`
+mission "Gegno: Meeting Iugil"
+	landing
 	source "Tschyss"
 	to offer
 		"reputation: Gegno Scin" >= 0
+		random 0 + "gegno: mining jobs" + "gegno: recovery jobs"
 		has "Tschyss Recovery Jobs: offered"
-		has "scin: approached epidote"
-		or	
-			and
-				not "Meeting Yvx: offered"
-				random 0 + "gegno: mining jobs" + "gegno: recovery jobs"
-			has "Meeting Yvx: deferred"
-		not "Meeting Iugil B: offered"
-		not "Meeting Yvx: accepted"
+		not "Gegno: Meeting Yvx: accepted"
 		not "Gegno Genocide Defense: offered"
 
 	on offer
 		conversation
-			`Normally, the Gegno seldom interact with you in the spaceport outside of facilities. This time around, you are greeted by the gazes of not one but three Gegno, clearly looking in your direction. The dark green hues of intricate armor and predominantly leaner builds denote the Gegno as of the Scin faction, members of which you've never seen here on the station. Even some of the other Gegno glance over to them warily.`
-
+			`Normally, the Gegno seldom interact with you in the spaceport outside of facilities. This time around, you are greeted by the gazes of not one but three Gegno, clearly looking in your direction. The dark green hues of intricate armor and predominantly leaner builds denote the Gegno as of the Scin faction, members of which you've never seen here on the station. Even some of the other Gegno glance over to them warily.
 			`	As soon as you return their gaze, the three immediately stride towards you. One of them steps forward and makes a gesture with their hands, placing only the digits of their fingers and the bottom of their palms together in an egg-like shape. They then move their arms to their left, in a manner similar to the time you met a robed Scin on an unhabited world. Out loud, one of them speaks, "Sceinn treiscye imm oein," and pauses as if waiting for a response.`
 				to display
 					or
@@ -771,77 +880,6 @@ mission "Meeting Iugil A"
 			`	After some sort of debate, the Scin lift their their fallen member and eventually leave the spaceport with them. Surprisingly, the rest of the Gegno go back to their business, with the most you get being occasional glares, despite the life or death situation.`
 				decline
 
-# Leaves and lets Yvx get a second chance.
 			label "leave"
 			`	No more Scin translation route.`
 				decline
-
-
-# Goes into the "active" Scin side first, based on direct confrontations (the player went with the Scin in the intro)
-mission "Meeting Iugil B"
-	name ``
-	description `.`
-	source "Tschyss"
-	to offer
-		"reputation: Gegno Scin" >= 0
-		has "Tschyss Recovery Jobs: offered"
-		has "scin: entered epidote"
-		or	
-			and
-				not "Meeting Yvx: offered"
-				random 0 + "gegno: mining jobs" + "gegno: recovery jobs"
-			has "Meeting Yvx: deferred"
-		not "Meeting Yvx: accepted"
-		not "Gegno Genocide Defense: offered"
-
-
-
-
-
-# A couple "hostile" missions if the player is hostile with either the scin or vi
-
-# Vi Duel
-
-# Scin Test
-
-
-
-# Job to get the player's toes to test the pond of other territory (based on rep with vi or scin, if rep is even, give player a chance, if both negative, it's just a decline)
-
-# mission "A Passed Effort"
-
-
-
-# Mining ship's captain thanks for "helping" them
-
-# mission "A Miner's Favor"
-
-
-
-# Do one of which the player didn't do: If did hauling, do transport, and vice versa. Have gegno unhappy but respective lead helps them out
-
-# mission "Continued Assistance (Hauling)"
-
-# mission "Continued Assistance (Transport)"
-
-
-
-If player did maint, do extended maint on the moon at the shipyard, show off protoliths, gegno unhappy but maint lead respects player
-
-# mission "Continued Assistance (Maintenance)"
-
-
-
-# mission "Foreign Spectator II"
-
-
-
-
-
-# Ending missions that judge player's rep and gives them in the end a Marl (but still no license). Marl unlocks jobs to faction planets (must be in Marl to do and complete.)
-
-# mission "Gegno Approbation"
-
-# mission "Gegno Condemnation"
-
-# mission "Renumeration"
