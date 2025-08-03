@@ -47,7 +47,7 @@ mission "First Contact: Gegno Vi"
 			`	As you fly onward, an erratic signature on the surface appears on the edge of your radar. A large arch-like structure becomes visible in the distance, but disappears shortly after. You set your ship down close to the location and exit to investigate.`
 				goto skip
 			label search
-			`	As you fly onward, an erratic signature on the surface appears on the edge of your radar. A large arch-like structure becomes visible in the distance, but disappears shortly after. You set your ship down close to the location and exit to investigate, making sure to equip an environment suit and holster your sidearm.`
+			`	You fly onward and an erratic signature on the surface appears on the edge of your radar. A large arch-like structure becomes visible in the distance, but disappears shortly after. You set your ship down close to the location and exit to investigate, making sure to equip an environment suit and holster your sidearm.`
 			label skip
 			`	Much to your surprise, there is a large humanoid figure standing where the signature originated from. Your radar showed something much less defined than a humanoid, but standing in front of you is a large, bulky being cladded in what looks like a form of metallic armor, wielding a spear-like weapon. The figure moves around attentively as if it is focused on its surroundings, but appears to take no interest in your presence. The encounter feels very odd in that there is no immediate interaction or acknowledgment of your existence.`
 			choice
@@ -386,7 +386,9 @@ mission "Giaru Gegno: Quarg Contact"
 			`	"However, it is still quite staggering that the Gegno interacted with an audacious outsider such as yourself." The Quarg pauses again for a moment and takes a longer breath than usual. "Please do be distinctly cautious in encounters with the Gegno. Unfortunately, we cannot advocate virtuous pleasantries between you and them. Only a brief history of them can we tell. Although, you are appreciably welcome at this ring should you find yourself here again."`
 			
 			label end
-			`	The Quarg motions a bow to you, and the first one from earlier escorts you out of the room. It seems associating with these so-called "Gegno" is very unlikely for you, and you will have to deal with their xenophobia for the foreseeable future.`
+			action
+				"gegno: left quarg" = "days since start"
+			`	The Quarg motions a bow to you, and the first one from earlier escorts you out of the room. It seems associating with these so-called "Gegno" would be difficult, and you will have to deal with their xenophobia for the foreseeable future.`
 				decline
 
 
@@ -428,55 +430,49 @@ mission "Giaru Gegno: Revisit"
 			`	"Indeed yes, strange coincidences do curiously happen. Many coincidences are as mere fleeting moments of subtle peculiarity." The Quarg then displays a soft grimace. "Sometimes, one may be grand and powerful, in addition to having potent consequences. The Gegno have learned this a great number of times.`
 			label "trouble"
 			`	"Quite a brave one you indeed are. Most would think to not leap into the daunting face of uncertainty as you have." The Quarg momentarily meditates on its next thought. "Though, as the Gegno have throughout their history, some may make momentous jumps undeterred by any amount of hesitance."`
-			`	The Quarg raises from its seat, and you act in accordance. "Please do be distinctly cautious in your encounters with the Gegno. Always feel gracious to visit here once more, should you mindfully chose to do so." As you are directed out of the room, you turn back to see the Quarg bowing. You can't help but wonder what was on its mind during the conversation, but it might be for the best you are more careful from now on.`
+
+			action
+				"gegno: left quarg" = "days since start"
+			`	The Quarg raises from its seat, and you act in accordance. "Please do be distinctly cautious in your encounters with the Gegno. Always feel gracious to visit here once more, should you mindfully choose to do so." As you are directed out of the room, you turn back to see the Quarg bowing. You can't help but wonder what was on its mind during the conversation, but it might be for the best you are more careful from now on.`
 				decline
 
-
-mission "Suspicious Scin"
+mission "Nosy Scin"
 	invisible
 	landing
 	source "Giaru Gegno"
-	destination "Yiia Iyr"
 	to offer
-		has "Visit Quarg in Gegno Space: offered"
-		not "First Contact: Gegno Scin: offered"
+		or
+			has "Giaru Gegno: Quarg Contact: declined"
+			has "Giaru Gegno: Revisit: declined"
 		not "Gegno Genocide Defense: offered"
-	on enter
-	on enter
-	on enter
-		conversation
-			`As you're traveling through Gegno space, a faint signal starts emanating from somewhere in your ship. You aren't sure what it is, as it doesn't appear to originate from the ship itself, so you decide to take a look. After a few minutes of searching for the culprit, you come across a device not too dissimilar from the one that the Gegno you met on Var Oti had given you, arbitrarily shoved into some corner of your ship's infrastructure. You don't know how or when it got there, but at least it wasn't something more dangerous like an explosive.`
-			`	Once you retrieve the device, you notice that along with the signal it's emitting, there is some sort of map display that has several locations in the region marked in some way or another, along with various scribblings in a language you can't understand. Although it's hard to make sense of what any of it means, one particular planet displayed has several graphics around it, much more extravagant than the rest. Perhaps finding this planet will shed some light on this strange situation.`
-	on enter
-		system
-			near "Pukako" 2
-		dialog
-			`The signal coming from the mysterious device is weak. You must be getting farther away from the location marked on the device.`
-
-	on enter
-		system
-			near "Ptetubo" 2
-		dialog
-			`The signal coming from the mysterious device is weak. You must be getting farther away from the location marked on the device.`
-
-	on enter
-		system
-			near "Ilirco" 1 2
-		dialog
-			`The signal coming from the mysterious device is becoming stronger now. You seem to be getting closer to the location marked on the device.`
-
-	on enter "Ilirco"
-		conversation
-			`Once you enter the system, the mysterious device suddenly makes a loud noise and shuts off. You aren't sure if that means you've found your destination, or if this whole situation was just a ruse. Either way, the only way to find out is to land on the planet and see if anything is there.`
+	to complete
+		never
+	on enter "Aleit"
+		fail
 
 	npc
 		government "Gegno Scin (Neutral)"
 		personality launching mute uninterested
 		system "Aleit"
-		fleet
-			names "gegno scin"
-			variant
-				"Mica"
+		ship "Mica" "Eichpys"
+
+
+mission "Suspicious Scin"
+	name `Strange Device`
+	entering
+	description `A strange Gegno device suddenly appeared on your ship, displaying coordinates to a planet within Gegno space. Visiting the planet might lead to some answers, or perhaps something else.`
+	destination "Yiia Iyr"
+	to offer
+		"days since start" - "gegno: left quarg" > 5
+		has "Giaru Gegno: Quarg Contact: offered"
+		not "First Contact: Gegno Scin: offered"
+		not "Gegno Genocide Defense: offered"
+	on offer
+		conversation
+			`While you are going about your business, a faint signal starts emanating from somewhere in your ship. You aren't sure what it is, as it doesn't appear to originate from the ship itself, so you decide to take a look. After a few minutes of searching for the culprit, you come across a small device not too dissimilar from the one that was given to you by the Gegno you met on Var Oti, arbitrarily shoved into a corner of your ship's infrastructure. You don't know how or when it got there, but it doesn't appear to be dangerous like an explosive.`
+			`	Aside the strange signal it's emitting, the device appears to be doing is pointing to the location of a planet within Gegno space. The only thing left to do, aside from ignore the device, is to visit this planet and see if there are any answers this strange, sudden situation.`
+				accept
+
 	npc
 		government "Gegno Scin (Neutral)"
 		personality staying mute uninterested
@@ -485,6 +481,8 @@ mission "Suspicious Scin"
 			names "gegno scin"
 			variant
 				"Tridymite"
+	on complete
+		clear "gegno: left quarg"
 
 
 mission "First Contact: Gegno Scin"
@@ -497,7 +495,7 @@ mission "First Contact: Gegno Scin"
 		not "Gegno Genocide Defense: offered"
 	on offer
 		conversation
-			`You make your descent to the surface of this world, going through several thick layers of clouds. Once you break though them and prepare to land, you notice what appear to be a few Gegno Scin ships grounded nearby, easily distinguished by their various green color patterns. Two of them look like military vessels you've seen in nearby systems, while a third one between them is a small shuttlecraft. It's almost as if they were expecting you, as before you continue further, one of the warships begins to lift off the ground and head in your direction.`
+			`Lead here by the mysterious device on your ship, you descent to the surface of this world, going through several thick layers of clouds. Once you break though them and prepare to land, you notice what appear to be a few Gegno Scin ships grounded nearby, easily distinguished by their various green color patterns. Two of them look like military vessels you've seen in nearby systems, while a third one between them is a small shuttlecraft. The Scin must be responsible for the device, seemingly expecting you as one of their warships begins to lift off the ground and head in your direction.`
 			choice
 				`	(Leave the planet.)`
 					goto leave
