@@ -65,7 +65,7 @@ mission "First Contact: Gegno Vi"
 			`	Much to your dismay, the shot almost immediately ricochets off of it. You watch as the massive monster tumbles over you, just barely leaping into the air above. The monster plunges into the earth behind you, and you fall to your back with the wind knocked out of you. You raise your sidearm once more. The creature explodes out of the ground with its gaping mouth pointed upward to the sky. With shaking hands, you take aim once again and pull the trigger.`
 			`	A loud, cannon-like bang follows, but it most certainly did not come from your weapon. The beast before you falls downward in a cloud of black smoke, blasting sand and rubble everywhere with a thud. Once you come to your senses, you see the alien marching out of the creature's mouth.`
 			choice
-				`	(Stand up and approach the alien.)`
+				`	(Approach the alien.)`
 				`	(Get up and run to your ship.)`
 			`	Before you can collect yourself, you realize the alien is now much closer to you. Within a matter of moments, the alien stands before you, giving you a much better look at them. They are much taller than you, extremely bulky, and slightly hunched over. Heavy-looking metal surrounds their body, and in any exposed areas are rough-looking patches of skin and hair. Thick facial hair covers their face, and above their human-like eyes are a pair of horns curved inward towards you.`
 			`	Awkward silence ensues, and the alien looks you up and down in an unenthused way. They emit a very deep grumble, and with a loud snort, reach into a crevice in their armor to grab something. Pulling out what looks to be some sort of star map, they point to a location on it, gesture to themselves, then lower the device slowly to you. It seems they want to be taken to one of their species' planets.`
@@ -122,7 +122,7 @@ mission "First Contact: Gegno Vi"
 			`	Much to your dismay, the shot almost immediately ricochets off of it. You watch as the massive monster tumbles over you, just barely leaping into the air above. The monster plunges into the earth behind you, and you fall to your back with the wind knocked out of you. You raise your sidearm once more. The creature explodes out of the ground with its gaping mouth pointed upward to the sky. With shaking hands, you take aim once again and pull the trigger.`
 			`	A loud, cannon-like bang follows, but it most certainly did not come from your weapon. The beast before you falls downward in a cloud of black smoke, blasting sand and rubble everywhere with a thud. Once you come to your senses, you see the Vi marching out of the creature's mouth.`
 			choice
-				`	(Stand up and approach the alien.)`
+				`	(Approach the alien.)`
 				`	(Get up and run to your ship.)`
 			`	Before you can collect yourself, you realize the Vi warrior is now much closer to you. Within a matter of moments, the alien stands before you, giving you a much better look at them. They are much taller than both you and the other Gegno you've seen, extremely bulky, and slightly hunched over. Heavy-looking metal surrounds their body, and in any exposed areas are rough-looking patches of skin and hair. Thick facial hair covers their face, and above their human-like eyes are a pair of horns curved inward towards you.`
 			`	While the Gegno are known to dislike outsiders, this particular Gegno seems to at the very least acknowledge you. After a period of awkward and what seems to be judgmental silence, the Vi looks you up and down in an unenthused manner. They emit a very deep grumble, and with a loud snort, reach into a crevice in their armor to grab something. Pulling out what looks to be some sort of star map, they point to a location on it, gesture to themselves, then lower the device slowly to you. It seems they want to be taken to one of the Gegno's planets.`
@@ -442,8 +442,8 @@ mission "Nosy Scin"
 	source "Giaru Gegno"
 	to offer
 		or
-			has "Giaru Gegno: Quarg Contact: declined"
-			has "Giaru Gegno: Revisit: declined"
+			has "Visit Quarg in Gegno Space: offered"
+			has "Giaru Gegno: Revisit: offered"
 		not "Gegno Genocide Defense: offered"
 	to complete
 		never
@@ -518,7 +518,7 @@ mission "First Contact: Gegno Scin"
 			label "leave"
 			action
 				set "gegno: left scin"
-			`	Wary of the Scin warship, you turn around and begin to ascend back into space. The Scin ship advances towards yours, but as it comes closer, it begins to take on an escort formation with you, following you as you leave the planet's atmosphere. Once you finally make it back into space, the Scin ship breaks from formation and flies away. You're unsure of what they're doing on the planet or why you've been lead to them, but it's probably better for you to be careful and not get involved.`
+			`	Wary of the Scin warship, you turn around and begin to ascend back into space. The Scin ship advances towards yours, but as it comes closer, it begins to take on an escort formation with you, following you as you leave the planet's atmosphere. You're unsure of what they're doing on the planet or why you've been lead to them, but maybe it's better for you to be careful and not get involved.`
 				accept
 
 			label "follow"
@@ -693,7 +693,8 @@ mission "First Contact: Gegno Scin"
 
 
 mission "Gegno Exploration Nudge"
-	invisible
+	name `Find ways to interact with the Gegno`
+	description `Although the Gegno seem disinterested in you as a whole, there might be other ways to encounter them in their space to learn more about them.`
 	landing
 	source "Yiia Iyr"
 	to offer
@@ -702,17 +703,17 @@ mission "Gegno Exploration Nudge"
 	to complete
 		never
 	on enter
-	on enter
-		fail
 		conversation
 			branch provocative
 				has "scin: provocative"
-			`After leaving Ilirco, you recall that the map device showed markings for a few other planets throughout Gegno space as well. From what you can remember, one of them was a desert planet, another was a terrestrial world, and another a small moon. Perhaps these are other possible locations you could encounter the Gegno at in order to try and find a way to learn more about them.`
-				decline
+			`As you leave the planet's atmosphere, the Scin ships break formation with you and fly their separate ways. While the Gegno may not be interested in associating with you overall, it seemed like the few Scin you met were interested in some capacity. There may be other opportunities to encounter the Gegno elsewhere in their space and learn more about them.`
+			`	Still, it might be best to listen to what the Quarg said before and exercise caution."
+				accept
 			
 			label provocative
-			`After the aggressive encounter on <origin>, you recall that the map device showed markings for a few other planets throughout Gegno space as well. From what you can remember, one of them was a desert planet, another was a terrestrial world, and another a small moon. For them to be intentionally marked in such a way could suggest there are other places you could run into the Gegno again, though it might be best to practice caution moving forward.`
-
+			`The Scin ships following you off the planet show little hesitation before firing their weapons at you, likely feel provoked by your choice of actions with them during the encounter. Still, they showed some sort of interest in you to have lead you to them, meaning that there could be other possibilities to get involved with the Gegno at other locations in their space.`
+			`	Still, the Gegno already have qualms with outsiders. It might be a good idea to listen to what the Quarg said about exercising caution, especially if it leads to hostile encounters.`
+				accept
 
 # Gegno Superheavy Missions
 
