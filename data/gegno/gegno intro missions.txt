@@ -122,7 +122,7 @@ mission "First Contact: Gegno Vi"
 			`	Much to your dismay, the shot almost immediately ricochets off of it. You watch as the massive monster tumbles over you, just barely leaping into the air above. The monster plunges into the earth behind you, and you fall to your back with the wind knocked out of you. You raise your sidearm once more. The creature explodes out of the ground with its gaping mouth pointed upward to the sky. With shaking hands, you take aim once again and pull the trigger.`
 			`	A loud, cannon-like bang follows, but it most certainly did not come from your weapon. The beast before you falls downward in a cloud of black smoke, blasting sand and rubble everywhere with a thud. Once you come to your senses, you see the Vi marching out of the creature's mouth.`
 			choice
-				`	(Approach the alien.)`
+				`	(Approach the Vi.)`
 				`	(Get up and run to your ship.)`
 			`	Before you can collect yourself, you realize the Vi warrior is now much closer to you. Within a matter of moments, the alien stands before you, giving you a much better look at them. They are much taller than both you and the other Gegno you've seen, extremely bulky, and slightly hunched over. Heavy-looking metal surrounds their body, and in any exposed areas are rough-looking patches of skin and hair. Thick facial hair covers their face, and above their human-like eyes are a pair of horns curved inward towards you.`
 			`	While the Gegno are known to dislike outsiders, this particular Gegno seems to at the very least acknowledge you. After a period of awkward and what seems to be judgmental silence, the Vi looks you up and down in an unenthused manner. They emit a very deep grumble, and with a loud snort, reach into a crevice in their armor to grab something. Pulling out what looks to be some sort of star map, they point to a location on it, gesture to themselves, then lower the device slowly to you. It seems they want to be taken to one of the Gegno's planets.`
@@ -302,14 +302,18 @@ mission "Giaru Gegno: Quarg Contact"
 			branch "has met gegno"
 				has "Visit Quarg in Gegno Space: offered"
 
-			"After jumping through several systems of many alien ships, a Quarg ringworld is a surprisingly familiar sight to you. From the looks of it, this is a fully complete ringworld, a true sight to behold. Trillions of Quarg probably inhabit this ring, but what's more interesting to your eye is that some other aliens are also present. They too are humanoid, and the most common figures you come across are either slightly above or below an average human's height. Their skin is a smooth, light gray, and adorned with different sorts of leather that remind you of medieval human clothing."
-			`	The mood here is eerie as the Quarg here move in an unusually quiet manner. They are dismissive of the other species walking about, who are equally as dismissive of you. The strange atmosphere around you is finally broken when a few Quarg start to advance towards you, moving much quicker than the rest. After some unidentifiable discussion and gestures between themselves, one of them motions you to follow them.`
+			"After jumping through several systems of many alien ships, a Quarg ringworld is a surprisingly familiar sight. From the looks of it, this is a fully complete ringworld, a true sight to behold. Trillions of Quarg probably inhabit this ring, but what's more interesting is that other aliens are also present. They too are humanoid, and the most common figures you come across are either slightly above or below an average human's height. Their skin is a smooth, light gray, and adorned with different sorts of leather that remind you of medieval human clothing."
+			`	The Quarg here move in an unusually quiet and eerie manner. They are dismissive of the other species walking about, who are equally as dismissive of you. The strange atmosphere is eventually broken when a few Quarg start to advance towards you, moving much quicker than the rest. After some unidentifiable discussion and gestures between themselves, one of them motions you to follow them.`
 				goto walking
 			
 			label "has met gegno"
 			action
 				set "gegno: met gegno before quarg"
-			`The visual of a complete Quarg Ringworld is drastically different than the alien homeworld you were on before. Such a pristine, advanced structure is quite the opposite of a disorderly industrial civilization. The population of Quarg here must be at least around the trillions, many times more than the population of the alien homeworld. What's even more interesting is there are other aliens of the kind you met before here on the ring too. The Quarg must have some kind of relations with them, perhaps through trade, maintenance, or other services. Despite them being present, the Quarg seem to be very dismissive of them. However, a few of the aliens occasionally glance over at you with hints of interest.`
+
+			`The visual of a complete Quarg Ringworld is drastically different than the alien homeworld you were on before. Such a pristine, advanced structure is quite the opposite of a disorderly industrial civilization. The population of Quarg here must be at least around the trillions, many times more than the population of the alien homeworld. What's even more interesting is there aliens of the kind you met before are here on the ring too. The Quarg must have some kind of relations with them, perhaps through trade, maintenance, or other services. Despite their presence, both they and the Quarg seem to be dismissive of one another, however, a few of the aliens occasionally glance over at you in some form of curiousity.`
+
+			action
+				"gegno: left quarg" = "days since start"
 			`	Soon enough, a few Quarg start to rush towards you much faster than the others and begin a conversation between themselves. You aren't sure what language they are speaking, but judging by the tones and pronunciations, it sounds similar to the one you've heard the aliens speaking before. After a moment or so, one of them motions you to follow them.`
 			
 			label "walking"
@@ -386,8 +390,6 @@ mission "Giaru Gegno: Quarg Contact"
 			`	"However, it is still quite staggering that the Gegno interacted with an audacious outsider such as yourself." The Quarg pauses again for a moment and takes a longer breath than usual. "Please do be distinctly cautious in encounters with the Gegno. Unfortunately, we cannot advocate virtuous pleasantries between you and them. Only a brief history of them can we tell. Although, you are appreciably welcome at this ring should you find yourself here again."`
 			
 			label end
-			action
-				"gegno: left quarg" = "days since start"
 			`	The Quarg motions a bow to you, and the first one from earlier escorts you out of the room. It seems associating with these so-called "Gegno" would be difficult, and you will have to deal with their xenophobia for the foreseeable future.`
 				decline
 
@@ -430,7 +432,7 @@ mission "Giaru Gegno: Revisit"
 			`	"Indeed yes, strange coincidences do curiously happen. Many coincidences are as mere fleeting moments of subtle peculiarity." The Quarg then displays a soft grimace. "Sometimes, one may be grand and powerful, in addition to having potent consequences. The Gegno have learned this a great number of times.`
 			label "trouble"
 			`	"Quite a brave one you indeed are. Most would think to not leap into the daunting face of uncertainty as you have." The Quarg momentarily meditates on its next thought. "Though, as the Gegno have throughout their history, some may make momentous jumps undeterred by any amount of hesitance."`
-
+			
 			action
 				"gegno: left quarg" = "days since start"
 			`	The Quarg raises from its seat, and you act in accordance. "Please do be distinctly cautious in your encounters with the Gegno. Always feel gracious to visit here once more, should you mindfully choose to do so." As you are directed out of the room, you turn back to see the Quarg bowing. You can't help but wonder what was on its mind during the conversation, but it might be for the best you are more careful from now on.`
@@ -441,9 +443,8 @@ mission "Nosy Scin"
 	landing
 	source "Giaru Gegno"
 	to offer
-		or
-			has "Visit Quarg in Gegno Space: offered"
-			has "Giaru Gegno: Revisit: offered"
+		has "Visit Quarg in Gegno Space: offered"
+		not "First Contact: Gegno Scin: offered"
 		not "Gegno Genocide Defense: offered"
 	to complete
 		never
@@ -456,7 +457,6 @@ mission "Nosy Scin"
 		system "Aleit"
 		ship "Mica" "Eichpys"
 
-
 mission "Suspicious Scin"
 	name `Strange Device`
 	entering
@@ -464,7 +464,11 @@ mission "Suspicious Scin"
 	destination "Yiia Iyr"
 	to offer
 		"days since start" - "gegno: left quarg" > 5
-		has "Giaru Gegno: Quarg Contact: offered"
+		or
+			and
+				has "gegno: met gegno before quarg"
+				has "Giaru Gegno: Quarg Contact: offered"
+			has "Giaru Gegno: Revisit: offered"
 		not "First Contact: Gegno Scin: offered"
 		not "Gegno Genocide Defense: offered"
 	on offer
@@ -694,7 +698,7 @@ mission "First Contact: Gegno Scin"
 
 mission "Gegno Exploration Nudge"
 	name `Find ways to interact with the Gegno`
-	description `Although the Gegno seem disinterested in you as a whole, there might be other ways to encounter them in their space to learn more about them.`
+	description `Although the Gegno seem disinterested in you as a whole, there might be other chances to encounter them in their space to learn more about them.`
 	landing
 	source "Yiia Iyr"
 	to offer
@@ -707,7 +711,7 @@ mission "Gegno Exploration Nudge"
 			branch provocative
 				has "scin: provocative"
 			`As you leave the planet's atmosphere, the Scin ships break formation with you and fly their separate ways. While the Gegno may not be interested in associating with you overall, it seemed like the few Scin you met were interested in some capacity. There may be other opportunities to encounter the Gegno elsewhere in their space and learn more about them.`
-			`	Still, it might be best to listen to what the Quarg said before and exercise caution."
+			`	Still, it might be best to listen to what the Quarg said before and exercise caution going forward.`
 				accept
 			
 			label provocative
