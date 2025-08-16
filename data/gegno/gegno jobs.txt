@@ -397,10 +397,10 @@ mission "Gegno Asteroid Mining III - Titanium Rush"
 # Tschyss Recovery Jobs
 
 mission "Gegno: Tschyss Materials I"
-	name "Retrieve <tons> of relief materials from <planet stopovers>"
+	name "Retrieve <tons> of relief materials"
 	job
 	repeat
-	description "To support the ongoing efforts to repair the station, pick up <tons> of materials from <stopovers> and bring them back to <origin>."
+	description "To support the Gegno's ongoing efforts to repair the station, pick up <tons> of materials from <stopovers> and bring them back to <origin>."
 	source "Tschyss"
 	cargo "Industrial" 10 5 .1
 	to offer
@@ -420,10 +420,10 @@ mission "Gegno: Tschyss Materials I"
 
 
 mission "Gegno: Tschyss Workers I"
-	name "Transport <bunks> relief workers from <planet stopovers>"
+	name "Transport <bunks> relief workers"
 	job
 	repeat
-	description "To aid in the lack of workforce mending damage to the station, transport <bunks> of Gegno workers from <stopovers> back to <origin>."
+	description "To help maintain the workforce mending damage to the station, transport <bunks> of Gegno workers from <stopovers> to <origin>."
 	source "Tschyss"
 	passengers 5 10 .1
 	to offer

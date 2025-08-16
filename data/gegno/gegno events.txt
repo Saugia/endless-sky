@@ -51,19 +51,19 @@ event "gegno: vi occupy zydee"
 		description `	Unlike its moon, Ghneoe sees few to no colonization efforts from either the Gegno Vi or Scin, perhaps due to the abnormal weather cycles, continued system warfare, or a combination of both.`
 
 
+event "gegno: dwindling workers"
+	system "Oosuoro"
+		fleet "Gegno Basic" 1400
+		fleet "Gegno Miners" 2100
+		fleet "Gegno Cargo" 2700
+
+
 event "gegno: zydee war escalates"
 	system "Zydee"
 		fleet "Small Vi" 1300
 		fleet "Vi Warfleet" 3000
 		fleet "Small Scin" 1600
 		fleet "Scin Warfleet" 2400
-
-
-event "gegno: dwindling workers"
-	system "Oosuoro"
-		fleet "Gegno Basic" 1400
-		fleet "Gegno Miners" 2100
-		fleet "Gegno Cargo" 2700
 
 
 event "gegno: tschyss breach"
@@ -84,19 +84,21 @@ mission "Tschyss Repairs"
 	to offer
 		or	
 			has "gegno: miner incident bay help"
-			has "Miner Incident - Hauling: done"
-			has "Miner Incident - Transport: done"
+			has "Gegno Miner Incident - Hauling: done"
+			has "Gegno Miner Incident - Transport: done"
 	on offer
 		event "gegno: tschyss repairs"
 		fail
 
+
 event "gegno: tschyss repairs"
 	system "Oosuoro"
-		fleet "Gegno Basic" 700
+		fleet "Gegno Basic" 800
 		fleet "Gegno Miners" 1900
 		fleet "Gegno Cargo" 1600
 
-event "gegno: tschyss recovery"
+
+event "gegno: tschyss repairing"
 	system "Oosuoro"
 		remove object "Tschyss"
 			sprite planet/tschyss
@@ -104,6 +106,18 @@ event "gegno: tschyss recovery"
 			period 150
 		add object "Tschyss"
 			sprite "planet/tschyss b"
+			distance 340
+			period 150
+
+
+event "gegno: tschyss recovery"
+	system "Oosuoro"
+		remove object "Tschyss"
+			sprite "planet/tschyss b"
+			distance 340
+			period 150
+		add object "Tschyss"
+			sprite "planet/tschyss c"
 			distance 340
 			period 150
 

@@ -125,7 +125,9 @@ mission "Foreign Spectator I"
 		not "Gegno Genocide Defense: offered"
 	to complete
 		never
-	on enter "Eogho"
+	to fail
+		has "Battle over Zydee: offered"
+	on enter "Oihaug"
 		fail
 		"gegno: encounters" ++
 		conversation
@@ -136,39 +138,38 @@ mission "Foreign Spectator I"
 			set "interrupted arena"
 		government "Gegno Vi"
 		personality heroic vindictive ramming staying uninterested
-		system "Eogho"
+		system "Oihaug"
 		ship "Eclogite" "Tschelgi Dueyu"
 	npc
 		on provoke
 			set "interrupted arena"
 		government "Gegno Scin"
 		personality heroic vindictive staying uninterested
-		system "Eogho"
+		system "Oihaug"
 		ship "Felsic" "Tschelgi Dueich"
 	npc
 		on provoke
 			set "interrupted arena"
 		government "Gegno Vi (Neutral)"
 		personality heroic vindictive staying uninterested swarming
-		system "Eogho"
+		system "Oihaug"
 		fleet
 			names "gegno vi"
 			variant
-				"Hornfel" 2
-				"Eclogite"
-				"Slate"
+				"Hornfel"
+				"Slate" 2
 	npc
 		on provoke
 			set "interrupted arena"
 		government "Gegno Scin (Neutral)"
 		personality heroic vindictive staying uninterested swarming
-		system "Eogho"
+		system "Oihaug"
 		fleet
 			names "gegno scin"
 			variant
 				"Coesite" 2
 				"Tridymite"
-				"Mica" 2
+				"Mica"
 
 
 mission "Brief Bystander"
