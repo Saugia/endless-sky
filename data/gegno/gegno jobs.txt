@@ -396,18 +396,86 @@ mission "Gegno Asteroid Mining III - Titanium Rush"
 
 # Tschyss Recovery Jobs
 
-mission "Gegno: Tschyss Materials I"
+mission "Gegno: Tschyss Workers [0]"
+	name "Transport <bunks> relief workers"
+	job
+	repeat
+	description "To help maintain the workforce mending damage to the station, transport <bunks> of Gegno workers from <stopovers> to <origin>."
+	source "Tschyss"
+	passengers 8 2 .3
+	to offer
+		has "Tschyss Recovery Jobs: offered"
+		or
+            not "Gegno: Tschyss Workers [0]: offered"
+            random < 30
+		not "event: gegno: tschyss recovery"
+	stopover "Ef Aourtdye"
+	on stopover
+		dialog "Test pickup workers."
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		payment
+		"gegno: recovery jobs" ++
+		dialog phrase "gegno tschyss worker support"
+
+mission "Gegno: Tschyss Workers [1]"
+	name "Transport <bunks> relief workers"
+	job
+	repeat
+	description "To help maintain the workforce mending damage to the station, transport <bunks> of Gegno workers from <stopovers> to <origin>."
+	source "Tschyss"
+	passengers 10 4 .3
+	to offer
+		random < 30
+		has "Tschyss Recovery Jobs: offered"
+		not "event: gegno: tschyss recovery"
+	stopover "Ef Aourtdye"
+	on stopover
+		dialog "Test pickup workers."
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		payment
+		"gegno: recovery jobs" ++
+		dialog phrase "gegno tschyss worker support"
+
+
+mission "Gegno: Tschyss Workers [2]"
+	name "Transport <bunks> relief workers"
+	job
+	repeat
+	description "To help maintain the workforce mending damage to the station, transport <bunks> of Gegno workers from <stopovers> to <origin>."
+	source "Tschyss"
+	passengers 14 6 .3
+	to offer
+		random < 30
+		has "Tschyss Recovery Jobs: offered"
+		not "event: gegno: tschyss recovery"
+	stopover "Ef Aourtdye"
+	on stopover
+		dialog "Test pickup workers."
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		payment
+		"gegno: recovery jobs" ++
+		dialog phrase "gegno tschyss worker support"
+
+
+mission "Gegno: Tschyss Materials [0]"
 	name "Retrieve <tons> of relief materials"
 	job
 	repeat
 	description "To support the Gegno's ongoing efforts to repair the station, pick up <tons> of materials from <stopovers> and bring them back to <origin>."
 	source "Tschyss"
-	cargo "Industrial" 10 5 .1
+	cargo "Industrial" 10 3 .3
 	to offer
 		has "Tschyss Recovery Jobs: offered"
 		or
-            not "Gegno: Tschyss Materials I: offered"
+            not "Gegno: Tschyss Materials [0]: offered"
             random < 30
+		not "event: gegno: tschyss recovery"
 	stopover "Ef Aourtdye"
 	on stopover
 		dialog "Test pickup materials."
@@ -419,24 +487,45 @@ mission "Gegno: Tschyss Materials I"
 		dialog phrase "gegno tschyss material support"
 
 
-mission "Gegno: Tschyss Workers I"
-	name "Transport <bunks> relief workers"
+mission "Gegno: Tschyss Materials [1]"
+	name "Retrieve <tons> of relief materials"
 	job
 	repeat
-	description "To help maintain the workforce mending damage to the station, transport <bunks> of Gegno workers from <stopovers> to <origin>."
+	description "To support the Gegno's ongoing efforts to repair the station, pick up <tons> of materials from <stopovers> and bring them back to <origin>."
 	source "Tschyss"
-	passengers 5 10 .1
+	cargo "Industrial" 14 4 .3
 	to offer
+		random < 30
 		has "Tschyss Recovery Jobs: offered"
-		or
-            not "Gegno: Tschyss Workers I: offered"
-            random < 30
+		not "event: gegno: tschyss recovery"
 	stopover "Ef Aourtdye"
 	on stopover
-		dialog "Test pickup workers."
+		dialog "Test pickup materials."
 	on visit
 		dialog phrase "generic cargo on visit"
 	on complete
 		payment
 		"gegno: recovery jobs" ++
-		dialog phrase "gegno tschyss worker support"
+		dialog phrase "gegno tschyss material support"
+		
+
+mission "Gegno: Tschyss Materials [2]"
+	name "Retrieve <tons> of relief materials"
+	job
+	repeat
+	description "To support the Gegno's ongoing efforts to repair the station, pick up <tons> of materials from <stopovers> and bring them back to <origin>."
+	source "Tschyss"
+	cargo "Industrial" 20 6 .3
+	to offer
+		random < 30
+		has "Tschyss Recovery Jobs: offered"
+		not "event: gegno: tschyss recovery"
+	stopover "Ef Aourtdye"
+	on stopover
+		dialog "Test pickup materials."
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		payment
+		"gegno: recovery jobs" ++
+		dialog phrase "gegno tschyss material support"

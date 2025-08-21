@@ -73,9 +73,9 @@ event "gegno: tschyss breach"
 			distance 325
 			period 120
 		add object "Tschyss"
-			sprite "planet/tschyss damaged"
-			distance 340
-			period 150
+			sprite "planet/tschyss b"
+			distance 325
+			period 120
 
 
 mission "Tschyss Repairs"
@@ -98,28 +98,19 @@ event "gegno: tschyss repairs"
 		fleet "Gegno Cargo" 1600
 
 
-event "gegno: tschyss repairing"
-	system "Oosuoro"
-		remove object "Tschyss"
-			sprite planet/tschyss
-			distance 340
-			period 150
-		add object "Tschyss"
-			sprite "planet/tschyss b"
-			distance 340
-			period 150
-
-
 event "gegno: tschyss recovery"
 	system "Oosuoro"
+		fleet "Gegno Basic" 1100
+		fleet "Gegno Miners" 2000
+		fleet "Gegno Cargo" 2300
 		remove object "Tschyss"
 			sprite "planet/tschyss b"
-			distance 340
-			period 150
+			distance 325
+			period 120
 		add object "Tschyss"
-			sprite "planet/tschyss c"
-			distance 340
-			period 150
+			sprite "planet/tschyss"
+			distance 325
+			period 120
 
 
 event "gegno: unified defense"
