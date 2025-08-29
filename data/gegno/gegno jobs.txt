@@ -407,7 +407,7 @@ mission "Gegno: Tschyss Workers [0]"
 		has "Tschyss Recovery Jobs: offered"
 		or
             not "Gegno: Tschyss Workers [0]: offered"
-            random < 30
+			random < 30
 		not "event: gegno: tschyss recovery"
 	stopover "Ef Aourtdye"
 	on stopover
@@ -473,8 +473,8 @@ mission "Gegno: Tschyss Materials [0]"
 	to offer
 		has "Tschyss Recovery Jobs: offered"
 		or
-            not "Gegno: Tschyss Materials [0]: offered"
-            random < 30
+			not "Gegno: Tschyss Materials [0]: offered"
+			random < 30
 		not "event: gegno: tschyss recovery"
 	stopover "Ef Aourtdye"
 	on stopover

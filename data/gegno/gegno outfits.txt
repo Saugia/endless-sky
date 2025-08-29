@@ -1076,6 +1076,13 @@ outfit "Plasma Grenades"
 
 # Special Outfits
 
+outfit "Engraved Metal"
+	category "Unique"
+	series "Non-Functional Unique"
+	thumbnail "outfit/engraved metal"
+	"unique" 1
+	description ""
+
 outfit "Gegno Civilian License"
 	category "Licenses"
 	series "Licenses"
