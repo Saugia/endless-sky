@@ -26,7 +26,7 @@ mission "Gegno Asteroid Mining II"
 			`Aside from the occasional unloading of mined minerals from your cargo hold, the Gegno at this station have continued to ignore your presence one way or another, whether it's actively or passively. However, today seems to be different as you are approached directly by one of Gegno, who is carrying a tablet device larger than ones you've seen others handle before.`
 			`	Standing before you, they hold their device to their chest as they begin tapping and dragging on it with their free hand. Their appearance is more similar to members of the Scin you've interacted with before; somewhat thinner than other Gegno but still one of the taller ones. Unlike others around the hangar, they're wearing a dark-brown vest of sorts, adorned with various small badges.`
 			`	Finally, they gesture you to follow them, leading you to a smaller area, albeit still only partially constructed like the rest of the station. In it are some other Gegno going to and from another wall-mounted display that also lists various jobs. Thankfully, these share the same visuals as the others, showing more minable asteroids with tally-marks, though these jobs seem to request more than the others, and pay more as well.`
-			`	You turn around to address at the Gegno that led you here once more, but they already have vanished to somewhere else in the station. Although the Gegno continue to treat you dismissively, it appears you've now been given access to more demanding and rewarding jobs. Perhaps they are beginning to place some value in you after all.`
+			`	You turn around to address at the Gegno that led you here once more, but they already have vanished to somewhere else in the station. Although the Gegno continue to treat you dismissively, it appears you've now been given access to more demanding and rewarding jobs.`
 				decline
 
 
@@ -141,7 +141,7 @@ mission "Gegno: Repair Humor"
 				goto redirect
 
 			label nothing
-			`	You decide not to do anything with the device. Other than it looking like a mangled mess of heavy parts, you have no idea what it is or what it's used for. Some of the Gegno look onward, still waiting for you to do something, while others snort and jab at each other in strange ways.`
+			`	You decide not to do anything with the device. Other than it looking like a mangled mess of heavy parts, you aren't sure what it is or what it's used for. Some of the Gegno look onward, still waiting for you to do something, while others snort and jab at each other in strange ways.`
 		
 			label redirect
 			`	A few more monments go by of the Gegno talking to one another, after which they then pick up their supplies and go to work on the yet-to-be-built parts of the station, leaving you behind without so much as a glance. At the very least, they humored you for a little bit, or perhaps it was that you were humorous to them.`
@@ -154,6 +154,7 @@ mission "Gegno: Unloading Troubles"
 	source "Tschyss"
 	to offer
 		"gegno: mining jobs" > 8
+		not "Gegno: A Major Miner Incident: offered"
 	on offer
 		conversation
 			`During your downtime in the spaceport, you watch as a large Gegno freighter docks with a nearby hangar entrance. As it does, you feel a not-so-subtle 'clack' once it makes contact with various docking clamps, some dust falling down on your area from the upper levels. A few Gegno exit the ship and leave to another part of the station, while a smaller group remains at the ship to unload its cargo.`
@@ -528,8 +529,8 @@ mission "Tschyss Recovery Jobs"
 	on offer
 		"reputation: Gegno" = 2
 		conversation
-			`You are making your way around the facility and browsing jobs when you notice that there are new listings available. These jobs, unlike the mining jobs you're used to taking, request either transporting passengers or retrieving cargo from Ef Aourtdye and returning to Tschyss, likely to continue the recovery of the station. It seems some other Gegno are interested in the jobs as well.`
-			`	Maybe these jobs will help not only finish the station's immediate repairs, but also increase the overall workforce for future efforts.`
+			`You are making your way around the facility and browsing jobs when you notice that there are some pending job listings that will be available in the next day or so. These jobs, unlike the mining jobs you're used to taking, are in the form of requests for either transporting passengers or delivering cargo to Tschyss, likely to continue the recovery of the station. It seems some other Gegno are interested in the jobs as well.`
+			`	Once available, maybe these jobs will help not only finish the station's immediate repairs, but help get you more recognition from the Gegno.`
 				decline
 
 
@@ -550,7 +551,7 @@ mission "Gegno: Ef Aourtdye"
 				decline
 			
 			label "first visit"
-			`This large desert world is home to seas of sand that extend for hundreds of thousands of miles. While it initially seems to lack an established civilization, some areas in the deserts are sprinkled with manufacturng plants or spires. The Gegno direct you to a decently-sized landing port engraved into one of the world's mountainous rock formations. As you dock in the port, you find that the same type of jobs on the station are handed out here as well, although the Gegno here seem far more motivated, or perhaps more serious, when it comes to applying for them. They seldomly give you attention, far more focused on whatever work they're occupied by.`
+			`This large desert world is home to seas of sand that extend for hundreds of thousands of miles. While it initially seems to lack an established civilization, some areas in the deserts are sprinkled with large manufacturing plants and spires. The Gegno direct you to a decently-sized landing port engraved into one of the world's mountainous rock formations. As you dock in the port, you find that the same type of jobs on the station are handed out here as well, although the Gegno here seem far more motivated, or perhaps more serious, when it comes to applying for them. They seldomly give you attention, far more focused on whatever work they're occupied by.`
 			`	Based on your experiences up until now, the Gegno generally understand the language of hard work, which could be why they've given you permission to land here. Despite the language barrier. they understand the value of your labor.`
 				decline
 
@@ -657,8 +658,8 @@ mission "Tschyss Recovers"
 	source "Tschyss"
 	to offer
 		or
-			"days since start" - "gegno: tschyss repair timer" > 14
-			"gegno: recovery jobs" >= 7
+			"days since start" - "gegno: tschyss repair timer" > 21
+			"gegno: recovery jobs" >= 5
 		has "Gegno: Ef Aourtdye: offered"
 	on offer
 		payment 100000

@@ -406,7 +406,7 @@ mission "Gegno: Tschyss Workers [0]"
 	to offer
 		has "Tschyss Recovery Jobs: offered"
 		or
-            not "Gegno: Tschyss Workers [0]: offered"
+			not "Gegno: Tschyss Workers [0]: offered"
 			random < 30
 		not "event: gegno: tschyss recovery"
 	stopover "Ef Aourtdye"

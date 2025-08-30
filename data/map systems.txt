@@ -7038,7 +7038,6 @@ system Asio
 	belt 1478
 	haze _menu/haze-133
 	link Heutesl
-	link Oosuoro
 	asteroids "small rock" 4 2.6
 	asteroids "large rock" 7 3
 	asteroids "small metal" 9 3
@@ -28144,6 +28143,7 @@ system Mohuwo
 	haze _menu/haze-brown
 	link Auhru
 	link Pbelnep
+	link Uttna
 	asteroids "small metal" 1 6.78
 	asteroids "medium metal" 1 5.53
 	asteroids "large metal" 2 5.53
@@ -29932,7 +29932,6 @@ system Oosuoro
 	habitable 700
 	belt 828
 	haze _menu/haze-33
-	link Asio
 	link Eogho
 	link Heutesl
 	link Iigen
@@ -40571,7 +40570,7 @@ system Uttna
 	belt 1748
 	"jump range" 60
 	haze _menu/haze-brown
-	link Iigen
+	link Mohuwo
 	asteroids "medium rock" 3 4.8
 	asteroids "large rock" 2 3.96
 	asteroids "small metal" 4 2.84
