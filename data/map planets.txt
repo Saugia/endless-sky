@@ -509,6 +509,14 @@ planet Beryl
 	bribe 0
 	security 0
 
+planet "Byigii"
+	attributes gegno uninhabited
+	landscape land/
+	description `.`
+	government Uninhabited
+	bribe 0
+	security 0
+
 planet "Big Sky"
 	attributes "dirt belt" farming forest frontier
 	landscape land/mountain12-sfiera
@@ -2131,7 +2139,7 @@ planet Ghneoe
 
 planet "Gi Tiures"
 	attributes gegno
-	landscape land/aera
+	landscape land/
 	description "Test."
 	spaceport "Test."
 	"required reputation" 3

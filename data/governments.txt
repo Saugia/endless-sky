@@ -597,6 +597,8 @@ government "Gegno Scin"
 		disable 0.3
 		board 0.5
 		destroy 0.3
+	"travel restrictions"
+		government "Gegno"
 
 government "Gegno Scin (Combative)"
 	swizzle 18
@@ -652,6 +654,8 @@ government "Gegno Vi"
 		disable 0.3
 		board 0.5
 		destroy 0.3
+	"travel restrictions"
+		government "Gegno"
 
 government "Gegno Vi (Combative)"
 	swizzle 0

@@ -76,7 +76,9 @@ event "gegno: tschyss breach"
 			sprite "planet/tschyss b"
 			distance 325
 			period 120
-
+	planet Tschyss
+		description `This massive station is the only orbital structure that can be found in Gegno space, and is still under heavy construction. A majority of the exterior seems complete, the interior is noticeably lacking in comparison. Recently, an accidental crash-landing has resulted in heavy damage to one of the hangar sections, leading to the arrival of several large teams of Gegno, hard at work on repairs. A large portion of the station is filled with crew quarters and living sections, all more expansive than those in human space, and the outside is enveloped in many docking bays of various sizes. Along with the influx of Gegno workers, there is an increase in ship traffic due to the incident.`
+		spaceport `Gegno of all kinds are walking to and fro, some seeming either very tired and overworked, while recent arrivals are working with an efficiency and speed much greater than the rest. Many of them pass through the docking bay section you're presently given permission to access, while the rest traverse a larger portion of the station that is restricted only to Gegno.`
 
 mission "Tschyss Repairs"
 	landing
@@ -93,16 +95,16 @@ mission "Tschyss Repairs"
 
 event "gegno: tschyss repairs"
 	system "Oosuoro"
-		fleet "Gegno Basic" 800
+		fleet "Gegno Basic" 600
 		fleet "Gegno Miners" 1900
-		fleet "Gegno Cargo" 1600
+		fleet "Gegno Cargo" 1400
 
 
 event "gegno: tschyss recovery"
 	system "Oosuoro"
-		fleet "Gegno Basic" 1100
-		fleet "Gegno Miners" 2000
-		fleet "Gegno Cargo" 2300
+		fleet "Gegno Basic" 900
+		fleet "Gegno Miners" 1900
+		fleet "Gegno Cargo" 1700
 		remove object "Tschyss"
 			sprite "planet/tschyss b"
 			distance 325
@@ -111,6 +113,14 @@ event "gegno: tschyss recovery"
 			sprite "planet/tschyss"
 			distance 325
 			period 120
+	planet Tschyss
+		description `This massive station is the only orbital structure that can be found in Gegno space, and is still under heavy construction. A majority of the exterior seems complete, the interior is noticeably lacking in comparison. In recent times however, an accidental crash-landing resulted in heavy damage to one of the hangar sections. The incident has led to an influx of Gegno workers that not only repaired the damages but are continuing internal construction of other facilities. A large portion of the station is filled with crew quarters and living sections, all more expansive than those in human space, and the outside is enveloped in many docking bays of various sizes.`
+		spaceport `Gegno of all kinds are walking to and fro, some seeming either very tired and overworked, while others seem more animated and attentive to their tasks. Many of them pass through the docking bay section you're presently given permission to access, while the rest traverse a larger portion of the station that is restricted only to Gegno.`
+
+
+event "gegno: tschyss outfitter"
+	planet Tschyss
+		outfitter "gegno basic"
 
 
 event "gegno: unified defense"

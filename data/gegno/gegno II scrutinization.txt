@@ -231,7 +231,7 @@ mission "Gegno: A Major Miner Incident"
 
 			label investigate
 			`	Leaving the section you're in, you follow several Gegno rushing down the halls. As you do, you pass by other Gegno that are either not rushing, heading in other directions, or having conversations with one another on the side, occasionally peering at you. A few of the hurried Gegno also give you a quick glance as they march past you.`
-			`	After going down several hallways, you come to a large, open section of the station that branches into several directions. In the middle of the area are three Gegno in various attire standing around one of the station's support beams, leading others down the various corridors with the aid of tablet devices. Two of the Gegno are around the average civilian build, with one of them in gear similar to those you've seen cargo haulers wear, and the other in a much heavier gear set with various tools attached to it, like those who work on infrastructural maintenance. The third Gegno, larger in stature, you recognize as the one that has been addressing your work and opportunities at the job board.`
+			`	After going down several hallways, you come to a large, open section of the station that branches into several directions. In the middle of the area are three Gegno in various attire standing around one of the station's support beams, leading others down the various corridors with the aid of tablet devices. Two of the Gegno are around the average civilian build, with one of them in gear similar to those you've seen cargo haulers wear, and the other in a much heavier gear set with various tools attached to it, like those who work on infrastructural maintenance. The third Gegno, larger in stature, you recognize one of those that have been addressing your work and opportunities at the job board.`
 			
 			label leaders
 			choice
@@ -329,10 +329,8 @@ mission "Gegno: A Major Miner Incident"
 			label transport
 			action
 				set "gegno: bunk check dialog"
-			`	The larger Gegno quickly acknowledges you with a fixed look as you walk up to them and then begins scrolling on their tablet device with some knuckle presses. As they take some time to sift though some data, the other two near them continue their own directives without giving you any attention. Once they find the data they're looking for, the Gegno turns the display to you, showing a graphic of ten Gegno-like silhouettes, indicating passengers. Your ship doesn't have twelve bunks, so you won't be able to assist with this particular request.`
-				to display
-					"bunks" > 10
-				goto leaders
+			branch "not enough bunks"
+				"bunks" < 10
 
 			`	The larger Gegno quickly acknowledges you with a fixed look as you walk up to them. While the maintenance lead continues to direct other Gegno, the hauling lead pauses, looking to your direction, then to the job board lead. After an awkward silence, the two exchange a few words, occasionally gesturing in your direction. For a brief moment, the maintenance lead pauses to listen, but quickly returns to instructing others.`
 
@@ -341,13 +339,16 @@ mission "Gegno: A Major Miner Incident"
 			`	Several grunts and motions later, the job board lead addresses you. They lower their posture slightly, leering at you silently for a few seconds. They then raise back up, speak a few more words to the other two, and then step away from them. Pushing you slightly, they begin to escort you down the corridor you came from, back to the docking bay your ship is in. Handing you a smaller tablet, and on it is a marked system one jump from here. They barely give you time to respond as they begin heading to a ship of their own, though it looks much older and worn than most other Gegno ships you've seen.`
 				accept
 
+			label "not enough bunks"
+			`	The larger Gegno quickly acknowledges you with a fixed look as you walk up to them and then begins scrolling on their tablet device with some knuckle presses. As they take some time to sift though some data, the other two near them continue their own directives without giving you any attention. Once they find the data they're looking for, the Gegno turns the display to you, showing a graphic of ten Gegno-like silhouettes, indicating passengers. Your ship doesn't have twelve bunks, so you won't be able to assist with this particular request.`
+				goto leaders		
+
+
 			label hauling
 			action
 				set "gegno: haul check dialog"
-			`	As you walk up to the Gegno in hauling gear, they pause for a moment, gaze at you, then turn to the other two. While the maintenance lead pays no attention, the job board lead briefly says something, followed by an awkward pause. The hauling lead unenthusiastically goes back to their own data pad. Surprisingly, they reveal data of your ship's cargo bay, showing tally marks similar to the ones at the job board. There are clearly more than 15 marks, which is more than your ship's cargo space, so this request isn't one you can accept.`
-				to display
-					"cargo space" > 15
-				goto leaders
+			branch "not enough cargo"
+				"cargo space" < 15
 
 			`	As you walk up to the Gegno in hauling gear, they pause for a moment, gaze at you, then turn to the other two. While the maintenance lead pays no attention, continuing to instruct others, the job board lead begins a conversation with the hauling lead. Between statements are long, awkward pauses. During one of them, another Gegno waiting behind you raises their voice. They too are wearing hauling gear, and as they join the discussion, even the maintenance lead pauses to listen for a brief moment.`
 
@@ -355,6 +356,10 @@ mission "Gegno: A Major Miner Incident"
 				set "gegno: hauling redirect"
 			`	Several grunts and gestures later, the hauling lead addresses you as they tap several times on their tablet. They suddenly hand it to you, to the surprise of the other two. Before you get a chance to look at the display, they gesture quickly to the Gegno behind you that spoke up, who then assertively escorts you back down the halls to the docking bay your ship is at. Back at the docking bay, you're handed a smaller tablet device that has a system one jump from here marked. With one long glance, the Gegno begins heading towards a shuttle-like ship, preparing to depart with you.`
 				accept
+
+			label "not enough cargo"
+			`	As you walk up to the Gegno in hauling gear, they pause for a moment, gaze at you, then turn to the other two. While the maintenance lead pays no attention, the job board lead briefly says something, followed by an awkward pause. The hauling lead unenthusiastically goes back to their own data pad. Surprisingly, they reveal data of your ship's cargo bay, showing tally marks similar to the ones at the job board. There are clearly more than 15 marks, which is more than your ship's cargo space, so this request isn't one you can accept.`
+				goto leaders
 
 			label refuse
 			action
@@ -425,6 +430,7 @@ mission "Gegno: A Major Miner Incident"
 
 
 mission "Gegno Miner Incident - Transport"
+	name `Relief workers to Tschyss`
 	landing
 	description `Transport 10 Gegno workers back to <destination> that will aid in relief efforts following the incident.`
 	passengers 10
@@ -454,13 +460,14 @@ mission "Gegno Miner Incident - Transport"
 				launch
 
 	on complete
-		payment 100000
+		payment 50000
 		conversation
 			`The Gegno abruptly leave your ship as soon as you dock with much more energy than you've seen most others on the station have. As they head off down the various corridors, another briskly approaches you. They're one of those with a slimmer build, and seem to be wearing some sort of fancy outfit, rather than heavy hauling gear. They hold up some sort of computational device, and you soon find that a sum of <payment> has been added to your account. They glance at you afterwards, though the look they give you seems much less that of indifference, or at least, it's a look you have yet to see the Gegno give you.`
 			`	As they walk off, you look around to see that there are much less Gegno loafing about. The station's activity has picked up a bit more with a larger volume of ships docking and leaving, also bringing other Gegno to help assist in repair efforts, with some larger vessels bring in big cargo hauls of supplies. Unfortunately, any desire of yours to try and go to the more busy areas is declined, but there's more work being put into it than when the incident had first occured.`
 
 
 mission "Gegno Miner Incident - Hauling"
+	name `Relief equipment to Tschyss`
 	landing
 	description `Transport 20 tons of industrial equipment back to <destination> for use in relief efforts following the incident.`
 	cargo "industrial equipment" 15
@@ -489,7 +496,7 @@ mission "Gegno Miner Incident - Hauling"
 				launch
 
 	on complete
-		payment 150000
+		payment 70000
 		conversation
 			`A team of Gegno are already awaiting your arrival as you dock, quickly unloading the supplies. Other Gegno see to it that the supplies are routed down the various corridors to get to repairs almost immediately, which is a dedication you haven't previously experienced here on the station. A moment later, you see the hauling lead heading in your direction. They pull out their familiar tablet device, and after some fiddling with it, you soon find a sum of <payment> has been attributed to your account.`
 			`	Rather than directly head over to help the others, they give you a lighter punch on the back, and after a quick glance, begin their way down the halls. Unfortunately, any desire of yours to follow them or go to the more busy areas is denied, but it's clear that the Gegno are attentitive to the situation.`		
@@ -551,7 +558,7 @@ mission "Gegno: Ef Aourtdye"
 				decline
 			
 			label "first visit"
-			`This large desert world is home to seas of sand that extend for hundreds of thousands of miles. While it initially seems to lack an established civilization, some areas in the deserts are sprinkled with large manufacturing plants and spires. The Gegno direct you to a decently-sized landing port engraved into one of the world's mountainous rock formations. As you dock in the port, you find that the same type of jobs on the station are handed out here as well, although the Gegno here seem far more motivated, or perhaps more serious, when it comes to applying for them. They seldomly give you attention, far more focused on whatever work they're occupied by.`
+			`This large desert world is home to seas of sand that extend for hundreds of thousands of miles. While it initially seems to lack an established civilization, some areas in the deserts are sprinkled with large manufacturing plants and spires, linked together by extensive highways that are held up by tall pillars rising from the sands below. The Gegno direct you to a decently-sized landing port engraved into one of the world's mountainous rock formations. As you dock in the port, you find that the same type of jobs on the station are handed out here as well, although the Gegno here seem far more motivated, or perhaps more serious, when it comes to applying for them. They seldomly give you attention, far more focused on whatever work they're occupied by.`
 			`	Based on your experiences up until now, the Gegno generally understand the language of hard work, which could be why they've given you permission to land here. Despite the language barrier. they understand the value of your labor.`
 				decline
 
@@ -668,29 +675,178 @@ mission "Tschyss Recovers"
 		conversation
 			`The Gegno seem to finally be finishing repairs to the station, a few teams working on gathering the remaining debris now that the internal structure is relatively sound. While most other work groups are beginning to leave, there is still a noticable amount of Gegno now active in and around the station, with some new teams rekindling construction efforts in parts of the station that haven't been touched in presumably years. Although traffic seems to be steadily decreasing, what was once a desolate, nearly-abandoned project has been transformed into an active, lively starport.`
 			
-			`	Over by the job board, you notice one of the Gegno with a brown vest removing the emergent listings for the station, but before they leave the area, they slowly march over to you. As they do, you notice one of the teams of Gegno in the distance, waiting for their ship, are looking slightly in your direction. One of them pounds a fist into their own forearm as they look your way, and some of the others gesture to one another and murmur at deep tones. Once the vested Gegno approaches you, they hold their familiar tablet out in front of them, and a sum of 100,000 credits is then transferred to your account. After quietly snorting at you, the Gegno walks away.`
+			`	Over by the job board, you notice one of the Gegno with a brown vest removing the emergent listings for the station, but before they leave the area, they slowly march over to you. As they do, you notice one of the teams of Gegno in the distance, waiting for their ship, are looking slightly in your direction. One of them pounds a fist into their own forearm as they look your way, and some of the others gesture to one another and murmur at deep tones. Once the vested Gegno approaches you, they hold their familiar tablet out in front of them, and a sum of 100,000 credits is then transferred to your account.`
 				to display
 					"gegno: recovery jobs" > 0
 
-			`	Over by the job board, you notice one of the Gegno with a brown vest removing the emergent listings for the station. You watch as they march over to one of the teams of Gegno in the distance as they hold their familiar tablet up, beginning some sort of transaction with them. It's not long before the spaceport becomes quiet again.`
+			`	Over by the job board, you notice one of the vested Gegno removing the emergent listings for the station. You watch as they march over to one of the teams of Gegno in the distance as they hold their familiar tablet up, beginning some sort of transaction with them. It's not long before the spaceport returns to a more casual pacing, although the presence of more Gegno overall is apparent.`
 				to display
 					"gegno: recovery jobs" <= 0
-
 				decline
 
 
-
-# Do one of which the player didn't do: If did hauling, do transport, and vice versa. Have gegno unhappy but respective lead helps them out
-
-# mission "Continued Assistance (Hauling)"
-
-# mission "Continued Assistance (Transport)"
+# Three more "chains", each separate from one another, to lead into the judgement missions.
 
 
+#	If the player did hauling, they then assist on construction in the station and grab supplies from Ef Aourtdye to help build an outfitter (which is built regardless of what the player does by the end of these missions).
 
-If player did maint, do extended maint on the moon at the shipyard, show off protoliths, gegno unhappy but maint lead respects player
+mission "Gegno Assistance - Hauling"
+	name `Mining order for the Gegno`
+	description "Locate and mine 17 tons of aluminum, 14 tons of titanium, and 9 tons of Neodymium. Return to <destination> once you've gathered all materials."
+	source "Tschyss"
+	destination "Ef Aourtdye"
+	to offer
+		has "event: gegno: tschyss recovery"
+		has "gegno: hauling redirect"
+		not "Gegno Genocide Defense: offered"
+	to accept
+		"cargo space" >= 40
+	on offer
+		conversation
+			`You notice a Gegno moving against the crowd and marching in your direction, recognizing that they're the Gegno in charge of hauling operations you transported cargo for when the station was first damaged. Realizing they got your attention, they start heading towards one of the station's several large, open walls, leading down paths that are normally off-limits to you. Their confident march ahead suggests that they're expecting you to follow them.`
+			choice
+				`	(Follow them.)`
+					goto follow
+				`	(Keep to yourself.)`
+			`	This time, you feel it's better to keep to yourself and your own business. The Gegno, only glancing back briefly, continues forward and goes about their own, walking out of sight.`
+			decline
+			
+			label follow
+			`	Trailing behind the haul lead, you walk down the expansive hallway. Other Gegno you pass by don't seem to mind you, working on other parts of the station that have either seen better days or have barely seen any to begin with. As you traverse the station, you approach a section of it that seems to have a decent amount of work being done by several teams of Gegno. Many of them are using various mechanical instruments and tools, accentuated by loud grinding or drilling sounds. Up ahead, the Gegno you followed is talking to a few others, marking some things down on a tablet.`
+			`	The team of Gegno in the background seems more lively than others on the station, working on a large, open portion of it that could fit many or their large ships. Metallic arms and piles of ship parts are scattered about. They often shout at one another, and occasionally make gestures you haven't seen the Gegno make before. For whatever reason, one of the Gegno hurls one of the giant mechanical devices they were carrying across the room at another, and the two start grunting back and forth. A third stops what they're doing and runs up to one of the others punching them hard in the chest. You aren't sure what's going on between them, but your attention is brought back forward as the lead Gegno moves to you and displays their tablet.`
+			`	Shown on the tablet is an inventory list of several materials, including Aluminum, Titanium and Neodymium presumably used in the construction the team is working on. Similar to the tallyboards on the job board, there are marks for a large number of materials missing, totalling up to 40 tons. On one hand, it's more or less another lucrative mining job. On the other, it's for a Gegno you already know to be reputable.`
+			choice
+				`	(Accept the job.)`
+					goto "accept"
+				`	(Decline.)`
+			`	Mining is work that something any of the Gegno could do. You shake your head to the Gegno, although they don't appear to fully understand your gesture. It's only when you begin to walk away from them that they return to their own business, but not before sending another Gegno to escort you back to the part of the station you have access to.`
+				decline
 
-# mission "Continued Assistance (Maintenance)"
+			label "accept"
+			`	You do your best to communicate to the Gegno that you accept the job, motioning towards the request. The Gegno, as they do, stares at you in silence for a moment, possibly not sure how to interpret your gestures. They tap a few times on the device, handing it over to you. It's a map, showing that you are to take the materials to the desert factory world you've been to previously. Before you can say or do anything else, they march off towards the other Gegno, already focused on their next task.`
+				accept
+
+	on visit
+		dialog "You've landed at <destination>, but do not have all 40 tons of materials mined and in your cargo hold. Make sure you have mined and collected 17 tons of aluminum, 14 tons of titanium, and 9 tons of neodymium in your cargo hold before you return."
+
+	on complete
+		payment 80000
+		outfit "Aluminum" -17
+		outfit "Titanium" -14
+		outfit "Neodymium
+
+
+mission "Gegno Assistance - Hauling II"
+	name `Transport equipment back to <destination>`
+	landing
+	description "The Gegno have loaded your ship with industrial equipment to take back to <destination>"
+	cargo "industrial equipment" 40
+	source "Ef Aourtdye"
+	destination "Tschyss"
+	to offer
+		has "Gegno Assistance - Hauling I: done"
+		not "Gegno Genocide Defense: offered"
+	on offer
+		conversation
+			branch "scin secort"
+				has "scin: approached epidote"
+
+			`Making your way to the spaceport, a large freighter rocks into view on your leftside, intentionally lining up with your flight path. Not only that, but they seem to be angling away from the spaceport you normally dock at in such a way that would make you veer off-course. Moving against the flow of traffic doesn't seem characteristic of the Gegno, so the pilot of the ship might be trying to get you to fly with them.`
+				goto choice
+
+			label "scin escort"
+			`Making your way to the spaceport, a large freighter rocks into view on your leftside, intentionally lining up with your flight path and flying just ahead of you. You recognize this behavior from when you encountered ships of the Scin on another world, where they lead you to a specific location. It could be that the pilot of this ship wants you to follow them to somewhere else on the planet.`
+
+			label choice
+			choice
+				`	(Land at the spaceport as planned.)`
+					goto spaceport
+				`	(Follow the freighter.)`
+			`	The freighter continues flying past the spaceport and off towards the spanning deserts with you in tow. You occasionally pass one of the extensive, towering highways that seem to stretch across the planet. A large structure comes into view up ahead, some sort of mining rig, except it is large enough to dock ships such as the freighter you're tailing. It is like one massive drill burrowing deep into the planet's mantle, spewing out clouds of smoke as it processes the ore it digs out with internalized refineries.`
+			`	You fly up to it, and a few clamps and supports around the main structure latch onto your ship, the same happening with the freight ship. There's a small gathering site where pilots meet up, and it's there you find out that the Gegno from the station, the hauling lead, is the pilot of the freighter. While a team of Gegno quickly unload your ship of the materials, you notice another group rushing to replace the emptying cargo bay with other things - various architectural structures, machines and other industrial equipment. The Gegno didn't communicate anything about this in the mission request, so you go looking for the haul lead. As soon as you find them, they're already marching up to you, and briefly show you a display of <destination>. Before you could get a say in the matter, they rush back over to their own freighter, also preparing to depart once their own crew loads their ship with similar cargo.`
+				accept
+
+			label spaceport
+			`	The freighter moves out of your way once you start making a direct approach to the port in the mountainside, continuing to fly off towards the spanning deserts until it disappears over the horizon. Waiting for you on your landing pad is a crew of Gegno, as well several large land-based vehicles that look like they came out of a post-apocalyptic movie. Several times larger than some of the largest Earthen vehicles you know, they have several exhaust pipes jutting outward and giant segment with cargo bays of their own. As usual, the Gegno unload your ship with an efficiency far greater than you're used to. Once full, the vehicles roll away, one by one, towards the massive spanning highways that go off towards the deserts. It's a wonder how well-built the bridges are to support something as large and heavy as those carrying around raw materials.`
+			`	It's almost eerie how quiet it becomes now that the Gegno are gone, the only thing breaking the silence being a notification that you have been credited a payment of 150,000 credits.`
+				decline
+
+	on complete
+		payment 80000
+		event "gegno: tschyss outfitter" 3
+		conversation
+			`It takes a moment for an unloading crew to show up, and when they do, you recognize them as the more lively bunch that were working on construction in another part of the station, consisting of Gegno of all sizes. They converse with one another more than the Gegno on Ef Aourtdye do, or at least, more than you've seen. Some of them haul equipment away in carts, and others carry machinery by themselves, some of it looking several times heavier than themselves. The hauling lead is standing by your ship and watching as the others do their work, but they too seem a bit more animated than other times, pacing a little bit. For no reason you could decipher, they throw a fist at it, and you swear they leave a dent in the side. You aren't sure how happy you are about that, but it wouldn't be the first time.
+			`	Once their crew has finished unloading, they personally hand you <payment> in credit sticks, pick up the last cargo cart themselves, and follow after the rest of the Gegno.`
+				decline
+
+
+mission "Gegno Assistance - Early Tschyss Outfitter"
+	outfitter
+	source "Tschyss"
+	to offer
+		has "event: gegno: tschyss outfitter"
+		not "Gegno Genocide Defense: offered"
+	on offer
+		conversation
+			`Outfitter Test.`
+				decline
+
+
+#	If the player did passengers, they find the hauling person on Ef Aourtdye, who gets them to take trash to a planet, but doesn't specify where to dump the trash. (Make a new "trash world" in Oosuoro that Tschyss orbits that was used to help make the station.)
+
+mission "Gegno Assistance - Transport"
+	name `Relocate and dump scrap cargo`
+	description "Dump 31 tons of scrap."
+	source "Tschyss"
+	to offer
+		has "event: gegno: tschyss recovery"
+		has "gegno: transport redirect"
+		not "Gegno Genocide Defense: offered"
+	to accept
+		"cargo space" >= 31
+	to complete
+		never
+	on offer
+		conversation
+			`Trash.`
+				accept
+
+mission "Gegno Cargo Dump - Byigii"
+	invisible
+	landing
+	source "Byigii"
+	to offer
+		has "Gegno Assistance - Transport: active"
+	on offer
+		conversation
+			`Planet.`
+			choice
+				`	(Here).
+				`	(No).`
+					decline
+					
+			action
+				fail "Gegno Assistance - Transport"
+				set "gegno: littered byigii"
+			`	Dump cargo here.`
+				decline
+
+
+#	If the player did the bay help, the Gegno will ask them to take them to the moon in the home system, and have them help with some assistance there, showing off the Protoliths in the background.
+
+# mission "Gegno Assistance - Maintenance"
+
+
+
+
+
+# mission "Subcultural Gegno" 
+#	A Gegno is hesitant/looking for transport to the distant Gegno civilian planet, or, there is a job for it and the authorities can't find anyone willing to take it besides you at the time.
+
+# mission "Refuel Rescue"
+#	Finding a Gegno civilian ship in need of fuel, and escort them back to the station. If the player has found the other ship before, this comes off as a more normal encounter and shows that the more belligerent Gegno were different.
+
+
 
 
 
@@ -698,9 +854,17 @@ If player did maint, do extended maint on the moon at the shipyard, show off pro
 
 # mission "Foreign Spectator II"
 
+# Changes in Zydee's ownership/more ships introduced.
+
+# Vi take Yli?
+
+# Scin take Ilirco?
 
 
-# Ending missions that judge player's rep and gives them in the end a Marl (but still no license). Marl unlocks jobs to faction planets (must be in Marl to do and complete.)
+
+
+
+# Ending missions that judge player's rep and gives them in the end a Marl (but still no license) and access to all civilian planets aside from the homeworld.
 
 # mission "Gegno Approbation"
 
@@ -709,10 +873,12 @@ If player did maint, do extended maint on the moon at the shipyard, show off pro
 # mission "Renumeration"
 
 
+
+
 --------------------------------------------------------------------------------------------------------------
 
+# Job to get the player's toes to test the pond of other territory (based on rep with vi or scin, if rep is even, give player a choice, if both negative, it's just a decline). Marl unlocks introductory jobs to take gegno to faction planets (must be in Marl to do and complete.)
 
-# Job to get the player's toes to test the pond of other territory (based on rep with vi or scin, if rep is even, give player a choice, if both negative, it's just a decline)
+# mission "Gegno: Passed Effort"
 
-mission "Gegno: Passed Effort"
-
+# Continuing onward, having Gegno interaction missions for lore (teenager with model toy at Tschyss, etc..)
