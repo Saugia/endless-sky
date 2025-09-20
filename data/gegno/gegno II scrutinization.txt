@@ -733,7 +733,7 @@ mission "Gegno Assistance - Hauling"
 		payment 80000
 		outfit "Aluminum" -17
 		outfit "Titanium" -14
-		outfit "Neodymium
+		outfit "Neodymium" -9
 
 
 mission "Gegno Assistance - Hauling II"
@@ -748,7 +748,7 @@ mission "Gegno Assistance - Hauling II"
 		not "Gegno Genocide Defense: offered"
 	on offer
 		conversation
-			branch "scin secort"
+			branch "scin escort"
 				has "scin: approached epidote"
 
 			`Making your way to the spaceport, a large freighter rocks into view on your leftside, intentionally lining up with your flight path. Not only that, but they seem to be angling away from the spaceport you normally dock at in such a way that would make you veer off-course. Moving against the flow of traffic doesn't seem characteristic of the Gegno, so the pilot of the ship might be trying to get you to fly with them.`
@@ -775,7 +775,8 @@ mission "Gegno Assistance - Hauling II"
 		payment 80000
 		event "gegno: tschyss outfitter" 3
 		conversation
-			`It takes a moment for an unloading crew to show up, and when they do, you recognize them as the more lively bunch that were working on construction in another part of the station, consisting of Gegno of all sizes. They converse with one another more than the Gegno on Ef Aourtdye do, or at least, more than you've seen. Some of them haul equipment away in carts, and others carry machinery by themselves, some of it looking several times heavier than themselves. The hauling lead is standing by your ship and watching as the others do their work, but they too seem a bit more animated than other times, pacing a little bit. For no reason you could decipher, they throw a fist at it, and you swear they leave a dent in the side. You aren't sure how happy you are about that, but it wouldn't be the first time.
+			`It takes a moment for an unloading crew to show up, and when they do, you recognize them as the more lively bunch that were working on construction in another part of the station, consisting of Gegno of all sizes. They converse with one another more than the Gegno on Ef Aourtdye do, or at least, more than you've seen. Some of them haul equipment away in carts, and others carry machinery by themselves, some of it looking several times heavier than themselves.`
+			`	The hauling lead is standing by your ship and watching as the others do their work, but they too seem a bit more animated than other times, pacing a little bit. For no reason you could decipher, they throw a fist at it, and you swear they leave a dent in the side. You aren't sure how happy you are about that, but it wouldn't be the first time.`
 			`	Once their crew has finished unloading, they personally hand you <payment> in credit sticks, pick up the last cargo cart themselves, and follow after the rest of the Gegno.`
 				decline
 
@@ -1133,13 +1134,13 @@ mission "Gegno Cargo Dump - Veiuye"
 #	If the player did the bay help, the Gegno will ask them to take them to the moon in the home system, and have them help with some assistance there, showing off the Protoliths in the background.
 
 # mission "Gegno Assistance - Maintenance"
-	name
+	name "Visit <destination>"
 	landing
 	description
 	source "Ef Aourtdye"
 	complete at "Iemn Eitch"
 	passengers 1
-#	clearance `After hailing the planet, there is a momentary silence followed by some static, or maybe what sounds like distant chatter. There is no response, but it seems the authorities have cleared you to land.`
+	clearance
 	to offer
 		has "event: gegno: tschyss recovery"
 		has "gegno: miner incident bay help"
@@ -1249,9 +1250,9 @@ mission "Gegno Cargo Dump - Veiuye"
 			label help
 			action
 				set "gegno: helped on iemn eitch"
-			`	Though the rusty and scrap-like architecture reminds you of how archaic Luna's shipyards are compared to others, there is a bountiful amount of Gegno working around the place, and several that you see leer at you as you walk around. The maintenance lead, and a few other Gegno, are helping move some large, segmented tubing from the ship that just landed, the same kind used for refueling.`
+			`	Though the rusty and scrap-like architecture reminds you of how archaic Luna's shipyards are compared to others, there is a bountiful amount of Gegno working around the place, and several that you see leer at you as you walk around. The maintenance lead, and a few other Gegno, are helping move some segmented industrial tubing from the ship that just landed, the same kind used for refueling except much larger.`
 			`	As you approach the group, one of the other Gegno starts stomping towards you, shouting in their language. Before they could get close to you, the maintenance lead talks to them. The two have a lengthy debate with one another that ends with the upset Gegno walking away and any others moving their eyes away from you.`
-			`	Walking up to you, the lead jabs you in the side, almost knocking you over. Considering someone of their stature could easily throw you several feet away, they hit you rather lightly, so it doesn't seem like an act of hostility. Passing behind you, they head towards a lunar vehicle driving up with more of the tubing.``
+			`	The lead jabs you in the side, almost knocking you over. Considering someone of their stature could easily throw you several feet away, they hit you rather lightly, so it doesn't seem like an act of hostility. Passing behind you, they head towards a lunar vehicle driving up with more tubing.`
 			choice
 				`	(Keep going with them.)`
 				`	(Try hitting them back.)`
