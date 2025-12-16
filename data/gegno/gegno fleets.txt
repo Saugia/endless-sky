@@ -120,6 +120,23 @@ fleet "Small Vi"
 	variant
 		"Gneiss"
 
+fleet "Small Vi II"
+	government "Gegno Vi"
+	names "gegno vi"
+	cargo 2
+	personality
+		heroic vindictive opportunistic
+	variant 3
+		"Eclogite"
+	variant 2
+		"Eclogite"
+		"Diorite"
+	variant
+		"Diorite"
+	variant
+		"Eclogite" 2
+		"Diorite"
+
 fleet "Large Vi"
 	government "Gegno Vi"
 	names "gegno vi"
@@ -232,23 +249,6 @@ fleet "Vi Cargo"
 		"Granulite"
 		"Schist (Heavy Load)"
 
-fleet "Small Vi II"
-	government "Gegno Vi"
-	names "gegno vi"
-	cargo 2
-	personality
-		heroic vindictive opportunistic
-	variant 3
-		"Eclogite"
-	variant 2
-		"Eclogite"
-		"Diorite"
-	variant
-		"Diorite"
-	variant
-		"Eclogite" 2
-		"Diorite"
-	
 
 fleet "Small Scin"
 	government "Gegno Scin"
@@ -265,6 +265,27 @@ fleet "Small Scin"
 		"Coesite" 3
 	variant
 		"Coesite" 2
+	variant
+		"Feldspar"
+		"Halite" 6
+
+fleet "Small Scin II"
+	government "Gegno Scin"
+	names "gegno scin"
+	cargo 1
+	personality
+		vindictive
+	variant 7
+		"Andesine"
+		"Halite" 2
+	variant 3
+		"Felsic"
+		"Coesite"
+	variant 4
+		"Coesite" 2
+	variant 
+		"Andesine" 3
+		"Halite" 6
 	variant
 		"Feldspar"
 		"Halite" 6

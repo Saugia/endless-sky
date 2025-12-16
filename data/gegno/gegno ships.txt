@@ -1625,3 +1625,65 @@ ship "Kyanite" "Kyanite (Acumen)"
 	turret
 	turret
 	turret
+
+ship "Andesine"
+	sprite "ship/gegno andesine"
+	thumbnail "thumbnail/gegno andesine"
+	attributes
+		category "Utility"
+#		licenses
+#			"Scin Architect"
+#			"Scin Hoplologist"
+		"cost" 14760000
+		"shields" 0
+		"hull" 20700
+		"required crew" 133
+		"bunks" 192
+		"mass" 2332
+		"drag" 26.2
+		"heat dissipation" 0.3
+		"fuel capacity" 600
+		"cargo space" 82
+		"outfit space" 566
+		"weapon capacity" 234
+		"engine capacity" 172
+		weapon
+			"blast radius" 180
+			"shield damage" 1650
+			"hull damage" 1200
+			"hit force" 1000
+	outfits
+		"Acuit Artillery"
+		
+		"C27 Campaign Core"
+		"R03 Warforge Battery"
+		"Plasmasickle" 66
+		"Plasma Grenades" 66
+		
+		"SC-15 Plasma Thrusters"
+		"SC-12 Plasma Steering"
+		"SC-14 Plasma Steering"
+		"Hyperdrive"
+	engine -20 125.5
+	engine 20 125.5
+	"reverse engine" -26 -82
+		zoom 0.5
+	"reverse engine" 26 -82
+		zoom 0.5
+	turret 0 34 "Acuit Artillery"
+	bay "Fighter" 0 -35
+		"launch effect" "scin launch"
+		under
+	bay "Fighter" 0 63
+		"launch effect" "scin launch"
+		under
+	leak "leak" 50 50
+	leak "flame" 80 140
+	explode "huge explosion" 18
+	explode "large explosion" 30
+	explode "medium explosion" 46
+	explode "small explosion" 50
+	explode "tiny explosion" 40
+	"final explode" "final explosion large"
+	description `The mighty Feldspar is a Scin creation to behold. As a testbed for the new Halite fighters, Feldspars bring their own small fleets with them and overwhelm their enemy. They were also designed as a semi-experimental platform, built around a brand new multi-engine system and the latest in Gegno plasma technology.`
+	description `	Able to keep a decent stance away from a battle while putting down artillery fire, Feldspars are quite a dangerously well-rounded ship for their size. On the downside, they are more susceptible to hull damage like any other Scin warship, especially when alone. As such, they rely on their fighters to keep their enemies at a distance.`

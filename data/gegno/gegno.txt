@@ -231,3 +231,11 @@ phrase "gegno mining payment dialog"
 		" "
 	word
 		"and you are paid <payment>."
+
+phrase "gegno tschyss material support"
+	word
+		"The Gegno methodologically unload your ship of supplies, and you are rewarded <payment> for your delivery."
+
+phrase "gegno tschyss worker support"
+	word
+		"The Gegno workers exit your ship with heavy steps, already on their way to their respective jobs. You are rewarded <payment> for your services."
