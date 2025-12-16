@@ -23672,9 +23672,8 @@ system Kneirc
 	asteroids "small metal" 9 5.2
 	asteroids "medium metal" 10 6.2
 	asteroids "large metal" 15 3.8
-	minables aluminum 12 7.04
-	minables iron 7 9.7
-	minables tungsten 26 6.8
+	minables aluminum 16 7.04
+	minables iron 9 9.7
 	trade Clothing 240
 	trade Electronics 800
 	trade Equipment 730
@@ -29938,7 +29937,6 @@ system Oosuoro
 	asteroids "small metal" 1 4.15
 	asteroids "medium metal" 13 3.4
 	asteroids "large metal" 2 2.77
-	minables neodymium 7 1.9
 	minables aluminum 6 2.3
 	trade Clothing 230
 	trade Electronics 655
@@ -42788,6 +42786,7 @@ system Yerser
 	asteroids "large metal" 2 4.27
 	minables aluminum 1 5.75
 	minables copper 3 6.19
+	minables neodymium 7 1.9
 	fleet "Small Scin" 4600
 	object
 		sprite star/a0
