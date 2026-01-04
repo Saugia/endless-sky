@@ -902,19 +902,13 @@ mission "Gegno Apprehension"
 		or
 			"gegno: encounters" >= 6
 			has "dead augen"
-			and
-				"gegno: encounters" >= 3
-				has "Full Vi Backlash: offered"
-			and
-				"gegno: encounters" >= 3
-				or
-					"reputation: Gegno Vi" <= -100
-					"reputation: Gegno Scin" <= -50
-			and
-				"gegno: encounters" >= 3
-				or
-					has "interrupted arena"
-					has "zydee interference"
+			has "Full Vi Backlash: offered"
+			or
+				"reputation: Gegno Vi" <= -100
+				"reputation: Gegno Scin" <= -50
+			or
+				has "interrupted arena"
+				has "zydee interference"
 	on offer
 		event "gegno: apprehension"
 		fail
@@ -1018,6 +1012,8 @@ mission "Acquiescence"
 		not "Gegno Anticipation: failed"
 		not "Gegno Intervention: failed"
 		not "Gegno Genocide Defense: offered"
+	to fail
+		"reputation: Gegno" < 0
 
 	destination "Tschyss"
 	on offer
@@ -1210,60 +1206,9 @@ mission "Acquiescence"
 			`	Despite the aggressive action, you are not followed as you leave the planet.`
 				flee
 
-
-
-mission "Gegno Asteroid Mining Prologue"
-	landing
-	name "Mine 5 tons of iron"
-	description "Mine and return 5 tons of iron to <destination>."
-	source "Tschyss"
-	to offer
-		has "Acquiescence: offered"
-		not "Gegno Genocide Defense: offered"
-	on offer
-		conversation
-			branch "returned"
-				has "Gegno Asteroid Mining Prologue: deferred"
-
-			`You arrive at your destination: a massive space station. Instead of standing directly behind you in your cockpit this time, the Gegno ended up taking a seat next to one of your open bunks, and didn't move a muscle up until now. Despite the grandiose nature of the Gegno's one and only space station, it seems very old and inactive. As you are escorted around the spacious interior, of which a majority is only a skeletal frame of pipes, bars, and supportive structures, you see a noticeable lack of personnel and running machinery. Some sections aren't even properly pressurized, but thankfully your spacesuit makes up for it. Occasionally, you come across some workers, but they appear very lethargic, or maybe just unmotivated.`
-			`	Eventually, you end up in a large docking bay where more workers and ships are present. Some of the workers are hauling crates of materials back and forth, with others talking among each other. The Gegno with you then motions over to a half-cracked display board on one of the walls across the room. With one last meaningful look, the Gegno leaves you to your own devices. You wonder if you'll ever see them again, considering the way they were treated back on Dueyu Eitch.`
-			choice
-				`	(Go to the display.)`
-					goto board
-				`	(Try to communicate with the other Gegno around me.)`
-			
-			`	You attempt to get the attention of some of the other Gegno present in the facility, but most of them give you strange glares or outright ignore you, until one seemingly annoyed Gegno gestures to the large cracked display.`
-
-			label "board"
-			`	The display, although cracked and beaten up, still appears otherwise functional. It presents a series of graphics in a list that seems to be updating in real-time. On the left side of each graphic are various types of minable asteroids, and on the right are tally marks. It appears to be some sort of job list linked with the station, which implies that the Gegno are at least giving you a chance to "do your part", or perhaps make up for what you've done.`
-			choice
-				`	(Accept one of the jobs.)`
-				`	(Leave without doing anything.)`
-					goto nothing
-			
-			label "accept"
-			`	You fiddle with the screen, trying to decipher how to use it. Some of the Gegno gaze at you for doing so. While they silently judge, you manage to figure out that it's a touch-sensitive interface, though it takes a lot of force for you to get it to work.`
-			`	The first time you get the device to work, you see an image of a hematite asteroid, rich in iron, with five strange-looking tally marks next to it. Mining for them may not be the best way to learn more about the Gegno, but working for them is a start.`
-				accept
-
-			label "nothing"
-			`	You decide to leave the facility. None of the Gegno pay you any attention as you do, and are focused back on their work once more.`
-				defer
-
-			label "returned"
-			`Despite previously leaving the station, you're given clearance to land again. Would you like to go to the job facility and try to accept one of the listings?`
-			choice
-				`	(Yes.)`
-					goto accept
-				`	(No.)`
-					defer
-	on defer
-		set "Gegno Asteroid Mining Prologue: deferred"
-	on visit
-		dialog "You've returned to <origin>, but do not have 5 tons of iron mined and in your ship. Make sure to mine 5 tons of iron and collect it into your cargo before you land."
 	on complete
-		payment 12000
-		outfit "Iron" -5
 		conversation
-			`You dock with the station at the facility's port, rather than on the other side of it. Waiting for you is a large group of Gegno workers, all in rusted or damaged gear. After a few moments of staring and discussion among one another, they unload the minerals from your ship, then go about their business as if nothing happened. Another approaches you, and to your surprise, pays you a sum of <payment> for your work. It seems that the Gegno value and reward effort no matter who does it, even a member of another species.`
-			`	For the time being, the station remains accessible to you, as well as these small odd jobs for mining. Hopefully someday the Gegno will recognize that you're worth more than whatever they've labeled you for.`
+			`You arrive at your destination: a massive space station. Instead of standing directly behind you in your cockpit this time, the Gegno ended up taking a seat next to one of your open bunks, and didn't move a muscle up until now. Despite the grandiose nature of the Gegno's one and only orbital structure, it seems very old and inactive. As you are escorted around the spacious interior, of which a majority is only a skeletal frame of pipes, bars, and supportive structures, you see a noticeable lack of personnel and running machinery. Some sections aren't even properly pressurized, but thankfully your spacesuit makes up for it. Occasionally, you come across some workers, but they appear very lethargic, or maybe just unmotivated.`
+			`	Eventually, you end up in what is most likey the station's spaceport, where more workers are present. Some of the them are hauling crates of materials back and forth, with others talking among each other. The Gegno with you then motions over to a half-cracked display board on one of the walls across the room, presumably the job board.`
+			`	With one last meaningful look, the Gegno leaves you on your own devices. You wonder if you'll ever see them again, considering the way they were treated back on Dueyu Eitch.`
+				decline

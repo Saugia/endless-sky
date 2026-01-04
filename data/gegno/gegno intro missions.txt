@@ -723,6 +723,7 @@ mission "Gegno Exploration Nudge"
 				accept
 
 # Fails above mission once the proper conditions are met so that it doesn't float in the mission panel.
+
 mission "Gegno Exploration Nudge Remover"
 	invisible
 	landing
