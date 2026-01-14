@@ -7569,11 +7569,10 @@ mission "Hogshead's Dilemma III"
 					decline
 				`	(Go see the ship, and also shout "Shippy McShipface".)`
 					goto dork
-
 			`	You go over to the nearby docking port, joining the crowd around the Shippy McShipface. People are posing in front of it and taking pictures, someone is handing out fliers, and there's even a mascot, dressed in a big barrel costume, that many of the kids are cheering on.`
 			`	"Crazy, ain't it?" someone says to you. You turn and look to see a middle-aged man dressed in a captain's uniform. "To think a silly ol' name like that would be garnering this much attention." He appears to be the captain of the ship.`
 				goto choice
-			
+
 			label dork
 			`	You rush over to the crowd around the Shippy McShipface, shouting its name similarly to the kid that had passed you. A few locals nearby give you strange expressions, but one or two tourists join in with you, also shouting the name, riling up nearby children. Some are posing and taking pictures, another person is handing out fliers, and there's even a mascot dressed in a big barrel costume.`
 			`	"You got the fever too, huh?" someone says to you, holding back a laugh. You turn and look to see a middle-aged man dressed in a captain's uniform. "To think a silly ol' name like that would be garnering this much attention." He appears to be the captain of the ship.`
@@ -7591,7 +7590,7 @@ mission "Hogshead's Dilemma III"
 			label surprised
 			`	The man lets out a hearty chuckle. "I ain't surprised a bit. These things were born on goofy names," he says, thumbing back towards the vessel. "You know the story behind 'em, right?"`
 				goto name
-			
+
 			label stupid
 			`	The man lets out a hearty chuckle. "It ain't the first, and it ain't gonna be the last. This thing's name ain't much different either you know," he says, thumbing back towards the vessel.`
 			choice
@@ -7620,7 +7619,7 @@ mission "Hogshead's Dilemma III"
 					goto hogshead
 				`	"Something to do with hogs?"`
 			`	"Guess you could say that," he says, "but nothin' more than a sparrow's gotta do with a Sparrow".`
-				goto bill
+				goto hogshead
 			`	"Might be past your time, then," he says, winking at you.`
 			label hogshead
 			`	"Back when these things were made," he starts, now pointing at the ship's engines, "'em thrusters were the last thing they put on. Nobody knew what they wanted call the dang thing yet. Story goes that one of 'em engineers working on it wouldn't shut his yap over 'em engines looking like barrels. Tub, drum, firkin, kept going on 'bout the different ways to call 'em.`
@@ -7654,6 +7653,7 @@ mission "Hogshead's Dilemma III"
 	on visit
 		dialog `You have arrived on <planet>, but either you left the Shippy McShipface behind, or your escort carrying the research equipment has not arrived! Better depart and wait for your escorts to arrive in this star system.`
 	on complete
+		payment 15000
 		event "hogshead at new britain" 14
 		event "hogshead leaves new britain" 28
 		conversation
@@ -7673,8 +7673,8 @@ event "hogshead leaves new britain"
 
 mission "Hogshead's Dilemma IV Hint"
 	landing
-	name "Meet up with Bill"
-	description "Fly over to <destination> and see what help Bill Bailey needs with the Shippy McShipface."
+	name "Meet up with Shippy"
+	description "Meet up with Bill on <destination> to see what help he needs with the Shippy McShipface. It will be stationed there until <deadline>."
 	source
 		near Dabih 1 10
 	destination "New Britain"
@@ -7693,9 +7693,9 @@ mission "Hogshead's Dilemma IV Hint"
 				decline
 
 			label "met bill"
-			`	After landing your ship, you receieve an incoming message.`
+			`After landing your ship, you receieve an incoming message.`
 			`	"Is your ship running? Well, it better be, o' else you'd be stuck in the middle of nowhere! Hahaha!" There is no indication of who sent the message. It seems to be a prank, until you receieve another one shortly after, clarifying the sender is Bill Bailey, the captain of the Shippy McShipface.`
-			`	"Got the ol' Hogshead over here on <destination> still, but we plan on leavin' soon. That's be the idea, but I've got another problem to deal with. Know I asked you for a lil' help before, so I'm reachin' out to see if  you're interested in lendin' the <ship> again."`
+			`	"Got the ol' Hogshead over here on <destination> still, but we plan on leavin' soon. That'd be the idea, but I've got another problem to deal with. Know I asked you for a lil' help before, so I'm reachin' out to see if  you're interested in lendin' the <ship> again."`
 			`	"Company wants us back on the road in 'bout two weeks. If you can make that, send me a message back, but I can find another pilot if it's too big an ask."`
 			choice
 				`	(Send a message saying you're interested in helping.)`
@@ -7708,7 +7708,7 @@ mission "Hogshead's Dilemma IV Hint"
 				accept
 	on complete
 		conversation
-			`It takes a few mintutes for a landing pad to be cleared for you, and when you finally touch down, it's another few minutes before dock workers are able to service your ship. As they're finishing up on refueling it, you receieve another message from Bill telling you to meet him in the spaceport once you get the chance.`
+			`It takes a few minutes for a landing pad to be cleared for you, and when you finally touch down, dock workers in rugged clothing service your ship. As they're finishing up on refueling it, you receieve another message from Bill telling you to meet him in the spaceport once you get the chance.`
 	on decline
 		event "hogshead leaves new britain" 14
 		event "hogshead at new switzerland" 32
@@ -7727,7 +7727,13 @@ mission "Hogshead Leaves New Britain"
 		not "dead hogshead"
 	on offer
 		conversation
-			`There are some workers taking down a few posters as well as a pop-up store setup. On one of the posters, you notice the picture of the Shippy McShipface. [It's now irrelevant for a while]`
+			`There are some workers taking down remains of what looks like a pop-up shop near a docking pad a few segments away from you. While initially it's hard to tell what the setup was for, two of the workers pass by slowly wrapping up an oversized graphic of the Shippy McShipface. Would you like to ask them about its whereabouts?`
+			choice
+				`	(Yes.)`
+				`	(No.)`
+					decline
+			`	The workers continue to dismantle the display in the background, a few bagging some souvenir-like items in large trashbags, until one of them walks up to you. "Yeah, it was here. Wherever it went, I heard something about its tour being suspended. Tough break, I guess."`
+			`	You thank the worker, who seems like they have the energy of someone who hasn't slept in days, and continue on with your own.`		
 				decline
 	on decline
 		event "hogshead at new switzerland"
@@ -7791,15 +7797,14 @@ mission "Hogshead's Dilemma IV"
 						has "First Contact: Quarg: offered"
 					goto "quarg a"
 
-			`	"Nah you smartmouth," he says, jabbing you in the side. "The, 'alien overloads that control us all', just a jump or two east of this system. Buncha top secret war stuff behind lights and camera if you ask me. Hell, just look at the big ol' whacking toys the Navy's got right now. They'd look like alien tech too if I was flyin' a pile of scrap from centuries ago.`
+			`	"Nah you smartmouth," he says, jabbing you in the side. "The, 'alien overloads that control us all', just a jump or two east of this system. Buncha top secret war stuff behind lights and camera if you ask me. Hell, just look at the big ol' whacking toys the Navy's got right now. They'd look like alien tech too if I was flyin' a pile of scrap from centuries ago! Hahaha!"`
 			`	Anyway, I'm ready to leave this planet. Gonna have a cow if I get one more history lesson 'bout a king or queen."`
 				accept
 
 			label "quarg a"
-			`	"Bah, quarks, quags, whatever it is. The, 'alien overloads that control us all', just a jump or two east of this system. Buncha top secret war stuff behind lights and camera if you ask me. Hell, just look at the big ol' whacking toys the Navy's got right now. They'd look like alien tech too if I was flyin' a pile of scrap from centuries ago.`
+			`	"Bah, quarks, quags, whatever it is. The, 'alien overloads that control us all', just a jump or two east of this system. Buncha top secret war stuff behind lights and camera if you ask me. Hell, just look at the big ol' whacking toys the Navy's got right now. They'd look like alien tech too if I was flyin' a pile of scrap from centuries ago! Hahaha!"`
 			`	Anyway, I'm ready to leave this planet. Gonna have a cow if I get one more history lesson 'bout a king or queen."`
 				accept
-
 
 			label "not interested a"
 			`	Bill lifts an eyebrow, tilting his head towards you with a questioning look in his eye. "Sometimes you don't got a choice when it ain't you choosin'. You think them 'awful' pirates care if you don't like it? Hah!" He occasionally looks up whenever someone else enters the diner as he finishes his meal.`
@@ -7818,16 +7823,15 @@ mission "Hogshead's Dilemma IV"
 						has "First Contact: Quarg: offered"
 					goto "quarg b"
 
-			`	"Nah you smartmouth," he says, jabbing you in the side. "The, 'alien overloads that control us all', just a jump or two east of this system. Buncha top secret war stuff behind lights and camera if you ask me. Hell, just look at the big ol' whacking toys the Navy's got right now. They'd look like alien tech too if I was flyin' a pile of scrap from centuries ago.`
+			`	"Nah you smartmouth," he says, jabbing you in the side. "The, 'alien overloads that control us all', just a jump or two east of this system. Buncha top secret war stuff behind lights and camera if you ask me. Hell, just look at the big ol' whacking toys the Navy's got right now. They'd look like alien tech too if I was flyin' a pile of scrap from centuries ago! Hahaha!"`
 			`	The two of you say your goodbyes, and you're left to your own business.`
 				decline
 
 			label "quarg b"
-			`	"Bah, quarks, quags, whatever it is. The, 'alien overloads that control us all', just a jump or two east of this system. Buncha top secret war stuff behind lights and camera if you ask me. Hell, just look at the big ol' whacking toys the Navy's got right now. They'd look like alien tech too if I was flyin' a pile of scrap from centuries ago.`
+			`	"Bah, quarks, quags, whatever it is. The, 'alien overloads that control us all', just a jump or two east of this system. Buncha top secret war stuff behind lights and camera if you ask me. Hell, just look at the big ol' whacking toys the Navy's got right now. They'd look like alien tech too if I was flyin' a pile of scrap from centuries ago! Hahaha!"`
 			`	The two of you say your goodbyes, and you're left to your own business.`
 				decline
 
-# If player hasn't met Bill yet
 
 			label "first time"
 			`	Despite being in the Dirt Belt, <origin>'s spaceport is quite populated. The ziggurat-like structure is decorated with docked ships, but one platform seems to be garnering more attention than others. Parked at it is a Hogshead space liner, and your suspicions are answered when you hear a group of energetic teenagers repeatingly shouting and laughing at the word "Shippy!" as they sprint towards it.`
@@ -7888,7 +7892,7 @@ mission "Hogshead's Dilemma IV"
 					goto hogshead
 				`	"Something to do with hogs?"`
 			`	"Guess you could say that," he says, "but nothin' more than a sparrow's gotta do with a Sparrow".`
-				goto bill
+				goto hogshead
 			`	"Might be past your time, then," he says, winking at you.`
 			label hogshead
 			`	"Back when these things were made," he starts, now pointing at the ship's engines, "'em thrusters were the last thing they put on. Nobody knew what they wanted call the dang thing yet. Story goes that one of 'em engineers working on it wouldn't shut his yap over 'em engines looking like barrels. Tub, drum, firkin, kept going on 'bout the different ways to call 'em.`
@@ -7921,7 +7925,8 @@ mission "Hogshead's Dilemma IV"
 					goto "not interested b"
 
 			label "interested b"
-			`	"Appreciate it," Bill says honestly. He then shuffles his stance, looking around into the crowd as if he's trying to find something. "By the way, you ever heard of those quark?"`
+			`	Bill puts on a wide grin. "Great! Wouldn't be too worried 'bout anything crazy happenin', they're just scared of nothin'. We'll be heading over to <destination> - it's got both candy for the tourists and ice for the big brains to stare at!" He then shuffles his stance, looking around into the crowd as if he's trying to find something.`
+			`	"By the way, you ever heard of those quark?"`
 			choice
 				`	"Quark? The subatomic particle?"`
 				`	"Isn't that a character frome some really old show?"`
@@ -7930,12 +7935,12 @@ mission "Hogshead's Dilemma IV"
 						has "First Contact: Quarg: offered"
 					goto "quarg c"
 
-			`	"Nah you smartmouth," he says, jabbing you in the side. "The, 'alien overloads that control us all', just a jump or two east of this system. Buncha top secret war stuff behind lights and camera if you ask me. Hell, just look at the big ol' whacking toys the Navy's got right now. They'd look like alien tech too if I was flyin' a pile of scrap from centuries ago.`
+			`	"Nah you smartmouth," he says, jabbing you in the side. "The, 'alien overloads that control us all', just a jump or two east of this system. Buncha top secret war stuff behind lights and camera if you ask me. Hell, just look at the big ol' whacking toys the Navy's got right now. They'd look like alien tech too if I was flyin' a pile of scrap from centuries ago! Hahaha!"`
 			`	With that, he heads off towards the crowd around his ship, which slowly starts to disperse as the engines begin their startup sequence.`
 				accept
 
 			label "quarg c"
-			`	"Bah, quarks, quags, whatever it is. The, 'alien overloads that control us all', just a jump or two east of this system. Buncha top secret war stuff behind lights and camera if you ask me. Hell, just look at the big ol' whacking toys the Navy's got right now. They'd look like alien tech too if I was flyin' a pile of scrap from centuries ago.`
+			`	"Bah, quarks, quags, whatever it is. The, 'alien overloads that control us all', just a jump or two east of this system. Buncha top secret war stuff behind lights and camera if you ask me. Hell, just look at the big ol' whacking toys the Navy's got right now. They'd look like alien tech too if I was flyin' a pile of scrap from centuries ago! Hahaha!"`
 			`	With that, he heads off towards the crowd around his ship, which slowly starts to disperse as the engines begin their startup sequence.`
 				accept
 
@@ -7949,23 +7954,37 @@ mission "Hogshead's Dilemma IV"
 						has "First Contact: Quarg: offered"
 					goto "quarg d"
 
-			`	"Nah you smartmouth," he says, jabbing you in the side. "The, 'alien overloads that control us all', just a jump or two east of this system. Buncha top secret war stuff behind lights and camera if you ask me. Hell, just look at the big ol' whacking toys the Navy's got right now. They'd look like alien tech too if I was flyin' a pile of scrap from centuries ago.`
+			`	"Nah you smartmouth," he says, jabbing you in the side. "The, 'alien overloads that control us all', just a jump or two east of this system. Buncha top secret war stuff behind lights and camera if you ask me. Hell, just look at the big ol' whacking toys the Navy's got right now. They'd look like alien tech too if I was flyin' a pile of scrap from centuries ago! Hahaha!"`
 			`	He tips his hat to you before walking towards the Shippy MccShipface, leaving you to your business.`
 				decline
 
 			label "quarg d"
-			`	"Bah, quarks, quags, whatever it is. The, 'alien overloads that control us all', just a jump or two east of this system. Buncha top secret war stuff behind lights and camera if you ask me. Hell, just look at the big ol' whacking toys the Navy's got right now. They'd look like alien tech too if I was flyin' a pile of scrap from centuries ago.`
+			`	"Bah, quarks, quags, whatever it is. The, 'alien overloads that control us all', just a jump or two east of this system. Buncha top secret war stuff behind lights and camera if you ask me. Hell, just look at the big ol' whacking toys the Navy's got right now. They'd look like alien tech too if I was flyin' a pile of scrap from centuries ago! Hahaha!`
 			`	He tips his hat to you before walking towards the Shippy MccShipface, leaving you to your business.`
 				decline
-
 	on visit
 		dialog `You have arrived on <planet>, but you left the Shippy McShipface behind! Better depart and make sure it finds its way to the system safely.`
 	on complete
+		payment 29000
 		event "hogshead at new switzerland"
 		event "hogshead competition" 64
 		conversation
-			`[End of part IV.]`
+			`You and the Shippy McShipface touch down near New Switzerland's valley-based spaceport. Tourists energetically leave the Hogshead, many of them surprised and already recording footage of the old fashioned town buildings and scenery. However, some tourists, as well as the scientists, seem rather upset. Bill eventually makes his way over to greet you after avoiding conversations with several of the unhappy passengers.`
+			`	"Would like to say the journey was good, but there's been complaints from the lot of 'em, 'course about the pirates we ran into. Happens, don't it? It's like all of 'em lived on Paradise Planets!"`
+			choice
+				`	"I mean, a pirate threat is any passenger's worry."`
+					goto goody
+				`	"It's nothing, pirates aren't uncommon where I'm from, either."`
+			`	Bill firmly nods in agreement. "Every place 'n person have their rough edges. Can't expect to go anywhere without somethin' like that existin'."`
 
+				goto end
+			label goody
+			`	Bill looks at you with a small hint of disappointment. "If they worryin' 'bout it, they shouldn't have hopped on the ride! I tell you, if you saw a land mine and walked past it anyways, don't act stupid if it explodes!"
+
+			label end
+			`	"Thanks for takin' up my offer though. But I reckon it won't be seein' you sometime soon. Those compaints were enough to get the company in some mess - they don't want it blowin' up in their face on the media rep they worked hard on. And I bet you don't wanna be part of it either!" He holds his hands to his belly and laughs out loud as he always does.`
+			`	With the same big grin that you've seen before, Bill winks to you, tips his hat, and goes back to the Shippy McShipface. You can't help but think that someone as lifeful as him befits the position of captain for a ship with such a name.`
+				decline
 	npc
 		government "Pirate"
 		personality nemesis staying harvests plunders
@@ -7990,7 +8009,7 @@ mission "Hogshead's Dilemma IV"
 		on kill
 			set "dead hogsgead"
 
-event "hogshead competition
+event "hogshead competition"
 
 
 
