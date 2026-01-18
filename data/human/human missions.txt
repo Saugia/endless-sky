@@ -7982,7 +7982,7 @@ mission "Hogshead's Dilemma IV"
 			`	Bill looks at you with a small hint of disappointment. "If they worryin' 'bout it, they shouldn't have hopped on the ride! I tell you, if you saw a land mine and walked past it anyways, don't act stupid if it explodes!"
 
 			label end
-			`	"Thanks for takin' up my offer though. But I reckon it won't be seein' you sometime soon. Those compaints were enough to get the company in some mess - they don't want it blowin' up in their face on the media rep they worked hard on. And I bet you don't wanna be part of it either!" He holds his hands to his belly and laughs out loud as he always does.`
+			`	"Thanks for takin' up my offer though. But I reckon I won't be seein' you sometime soon. Those compaints were enough to get the company in some mess - they don't want it blowin' up in their face on the media rep they worked hard on. And I bet you don't wanna be part of it either!" He holds his hands to his belly and laughs out loud as he always does.`
 			`	With the same big grin that you've seen before, Bill winks to you, tips his hat, and goes back to the Shippy McShipface. You can't help but think that someone as lifeful as him befits the position of captain for a ship with such a name.`
 				decline
 	npc
