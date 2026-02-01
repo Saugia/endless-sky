@@ -514,12 +514,18 @@ public:
 	// Pattern to use when flying in a formation.
 	const FormationPattern *GetFormationPattern() const;
 
+	// Get a list of ships targeting this one.
+	const std::vector<std::weak_ptr<Ship>> &GetShipsTargetingThis() const;
+	// Get and update the total ship strength targeting this ship.
+	double GetTargeterStrength() const;
+	void UpdateTargeterStrength();
+
 	// Mark this ship as fleeing.
 	void SetFleeing(bool fleeing = true);
 
 	// Set this ship's targets.
 	void SetTargetShip(const std::shared_ptr<Ship> &ship);
-	void SetShipToAssist(const std::shared_ptr<Ship> &ship);
+	void SetShipToAssist(const std::weak_ptr<Ship> &ship);
 	void SetTargetStellar(const StellarObject *object);
 	// Set ship's target system (it should always be one jump / wormhole pass away).
 	void SetTargetSystem(const System *system);
@@ -772,6 +778,10 @@ private:
 	// Links between escorts and parents.
 	std::vector<std::weak_ptr<Ship>> escorts;
 	std::weak_ptr<Ship> parent;
+
+	// List of enemy ships targeting this one.
+	std::vector<std::weak_ptr<Ship>> targetingList;
+	double targeterStrength;
 
 	bool removeBays = false;
 };
