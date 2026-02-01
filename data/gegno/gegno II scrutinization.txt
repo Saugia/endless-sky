@@ -57,32 +57,22 @@ mission "Gegno Job Board Prologue"
 				`	(Put the key in the machine.)`
 
 			`	Not all of the listings on the display light up, but the ones that do have graphics resembling minable asteroids with tally marks on the side. Not a moment later, the Gegno leaves you with the key, already having vanished to somewhere else in the station.`
-			`	Mining jobs may not be the best way to learn more about the Gegno, but being able to do work for them is a start.`
+			`	Mining jobs may not be the best way to learn more about the Gegno, but having access to some of their jobs is one way to start building relations with them.`
 				decline
 
 
-
-mission "Gegno Passenger Preview"
-	name ``
-	job
-	description ``
-	source "Tschyss"
-	to offer
-		"gegno: mining jobs" > 5
-		not "Gegno Genocide Defense: offered"
-	on offer
-		event "gegno: dwindling workers"
-		conversation
-
-
-
-
-
-			`Aside from the occasional unloading of mined minerals from your cargo hold, the Gegno at this station have ignored your presence one way or another. However, today seems to be different, as a Gegno directly approaches you, carrying a tablet device larger than ones you've seen others handle before.`
-			`	Standing before you, their appearance is more similar to members of the Scin you've interacted with before - somewhat thinner than other Gegno, but still taller than many. Unlike others in the background, they're wearing a dark-brown vest of sorts, adorned with various small badges.`
-			`	After they've tapped on their device a few times, they gesture you to follow them, leading you to a smaller area. Like the rest of the station, it is only partially constructed, having framework exposed and shoddy-looking electrical circuits. Some other Gegno are present, going to and from a wall-mounted display, similar to the previous one, that lists various jobs. Thankfully, it shares the same visuals, showing more minable asteroids with tally-marks, though these jobs seem to request a bit more materials, but also pay more.`
-			`	You turn around to address at the Gegno that led you here once more, but they have already vanished to somewhere else in the station.`
-				decline
+# mission "Gegno Passenger Preview"
+#	name ``
+#	job
+#	description ``
+#	source "Tschyss"
+#	to offer
+#		"gegno: mining jobs" > 5
+#		not "Gegno Genocide Defense: offered"
+#	on offer
+#		conversation
+#		`.`
+#			decline
 
 
 mission "Gegno: Unexpected Drifters"
@@ -176,6 +166,7 @@ mission "Gegno: Repair Humor"
 	to offer
 		"gegno: mining jobs" > 4
 	on offer
+		event "gegno: dwindling workers"
 		conversation
 			`While you are traversing the rickety interior of the station, you come across a group of Gegno gathering at one of the nearby sections, still only partly constructed. Next to them are a set of construction tools set up against the wall. From the looks of the area they're planning to work on, they're understaffed, and some of them don't seem very enthusiastic about the job to begin with.`
 			choice
@@ -339,33 +330,6 @@ mission "Gegno: Visiting Scin"
 
 	on decline
 		event "gegno: zydee war escalates"
-
-
-
-mission "Gegno: Visiting Vi"
-	landing
-	soure "Tschyss"
-	to offer
-		"gegno: mining jobs" > 6
-	on offer
-		conversation
-			branch "hostile vi"
-				"reptutation: Gegno Vi" < 0
-
-			`The groan of old support beams echoes the station's interior, broken up by the occasional movement of cargo and undocking of ships. All seems calm until the thumps of many large feet start to grow louder from a corridor on the opposite end of the spaceport. Shuffling into view is a group of about 30 Gegno, which is uncommon to see. Speaking in loud, deep tones behind them is not another civilian Gegno, but a Gegno of the Vi faction.
-			
-			while you and a few other Gegno make your away around the spaceport. the atmospheric sounds are cut short as , The station's interior occasionally groans .`
-				decline
-			
-			label "hostile vi"
-			`Blablabla.`
-				decline
-
-
-			`The groan of old support beams doing what they can to hold rooms together echoes through the station's interior, broken up by the occasional movement of cargo and undocking of ships. All seems calm until the thumps of many large feet start to grow louder from a corridor on the opposite end of the spaceport. Shuffling into view is a group of about 30 Gegno, which is uncommon to see. Speaking in loud, deep tones behind them is not another civilian Gegno, but a Gegno of the Vi faction.  while you and a few other Gegno make your away around the spaceport. the atmospheric sounds are cut short as , The station's interior occasionally groans .`
-				decline
-
-
 
 
 mission "Gegno: Unloading Troubles"
@@ -917,8 +881,31 @@ mission "Gegno: Tschyss Recovers"
 				decline
 
 
-# Three more "chains", each separate from one another, to lead into the judgement missions.
+mission "Gegno: Visiting Vi"
+	landing
+	soure "Tschyss"
+	to offer
+		"gegno: mining jobs" > 6
+	on offer
+		conversation
+			branch "hostile vi"
+				"reptutation: Gegno Vi" < 0
 
+			`The groan of old support beams echoes the station's interior, broken up by the occasional movement of cargo and undocking of ships. All seems calm until the thumps of many large feet start to grow louder from a corridor on the opposite end of the spaceport. Shuffling into view is a group of about 30 Gegno, which is uncommon to see. Speaking in loud, deep tones behind them is not another civilian Gegno, but a Gegno of the Vi faction.
+			
+			while you and a few other Gegno make your away around the spaceport. the atmospheric sounds are cut short as , The station's interior occasionally groans .`
+				decline
+			
+			label "hostile vi"
+			`Blablabla.`
+				decline
+
+
+			`The groan of old support beams doing what they can to hold rooms together echoes through the station's interior, broken up by the occasional movement of cargo and undocking of ships. All seems calm until the thumps of many large feet start to grow louder from a corridor on the opposite end of the spaceport. Shuffling into view is a group of about 30 Gegno, which is uncommon to see. Speaking in loud, deep tones behind them is not another civilian Gegno, but a Gegno of the Vi faction.  while you and a few other Gegno make your away around the spaceport. the atmospheric sounds are cut short as , The station's interior occasionally groans .`
+				decline
+
+
+# Three more "chains", each separate from one another, to lead into the judgement missions.
 
 #	If the player did hauling, they then assist on construction in the station and grab supplies from Ef Aourtdye to help build an outfitter (which is built regardless of what the player does by the end of these missions).
 
@@ -1139,7 +1126,7 @@ mission "Gegno Cargo Dump - Ghneoe"
 		has "Gegno Assistance - Transport: active"
 	on offer
 		conversation
-			`There is currently a conflict between the Vi and Scin in the system, however, theer are no signs of battle or colonization on this planet. Do you dump the cargo here?`
+			`There is currently a conflict between the Vi and Scin in the system, however, there are no signs of battle or colonization on this planet. Do you dump the cargo here?`
 			choice
 				`	(Dump the cargo here.)`
 				`	(Not here.)`
@@ -1514,6 +1501,7 @@ mission "Gegno Assistance Protolith"
 		personality launching uninterested
 		system "Heutesl"
 		ship "Protolith" "Pyytei Ien"
+
 
 #	A Gegno or group is hesitant/looking for transport to the distant Gegno civilian planet, or, there is a job for it and the authorities can't find anyone willing to take it besides you at the time.
 

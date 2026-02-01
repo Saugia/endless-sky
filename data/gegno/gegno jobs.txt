@@ -142,7 +142,7 @@ mission "Gegno Asteroid Mining - Neodymium + Copper"
 	source
 		attributes gegno mining
 	to offer
-		random < 10
+		random < 20
 	to accept
 		"cargo space" > 20
 	on visit
@@ -163,7 +163,7 @@ mission "Gegno Asteroid Mining - Tungsten + Titanium"
 	source
 		attributes gegno mining
 	to offer
-		random < 10
+		random < 20
 	to accept
 		"cargo space" > 18
 	on visit
@@ -184,7 +184,7 @@ mission "Gegno Asteroid Mining - Neodymium"
 	source
 		attributes gegno mining
 	to offer
-		random < 5
+		random < 10
 	to accept
 		"cargo space" > 23
 	on visit
@@ -204,7 +204,7 @@ mission "Gegno Asteroid Mining - Tungsten"
 	source
 		attributes gegno mining
 	to offer
-		random < 5
+		random < 10
 	to accept
 		"cargo space" > 17
 	on visit
@@ -224,7 +224,7 @@ mission "Gegno Asteroid Mining - Iron II"
 	source
 		attributes gegno mining
 	to offer
-		random < 5
+		random < 10
 	to accept
 		"cargo space" > 42
 	on visit
@@ -244,7 +244,7 @@ mission "Gegno Asteroid Mining - Silver"
 	source
 		attributes gegno mining
 	to offer
-		random < 5
+		random < 10
 	to accept
 		"cargo space" > 11
 	on visit
@@ -268,7 +268,7 @@ mission "Gegno Asteroid Mining - Iron Rush"
 	source
 		attributes gegno mining
 	to offer
-		random < 10
+		random < 20
 	to accept
 		"cargo space" > 25
 	on visit
@@ -289,7 +289,7 @@ mission "Gegno Asteroid Mining - Silicon Rush"
 	source
 		attributes gegno mining
 	to offer
-		random < 10
+		random < 20
 	to accept
 		"cargo space" > 40
 	on visit
@@ -310,7 +310,7 @@ mission "Gegno Asteroid Mining - Lead Rush"
 	source
 		attributes gegno mining
 	to offer
-		random < 10
+		random < 20
 	to accept
 		"cargo space" > 15
 	on visit
@@ -331,7 +331,7 @@ mission "Gegno Asteroid Mining - Aluminum Rush"
 	source
 		attributes gegno mining
 	to offer
-		random < 5
+		random < 10
 	to accept
 		"cargo space" > 19
 	on visit
@@ -352,7 +352,7 @@ mission "Gegno Asteroid Mining - Titanium Rush"
 	source
 		attributes gegno mining
 	to offer
-		random < 5
+		random < 10
 	to accept
 		"cargo space" > 15
 	on visit
@@ -368,7 +368,8 @@ mission "Gegno Asteroid Mining - Titanium Rush"
 # Passenger Jobs
 
 mission "Gegno Passengers [0]"
-	name "Transportation to <planet>"
+	clearance
+	name "Passenger transport to <planet>"
 	job
 	repeat
 	description "A Gegno is paying <payment> to be taken to <destination>."
@@ -376,7 +377,11 @@ mission "Gegno Passengers [0]"
 	source
 		government "Gegno"
 	to offer
-		random < 50
+		random < 75
+	to accept
+		or
+			"flagship model: Marl"
+			has "gegno: passenger acceptance"
 	destination
 		distance 1 3
 		government "Gegno"
@@ -388,6 +393,7 @@ mission "Gegno Passengers [0]"
 		dialog phrase "gegno passenger dropoff payment"
 
 mission "Gegno Passengers [1]"
+	clearance
 	name "Transportation to <planet>"
 	job
 	repeat
@@ -397,6 +403,10 @@ mission "Gegno Passengers [1]"
 		government "Gegno"
 	to offer
 		random < 50
+	to accept
+		or
+			"flagship model: Marl"
+			has "gegno: passenger acceptance"
 	destination
 		distance 1 3
 		government "Gegno"
@@ -408,7 +418,8 @@ mission "Gegno Passengers [1]"
 		dialog phrase "gegno passenger dropoff payment"
 
 mission "Gegno Passengers [2]"
-	name "Transportation to <planet>"
+	clearance
+	name "Group transport to <planet>"
 	job
 	repeat
 	description "A small group of <bunks> Gegno are paying <payment> to be transported to <destination>."
@@ -417,6 +428,10 @@ mission "Gegno Passengers [2]"
 		government "Gegno"
 	to offer
 		random < 50
+	to accept
+		or
+			"flagship model: Marl"
+			has "gegno: passenger acceptance"
 	destination
 		distance 1 3
 		government "Gegno"
@@ -432,10 +447,87 @@ phrase "gegno passenger dropoff payment"
 	word
 		`The Gegno don't waste any time to depart your ship. You find <payment> has been credited to your account.`
 
-#	to accept
-#		or
-#			"flagship model: Marl"
-#			has "gegno: passenger acceptance"
+
+
+# Cargo Jobs
+
+
+mission "Gegno Cargo [0]"
+	clearance
+	name "Cargo to <planet>"
+	job
+	repeat
+	description "There is a request to transport <cargo> to <destination>. Payment is <payment>."
+	cargo random 5 2 .1
+	to offer
+		random < 75
+	to accept
+		or
+			"flagship model: Marl"
+			has "gegno: cargo acceptance"
+	source
+		government "Gegno"
+	destination
+		distance 1 3
+		government "Gegno"
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		"gegno: jobs" ++
+		payment
+		dialog phrase "gegno cargo dropoff payment"
+
+mission "Gegno Cargo [1]"
+	clearance
+	name "Cargo to <planet>"
+	job
+	repeat
+	description "<cargo> is requested to be hauled to <destination> for <payment>."
+	cargo random 10 2 .1
+	to offer
+		random < 50
+	to accept
+		or
+			"flagship model: Marl"
+			has "gegno: cargo acceptance"
+	source
+		government "Gegno"
+	destination
+		distance 1 3
+		government "Gegno"
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		"gegno: jobs" ++
+		payment
+		dialog phrase "gegno cargo dropoff payment"
+
+mission "Gegno Cargo [2]"
+	clearance
+	name "Cargo to <planet>"
+	job
+	repeat
+	description "Haul <cargo> to <destination> for a payment of <payment>."
+	cargo random 20 2 .5
+	to offer
+		random < 50
+	to accept
+		or
+			"flagship model: Marl"
+			has "gegno: cargo acceptance"
+	source
+		government "Gegno"
+	destination
+		distance 1 3
+		government "Gegno"
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		"gegno: jobs" ++
+		payment
+		dialog phrase "gegno cargo dropoff payment"
+
+
 
 # Tschyss Recovery Jobs
 
