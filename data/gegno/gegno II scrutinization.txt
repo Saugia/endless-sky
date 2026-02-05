@@ -22,7 +22,7 @@ mission "Gegno Job Board Prologue"
 		not "Gegno Genocide Defense: offered"
 	on offer
 		conversation
-			`The station's job board appears far older than other Gegno devices that you've seen. There are messy bundles of wires attached at random locations around it, and various controls protruding from a dasboard at level with your chest - nothing like the simplified tablets they've used thus far. On the cracked and beaten up display are a series of graphics in a list that seem to be updating in real-time.`
+			`The station's job board appears far older than other Gegno devices that you have seen. There are messy bundles of wires attached at random locations around it, and various controls protruding from a dasboard at level with your chest - nothing like the simplified tablets they've used thus far. On the cracked and beaten up display are a series of graphics in a list that seem to be updating in real-time.`
 
 			label choice
 			choice
@@ -43,9 +43,9 @@ mission "Gegno Job Board Prologue"
 			`	You tap on the screen, having to reach up slightly to do so, like a toddler trying to touch the world's largest television. Nothing happens.`
 				goto choice
 				
-			label "shapes"
+			label "controls"
 			action
-				set "gegno mining prologue: shapes"
+				set "gegno mining prologue: controls"
 			`	One of the shapes rotates, making a clicking sound as it does. Another is a lever that makes a deep, reverberating clunk sound after being tugged. However, nothing changes on the screen.`
 				goto choice
 			
@@ -56,23 +56,12 @@ mission "Gegno Job Board Prologue"
 			choice
 				`	(Put the key in the machine.)`
 
-			`	Not all of the listings on the display light up, but the ones that do have graphics resembling minable asteroids with tally marks on the side. Not a moment later, the Gegno leaves you with the key, already having vanished to somewhere else in the station.`
-			`	Mining jobs may not be the best way to learn more about the Gegno, but having access to some of their jobs is one way to start building relations with them.`
+			`	The listings on the display light up. It's hard to interpret those that might involve transportation, and you can't imagine any Gegno would be pleased to board or load their belongings onto your ship, let alone you having access to their destination. However, there are listings that have graphics resembling minable asteroids with tally marks on the side, which is something you can do on your own. Not a moment later, the Gegno leaves you with your key, already having vanished to somewhere else in the station.`
+			`	Mining jobs may not be the best way to learn more about the Gegno, but having job access to begin with is at least one way to start building relations with them.`
 				decline
-
-
-# mission "Gegno Passenger Preview"
-#	name ``
-#	job
-#	description ``
-#	source "Tschyss"
-#	to offer
-#		"gegno: mining jobs" > 5
-#		not "Gegno Genocide Defense: offered"
-#	on offer
-#		conversation
-#		`.`
-#			decline
+	on decline
+		clear "gegno mining prologue: controls"
+		clear "gegno mining prologue: touch"
 
 
 mission "Gegno: Unexpected Drifters"
@@ -93,9 +82,8 @@ mission "Gegno: Unexpected Drifters"
 		conversation
 			action
 				set "gegno: derelict spotted"
-			`As you enter the system, you are met with the sight of a disabled Gegno ship silently drifting amongst the stars. Unlike the Vi or Scin ships in nearby systems, this one lacks green or reddish hues, appearing to be a civilian vessel. It could be that they ran out of fuel, or had some internal malfuction, but it is strangely far away from Gegno home space.`
+			`As you enter the system, you are met with the sight of a disabled Gegno ship silently drifting amongst the stars. Unlike the Vi or Scin ships in nearby systems, this one lacks green or reddish hues, appearing to be a civilian vessel. It could be that it ran out of fuel, or had some internal malfuction, but it is strangely far away from Gegno home space.`
 			`	Considering that the Gegno are very cautious of your involvement with their civilization, it might be best to report the stranded vessel to them on Tschyss so to that they can handle it internally. Then again, who knows how long the crew have before the ship's life support systems fail, so you could also try aiding them.`
-
 
 	npc assist
 		government "Gegno"
@@ -105,8 +93,8 @@ mission "Gegno: Unexpected Drifters"
 		on assist
 			set "gegno: derelict boarded"
 			conversation
-				`You decide on trying to assist the Gegno ship. After docking with it, you gather equipment for general ship repairs and make your way to a boarding hatch, which doesn't prove difficult to open.`
-				`	At first, the ship is eerily devoid of crew. There are no pilots at the helm, and most of the ship's bunks show no sign of occupancy. It's not until you make your way to the ship's power section that you find two Gegno, attempting to repair a damaged module. Low mumbling from a dimly lit corner reveals two more having a discussion, which is suddenly dropped short once they notice you.`
+				`The derelict ship shows no reaction when the <ship> docks with it. You gather what repair equipment you think will be necessary and make your way to a boarding hatch, which doesn't prove difficult to open.`
+				`	At first, the ship looks eerily devoid of crew. There are no pilots at the helm, and most of the ship's bunks show no sign of occupancy. It's not until you make your way to the ship's power section that you find two Gegno, attempting to repair a damaged module. Low mumbling from a dimly lit corner reveals two more having a discussion, which is suddenly dropped short once they notice you.`
 				`	Rather than accept your aid, the Gegno immediately and aggressively escort you off of their ship. Even with their systems failing, they don't look to be accepting any help from an outsider, even if their lives are on stake.`
 				`	You can't help but think that the crew were notably belligerent, even for Gegno.`
 		on kill
@@ -168,43 +156,42 @@ mission "Gegno: Repair Humor"
 	on offer
 		event "gegno: dwindling workers"
 		conversation
-			`While you are traversing the rickety interior of the station, you come across a group of Gegno gathering at one of the nearby sections, still only partly constructed. Next to them are a set of construction tools set up against the wall. From the looks of the area they're planning to work on, they're understaffed, and some of them don't seem very enthusiastic about the job to begin with.`
+			`You come across a group of Gegno gathered around on of the partly constructed sections of the station. Next to them are a series of construction tools set up against the walls. From the looks of the area they're planning to work on, they're understaffed, and some of them don't seem very enthusiastic about the job to begin with.`
 			choice
 				`	(Approach them and offer assistance.)`
 				`	(Continue on your way.)`
 					decline
-			`	The group is formed of Gegno with varying physique. Some of them appear to be the bulkier body type of the Vi, with a few others being the more slender type like the Scin. A majority of the rest are of the more average build you've seen common with the civilian population. Speaking in their deeper-toned voices to one another, they continue to ignore your approach. One Gegno punches another on the back of their neck suddenly, but the hit doesn't seem to phase the other Gegno at all. A moment after, the others are looking in your direction.`
-			`	You gesture towards their supplies and the station interior, hoping they are able to understand your offer. One of the conversing Gegno stops and grunts at you, and continues to grunt in different manners as they turn to the rest. A few of them respond similarly, and they start mumbling. You aren't sure if they are upset at you, but instead of ignoring you, one of the more slender Gegno reaches for a large industrial-looking tool, and drops it down in front of you with a loud clang.`
+			`	The group is formed of Gegno with varying physique. Some of them appear to be the bulkier body type of many Vi, with a few others being the more slender type Scin often are. A majority of the rest are of the more average build you've seen common with the civilian population. Speaking in their deeper-toned voices to one another, they continue to ignore your approach. One Gegno punches another on the back of their neck suddenly, but the hit doesn't seem to phase them. A moment after, the others are looking in your direction.`
+			`	You gesture towards their supplies and the station interior, hoping they are able to understand your offer. One of the conversing Gegno stops and grunts at you, and continues to grunt in different manners as they turn to the rest. A few of them respond similarly, and they start mumbling. You aren't sure if they are upset at you, but instead of ignoring you, one of the more slender Gegno reaches for a large industrial-looking tool, and drops it down in front of you with a loud clang that reverberates down a nearby corridor.`
 			choice
 				`	(Inspect the tool.)`
 				`	(Try and pick up the tool.)`
 					goto "lift tool"
 				`	(Do nothing.)`
 					goto nothing
-			`	The tool itself, on first glance, looks like a mangled mess of metal and appendages. You can see some sort of grip in the rear of it, and another on the underside of it. On what you presume is the front of it is a giant pair of scissors, or at least something akin to that. At the center of it, there are some radiator-like structures with rust marks. The Gegno that dropped the device makes a strange expression and snorts, as if they're judging how you look at the device.`
+			`	The tool itself, on first glance, looks like a mangled mess of metal and appendages. You can see some sort of grip in the rear of it, and another on the underside of it. On what you presume is the front of it is a giant pair of scissor blades, or at least something akin to that. At the center of it, there are some radiator-like structures with rust marks. The Gegno that dropped the device makes a strange expression and snorts, as if they're judging how you look at the device.`
 				goto redirect
 
 			label "lift tool"
-			`	The group of Gegno watch you as you try to figure out how to grasp the device. There's some sort of handle on one side of it, but there's no way you can lift the whole thing from just that post. On the underside of it, there appears to be a different grip. You attempt to grap both handles, shifting your weight to lift. You can only raise it for a few seconds before it slams back down into the ground, as it is unexpectedly heavy and very awkward to hold. One of the larger Gegno grunts at you, and some of them begin chatting with one another.`
+			`	The group of Gegno watch you as you attempt to figure out how to grasp the device. There's some sort of handle on one side of it, but there's no way you can lift the whole thing from just that post. On the underside of it, there appears to be a different grip. You attempt to grap both handles, shifting your weight to lift. You can only raise it for a few seconds before it slams back down into the ground, as it is unexpectedly heavy and very awkward to hold. One of the larger Gegno grunts at you, and some of them begin chatting with one another.`
 				goto redirect
 
 			label nothing
 			`	You decide not to do anything with the device. Other than it looking like a mangled mess of heavy parts, you aren't sure what it is or what it's used for. Some of the Gegno look onward, still waiting for you to do something, while others snort and jab at each other in strange ways.`
 
 			label redirect
-			`	A few more monments go by of the Gegno talking to one another, after which they then pick up their supplies and go to work on the yet-to-be-built parts of the station, leaving you behind without so much as a glance. At the very least, they humored you for a little bit, or perhaps it was that you were humorous to them.`
+			`	A few more moments go by of the Gegno talking to one another, after which they then pick up their supplies and go to work on the yet-to-be-built parts of the station, leaving you behind without so much as a glance. At the very least, they humored you for a little bit, or perhaps it was that you were humorous to them.`
 				decline
 
 
 mission "Gegno: Visiting Scin"
-	landing
-	soure "Tschyss"
+	source "Tschyss"
 	to offer
 		"gegno: mining jobs" > 6
 	on offer
 		conversation
-			`Despite being a spaceport for a large and bulky station, there's not very many Gegno present at the moment. A few occasionally board or leave docked passenger ships, but a majority of activity is the unloading of materials from mining or cargo ships in small groups. There's one small group, however, that catches your eye - a few Gegno are huddled together in the open before two others standing separately. From what you've seen, the only Gegno that have been on the station have been civilians, but it's a pair of Gegno belonging to the Scin faction that are leading the group.`
-			`	The two Scin make rounds around the group, talking to each Gegno individually for random periods of time. Instead of returning the same level of chatter, many of the Gegno remain quiet or even turn to the side. It takes a moment for you to notice, but there are also a few Scin within the group itself, almost hidden among them.`
+			`Despite being a spaceport for a large and bulky station, there have not been many Gegno present during your time here. A few occasionally board or leave docked passenger ships, but most activity is the unloading of materials from mining or cargo ships. Today, one small group catches your eye - a few Gegno huddled together before two others. Instead of civilians, however, the two are Gegno belonging to the Scin.`
+			`	The Scin duo talks to each Gegno individually for random periods of time. Instead of reciprocating conversation, many remain quiet or even turn to the side. It takes a moment for you to notice, but there are also a few Scin within the group itself, almost hidden among them.`
 
 			branch "hostile scin"
 				"reptutation: Gegno Scin" < 0
@@ -213,48 +200,43 @@ mission "Gegno: Visiting Scin"
 				`	(See if you can get involved.)`
 				`	(Avoid the group and leave them to their business.)`
 					goto avoid
-
-			`	Some of the Gegno in the group slowly move their eyes from the Scin and onto you. The shorter of the two Scin swings their arms behind their body. "Tiinti peioeh giet ei!" they exclaim, and the two of them stride towards you. Several of the non-affiliated Gegno immediately begin to walk away in pairs the moment the Scin acknowledge you. The others look blankly onward as one of the Scin walks a circle around you at a distance, holding one arm against their chest.`
-
-			`	A third Scin leaves from the crowd, also approaching you. This one is wearing a long, orange robe with armor plating focused around their shoulders, and carries with them a tablet. They stop about four meters from you, place the tablet on the ground, then step back the same distance and merge with the group once more. Silence ensues as all of Gegno watch you intently, save for the Scin, who's vision aligns with the tablet's placement.`
-				to display
-					not "scin: approached epidote"
-
-			`	A third Scin leaves from the crowd, also approaching you. You recognize the orange robe-like garments that accentuate their shoulder-heavy armor. They carry a tablet, and stop about four meters from you before placing it on the ground. After, they step back about two meters and sit on the station floor, crossing their legs.`
-				to display
-					has "scin: approached epidote"
+			`	Some civilians slowly move their eyes off of the Scin and onto you. Meanwhile, the shorter of the two Scin swings their arms behind their body. "Tiinti peioeh giet ei!" they exclaim, and the two stride towards you. Presumably disinterested, several Gegno immediately begin to walk away in pairs the moment the Scin acknowledge you. One of the Scin then begins to walk a circle around you at a distance, holding one arm against their chest.`
 
 			branch "gestures"
 				has "scin: gestures"
 			branch "imagery"
 				has "scin: imagery
 
-
 			label gestures
+
+			`	A third Scin leaves from the crowd, also approaching you. This one is wearing a long, orange robe with armor plating focused around their shoulders. They stop about four meters from you, and adopt a strange stance. Their robe flutters slightly as they put one arm outward with their hand in a fist except for two fingers and a thumb. If you didn't know any better, you'd say that the gesture they're making looks just like an old rock-and-roll symbol, but the chances of that being the case are extremely low.`
+				to display
+					not "scin: approached epidote"
+
 			`	A third Scin leaves from the crowd, and you recognize the orange robe-like garments that accentuate shoulder-heavy armor. They stop about four meters from you, just as before, and adopt a strange stance. Their robe flutters slightly as they put one arm outward with their hand in a fist except for two fingers and a thumb. If you didn't know any better, you'd say that the gesture they're making looks just like an old rock-and-roll symbol, but the chances of that being the case are extremely low.`
+				to display
+					has "scin: approached epidote"
+
 			choice
-				`	(Mimic the gesture they're doing.)`
+				`	(Mimic the gesture they are doing.)`
 					goto mimic
 				`	(Do a generic gesture.)`
 					goto generic
 				`	(Start playing air guitar.)`
 					goto rock
 				`	(Don't do a gesture.)`
-
 			`	The hissing and clicking of the station's machines are the only sounds for a few moments. Aside from those before you, there are no other nearby Gegno, and any still in the spaceport have made obvious efforts to be as far away from this event as possible. The silence of stares goes on a little longer, and the Scin stops posing to stare at you. They ponder in thought for a few moments, until the other Scin start to lead the group away towards a docked civilian ship. However, instead of completely ignore you and move on, some of the civilian Gegno occasionally glance back at you while chatting amongst one another.`
 			`	As the group by the ship prepares to board it, you suddenly notice another Scin member walking alone towards the group, but they're somewhat close to you in comparison. It's as if they had just walked past you only a few moments ago, not when the group left. The half spacesuit, half armour they wear clicks as they walk away, and they too give you a glance before going about their business.`				
 				decline
 
 			label mimic
 			`	You mimic the gesture the Scin is doing. The Scin briefly makes a loud sound, and begins talking to the group. Another pair of Gegno leave, seemingly unamused, but the rest stay for the discussion despite their blank stares. The Scin turns back to you once more, and this time they make a completely different gesture, crossing their arms outward in front of them.`
-			
 			choice
 				`	(Mimic them again).`
 				`	(Do a generic gesture.)`
 					goto generic
 				`	(Air guitar.)`
 					goto rock
-			
 			`	Once again, the Scin turns to the group and makes a loud sound, going into another discussion. This time, they rotate through several more gestures while facing the other Gegno, some waving in front of their eyes and others outward and around. Most of them look back without a care in the world, but one or two of the Gegno actually try to mimic the Scin.`
 			`	The group carries on, leaving you as they begin to walk towards a docked civilian ship. As they prepare to board it, you suddenly notice another Scin member walking alone towards the group, but they're somewhat close to you in comparison. It's as if they had just walked past you only a few moments ago, not when the group left. The half spacesuit, half armour they wear clicks as they walk away, giving you a quick glance before going about their business.`
 				decline
@@ -274,12 +256,19 @@ mission "Gegno: Visiting Scin"
 				decline		
 
 			label imagery
-			`	A third Scin leaves from the crowd, also approaching you. You recognize the orange robe-like garments that accentuate their shoulder-heavy armor. They carry a tablet, and stop about four meters from you before placing it on the ground. After, they step back about two meters and sit on the station floor, crossing their legs.`		
+	
+			`	A third Scin leaves from the crowd, also approaching you. This one is wearing a long, orange robe with armor plating focused around their shoulders, and carries with them a tablet. They stop about four meters from you, place the tablet on the ground, then step back the same distance and merge with the group once more. Silence ensues as all of Gegno watch you intently, save for the two Scin, whose vision aligns with the tablet.`
+				to display
+					not "scin: approached epidote"
+
+			`	A third Scin leaves from the crowd, also approaching you. You recognize the orange robe-like garments that accentuate their shoulder-heavy armor. They carry a tablet, and stop about four meters from you before placing it on the ground. After, they step back about two meters and sit on the station floor, crossing their legs.`
+				to display
+					has "scin: approached epidote"
+
 			choice
 				`	(Pick up the tablet.)`
 					goto tablet
 				`	(Leave the tablet where it is.)`
-
 			`	The hissing and clicking of the station's machines are the only sounds for a few moments. Aside from those before you, there are no other nearby Gegno, and any still in the spaceport have made obvious efforts to be as far away from this event as possible. The silence of stares goes on a little longer until one of the Scin retrieve the tablet from the ground, and the others lead the group away towards a docked civilian ship. However, instead of completely ignore you and move on, many of the civilian Gegno chat amongst another, some occasionally glancing back at you.`
 			`	As the group by the ship prepares to board it, you suddenly notice another Scin member walking alone towards the group, but they're somewhat close to you in comparison. It's as if they had just walked past you only a few moments ago, not when the group left. The half spacesuit, half armour they wear clicks as they walk away, and they too give you a glance before going about their business.`
 				decline
@@ -315,16 +304,16 @@ mission "Gegno: Visiting Scin"
 				`	(Avoid the group and leave them to their business.)`
 					goto avoid
 				`	(Approach them anyways.)`
-			`	.`
+			`	Grenade.`
 				to display
 					not "scin: provocative"			
-			`	.`
+			`	Gun.`
 				to display
 					has "scin: provocative"
 				decline
 			
 			label avoid
-			`	The group continues onward to a docked civilian ship, not paying any attention to you. Half of the Gegno continue onward with the Scin members to a nearby docked civilian ship. The other half splits up and begins to walk elsewhere in the spaceport, although none of them go alone. In smaller groups of pairs or more, those that left the Scin murmurer to themselves.`
+			`	Not paying any attention to you, half of the Gegno continue onward with the Scin members to a nearby docked civilian ship, and the other half splits off to elsewhere in the spaceport, although none of them go alone. In smaller groups of pairs or more, those that left the Scin murmurer to themselves until they are out of sight.`
 			`	As the group by the ship prepares to board it, you suddenly notice another Scin member walking alone towards the group, but they're somewhat close to you in comparison. It's as if they had just walked past you only a few moments ago, not when the group left. The half spacesuit, half armour they wear clicks as they walk away without giving you a single glance.`
 				decline
 
@@ -339,46 +328,17 @@ mission "Gegno: Unloading Troubles"
 		not "Gegno: A Major Miner Incident: offered"
 	on offer
 		conversation
-			`During your downtime in the spaceport, you watch as a large Gegno freighter docks with a nearby hangar entrance. As it does, you feel a not-so-subtle 'clack' once it makes contact with various docking clamps, some dust falling down on your area from the upper levels. A few Gegno exit the ship and leave to another part of the station, while a smaller group remains at the ship to unload its cargo.`
-			`	Typical of Gegno cargo ships, heavy crates of minerals are heaved out of the ship and onto platforms to be moved elsewhere. You're somewhat surprised at how much time has past and the crew are still not yet finished emptying the vessel.`
+			`Through a wall of windows, you watch a large Gegno freighter docks with a nearby hangar entrance. As it does, you hear the not-so-subtle 'clack' once it makes contact with various docking clamps, some dust falling down on your area from the upper levels. A few Gegno exit the ship and leave to another part of the station, while a smaller group remains to unload cargo.`
+			`	Heavy crates of minerals are heaved out of the ship and onto shipping platforms to be moved elsewhere. You're somewhat surprised at how much time passes and the crew are still not yet finished emptying the vessel.`
 			`	Suddenly, a few of the Gegno stop unloading supplies and begin to debate with the others across from them. Other than the occasional grunts and snorts, you don't understand any of it, and you aren't sure if it's an argument or not.`
 			choice
-				`	(Walk up to them.)`
+				`	(See if you can do anything.)`
 				`	(Leave them be.)`
 					goto leave
-			`	You slowly walk up to the Gegno, and as you get closer, some of them, as well as ones a bit further away from the ship begin looking in your direction. An awkward silence ensues, until one of the Gegno that started the debate grunts and goes back into the ship. The rest then return to their work, as if the conversation never happened.`
+			`	You slowly walk up to the Gegno, and as you get closer, some of them, as well as ones hauling cargo a bit a ways from the ship, begin looking in your direction. An awkward silence ensues, until one of the Gegno that started the debate grunts and goes back into the ship. The rest then return to their work, as if the conversation never happened.`
 				decline
 			label leave
 			`	Their conversation continues, and one of the Gegno that started it storms off to some other place in the station. Not another moment passes before the rest of the crew get back to working as if nothing had happened.`
-				decline
-
-
-mission "Gegno Asteroid Mining III"
-	landing
-	source "Tschyss"
-	to offer
-		"gegno: mining jobs" > 9
-		has "Gegno Asteroid Mining II: offered"
-		has "Gegno: Unloading Troubles: offered"
-	on offer
-		conversation
-			`Normally the station has many Gegno working at a time, whether it be shipwork, Gegno in transit, or construction workers. However, it appears there are a lot less Gegno moving about, or perhaps you haven't noticed a decline in the workforce until now. Many crews seem understaffed to be unloading ships, and the amount of Gegno exiting transports seems to have dwindled compared to what you've seen previously.`
-			`	A minute later you are approached by a Gegno adorned with the brown badge-covered vest you've seen before around the job board. You don't know if it's the same Gegno you met with previously, but you don't have time to ponder as they hold out a tablet with a blank screen and then push their fist on it, leaving behind an imprint that the device records. They then hold out the device to you.`
-			choice
-				`	(Place your hand on the device.)`
-				`	(Place your fist against the device.)`
-					goto fist
-				`	(Take the device.)`
-					goto take
-			`	You place your hand on the device, leaving behind your handprint. The Gegno looks at you with a strange look, then down to the device, turning it back towards them. After a few taps, a short list of what you can tell are new mining jobs momentarily appears, and the device shuts off.`
-				goto missions
-			label fist
-			`	You place your fist against the device, leaving behind an imprint of your knuckles. Following a beep, a small list of what you can tell are new mining jobs momentarily pops up, and the device shuts off.`
-				goto missions
-			label take
-			`	You reach out and grasp the device, assuming they are handing it to you. The Gegno looks at you and then pulls the device back out of your grasp. They glare at you for a few seconds, then turn the device towards them, tapping it a few times. They briefly show you the screen again, listing a few new mining jobs momentarily, and the device shuts off.`
-			label missions
-			`	The Gegno quietly leaves you, and although there aren't many other Gegno nearby, you can tell a few of them gave you quick glances before going back to minding their own business.`
 				decline
 
 
@@ -396,7 +356,7 @@ mission "Gegno: A Major Miner Incident"
 	on offer
 		event "gegno: tschyss breach"
 		conversation
-			`Yet another day is passing while you spend your time on this partially functional station. Although in some places the Gegno have built up on the interior, other places have begun to fall victim to a lack of maintenance, effectively making any progression on the station's construction net-neutral. Despite the size of the station, the recent decline in activity only continues the trend. There's not much you have to say in it, as your interactions remain limited to working with the Gegno dockworkers that haul the various mined minerals you've been gathering for them.`
+			`Yet another day is passing while you spend your time on this partially functional station. Although in some places the Gegno have built up on the interior, other places have begun to fall victim to a lack of maintenance, effectively making any progression on the station's construction net-neutral, and recent decline in activity only continues the trend. There's not much you have to say in it, as your interactions remain mostly limited to working with dockworkers that haul the various mined minerals you've been gathering for them.`
 
 			action
 				"gegno: tschyss repair timer" = "days since start"
@@ -885,7 +845,8 @@ mission "Gegno: Visiting Vi"
 	landing
 	soure "Tschyss"
 	to offer
-		"gegno: mining jobs" > 6
+		has "Gegno: Tschyss Recovers: offered"
+#		"gegno: mining jobs" > 6
 	on offer
 		conversation
 			branch "hostile vi"
