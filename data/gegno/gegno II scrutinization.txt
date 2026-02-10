@@ -12,7 +12,6 @@
 # this program. If not, see <https://www.gnu.org/licenses/>.
 
 
-
 mission "Gegno Job Board Prologue"
 	"job board"
 	source "Tschyss"
@@ -304,13 +303,98 @@ mission "Gegno: Visiting Scin"
 				`	(Avoid the group and leave them to their business.)`
 					goto avoid
 				`	(Approach them anyways.)`
-			`	Grenade.`
+
+			branch "provocative"
+				has "scin: provocative
+
+			`	Of the two Scin, the shorter one turns to you and stares at you momentarily. Almost as if they're mimicing them, Gegno amongst the crowd also stare, although many immediately begin to walk away in disinterest. "Iyss gininti, eyum!" the Scin shouts, and they step forward from the group. Behind them, several more Scin in dark, angular armor slowly slide out from the group. While they make no quick movements, the sickle-like blades they're armed with are not the exactly the most welcoming of sights.`
+			choice
+				`	(Wait and see what the Scin do.)`
+					goto wait
+				`	(Put your hand on your holster.)`
+			`	Even as you reach for your weapon, the armed Scin do not flinch so much as a finger. Instead, the one that stepped forward puts on a huge grin, raising their arms up, towards you, and then towards the other Gegno. "Iiendueu! Vytii ail eyum!", they exclaim, and reach into their suit. You're only given a moment to notice as they wind their arm back and hurl what appears to be a grenade. It taps the station floor once, twice, three times before it rolls within a few feet of you.`
+				goto choice
+
+			label wait
+			`	The Scin that stepped forward exclaims, "Iiendueu! Vytii ail eyum!" before reaching into their suit for something. You're only given a moment to notice as they wind their arm back and hurl what appears to be a grenade. It taps the station floor once, twice, three times before it rolls within a few feet of you.`
+
+			label choice
+			choice
+				`	(Dodge out of the way!)`
+				`	(Throw it back!)`
+					goto throw
+
+			`	You instinctively roll off to the side, hoping you've moved far away enough from the grenade. Three long, agonizing seconds pass without an explosion, and you peer up to the Gegno crowd. Most of the civilians also jumped away or simply ran off, but all of the Scin remain still. Where the crowd was once standing, there is yet another Scin, although unlike the first two or the armored ones, they are in orange-like garments with heavy shoulder armor.`
 				to display
-					not "scin: provocative"			
-			`	Gun.`
+					not "scin: approached epidote"
+				goto planned
+			
+			`	You instinctively roll off to the side, hoping you've moved far away enough from the grenade. Three long, agonizing seconds pass without an explosion, and you peer up to the Gegno crowd. Most of the civilians also jumped away or simply ran off, but all of the Scin remain still. Where the crowd was once standing, there is yet another Scin, and you recognize their orange robe-like garments from a prior encounter.`
 				to display
-					has "scin: provocative"
+					has "scin: approached epidote"
+				goto planned
+
+			label throw 
+			`	Praying that the grenade will not detonate in the next few seconds, you reach for it and toss it back to the Scin. With facial expressions you have yet to see from a Gegno, most of the civilians either storm off or drop to the ground while roaring aloud. The grenade flies past the grinning Scin, who barely moves, and lands perfectly in the palm of yet another Scin that was standing amongst the crowd, now revealed thanks to the civilians taking cover.`
+
+			`This one, unlike either the first two or the armored ones, wears a long, orange robe with armor plating focused around their shoulder regions. They hold the grenade without a hint of concern, seemingly more interested in you as they look onward. Apart from the hissing and clicking of machines in the station, the next few moments are of complete silence, finally broken by one of the civilians slowly raising up and shouting at the Scin.`
+				to display
+					not "scin: approached epidote"
+			
+			`This one, unlike either the first two or the armored ones, wears orange robe-like garments that you recognize from a prior encounter with the Scin. They hold the grenade without a hint of concern, seemingly more interested in you as they look onward. Apart from the hissing and clicking of machines in the station, the next few moments are of complete silence, finally broken by one of the civilians slowly raising up and shouting at the Scin.`
+				to display
+					has "scin: approached epidote"
+
+			label planned
+			`	As if it was planned all along, the grenade never goes off, and the two Scin start to excitedly speak to what remains of the group of Gegno once more, those of which seem less phased by the situation. Nonetheless, from the corner of the station, another Gegno approaches. From what you've seen around the station, you can guess that this Gegno is an administrator of sorts. They angrily approach the Scin, huffing and growling at them, and begin a heated debate. Shortly after, the Scin lead the remaining Gegno towards a nearby docked civilian ship.`
+			`	The administrator glances over to you, stomping over with a few grunts. Their eyes lock onto your holster as their large figure slowly passes you. It's safe to assume that they aren't interested in any funny business, regardless of if it's you or the Scin starting it.`
 				decline
+
+			label provocative
+			`	Of the two Scin, the shorter one turns to you and stares at you momentarily. Almost as if they're mimicing them, Gegno amongst the crowd also stare, although many immediately begin to walk away in disinterest. "Iyss gininti, eyum!" the Scin shouts, and they step forward from the group. Behind them, several more Scin in dark, angular armor slowly slide out from the group. While they make no quick movements, the sickle-like blades they're armed with are not the exactly the most welcoming of sights.`
+			choice
+				`	(Wait and see what the Scin do.)`
+					goto "wait b"
+				`	(Put your hand on your holster.)`
+			`	Even as you reach for your weapon, the armed Scin do not flinch so much as a finger. Instead, the one that stepped forward puts on a huge grin, raising their arms up, towards you, and then towards the other Gegno. "Iiendueu! Vytii ail eyum!", they exclaim, and reach into their suit. With a flick of their wrist, they aim a pistol-like weapon at you and fire without a moment's notice, leaving a plasma scar that sizzles on the station floor within inches of your feet.`
+				goto "choice b"
+
+			label "wait b"
+			`	The Scin that stepped forward exclaims, "Iiendueu! Vytii ail eyum!" before reaching into their suit for something.  With a flick of their wrist, they aim a pistol-like weapon at you and fire without a moment's notice, leaving a plasma scar that sizzles on the station floor within inches of your feet.`
+			
+			label "choice b"
+			choice
+				`	(Fire at them with your own pistol.)`
+				`	(Make no sudden movements.)`
+					goto chill
+		
+
+			
+			
+			label chill
+			`	
+			
+			
+			
+			
+			label "planned b"
+			
+			`	Praying that the grenade will not detonate in the next few seconds, you reach for it and toss it back to the Scin. With facial expressions you have yet to see from a Gegno, most of the civilians either storm off or drop to the ground while roaring aloud. The grenade flies past the grinning Scin, who barely moves, and lands perfectly in the palm of yet another Scin that was standing amongst the crowd, now revealed thanks to the civilians taking cover.`
+
+			`This one, unlike either the first two or the armored ones, wears a long, orange robe with armor plating focused around their shoulder regions. They hold the grenade without a hint of concern, seemingly more interested in you as they look onward. Apart from the hissing and clicking of machines in the station, the next few moments are of complete silence, finally broken by one of the civilians slowly raising up and shouting at the Scin.`
+				to display
+					not "scin: approached epidote"
+			
+			`This one, unlike either the first two or the armored ones, wears orange robe-like garments that you recognize from a prior encounter with the Scin. They hold the grenade without a hint of concern, seemingly more interested in you as they look onward. Apart from the hissing and clicking of machines in the station, the next few moments are of complete silence, finally broken by one of the civilians slowly raising up and shouting at the Scin.`
+				to display
+					has "scin: approached epidote"			
+			
+			
+			
+			
+			
+			
+			
 			
 			label avoid
 			`	Not paying any attention to you, half of the Gegno continue onward with the Scin members to a nearby docked civilian ship, and the other half splits off to elsewhere in the spaceport, although none of them go alone. In smaller groups of pairs or more, those that left the Scin murmurer to themselves until they are out of sight.`
