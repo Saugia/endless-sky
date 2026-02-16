@@ -552,6 +552,29 @@ government "Gegno Scin (Combative)"
 		"Gegno Vi (Combative)" -0.01
 	"penalty for"
 		assist 0
+		disable 0.3
+		board 0.5
+		destroy 0.3
+
+government "Gegno Scin (Duelist)"
+	swizzle 18
+	"display name" "Gegno Scin"
+	language "Gegno"
+	color "governments: Gegno Scin"
+
+	"player reputation" 0
+	"crew attack" 1.2
+	"crew defense" 1.4
+	"attitude toward"
+		"Gegno" 1
+		"Gegno Scin" 1
+		"Gegno Vi (Duelist A)" -0.01
+		"Gegno Vi (Duelist B)" -0.01
+	"penalty for"
+		assist 0
+		disable 0.3
+		board 0.5
+		destroy 0.3	
 
 government "Gegno Scin (Neutral)"
 	"display name" "Gegno Scin"
@@ -619,7 +642,6 @@ government "Gegno Vi (Duelist A)"
 	"crew defense" 1.5
 	"attitude toward"
 		"Gegno" 1
-		"Gegno Scin" -0.01
 		"Gegno Vi" 1
 		"Gegno Vi (Duelist B)" -0.01
 	"penalty for"
@@ -639,7 +661,6 @@ government "Gegno Vi (Duelist B)"
 	"crew defense" 1.5
 	"attitude toward"
 		"Gegno" 1
-		"Gegno Scin" -0.01
 		"Gegno Vi" 1
 		"Gegno Vi (Duelist A)" -0.01
 	"penalty for"

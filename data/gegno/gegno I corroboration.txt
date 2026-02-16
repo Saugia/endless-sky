@@ -122,6 +122,7 @@ mission "Foreign Spectator I"
 	landing
 	to offer
 		has "First Contact: Gegno Scin: offered"
+		not "Battle over Zydee: offered"
 		not "Gegno Anticipation: offered"
 		not "Gegno Apprehension: offered"
 		not "Gegno Genocide Defense: offered"
@@ -129,47 +130,46 @@ mission "Foreign Spectator I"
 		never
 	to fail
 		has "Battle over Zydee: offered"
-	on enter "Oihaug"
+	on enter "Eogho"
 		fail
 		"gegno: encounters" ++
-		conversation
-			`As you enter the system, you notice that there is both a Vi and a Scin fleet at the center, although neither of them is engaging the other. Instead, they are observing a pair of ships, one from each side, that appear to be challenging one another. Maybe this is some sort of ceremonial event between the Gegno factions. It's probably best not to interfere.`
+		dialog `Both a Vi and a Scin fleet are present in this system, although they are not fighting. Instead, they are observing a pair of ships, one from each side, that appear to be challenging one another. Maybe this is some sort of ceremonial event between the Gegno factions. It's probably best not to interfere.`
 
 	npc
 		on provoke
 			set "interrupted arena"
-		government "Gegno Vi"
+		government "Gegno Vi (Duelist A)"
 		personality heroic vindictive ramming staying uninterested
-		system "Oihaug"
+		system "Eogho"
 		ship "Eclogite" "Tschelgi Dueyu"
 	npc
 		on provoke
 			set "interrupted arena"
-		government "Gegno Scin"
+		government "Gegno Scin (Duelist)"
 		personality heroic vindictive staying uninterested
-		system "Oihaug"
+		system "Eogho"
 		ship "Felsic" "Tschelgi Dueich"
 	npc
 		on provoke
 			set "interrupted arena"
 		government "Gegno Vi (Neutral)"
 		personality heroic vindictive staying uninterested swarming
-		system "Oihaug"
+		system "Eogho"
 		fleet
 			names "gegno vi"
 			variant
-				"Hornfel"
+				"Eclogite"
 				"Slate" 2
 	npc
 		on provoke
 			set "interrupted arena"
 		government "Gegno Scin (Neutral)"
 		personality heroic vindictive staying uninterested swarming
-		system "Oihaug"
+		system "Eogho"
 		fleet
 			names "gegno scin"
 			variant
-				"Coesite" 2
+				"Coesite"
 				"Tridymite"
 				"Mica"
 
@@ -570,7 +570,7 @@ mission "Return to Giaru Gegno"
 	to offer
 		or
 			has "event: gegno: quarg talks"
-			"gegno: encounters" >= 6
+			"gegno: encounters" >= 5
 		not "Gegno Intervention: offered"
 		not "Gegno Genocide Defense: offered"
 	on enter
@@ -718,7 +718,7 @@ mission "Gegno Anticipation"
 
 			action
 				set "gegno: landing dialog"
-			`	"Contrarily, I rather believe them to be expecting of you. Do remember you must hail the planet for clearance."`
+			`	After a pause, Adrauni responds. "Contrarily, I rather believe them to be expecting of you, accounting for their exclamations of the situation."`
 				goto "epilogue a"
 
 			label "ask"
@@ -911,7 +911,7 @@ mission "Gegno Apprehension"
 		never
 	to offer
 		or
-			"gegno: encounters" >= 6
+			"gegno: encounters" >= 5
 			has "dead augen"
 			has "Full Vi Backlash: offered"
 			or

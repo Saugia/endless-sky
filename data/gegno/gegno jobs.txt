@@ -11,6 +11,15 @@
 # You should have received a copy of the GNU General Public License along with
 # this program. If not, see <https://www.gnu.org/licenses/>.
 
+# Test Job (Remove for Vanilla)
+
+mission "Gegno Mining Job Increase"
+	job
+	repeat
+	source
+		attributes gegno mining
+	on complete
+		"gegno: mining jobs" ++
 
 # Mining Jobs
 
