@@ -917,6 +917,8 @@ mission "Gegno: Visiting Scin"
 				decline
 		
 			label avoid
+			action
+				set "scin: avoided visit"
 			`	Not paying any attention to you, half of the Gegno continue onward with the Scin members to a nearby docked civilian ship, and the other half splits off to elsewhere in the spaceport, although none of them go alone. In smaller groups of pairs or more, those that left the Scin murmurer to themselves until they are out of sight.`
 			`	As the group by the ship prepares to board it, you suddenly notice another Scin member walking alone towards the group, but they're somewhat close to you in comparison. It's as if they had just walked past you only a few moments ago, not when the group left. The half spacesuit, half armor they wear clicks as they walk away without giving you a single glance.`
 				decline
@@ -1335,7 +1337,7 @@ mission "Gegno Cargo Dump - Ilirco"
 		has "Gegno Assistance - Transport: active"
 	on offer
 		conversation
-			`This dryt world is where you interacted with the Scin. The presence they had while here wasn't necessarily small, but it didn't appear to be a colonization effort. Do you dump the cargo here?`
+			`This dry world is where you interacted with the Scin. The presence they had while here wasn't necessarily small, but it didn't appear to be a colonization effort. Do you dump the cargo here?`
 			choice
 				`	(Dump the cargo here.)`
 				`	(Not here.)`
@@ -1579,37 +1581,99 @@ mission "Gegno: Visiting Vi"
 			has "Gegno Assistance - Maintenance: complete"
 	on offer
 		conversation
-##	?		branch "hostile vi"
-##				"reptutation: Gegno Vi" < 0
+		branch "hostile vi"
+				"reptutation: Gegno Vi" < 0
 
 			`Work on the interior of the station has gradually progressed, and a few more sections now have proper atmospheres, making it less of a burden to traverse them. Various construction sounds echo through distant halls, and you hear a consistent thumping from a nearby corridor, growing louder. However, the closer it gets, the less it sounds like machinery, and the more it sounds like the thumps of many feet.`
-			`	Shuffling into view is a group of about 30 Gegno, which in of itself is already uncommon to see, but even moreso is the brown color of the armor they wear. In loud, deep tones, one Gegno leads the march to a hault, and there is now a division of Gegno Vi standing in the area.`
+			`	Shuffling into view is a group of about 30 Gegno, which in of itself is already uncommon to see, but even moreso is the brown color of the armor they wear. In loud, deep tones, one Gegno leads the march to a hault, and there is now a division of Gegno Vi standing in the area. Many of them carrying weapons on their backs.`
 			choice
 				`	(Stay and see what this is about.)`
 				`	(Leave elsewhere.)`	
 					goto elsewhere
-			`	A Vi from the platoon shouts, stepping out from the ranks and continues to speak in loud, bellowing tones to the Gegno as a whole. They continue their speech for a few minutes, and then begin to address the civilian Gegno in the background. In occasional bursts, the Vi ranks chant replies to some of the words spoken by the announcer. Some civilians step forward rigidly, responding to the calls, but most of them try to ignore the Vi or outright leave the area.`
-			`	The shouting continues back and forth, becoming more directed to individuals that react to the chants. Some even begin stomping their feet, the vibrations traveling throughout the architecture. You catch movement near the Vi, and notice that one of them have broken off from the formation and is hastily marching to your location.`
-			
+			`	A Vi from the platoon shouts, stepping out from the ranks and continues to speak in loud, bellowing tones to the Gegno as a whole. They continue to do so for over a minute, and then begin to address the civilian Gegno in the background. In occasional bursts, the Vi ranks chant replies to some of the words spoken by the announcer. Some civilians step forward rigidly, responding to the calls, but most of them try to ignore the Vi or outright leave the area.
+			`	The shouting continues back and forth, becoming more directed to individuals that react to the chants. Some even begin stomping their feet, the vibrations traveling throughout the architecture. In the background, several muted metallic sounds boom behind infrastructure as a large freight ship is visible beyond the nearby windows. The ground rocks beneath your feet as it docks, and the Gegno respond to the action with an even louder display of their tradtion.`
+
 			branch "provocative"
-				or
-					has "provoked military"
-					reputation "Gegno Vi": < 0
+				has "provoked military"
+
+			choice
+				`	(Participate in the uproar.)`
+				`	(Avoid the group and stay out of their sight.)`
+					goto avoid
+			`	You stomp your feet and try shouting a few times, but your actions are easily muffled by the much louder Gegno. Some of the civilians in the background give you a few glances, but the Vi themselves outright ignore you. To be heard more, you step forward, approaching their ranks, and finally, one of them looks in your direction. One by one, they exchange clances, until the uproar suddenly comes to a halt.
+			`	Now approaching you is the platoon leader. Behind them, the Vi formation pivots with the overlapping stomps of their feet, rotating until both lines fan outward towards you. The lead Gegno towers almost directly above you, dwarfing your form in their shadow. They're more bulky than almost any Gegno you've seen on the station. One of their horns is chipped at the end, and a few rings in their facial hair cling together while they bend down and glare at you silently.`
+			`	If they wanted to, they could easily knock you onto the ground with little effort at all.`
+			choice
+				`	(Stand firm.)`
+				`	(Step back.)`
+					goto chicken
+			`	The Gegno's face contorts, a gust of air blowing from their nostrils as they quietly analyze your stance. A low rumble emits from their throat, and they roar, swinging their left arm. You abruptly fall on your rear, and the Gegno is holding both their arms in front of them, clenchted fists facing the platoon now. It feels like they punched you in the gut, but only their forearm impacted your torso, as if they just swatted at you.`
+			`	While you take a moment to get back on your feet, the Vi is still leaning down at you, although this time they are stretching one of their arms sideways across their chest. Other Vi in their formation begin shouting over one another, stomping their feet once more or throwing fists out in strange manners.`
+				`	(Fight back.)`
+				`	(See if you can leave.)`
+					goto escape
+			`	You throw a fist at the Vi as hard as you can, hitting them squarely on the side of their arm. Unfortunately, they barely move at all, and the recoil from the hit sinks in, as if you just punched a rock. A few loose pieces of metal on the Gegno's armor rock back and forth when they turn to the others, announcing something loudly to them. "Tiehh ys estp!"
+			`	However, before either of you can make another move, a station administrator team hastily approaches the group of Vi. While you were tunneling on the Gegno before you, you didn't notice that the crew of the freighter that docked earlier are trying to unload cargo supplies in the background. They appear to be notably upset about the disruptions.`
+				goto end
+
+			label provocative
+			`	You catch movement near the Vi, and notice that one of them have broken off from the formation, standing out of line while directly looking at you.`	
+			choice
+				`	(Walk over to them and see what they want.)`
+				`	(Stay here.)`
+			`	Without you having to do anything, the Gegno takes a few steps towards you, but are stopped by the one leading the platoon. Instead, all of the Vi begin moving in unison and essentially rotate their formation so that the two lines are both angled outward towards you. The lead, who's armor is speckled with various trinkets and markings, steps forward and stands firm in front of the group. Though looking to you, they clearly address the other Vi. "Ennpielae! Eoech tghii di iyss esieym?!"`
+			`	A select few of Vi break the stern facades they've been keeping up, and snap back to it when one soldier shouts. "Ttepyaedi!" they exclaim, and another shouts "Elteideitir!" while throwing an arm downward. Recognizing the words spoken by their platoon, the leader stomps even closer to you, almost towering directly above you, more bulky than almost any Gegno you've seen on the station. One of their horns is chipped at the end, and a few rings in their facial hair cling together while they bend down and glare at you silently.`
+			`	If they wanted to, they could easily knock you onto the ground with little effort at all.`
+			choice
+				`	(Stand firm.)`
+				`	(Step back.)`
+					goto chicken
+			`	The Gegno's face contorts, a gust of air blowing from their nostrils as they quietly analyze your stance. A low rumble emits from their throat, and they roar, swinging their left arm. You abruptly fall on your rear, and the Gegno is holding both their arms in front of them, clenchted fists facing the platoon now. It feels like they punched you in the gut, but only their forearm impacted your torso, as if they just swatted at you.`
+			`	Down the line of the Gegno, one marches forward, holding a weapon of sorts. They toss it, and it thuds onto the ground in front of you. The closest thing you can compare it to is a mace, except the entire weapon is covered in thorns of varying sizes, red and tan in color. You finally get back on your feet, and are met by the Gegno that first left the formation towards you, holding a weapon similar to the one on the ground.`
+			choice
+				`	(Pick up the weapon.)`
+				`	(Pull out your pistol.)`
+					goto pistol
+				`	(See if you can leave.)`
+					goto escape
 					
-			choice 
-			
-			branch 
-			
-			while you and a few other Gegno make your away around the spaceport. the atmospheric sounds are cut short as , The station's interior occasionally groans .`
+			action
+#####			outfit "Training Bludgeon"
+			`	It proves difficult to grasp the weapon at first, as the jagged edges make it difficult to propery grasp without you being jabbed by one. Thankfully, they are blunted, and don't easily pierce your spacesuit. The Gegno across from you grunts and roars, stomping in place, and others in the background begin chanting once more.`
+			`	Despite the intent in the Gegno's eyes, their roars become mixed with the shouting of more Gegno, coming from the docking bay that the freighter is now in. They are clearly displeased with the situation, motioning towards the workers trying to unload the cargo in the background. A station administrator team comes between the two groups and beings to disassemble the situation.`
+				goto end
+
+			label chicken
+			`	Taking a few steps back, you put some distance between you and the Vi, whose eyes slowly analyze the space between you two. They step aside, and allow the Gegno that stepped out of line before to continue towards you, except this time, they are carrying a weapon. It is mace-like, except it is entirely covered in thorns of varying sizes, red and tan in color. They stomp their feet in place and shout at you once more. "Kiecietch? Ssiho!"`
+			`	Suddenly, there is an uproar behind the group of Vi, coming from Gegno that are in the process of unloading the freighter that had just docked. They are clearly displeased with the situation, motioning towards the workers in the background. A station administrator team comes between the workers and the Vi, and beings to disassemble the situation.`
+				goto end
+				
+			label pistol
+			`	Believing it's the right call, you arm yourself with your pistol. If you had to guess, the Gegno seems even more energetic with your choice, and steps aside so the Gegno that previously left the formation can continue towards you. This time, they are wielding a thorn-covered weapon shaped like a mace. "Tiehh ys estp!" they exclaim, wielding their weapon with purpose.`
+			`	However, before either of you can make a move, a station administrator team hastily approaches the Vi. While you were tunneling on the Gegno before you, you didn't notice that the crew of the freighter that docked earlier are trying to unload cargo supplies in the background. They, too, seem upset about the situation.`
+				goto end
+				
+			label escape
+			`	Watching your every move, the Vi hold their ground as you look for a way out of the situation, trying to show them that you're no longer interested. Almost half of those in the two platoon lines start snorting in short bursts as you step away, while the lead simply glares at you. One Gegno blurts out, "Kiecietch! Yvxx kyei!" and growls loudly. Another roars, but the lead eventually sets them straight.`
+
+			label end
+			`	The Vi begin to leave the area, heading elsewhere in the station. Most of the civilians, at least those who weren't ignoring everything, return to their business. Surprisingly, a few Gegno follow the Vi, but you aren't certain whether they're interested or are venting more frustrations.`
 				decline
-			
+
+			label elsewhere
+			action
+				set "vi: avoided visit"
+			`	The Vi begin to stomp their feet and grunt at one another, shaking their fists or weapons in the air. In the meantime, a large freighter docks with the station, shaking everything in the area, which only further adds to the uproar. Most of the civilians in the background steer clear of everything, but a select few approach the Vi.`
+			`	The last thing you see is the crew of the freighter pouring into the station with cargo, except upon seeing the Vi, they become either energetic, or frustrated.`
+				decline
+
+
 			label "hostile vi"
-			`Blablabla.`
+			`	.`
 				decline
 
 
-			`The groan of old support beams doing what they can to hold rooms together echoes through the station's interior, broken up by the occasional movement of cargo and undocking of ships. All seems calm until the thumps of many large feet start to grow louder from a corridor on the opposite end of the spaceport. Shuffling into view is a group of about 30 Gegno, which is uncommon to see. Speaking in loud, deep tones behind them is not another civilian Gegno, but a Gegno of the Vi faction.  while you and a few other Gegno make your away around the spaceport. the atmospheric sounds are cut short as , The station's interior occasionally groans .`
-				decline
+
 
 
 
