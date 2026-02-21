@@ -203,7 +203,6 @@ mission "Gegno: Repair Humor"
 			label redirect
 			`	A few more moments go by of the Gegno talking to one another, after which they then pick up their supplies and go to work on the yet-to-be-built parts of the station, leaving you behind without so much as a glance. At the very least, they humored you for a little bit, or perhaps it was that you were humorous to them.`
 				decline
-
 	on decline
 		event "gegno: zydee war escalates"
 
@@ -231,6 +230,7 @@ mission "Gegno: A Major Miner Incident"
 				`	(Follow the others and investigate what happened.)`
 					goto investigate
 				`	(Choose not to get involved in the situation.)`
+
 			action
 				set "gegno: refused tschyss help"
 			`	You're unsure what is occurring, but you decide not to get involved. The Gegno haven't really given you much of their time so far, and they might not want you to be involved in emergent matters to begin with. Or, it might be better to let them work it out on their own, which perhaps is more efficient. Keeping your attention focused to yourself and your ship is probably the best thing to do in this situation - at the very least, the station hasn't exploded. You aren't the only one, as there are the other Gegno seemingly not interested either, though they do glare at you occasionally.`
@@ -350,7 +350,6 @@ mission "Gegno: A Major Miner Incident"
 			`	The larger Gegno quickly acknowledges you with a fixed look as you walk up to them and then begins scrolling on their tablet device with some knuckle presses. As they take some time to sift though some data, the other two near them continue their own directives without giving you any attention. Once they find the data they're looking for, the Gegno turns the display to you, showing a graphic of ten Gegno-like silhouettes, indicating passengers. Your ship doesn't have twelve bunks, so you won't be able to assist with this particular request.`
 				goto leaders		
 
-
 			label hauling
 			action
 				set "gegno: haul check dialog"
@@ -373,7 +372,6 @@ mission "Gegno: A Major Miner Incident"
 				set "gegno: refused tschyss help"
 			`	Working in a dangeorus environment, especially with the Gegno that you have a difficult with so much as exchanging a word with, is too difficult of a task. You attempt to convey this to the Gegno, shaking your head and arms to their request. They glare at you once more and snort, before marching off in somewhat of an aggressive manner back to the others, handing back their tablet. They raise their voice at the other Gegno, and after pointing in your direction aggressively, leave the docking bay and you back to your business.`
 				decline
-
 	on accept
 		clear "gegno: haul check dialog"
 		clear "gegno: bunk check dialog"
@@ -465,9 +463,11 @@ mission "Gegno Miner Incident - Transport"
 			label board
 			`	All of the Gegno seem to be in some sort of heavy gearsets, some resembling those you've seen worn by others on the station. You let them on board, their gear clangs against the interior of your ship as they shuffle in, trying to find room for themselves. Several of them seem somewhat uncomfortable, and others impatiently grunt. Eventually, they all become silent and keep to themselves, awaiting their commute to <destination>.`
 				launch
-	on enter
-	on enter
-		dialog `Test.`
+
+# Figure out if the Gegno should talk about this or not.
+#	on enter
+#	on enter
+#		dialog `Test.`
 
 	on complete
 		payment 50000
@@ -514,7 +514,6 @@ mission "Gegno Miner Incident - Hauling"
 			label loaded
 			`	Down on the next landing pad is the hauling lead, and they too are loading their older-looking ship with various supplies to take back to <destination>. Once both of your ships are full, the Gegno stand back and await your departure, huddling back together and watching with their many looks. It seems like a discussion begins among them, some slowly moving their arms around in several gestures, while others continue to look onward at your ship as you begin your return journey.`
 				launch
-
 	on complete
 		payment 70000
 		conversation
@@ -576,7 +575,7 @@ mission "Gegno: Ef Aourtdye"
 			`You are no longer required to have express permission to land on this planet anymore, only having to go through a typical docking routine. However, rather than be lead toward a location in the deserts, you are directed to a mid-sized port facility engraved into one of the world's mountainous rock formations.`
 			`	You'll still have to figure out your own way around things considering the language barrier, but based on your recent experniences, the Gegno generally understand the language of hard work.`
 				decline
-			
+
 			label "first visit"
 			`This large desert world is home to seas of sand that extend for hundreds of thousands of miles. While it initially seems to lack an established civilization, some areas in the deserts are sprinkled with large manufacturing plants and spires, linked together by extensive highways that are held up by tall pillars rising from the sands below. The Gegno direct you to a decently-sized landing port engraved into one of the world's mountainous rock formations. As you dock in the port, you find that the same type of jobs on the station are handed out here as well, although the Gegno here seem far more motivated, or perhaps more serious, when it comes to applying for them. They seldomly give you attention, far more focused on whatever work they're occupied by.`
 			`	Based on your experiences up until now, the Gegno generally understand the language of hard work, which could be why they've given you permission to land here. Despite the language barrier. they understand the value of your labor.`
@@ -924,10 +923,6 @@ mission "Gegno: Visiting Scin"
 				decline
 
 
-# Three more "chains", each separate from one another, to lead into the judgement missions.
-
-#	If the player did hauling, they then assist on construction in the station and grab supplies from Ef Aourtdye to help build an outfitter (which is built regardless of what the player does by the end of these missions).
-
 mission "Gegno Assistance - Hauling"
 	name `Mining order for the Gegno`
 	description "Locate and mine 17 tons of aluminum, 14 tons of titanium, and 9 tons of Neodymium. Return to <destination> once you've gathered all materials."
@@ -1018,7 +1013,7 @@ mission "Gegno Assistance - Hauling II"
 			`	Once their crew has finished unloading, they personally hand you <payment> in credit sticks, pick up the last cargo cart themselves, and follow after the rest of the Gegno.`
 				decline
 
-************
+############
 mission "Gegno Assistance - Early Tschyss Outfitter"
 	outfitter
 	source "Tschyss"
@@ -1030,8 +1025,6 @@ mission "Gegno Assistance - Early Tschyss Outfitter"
 			`Outfitter Test.`
 				decline
 
-
-#	If the player did passengers, they find the hauling person on Ef Aourtdye, who gets them to take trash to a planet, but doesn't specify where to dump the trash. (Make a new "trash world" in Oosuoro that Tschyss orbits that was used to help make the station.)
 
 mission "Gegno Assistance - Transport"
 	name `Visit <destination>`
@@ -1088,7 +1081,6 @@ mission "Gegno Assistance - Transport II"
 			`As soon as you arrive on <origin>, a crew of Gegno are waiting for you with several containers and piles of cargo. At least, it looked like cargo, but in reality, most of it appears to be junk - scrap metals, broken parts, containers of unknown contents. The Gegno brazenly loading the materials in the ship's cargo, doing so more efficiently than you'd expect those back on the station would. Before you know it, they are gone as quickly as they came, and not a single one remains to even tell you where to take the cargo, leaving an unspoken expectation of you. Maybe this is why the Gegno was having a hard time looking for someone for the job.`
 			`	You certainly aren't going to keep your cargo hold full of what appears to be junk, and the Gegno haven't bothered to tell you where it's supposed to go. It looks like you'll have to improvise.`
 				accept
-
 
 mission "Gegno Cargo Dump - Byigii"
 	landing
@@ -1368,9 +1360,6 @@ mission "Gegno Cargo Dump - Veiuye"
 				decline
 
 
-
-#	If the player did the bay help, the Gegno will ask them to take them to the moon in the home system, and have them help with some assistance there, showing off the Protoliths in the background.
-
 mission "Gegno Assistance - Maintenance"
 	name "Visit <destination>"
 	landing
@@ -1521,8 +1510,6 @@ mission "Gegno Assistance Protolith"
 		ship "Protolith" "Pyytei Ien"
 
 
-#	A Gegno or group is hesitant/looking for transport to the distant Gegno civilian planet, or, there is a job for it and the authorities can't find anyone willing to take it besides you at the time.
-
 mission "Gegno of Ngozia"
 	name "Transport Gegno to <destination>"
 	description "A group of Gegno with fanatical-like appearances would like to be transported to <destination>. You will need to hail the planet and let the Gegno speak for clearance." 
@@ -1530,8 +1517,8 @@ mission "Gegno of Ngozia"
 	source "Tschyss"
 	passengers 4
 	destination "Gi Tiures"
-#	to offer
-#		has "event: gegno: tschyss recovery"
+	to offer
+		has "event: gegno: tschyss recovery"
 	on offer
 		conversation
 			`The various Gegno in the spaceport are behaving slightly different than normal. Some of them grunt under their breath, others more in a hurry than usual. Black tarps are hovering above some groups like flags, tied to the back of four Gegno that stand out drastically from the rest. Their leather that is adorned with small gems and draped fabrics, also black in color, highlighted by orange accents that look like waves.`
@@ -1566,11 +1553,6 @@ mission "Gegno of Ngozia"
 				flee
 
 
-# mission "Refuel Rescue"
-#	Finding a Gegno civilian ship in need of fuel, and escort them back to the station. If the player has found the other ship before, this comes off as a more normal encounter and shows that the more belligerent Gegno were different.
-
-
-###############
 mission "Gegno: Visiting Vi"
 	landing
 	soure "Tschyss"
@@ -1696,9 +1678,9 @@ mission "Gegno: Visiting Vi"
 					goto "cut short"
 
 
-# Ending missions that judge player's rep and gives them in the end a Marl (but still no license) and access to all civilian planets aside from the homeworld.
+# Missions that judge player's rep and gives them access to all civilian planets aside from the homeworld.
 
-# mission "Gegno Approbation"
+mission "Gegno Approbation"
 
 # mission "Gegno Condemnation"
 
