@@ -1018,6 +1018,17 @@ effect "bludgeon impact"
 
 # Hand to Hand Weapons
 
+outfit "Training Bludgeon"
+	category "Hand to Hand"
+	series "H2H"
+	index 06010
+	cost 0
+	thumbnail "outfit/training bludgeon"
+	"capture attack" .3
+	"capture defense" .3
+	"unplunderable" 1
+	description `.`
+
 outfit "Savagery Pike"
 	category "Hand to Hand"
 	series "H2H"

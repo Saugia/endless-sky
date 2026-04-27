@@ -75,8 +75,8 @@ mission "Gegno: Unexpected Drifters"
 		never
 	to fail
 		or
+			"gegno: mining jobs" >= 6
 			has "Gegno: Unexpected Drifters Report: declined"
-			has "Gegno Asteroid Mining III: offered"
 	on enter "Cotpoxi"
 		conversation
 			action
@@ -216,7 +216,6 @@ mission "Gegno: A Major Miner Incident"
 	clearance `After hailing the planet, there is a momentary silence followed by some static, or maybe what sounds like distant chatter. There is no response, but it seems the authorities have cleared you to land.`
 	to offer
 		"gegno: mining jobs" > 10
-		has "Gegno: Repair Humor: offered"
 	on offer
 		event "gegno: tschyss breach"
 		conversation
@@ -709,7 +708,7 @@ mission "Gegno: Tschyss Recovers"
 mission "Gegno: Visiting Scin"
 	source "Tschyss"
 	to offer
-		"gegno: mining jobs" - "gegno: jobs before scin" >= 3
+		random < 1 + "gegno: mining jobs" + "gegno: recovery jobs"
 		has "Gegno: Tschyss Recovers: offered"
 	on offer
 		clear "gegno: jobs before scin"
@@ -721,9 +720,9 @@ mission "Gegno: Visiting Scin"
 				"reptutation: Gegno Scin" < 0
 
 			choice
-				`	(See if you can get involved.)`
-				`	(Avoid the group and leave them to their business.)`
+				`	(Avoid the Scin and leave them to their business.)`
 					goto avoid
+				`	(See if you can get involved.)`
 			`	Some civilians slowly move their eyes off of the Scin and onto you. Meanwhile, the shorter of the two Scin swings their arms behind their body. "Tiinti peioeh giet ei!" they exclaim, and the two stride towards you. Presumably disinterested, several Gegno immediately begin to walk away in pairs the moment the Scin acknowledge you. One of the Scin then begins to walk a circle around you at a distance, holding one arm against their chest.`
 
 			branch "gestures"
@@ -825,7 +824,7 @@ mission "Gegno: Visiting Scin"
 			`	Your current relationship with the Scin isn't exactly on the best of terms. They might not be happy if they see you, assuming they haven't already.`
 			
 			choice
-				`	(Avoid the group and leave them to their business.)`
+				`	(Avoid the Scin and leave them to their business.)`
 					goto avoid
 				`	(Approach them anyways.)`
 
@@ -1009,7 +1008,7 @@ mission "Gegno Assistance - Hauling II"
 		event "gegno: tschyss outfitter" 5
 		conversation
 			`It takes a moment for an unloading crew to show up, and when they do, you recognize them as the more lively bunch that were working on construction in another part of the station, consisting of Gegno of all sizes. They converse with one another more than the Gegno on Ef Aourtdye do, or at least, more than you've seen. Some of them haul equipment away in carts, and others carry machinery by themselves, some of it looking several times heavier than themselves.`
-			`	The hauling lead is standing by your ship and watching as the others do their work, but they too seem a bit more animated than other times, pacing a little bit. For no reason you could decipher, they throw a fist at it, and you swear they leave a dent in the side. You aren't sure how happy you are about that, but it wouldn't be the first time.`
+			`	The hauling lead is standing by your ship and watching as the others do their work, but they too seem a bit more animated than other times, pacing a little bit. For no reason you can decipher, they throw a fist at it, and you swear they leave a dent in the side. You aren't sure how happy you are about that, but it wouldn't be the first time.`
 			`	Once their crew has finished unloading, they personally hand you <payment> in credit sticks, pick up the last cargo cart themselves, and follow after the rest of the Gegno.`
 				decline
 
@@ -1555,12 +1554,13 @@ mission "Gegno of Ngozia"
 
 mission "Gegno: Visiting Vi"
 	landing
-	soure "Tschyss"
+	source "Tschyss"
 	to offer
+		random < 1 + "gegno: mining jobs" + "gegno: recovery jobs"
 		or
-			has "Gegno Assistance - Hauling II: complete"
-			has "Gegno Assistance - Transport II: complete"
-			has "Gegno Assistance - Maintenance: complete"
+			has "Gegno Assistance - Hauling II: done"
+			has "Gegno Assistance - Transport II: done"
+			has "Gegno Assistance - Maintenance: done"
 	on offer
 		conversation
 			`Work on the interior of the station has gradually progressed, and a few more sections now have proper atmospheres, making it less of a burden to traverse them. Various construction sounds echo through distant halls, and you hear a consistent thumping from a nearby corridor, growing louder. However, the closer it gets, the less it sounds like machinery, and the more it sounds like the thumps of many feet.`
@@ -1570,9 +1570,9 @@ mission "Gegno: Visiting Vi"
 				"reptutation: Gegno Vi" < 0
 
 			choice
-				`	(Stay and see what this is about.)`
-				`	(Leave elsewhere.)`	
+				`	(Keep away from the Vi and go elsewhere.)`
 					goto elsewhere
+				`	(Stay and see what this is about.)`
 			`	A Vi from the platoon shouts, stepping out from the ranks and continues to bellow to the Gegno as a whole. They continue to do so for over a minute, and then begin to address the civilian Gegno in the background. In occasional bursts, the Vi ranks chant replies to some of the words spoken by the announcer. Some civilians step forward rigidly, responding to the calls, but most of them try to ignore the Vi or outright leave the area.
 			`	The shouting continues back and forth, becoming more directed to individuals that react to the chants. Some even begin stomping their feet, the vibrations traveling throughout the architecture. In the background, several muted metallic sounds boom behind infrastructure as a large freight ship is visible beyond the nearby windows. The ground rocks beneath your feet as it docks, and the Gegno respond to the action with an even louder display of their tradtion.`
 
@@ -1621,7 +1621,7 @@ mission "Gegno: Visiting Vi"
 					goto escape
 					
 			action
-#####			outfit "Training Bludgeon"
+				outfit "Training Bludgeon"
 			`	It proves difficult to grasp the weapon at first, as the jagged edges make it difficult to propery grasp without you being jabbed by one. Thankfully, they are blunted, and don't easily pierce your spacesuit. The Gegno across from you grunts and roars, stomping in place, and others in the background begin chanting once more.`
 			`	Despite the intent in the Gegno's eyes, their roars become mixed with the shouting of more Gegno, coming from the docking bay that the freighter is now in. They are clearly displeased with the situation, motioning towards the workers trying to unload the cargo in the background. A station administrator team comes between the two groups and beings to disassemble the situation.`
 				goto end
@@ -1655,7 +1655,7 @@ mission "Gegno: Visiting Vi"
 			label "hostile vi"
 			`	Considering your hostilities with the Vi, the Vi might not he happy if you were to show yourself directly to them. Staying out of their sight, or at least avoiding the gathering, might be the smart thing to do, but you know them to be unpredictable either way.`
 			choice
-				`	(Avoid the gathering and leave elsewhere.)`
+				`	(Avoid the Vi gathering and leave elsewhere.)`
 					goto elsewhere
 				`	(Approach them anyways.)`
 			`	The Vi continue their uproar, and a few of them step out of the ranks to address the civilian Gegno in the background. Meanwhile, the platoon leader bellows some grand announcement to the group, and members of it begin to chant. However, before you can get closer to the group, five Gegno from it march out to you and make a line of their own, all holding weapons at their sides. The few that are not of the bulky stature glare at you, but the rest outright ignore you, staring ahead.`
@@ -1678,11 +1678,121 @@ mission "Gegno: Visiting Vi"
 					goto "cut short"
 
 
-# Missions that judge player's rep and gives them access to all civilian planets aside from the homeworld.
+# Missions that judge player's rep for future content.
 
-mission "Gegno Approbation"
+mission "Gegno Re-evaluation Preparation"
+	invisible
+	landing
+	source "Tschyss"
+	to complete
+		never
+	to offer
+		has "Gegno: Visting Vi: offered"
 
-# mission "Gegno Condemnation"
+	npc
+		to despawn
+			and
+				has "vi: avoided visit"
+				"reputation: Gegno Vi" >= 0
+		government "Gegno Vi (Neutral)"
+		personality staying
+		system "Oosuoro"
+		fleet
+			names "gegno vi"
+			variant
+				"Schist"
+				"Eclogite"
+	npc
+		to despawn
+			and
+				has "scin: avoided visit"
+				"reputation: Gegno Scin" >= 0
+		government "Gegno Scin (Neutral)"
+		personality staying
+		system "Oosuoro"
+		fleet
+			names "gegno scin"
+			variant
+				"Felsic"
+				"Tridymite"
+
+
+mission "Gegno Re-evaluation"
+	landing
+	source "Ef Aourtdye"
+	destination "Tschyss"
+	bunks 1
+	to offer
+		and
+			has "Gegno: Visting Scin: offered"
+			has "Gegno: Visting Vi: offered"
+	on offer
+		fail "Gegno Re-evaluation Preparation"
+		conversation
+			`On your landing approach, you see a large number of Gegno vessels parked around the spaceport below. A majority of them are mining ships and cargo haulers, but grouped together nearby is another class of ship you don't recognize. Despite the gathering, there seems to be little to no crew activity around any of the ships, apart from routine check-ups. Thankfully, there are still plenty of landing areas for regular business.`
+			`	As you leave your ship and make your way to the general hub in the facility, you spot one of the Gegno presumably in charge of the facility. Their sudden movement in your direction makes it clear they have business with you.`
+			choice
+				`	(Approach them.)`
+				`	(Let them come to you.)`
+			`	 The Gegno, in the same vested uniform you've seen common with staff on their space station, meets up with you and escorts you deeper into the spaceport, leading you to another hub. Though, this one is less modernized, and more of a hodge-podge of exposed architecture. A wide, open area is decorated with tubing and electronics, and large, scattered tables sit below many metallic pillars that hang down from higher up like stalactites. A small platform acts like a ceiling just wide enough to encompass where the crew are stationed.`
+
+			branch "negative rep both"
+				"reputation: Gegno Vi" < 0
+				"reputation: Gegno Scin" < 0
+				
+			branch "negative rep vi"
+				"reputation: Gegno Scin" >= 0
+				"reputation: Gegno Vi" < 0
+
+			branch "negative rep scin"
+				"reputation: Gegno Scin" < 0
+				"reputation: Gegno Vi" >= 0
+
+			branch "interacted with both"
+				not "vi: avoided visit"
+				not "scin: avoided visit"
+
+			branch "interacted with vi"
+				not "vi: avoided visit"
+				has "scin: avoided visit"
+			
+			branch "interacted with scin"
+				not "scin: avoided visit"
+				has "vi: avoided visit"		
+
+
+
+
+
+
+
+
+
+			`	You sit in silence for several minutes until another Gegno approaches.`
+
+
+
+			label "interacted with vi"
+				`The mission if you interacted with only the vi.`
+
+
+			label "interacted with scin"
+				`The mission if you interacted with only the scin.`
+
+
+			label "negative rep vi"
+				`The mission if you have negative vi rep.`
+
+
+			label "negative rep scin"
+				`The mission if you have negative vi rep.`
+
+
+			label "negative rep both"
+				`The mission if you have negative rep with both factions.`
+
+
+
 
 # mission "Renumeration"
 
