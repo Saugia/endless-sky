@@ -211,7 +211,7 @@ mission "Gegno: A Major Miner Incident"
 	name `Assisting the Gegno on Tschyss`
 	landing
 	source "Tschyss"
-	description `After inquiring the Gegno on how you can help with the Tchyss incident, you have been instructed to go to <destination>.`
+	description `After inquiring the Gegno on how you can help with the Tschyss incident, you have been instructed to go to <destination>.`
 	destination "Ef Aourtdye"
 	clearance `After hailing the planet, there is a momentary silence followed by some static, or maybe what sounds like distant chatter. There is no response, but it seems the authorities have cleared you to land.`
 	to offer
@@ -327,7 +327,7 @@ mission "Gegno: A Major Miner Incident"
 
 			label meet
 			action
-				set "gegno: miner incident bay help"
+				set "gegno: bay redirect"
 			`	Finally, you gather with the Gegno at the airlock, having done what you can in the current situation. As you wait for them to work the door, a huge Gegno cargo ship slowly pulls up to the bay, and out from it pours a much larger group of Gegno than the ones you're with, all wearing even more advanced-looking gear and much more intricate power suits. They move with a swiftness and precision several levels beyond what you saw before.`
 			`	Back inside the station, you're escorted back to where your ship is docked. The maintenance lead then approaches you personally, fully acknowledging you for the first time. They lean down beside you on one knee, and with a fist, pound on the back of your neck, which almost makes you fall forward. You're not sure what that means, though if they actually wanted to knock you to the ground, they very easily would have done so. With one last look, they walk away with the group of Gegno, many of whom are hitting one another or snorting loudly. Though some still remain cold and silent, the sight of enthusiasm from the rest is certainly something you're not used to.`
 				decline
@@ -526,7 +526,6 @@ mission "Under the Nose II"
 	source "Tschyss"
 	to offer
 		or	
-			has "gegno: miner incident bay help"
 			has "Miner Incident - Hauling: done"
 			has "Miner Incident - Transport: done"
 		not "Gegno Genocide Defense: offered"
@@ -569,7 +568,7 @@ mission "Gegno: Ef Aourtdye"
 	on offer
 		conversation
 			branch "first visit"
-				has "gegno: miner incident bay help"
+				has "gegno: bay redirect"
 
 			`You are no longer required to have express permission to land on this planet anymore, only having to go through a typical docking routine. However, rather than be lead toward a location in the deserts, you are directed to a mid-sized port facility engraved into one of the world's mountainous rock formations.`
 			`	You'll still have to figure out your own way around things considering the language barrier, but based on your recent experniences, the Gegno generally understand the language of hard work.`
@@ -1369,7 +1368,7 @@ mission "Gegno Assistance - Maintenance"
 	clearance
 	to offer
 		has "event: gegno: tschyss recovery"
-		has "gegno: miner incident bay help"
+		has "gegno: bay redirect"
 		not "Gegno Genocide Defense: offered"
 	on offer
 		conversation
@@ -1639,7 +1638,7 @@ mission "Gegno: Visiting Vi"
 				goto end
 				
 			label escape
-			`	Watching your every move, the Vi hold their ground as you look for a way out of the situation, trying to show them that you're no longer interested. Almost half of those in the two platoon lines start snorting in short bursts as you step away, while the lead simply glares at you. One Gegno blurts out, "Kiecietch! Yvxx kyei!" and growls loudly. Another roars, but the lead eventually sets them straight.`
+			`	Watching your every move, the Vi hold their ground as you look for a way out of the situation, trying to show them that you're no longer interested. Almost half of those in the two platoon lines start snorting in short bursts as you step away, while the lead simply glares at you. One Gegno blurts out, "Kiecietch! Yvxx kyei!" and growls loudly. Another roars, but their leader eventually sets them straight.`
 
 			label end
 			`	The Vi begin to leave the area, heading elsewhere in the station. Most of the civilians, at least those who weren't ignoring everything, return to their business. Surprisingly, a few Gegno follow the Vi, but you aren't certain whether they're interested or are venting more frustrations.`
@@ -1680,15 +1679,126 @@ mission "Gegno: Visiting Vi"
 
 # Missions that judge player's rep for future content.
 
-mission "Gegno Re-evaluation Preparation"
+
+mission "Direction to Renumeration"
+	name `Administrative staff to <destination>`
+	description `Transport three important Gegno to <destination>.`
+	landing
+	substitutions
+		"<coordinator>" "coordinator"
+		"<coordinator>" "maintenance coordinator"
+			has "gegno: bay redirect"
+		"<coordinator>" "head of hauling operations"
+			has "gegno: hauling redirect"
+		"<coordinator>" "job board administrator"
+			has "gegno: transport redirect"
+	source "Ef Aourtdye"
+	destination "Tschyss"
+	bunks 3
+	to offer
+		"reputation: Gegno Vi" >= 0
+		"reputation: Gegno Scin" >= 0
+		has "Gegno: Visting Scin: offered"
+		has "Gegno: Visting Vi: offered
+	on offer
+		fail "Gegno Renumeration Preparation"
+		conversation
+			
+			branch "return"
+				has "Direction to Renumeration: deferred"
+
+			`On your landing approach, you see a large number of Gegno vessels parked around the spaceport below. A majority of them are mining ships and cargo haulers, but grouped together nearby is another class of ship you don't recognize. Despite the gathering, there seems to be little to no crew activity around any of the ships, apart from routine check-ups. Thankfully, there are still plenty of landing areas for regular business.`
+			`	As you leave your ship and make your way to the general hub of the facility, you spot one of the Gegno presumably in charge. Their sudden movement in your direction makes it clear they have business with you.`
+			choice
+				`	(Approach them.)`
+				`	(Let them come to you.)`
+				`	(Avoid them.)
+					goto defer
+			
+			label hub
+			`	 The Gegno, in the same vested uniform you've seen common with staff on their space station, meets up with you and escorts you deeper into the spaceport, leading you to another hub. Though, this one is less modernized, and more of a hodge-podge of exposed architecture. A wide, open area is decorated with tubing and electronics, and large, scattered tables sit below many metallic pillars that hang down from higher up like stalactites. A small platform acts like a ceiling just wide enough to encompass where the crew are stationed.`
+
+			branch "interacted with both"
+				not "vi: avoided visit"
+				not "scin: avoided visit"
+
+			branch "interacted with vi"
+				not "vi: avoided visit"
+				has "scin: avoided visit"
+			
+			branch "interacted with scin"
+				not "scin: avoided visit"
+				has "vi: avoided visit"
+
+			`	You sit in silence for several minutes until another, more familiar Gegno approaches. Followed by two others, the <coordinator> from Tschyss quickly storms over to you, already geared up for departure. They waste no time to direct you to the station's location on a system map and begin heading towards the docking bay your ship is parked in, along with their entourage.`
+			`	Their demeanor, and all this involvement with higher-ranking Gegno, is enough to tell you that something important must be happening on Tschyss, and that you should take them there as soon as possible.`
+				accept
+
+			label "interacted with vi"
+			`	You sit in silence for several minutes until the rustling of armor begins to grow from one of the corridors. Two Gegno enter sight, escorting one you have not seen in some time - the very first Vi warrior you met in Gegno space. Still adorning the red band around their left arm, they don't appear to be happy to see you again, but are quick to direct you to a star map on a display nearby, noting Tschyss's location.`
+			`	The reunion is cut short as they take a page from the past and thunder off towards the docking bay your ship is parked in, along with their escorts. Something important must be happening on Tschyss, and you seem to be part of it.`
+				accept
+			
+			label "interacted with scin"
+			`	You sit in silence for several minutes until the rustling of fabric begins to grow from one of the corridors. However, in contrast to what you heard, five heavily-geared Scin appear, barely making a sound. It's only after they step aside that you see the very first Scin you met, in the same orange garments they wore then. They look around the room, eagerly directing you to the first star map they see on a display, noting Tschyss's location.`
+			`	The reunion is cut short when three of the Scin soldiers flank you, ushering you off with the remaining three towards the docking bay your ship is parked at. Something important must be happening on Tschyss, and you seem to be part of it.`
+				accept
+
+			label "interacted with both"
+			`	You sit in silence for several minutes. The other Gegno working the desk seem displeased when the growing sound of a large group of Gegno approaching can be heard. You're surprised to see seven armed civilian Gegno enter the area, followed by two others. Unlike the civilians, however, you are quite familiar with the other two. Standing before you is not only the very first Scin you met, wearing the same orange robes, but also the very first Vi you encountered, still adorning the red band on their left arm.`
+			`	The admininstrative Gegno that lead you here now hands you a tablet, displaying the location of Tschyss. They hurry you onward towards the Scin and Vi, and before you can have a proper reunion, they direct the three of you towards the docking bay your ship is parked in, following close behind.`
+			`	Something important must be happening, or will be happening, on Tschyss - and it's involving you.`
+				accept
+
+			label defer
+			`	The Gegno stalks you as you move elsewhere, keeping their eye on you for some time, until they turn to another few Gegno in charge of a nearby desk. While you're not unfamiliar with it now, seeing one of them so intently focused on you still feels at odds with the your many previous experiences.`
+				defer
+
+			label return
+			`	The administrative Gegno from before is here, staring at you with the same intent as they did before. Do you want to see what they want?`
+			choice
+				`	(Approach them and see what they want.)`
+					goto hub
+				`	(Continue to avoid them.)`
+					defer
+
+	npc
+		government "Gegno Vi (Neutral)"
+		personality staying
+		system "Oosuoro"
+		fleet
+			names "gegno vi"
+			variant
+				"Schist"
+				"Eclogite"
+	npc
+		government "Gegno Scin (Neutral)"
+		personality staying
+		system "Oosuoro"
+		fleet
+			names "gegno scin"
+			variant
+				"Felsic"
+				"Tridymite"
+
+
+mission "Direction to Renumeration B"
 	invisible
 	landing
 	source "Tschyss"
 	to complete
 		never
 	to offer
-		has "Gegno: Visting Vi: offered"
-
+		and
+			or
+				"reputation: Gegno Vi" < 0
+				"reputation: Gegno Scin" < 0
+			"Gegno: Visiting Vi: offered"
+			"Gegno: Visiting Scin: offered"
+		not
+			or
+				"reputation: Gegno Vi" <= -100
+				"reputation: Gegno Scin" <= -50
 	npc
 		to despawn
 			and
@@ -1717,29 +1827,32 @@ mission "Gegno Re-evaluation Preparation"
 				"Tridymite"
 
 
-mission "Gegno Re-evaluation"
+mission "Renumeration"
+	invisible
 	landing
-	source "Ef Aourtdye"
-	destination "Tschyss"
-	bunks 1
+	substitutions
+		"<coordinator>" "coordinator"
+		"<coordinator>" "maintenance coordinator"
+			has "gegno: bay redirect"
+		"<coordinator>" "head of hauling operations"
+			has "gegno: hauling redirect"
+		"<coordinator>" "job board administrator"
+			has "gegno: transport redirect"
+	source "Tschyss"
 	to offer
-		and
-			has "Gegno: Visting Scin: offered"
-			has "Gegno: Visting Vi: offered"
+		or
+			"Direction to Renumeration: offered"
+			"Direction to Renumeration B: offered"
 	on offer
-		fail "Gegno Re-evaluation Preparation"
+		fail "Direction to Renumeration B"
 		conversation
-			`On your landing approach, you see a large number of Gegno vessels parked around the spaceport below. A majority of them are mining ships and cargo haulers, but grouped together nearby is another class of ship you don't recognize. Despite the gathering, there seems to be little to no crew activity around any of the ships, apart from routine check-ups. Thankfully, there are still plenty of landing areas for regular business.`
-			`	As you leave your ship and make your way to the general hub in the facility, you spot one of the Gegno presumably in charge of the facility. Their sudden movement in your direction makes it clear they have business with you.`
-			choice
-				`	(Approach them.)`
-				`	(Let them come to you.)`
-			`	 The Gegno, in the same vested uniform you've seen common with staff on their space station, meets up with you and escorts you deeper into the spaceport, leading you to another hub. Though, this one is less modernized, and more of a hodge-podge of exposed architecture. A wide, open area is decorated with tubing and electronics, and large, scattered tables sit below many metallic pillars that hang down from higher up like stalactites. A small platform acts like a ceiling just wide enough to encompass where the crew are stationed.`
+
+# Do these later; they have an entirely different start and are to be checked first in the mission for the negative rep
 
 			branch "negative rep both"
-				"reputation: Gegno Vi" < 0
-				"reputation: Gegno Scin" < 0
-				
+					"reputation: Gegno Vi" < 0
+					"reputation: Gegno Scin" < 0
+					
 			branch "negative rep vi"
 				"reputation: Gegno Scin" >= 0
 				"reputation: Gegno Vi" < 0
@@ -1748,6 +1861,12 @@ mission "Gegno Re-evaluation"
 				"reputation: Gegno Scin" < 0
 				"reputation: Gegno Vi" >= 0
 
+
+
+
+
+
+
 			branch "interacted with both"
 				not "vi: avoided visit"
 				not "scin: avoided visit"
@@ -1755,47 +1874,58 @@ mission "Gegno Re-evaluation"
 			branch "interacted with vi"
 				not "vi: avoided visit"
 				has "scin: avoided visit"
-			
+
 			branch "interacted with scin"
 				not "scin: avoided visit"
 				has "vi: avoided visit"		
 
+			`Without hesitation, the <coordinator> leads you and their entourage down to the station's central hub, where there is quite the crowd awaiting you. A gathering of Gegno Vi on the right side of the facility stand firmly in ranks, and on the left side of the facility are many Gegno Scin, some spread out, and others grouped together. To see both Gegno factions on the station at once is a new experience, but it doesn't end there.
+			`	Stepping out from the Vi's side is a Gegno you haven't seen since your visit to their homeworld - the very first Vi you met on a desert planet, still adorning the red band on their left arm. One of the maintenance coordinator's escorts meets them halfway between you and the soldiers, exchanging words while some of the Vi soldiers growl or grunt in what might be protest.`
+
+			`To meet the other escort, several of the Scin step aside and reveal another Gegno you've met before - the Scin wearing orange robes. Unlike the Vi, the remaining Scin look onward silently as the two have a small, slightly more energetic discussion.`
+				to display
+					or
+						has "scin: approached epidote"
+						and
+							not "gegno: left scin"
+							not "scin: avoided visit"
+
+			`To meet the other escort, several of the Scin step aside and reveal another. This one is wearing a long, orange robe with armor plating focused around their shoulders, completely at odds with the other Scin's heavier armor. Unlike the Vi, the remaining Scin look onward silently as the two have a small discussion, though it is more energetic than that of the other pair.`
+				to display
+					and
+						has "gegno: left scin"
+						has "scin: avoided visit"						
+
+			`	Expectedly, many of the non-affiliated civilian Gegno in the background steer clear of the event, but more than you would expect pause to acknowledge it, either with strange expressions or no expression at all. Minutes later, both the banded Vi and the robed Scin meet up with the <coordinator>, who steps up to you with an expectation of their own - to follow them.``
+			`	Whatever this is about, it seems to be important enough to involve both the Scin and the Vi. It is up to you if you want to pursue this any further; there's no telling what either of the factions think of you at this point.`
+			choice
+				`	(Follow the Gegno.)`
+					goto "main event"
+				`	(Decide against being a part of something involving either the Scin or the Vi).`
+			`	You hesitate, and try to express your decision to the Gegno in front of you, hoping they will understand. Some of the Vi soldiers go silent again, and a couple continue snorting towards you. The robed Scin eagerly attempts to read your expressions, but it's the <coordinator> that steps forward once more, grunting. Though you've spent some time around them, it's hard to tell if they are angrily, or urging, you to reconsider.`
+			choice
+				`	"My decision is final. I want nothing to do with the Vi or the Scin."`
+					goto "no more factions"
+				`	(Change your mind and follow them.)`
+					goto "main event a"
+
+			label "main event a"
+				`	Blah.`
 
 
 
-
-
-
-
-
-			`	You sit in silence for several minutes until another Gegno approaches.`
-
-
-
-			label "interacted with vi"
-				`The mission if you interacted with only the vi.`
-
-
-			label "interacted with scin"
-				`The mission if you interacted with only the scin.`
-
-
-			label "negative rep vi"
-				`The mission if you have negative vi rep.`
-
-
-			label "negative rep scin"
-				`The mission if you have negative vi rep.`
-
-
-			label "negative rep both"
-				`The mission if you have negative rep with both factions.`
-
-
-
-
-# mission "Renumeration"
-
+# mission "Condemnation"
+#	invisible
+#	landing
+#	source "Tschyss"
+#	to offer
+#		has "Gegno: Visting Vi: offered"
+#		has "Gegno: Visting Scin: offered"
+#		or
+#			"reputation: Gegno Vi" <= -100
+#			"reputation: Gegno Scin" <= -50			
+#	on offer
+#		conversation
 
 
 # Various Events will still happen in the background, changing Gegno space slightly, due to war.
