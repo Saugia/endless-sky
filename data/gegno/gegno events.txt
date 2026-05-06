@@ -118,7 +118,7 @@ event "gegno: tschyss recovery"
 		spaceport `Gegno of all kinds are walking to and fro, some seeming either very tired and overworked, while others seem more animated and attentive to their tasks. Many of them pass through the docking bay section you're presently given permission to access, while the rest traverse a larger portion of the station that is restricted only to Gegno.`
 
 
-event "gegno: tschyss outfitter"
+event "gegno: early tschyss outfitter"
 	planet Tschyss
 		outfitter "gegno basic"
 
