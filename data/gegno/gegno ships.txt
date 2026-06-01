@@ -307,6 +307,58 @@ ship "Corundum" "Corundum (Torch)"
 		"RG18 Torch Steering" 2
 		"Hyperdrive"
 
+# Currently a copy-pasted Dolomite
+ship "Phyllite"
+	sprite "ship/gegno phyllite a"
+		"center" 0 20
+	thumbnail "thumbnail/gegno phyllite a"
+	attributes
+		category "Heavy Freighter"
+		licenses
+			"Gegno Civilian"
+		"cost" 2768000
+		"shields" 0
+		"hull" 8200
+		"required crew" 9
+		"bunks" 79
+		"mass" 850
+		"drag" 6.7
+		"heat dissipation" 0.42
+		"fuel capacity" 800
+		"cargo space" 200
+		"outfit space" 152
+		"weapon capacity" 0
+		"engine capacity" 81
+		weapon
+			"blast radius" 72
+			"shield damage" 320
+			"hull damage" 620
+			"hit force" 720
+	outfits
+		"C7 Brawl Cell"
+		"R01 Skirmish Battery"
+		
+		"RG15 Torch Thruster"
+		"RG15 Torch Steering" 2
+		"Hyperdrive"
+	engine 0 178
+	leak "leak" 60 50
+	leak "flame" 60 80
+	explode "large explosion" 14
+	explode "medium explosion" 24
+	explode "small explosion" 26
+	explode "tiny explosion" 10
+	"final explode" "final explosion medium"
+	description `Almost as large as a human cruiser, Dolomites are the Gegno's most common cargo vessel in service, its original design dating back to the early days of space colonization. They are used as both passenger liners and cargo vessels. Due to their popularity and continuous usage, both the Vi and Scin factions have developed on the original design for their own purposes.`
+
+ship "Phyllite" "Phyllite (Heavy Load)"
+	sprite "ship/gegno phyllite b"
+	thumbnail "thumbnail/gegno phyllite b"
+	add attributes
+		"mass" +
+		"drag" +
+		"fuel capacity" 400
+
 ship "Protolith"
 	sprite "ship/gegno protolith"
 	thumbnail "thumbnail/gegno protolith"
@@ -320,7 +372,7 @@ ship "Protolith"
 		"mass" 10885
 		"drag" 131
 		"heat dissipation" 0.18
-		"fuel capacity" 2100
+		"fuel capacity" 3200
 		"cargo space" 1160
 		"outfit space" 942
 		"weapon capacity" 0

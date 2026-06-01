@@ -59,7 +59,7 @@ event "gegno: dwindling workers"
 
 
 event "gegno: zydee war escalates"
-	system "Zydee"
+	system "Kneirc"
 		fleet "Small Vi" 1300
 		fleet "Vi Warfleet" 3000
 		fleet "Small Scin" 1600
@@ -121,6 +121,176 @@ event "gegno: tschyss recovery"
 event "gegno: early tschyss outfitter"
 	planet Tschyss
 		outfitter "gegno basic"
+
+# DOUBLE CHECK PREVIOUS SYSTEM EVENTS, MORE COMBAT BGS CHANGES WILL HAPPEN STILL, REPLACE DEFINITIONS BELOW WITH ANY CHANGES. Also don't forget to change other systems not listed yet.
+
+# = needs edits
+
+
+mission "Test Mining Event"
+	description "Tests event. Not reveresable, Reload save."
+	job
+	source "Tschyss"
+	to complete
+		never
+	on accept
+		event "gegno: major miner event"
+		decline
+
+
+event "gegno: major miner event"
+	fleet "Gegno Miners"
+		add variant 100
+			"Gypsum" 2
+			"Granofel"
+			"Phyllite"		
+		add variant 90
+			"Corundum" 2
+			"Granofel"
+			"Phyllite (Heavy Load)"
+		add variant 90
+			"Gypsum" 2
+			"Granofel"
+			"Phyllite (Heavy Load)"
+		add variant 60
+			"Gypsum" 3
+			"Granofel"
+			"Phyllite (Heavy Load)"
+		add variant 60
+			"Corundum" 2
+			"Gypsum"
+			"Granofel"
+			"Phyllite" 2
+	system "Scija"
+		fleet "Small Vi" 500
+		fleet "Large Vi" 1500
+		fleet "Vi Transport" 600
+		fleet "Vi Cargo" 1200
+		fleet "Vi Warfleet" 1000
+		fleet "Gegno Basic" 3200
+		fleet "Gegno Cargo" 2000
+		fleet "Gegno Miners" 1500
+	system "Ptetubo"
+		fleet "Gegno Miners" 1500
+	system "Cshudlye"
+		remove fleet "Small Vi"
+		add fleet "Gegno Miners" 2200
+	system "Uhebe"
+		remove fleet "Small Vi"
+		remove fleet "Vi Transport"
+		remove fleet "Vi Warfleet"
+		add fleet "Gegno Miners" 3000
+	system "Yli"
+		remove fleet "Small Vi"
+		remove fleet "Large Vi"
+		remove fleet "Vi Transport"
+		remove fleet "Vi Cargo"
+	system "Jied"
+		remove fleet "Small Vi"
+		remove fleet "Large Vi"
+		remove fleet "Vi Cargo"
+		remove fleet "Small Vi II"
+		fleet "Gegno Miners" 1000
+	system "Oihaug"
+		remove fleet "Small Vi"
+		remove fleet "Vi Transport"
+		add fleet "Gegno Miners" 1100
+	system "Nssryos"
+		remove fleet "Small Vi"
+		remove fleet "Large Vi"
+		remove fleet "Vi Transport"
+		remove fleet "Vi Cargo"
+	system "Wreoul"
+		remove fleet "Small Vi"
+		remove fleet "Large Vi"
+		remove fleet "Vi Transport"
+		remove fleet "Vi Cargo"
+		remove fleet "Small Vi II"
+		remove fleet "Vi Warfleet"
+	system "Empeles"
+		remove fleet "Small Vi"
+	system "Fscher"
+		remove fleet "Small Vi"
+		remove fleet "Small Scin"
+	system "Huud"
+		remove fleet "Small Vi"
+	system "Anbrim"
+		remove fleet "Small Scin"
+		remove fleet "Small Vi"
+	system "Jyelio"
+		remove fleet "Vi Warfleet"
+		remove fleet "Scin Warfleet"
+		remove fleet "Small Vi II"
+		remove fleet "Small Scin"
+	system "Vesvii"
+		remove fleet "Vi Warfleet"
+		remove fleet "Scin Warfleet"
+	system "Yerser"
+		remove fleet "Small Scin"		
+	system "Ilirco"
+		remove fleet "Small Vi"
+		remove fleet "Small Scin"
+	system "Evrae"
+		remove fleet "Small Scin"
+		remove fleet "Large Scin"
+		remove fleet "Scin Cargo"
+		remove fleet "Scin Warfleet"
+		add fleet "Gegno Miners" 2000
+	system "Pbelnep"
+		fleet "Small Scin" 1100
+		fleet "Large Scin" 2100
+		fleet "Scin Transport" 1500
+		fleet "Scin Cargo" 1300
+		fleet "Gegno Basic" 2800
+		fleet "Gegno Cargo" 3000
+		fleet "Gegno Miners" 1500
+	system "Zeinar"
+		fleet "Small Scin" 400
+		fleet "Large Scin" 2000
+		fleet "Scin Transport" 500
+		fleet "Scin Cargo" 1200
+		fleet "Scin Warfleet" 1000
+		fleet "Gegno Basic" 3400
+		fleet "Gegno Cargo" 2400
+		fleet "Gegno Miners" 1500
+	system "Eebu"
+		remove fleet "Small Vi"
+		remove fleet "Small Scin"
+		remove fleet "Scin Warfleet"
+	system "Kneirc"
+		add fleet "Gegno Miners" 2000
+	system "Mohuwo"
+		remove fleet "Small Scin"
+		remove fleet "Scin Transport"
+	system "Gualetri"
+		remove fleet "Small Scin"	
+	system "Uelawan"
+		remove fleet "Small Scin"
+		fleet "Gegno Basic" 1800
+		fleet "Gegno Miners" 1800
+	system "Kneirc"
+		remove fleet "Small Vi" 1300
+		remove fleet "Vi Warfleet" 3000
+		remove fleet "Small Scin" 1600
+		remove fleet "Scin Warfleet" 2400
+	system "Eogho"
+		fleet "Gegno Basic" 2200
+		fleet "Gegno Cargo" 2000
+		add fleet "Gegno Miners" 1700
+	system "Oosuoro"
+		fleet "Gegno Basic" 800
+		fleet "Gegno Cargo" 1200
+		fleet "Gegno Miners" 1000
+	system "Asio"
+		fleet "Gegno Basic" 400
+		fleet "Gegno Cargo" 700
+		fleet "Gegno Miners" 1200
+	system "Heutesl"
+		fleet "Gegno Basic" 200
+		fleet "Gegno Miners" 2000
+		fleet "Gegno Cargo" 400
+		fleet "Gegno Old" 40000
+		fleet "Quarg (Gegno)" 2800
 
 
 event "gegno: unified defense"

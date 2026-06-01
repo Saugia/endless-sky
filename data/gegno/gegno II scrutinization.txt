@@ -112,7 +112,6 @@ mission "Gegno: Unexpected Drifters Report"
 	to offer
 		has "gegno: derelict spotted"
 		not "gegno: unexpected drifters killed"
-		not "Gegno Genocide Defense: offered"
 	on offer
 		conversation
 			`Would you like to try and report the disabled civilian ship you discovered to the Gegno here?`
@@ -443,7 +442,6 @@ mission "Gegno Miner Incident - Transport"
 	to offer
 		has "gegno: transport redirect"
 		has "Gegno: A Major Miner Incident: offered"
-		not "Gegno Genocide Defense: offered"
 	on offer
 		conversation
 			`Similar to the Gegno's homeworld, this planet features vast expanses of barren land, deserts, and mountainous landscapes. At first, it feels oddly devoid of civilization, but as you descend towards the surface, you notice a few enormous, web-like roads stretching far from one side of the horizon to another, connecting to various structures in the distance. The Gegno escorting you slowly appears in their shuttle from above and flies ahead, taking you into the great desert lands.`
@@ -463,7 +461,7 @@ mission "Gegno Miner Incident - Transport"
 			`	All of the Gegno seem to be in some sort of heavy gearsets, some resembling those you've seen worn by others on the station. You let them on board, their gear clangs against the interior of your ship as they shuffle in, trying to find room for themselves. Several of them seem somewhat uncomfortable, and others impatiently grunt. Eventually, they all become silent and keep to themselves, awaiting their commute to <destination>.`
 				launch
 
-# Figure out if the Gegno should talk about this or not.
+# Figure out if the Gegno should talk about the Jump Drive experience or not.
 #	on enter
 #	on enter
 #		dialog `Test.`
@@ -495,7 +493,6 @@ mission "Gegno Miner Incident - Hauling"
 	to offer
 		has "gegno: hauling redirect"
 		has "Gegno: A Major Miner Incident: offered"
-		not "Gegno Genocide Defense: offered"
 	on offer
 		conversation
 			`This world is a vast desert expanse, a majority of the surface covered in a deep layer of sands and sediments. Aside from distant mountainous rock formations, it almost appears as there is a lack of any civilization, but you start to notice long, spindling roads crossing from one horizon to another. The blocky Gegno ship, owned by the hauling lead that personally escorted you here, slowly moves into view from above and moves to escort you ahead.`
@@ -564,7 +561,6 @@ mission "Gegno: Ef Aourtdye"
 	source "Ef Aourtdye"
 	to offer
 		has "Tschyss Recovery Jobs: offered"
-		not "Gegno Genocide Defense: offered"
 	on offer
 		conversation
 			branch "first visit"
@@ -1100,7 +1096,6 @@ mission "Gegno Assistance - Maintenance"
 	to offer
 		has "event: gegno: tschyss recovery"
 		has "gegno: bay redirect"
-		not "Gegno Genocide Defense: offered"
 	on offer
 		conversation
 			`Sand is whisked into the air as one of the Gegno's large cargo ships lands nearby. A hulking Gegno walks off a boarding ramp, carrying several mechanical devices and wearing a giant backpack that somehow isn't causing them to fall over. Pulling out something akin to a tablet, although muc more antiquated in comparison, they start working through lists and sorts. It takes you a moment, but you recognize them as the maintenance coordinator from Tschyss. After a minute or so, they begin heaving their gear and devices around. Despite not looking in your direction, they roll their arm around in a gesture that suggests you to come with them.`
@@ -1250,7 +1245,6 @@ mission "Gegno Assistance - Hauling"
 		random < 70
 		has "event: gegno: tschyss recovery"
 		has "gegno: hauling redirect"
-		not "Gegno Genocide Defense: offered"
 	to accept
 		"cargo space" >= 40
 	on offer
@@ -1297,7 +1291,6 @@ mission "Gegno Assistance - Hauling II"
 	destination "Tschyss"
 	to offer
 		has "Gegno Assistance - Hauling I: done"
-		not "Gegno Genocide Defense: offered"
 	on offer
 		conversation
 			branch "scin escort"
@@ -1331,6 +1324,7 @@ mission "Gegno Assistance - Hauling II"
 			`It takes a moment for an unloading crew to show up, and when they do, you recognize them as part of the more lively bunch that were working on construction in another part of the station, consisting of Gegno of all sizes. They converse with one another more than the Gegno on Ef Aourtdye do, or at least, more than you've seen. Some of them haul equipment away in carts, and others carry machinery by themselves, some of it looking several times heavier than themselves.`
 			`	The hauling lead is standing by your ship and watching as the others do their work, but they too seem a bit more animated than other times, pacing a little bit. For no reason you can decipher, they throw a fist at it, and you swear they leave a dent in the side. You aren't sure if you're happy about that, but it go after the rest of the Gegno.`
 
+
 mission "Gegno Assistance - Hauling IIIA"
 	name ""
 	description ""
@@ -1340,7 +1334,6 @@ mission "Gegno Assistance - Hauling IIIA"
 	cargo "reserved cargo space" 30
 	to offer
 		has "event: gegno: early tschyss outfitter"
-		not "Gegno Genocide Defense: offered"
 	to accept
 		"cargo space" >= 30
 	on offer
@@ -1365,7 +1358,6 @@ mission "Gegno Assistance - Hauling IIIB"
 	cargo "Industrial Equipment" 30
 	to offer
 		has "Gegno Assistance - Hauling IIIA: done"
-		not "Gegno Genocide Defense: offered"
 	to accept
 		"cargo space" >= 30
 	on offer
@@ -1386,11 +1378,10 @@ mission "Gegno Assistance - Hauling IV 1A"
 	clearance
 	outfitter
 	source "Tschyss"
-	destination "Vi World"
+	destination "Siedi"
 	cargo "reserved cargo space" 45
 	to offer
 		has "Gegno Assistance - Hauling IIIB: done"
-		not "Gegno Genocide Defense: offered"
 	to accept
 		"cargo space" >= 45
 		"cargo space" <= 135
@@ -1403,9 +1394,9 @@ mission "Gegno Assistance - Hauling IV 1A"
 				`	(Not this time.)`
 					decline
 			`	Despite the size of the station, you recognize the administrator from somewhere before. They are holding on to a bundle of work orders, similar to the one you were given previously, while speaking to a pair of Gegno. They hold one out for one of the two to take, although unlike what you would expect, both of the Gegno reach out pull on it at the same time. Instead of one getting the slate, the lower half splits off into two pieces between them.`
-			`	When you approach, one of the two stares for a uncomfortably long period at you. It seems to put the administrator in thought, until they finally turn to you, holding the what's left of the slate, with, with a third piece jutting off to the side. On it reads a cargo amount adding up to 45 tons. Thankfully, they practice the same clarification the hauling coordinator does with you and guides you to a star map. However, the location they reveal is not that of a civilian planet, but a planet deep in Gegno Vi territory. You aren't even sure if they will let you land.`
+			`	When you approach, one of the two stares for a uncomfortably long period at you. It seems to put the administrator in thought, until they finally turn to you, holding the what's left of the slate, with, with a third piece jutting off to the side. On it reads a cargo amount adding up to 45 tons. Thankfully, they practice the same clarification the hauling coordinator does with you and guides you to a star map. However, the location they reveal is not that of a civilian planet, but a planet deep in Gegno Vi territory. You aren't even sure what the Vi currently think of you, let alone if they will let you land.`
 			choice
-				`	(Accept the job despite the risks.)`
+				`	(Accept the job anyways.)`
 				`	(Decline.)`
 					goto decline
 			`	When you reach out to take the last remaning fragment, the Gegno that stared at you turns theirs back in and marches off without looking back. Maybe dealing with both the Vi and you at the same time was too much to ask of them. The other Gegno, in comparison, steps forward and takes the second job on top of their first; to them, work is work.`
@@ -1418,50 +1409,85 @@ mission "Gegno Assistance - Hauling IV 1A"
 
 			label choice
 			choice
-				`	(Go after them and try to communicate what cargo space you're working with.)`
+				`	(Go after them and try to explain your concern.)`
 					goto chase
-				`	(Try to ask the other Gegno standing with you about it.)`
+				`	(Try to ask the other Gegno about it.)`
 					goto "other gegno"
 				`	(Leave the shard and decline the job after all.)`
-			`	You leave the shard with the remaining Gegno, who jsut grumbles continuously while staring at it. There's too much you don't know going on; hopefully they will be able to figure it out and do the job properly.`
+			`	You leave the shard with the remaining Gegno, who simply groans in a deep tone while staring at it. They would probably have a better idea on how to handle the situation, or at least, they are able to speak to the other Gegno.`
 				decline
 
 			label chase
-			`	When you go after the administrator, any attempt you make to communicate with them is met with glares and grunts. The Gegno they're now working with seem unhappy at you for interrupting, so it doesn't look like you're getting any answers. Not only are you unclear as to what exactly the Gegno are expecting of you, but you are also going to a Vi world. Hopefully you can sort it out somehow - assuming they do let you land.`
+			action
+				set "hauling series: unsure cargo"
+			`	When you go after the administrator, any attempt you make to communicate with them leads to nothing. The Gegno they are now working with seem unamused, or maybe even upset, at your interruption, so it doesn't look like you're getting any answers.`
+			`	Not only are you unclear as to what exactly the Gegno are expecting of you, but also your destination is a world belonging to the Gegno Vi. Hopefully you can sort it out somehow - assuming they do let you land.`
 				accept
 			
 			label "enough cargo"
 			`	Strangely, the administrator hands you the top half of the slate as well, which also reads a number - 135. While you have enough space to carry 135 tons, you don't have enough to carry that much on top of the 45 you're expected from the first job. By the time you go to inquire about it, the Gegno has already begun to march towards others in the outfitter.`
 				goto choice
-
 			
 			label "other gegno"
-			`	You try to communicate with the other Gegno that accepted two jobs. When you show them the top half of the slate, they simply reach out for it and take it from you, which leaves you with the original 45 ton job you were first given. You wonder if it's normal for Gegno to be trading jobs so quickly, but at least you know you can handle this workload - assuming the Vi let you land to begin with.`
+			`	You try to communicate with the other Gegno next to you, the one that accepted two jobs. Thje moment you show them the top half of the slate, they simply reach out for it and take it from you before you explain anything. You wonder if it's normal for the Gegno to juggle jobs like that between one another, but at least you know you can handle the original 45 tons. The main concern now is whether or not the Vi will let you land on their world to begin with.`
 				accept
 			
 	on enter
-		dialog `When you leave the station, you notice a Gegno freight ship flying alongside you. They must be some sort of escort, either to help you out with your job in some way, or to help you get landing clearance on the Vi world you have not been to.`
-	
+		dialog `As you leave the station, you notice a Gegno freight ship slowly following behind you. You aren't sure why - it could be that they're observing you for security purposes, or perhaps they're some sort of back-up in case the mission goes wrong.`
+
 	npc
+		government "Gegno"
+		personality timid
+		ship "Dolomite" "Tyh Dghyi"
 
 
 mission "Gegno Assistance - Hauling IV 1B"
 	name ""
 	description ""
 	landing
-	source "Vi World"
+	source "Siedi"
 	destination "Tschyss"
 	cargo "Industrial Equipment" 45
 	to offer
 		has "Gegno Assistance - Hauling IV 1A: done"
-		not "Gegno Genocide Defense: offered"
 	on offer
 		conversation
-			`Blah.`
-				accept
+			`The authorities on <source> allow you to land without any issues. In fact, your whole landing sequence doesn't go any different than it would on Tschyss, up until the moment you leave your ship. Outside, there are several armed Vi soldiers pacing around the landing area, all of them the larger, hulking form of Gegno you've seen before. They continue to survey the site, although none are approaching to do any sort of unloading.`
+			
+			branch "unsure cargo"
+				has "hauling series: unsure cargo"
 
+			`	A minute or two goes by, and the freight ship from before descends from above, landing next to you. It's only when their engines shut down that another, more mixed group of Gegno approaches, rolling heavy-looking cargo trailers towards both ships. The equipment the Vi load onto your ship adds up to the 45 tons you were expecting, though when you glance over at the other Gegno ship that landed here with you, they too are having cargo loaded at the same time.`
+			`	The captain of the ship, surveying the processes on-foot, is the same Gegno that accepted the two jobs alongside you. Though, you'd expect the cargo they're receiving to be more than what it is, given the extra tonnage in jobs they accepted. The cargo volume, and their presence here, starts to make it more clear. The 135 tons must not have been an extra job - it's the whole job. The work slate split the job into portions, in which you took 45 tons of it, and the other Gegno took the rest.`
+			choice
+				`	(Stay a moment to look at the Vi's world.)`
+				`	(Wrap things up and leave.`
+					goto leave
+			label world
+			`	Now that you can rest easy knowing everything is sorted out, you take a moment and look around at the Vi's world. Your ship rests on a rock formation angled almost sideways from a mountain, and below are jagged formations with cavernous gapes, with greenery not being uncommon. There are many Vi vehicles, some having crawler-like appearances, moving deeper into the planet's surface, and some leaving it with huge carts of freshly mined minerals. The amount of Vi in the spaceport is quite a lot, much more than that of the station.	You wonder if all the Vi's worlds are this busy, but they don't give you the time.`
+				goto leave
 
+			label "unsure cargo"
+			`	A minute or two goes by, and the freight ship from before descends from above, landing next to you. It's only when their engines shut down that another, more mixed group of Gegno approaches, rolling heavy-looking cargo trailers towards both ships. The equipment the Vi load onto your ship only adds up to the 45 tons you initially accepted once they've begun to wrap up.`
+			choice
+				`	(Get the Vi's attention and see if they can clarify the matter.)`
+				`	(Walk over to the other Gegno's ship and see if you can ask them instead.)`
+			`	When you try to approach the Vi, several soldiers march closer to you, and begin growling at you or shouting words in their own language in a much more extravagant manner than any Gegno on the station did. You wonder if you accidentally started something; the last thing you would want to do is upset the Vi on your first visit to one of their worlds.`
+			`	The captain of the other Gegno ship walks over to you and gestures that you return to your ship. They don't seem terribly enthused with either you or the Vi, putting more emphasis on the ships and cargo instead. You notice that they're also not having a large amount of cargo loaded. Their cargo volume, and their presence here, starts to make it clear. The 135 tons must not have been an extra job - it's the whole job. The work slate split the job into portions, in which you took 45 tons of it, and the other Gegno took the rest.`
+			choice
+				`	(Stay a moment to look at the Vi's world.)`
+					goto world
+				`	(Wrap things up and leave.)`
 
+			label leave
+			`	The moment your ship is full and refueled, you're ushered to leave and head back to <destination> with the equipment, and the other Gegno ship is already preparing for liftoff. During the period between your ship launching, and your exiting of the atmosphere, you notice numerous Vi ships of all sizes entering the system and coming down to land on the planet. The most you can hope for is that it's not because of you.`
+				launch
+	npc
+		government "Gegno"
+		personality timid
+		ship "Dolomite" "Tyh Dghyi"
+
+# Split off for the sake of the 180 ton assumption
 mission "Gegno Assistance - Hauling IV 2A"
 	name ""
 	description ""
@@ -1472,7 +1498,6 @@ mission "Gegno Assistance - Hauling IV 2A"
 	cargo "reserved cargo space" 180
 	to offer
 		has "Gegno Assistance - Hauling IIIB: done"
-		not "Gegno Genocide Defense: offered"
 	to accept
 		"cargo space" >= 180
 	on offer
@@ -1494,23 +1519,61 @@ mission "Gegno Assistance - Hauling IV 2A"
 				accept
 
 	on enter
-		dialog `When you leave the station, you notice a Gegno freight ship flying alongside you. They must be some sort of escort, either to help you out with your job in some way, or to help you get landing clearance on the Vi world you have not been to.`
+		dialog `As you leave the station, you notice a Gegno freight ship slowly following behind you. You aren't sure why - it could be that they're observing you for security purposes, or perhaps they're some sort of back-up in case the mission goes wrong.`
+
+	npc
+		government "Gegno"
+		personality timid
+		ship "Dolomite" "Tyh Dghyi"
 
 
 mission "Gegno Assistance - Hauling IV 2B"
 	name ""
 	description ""
 	landing
-	source "Vi World"
+	source "Siedi"
 	destination "Tschyss"
 	cargo "Industrial Equipment" 45
 	to offer
 		has "Gegno Assistance - Hauling IV 2A: done"
-		not "Gegno Genocide Defense: offered"
+	on offer
+		event "gegno: major miner event"
+		conversation
+			`The authorities on <source> allow you to land without any issues. In fact, your whole landing sequence doesn't go any different than it would on Tschyss, up until the moment you leave your ship. Outside, there are several armed Vi soldiers pacing around the landing area, all of them the larger, hulking form of Gegno you've seen before. They continue to survey the site, although none are approaching to do any sort of unloading.`
+
+			`	A minute or two goes by, and the freight ship from before descends from above, landing next to you. It's only when their engines shut down that another, more mixed group of Gegno approaches, rolling heavy-looking cargo trailers towards both ships. However, the equipment the Vi load onto your ship only adds up to 45 tons - certainly not the 135 tons you assume you were given the second time.`
+				`	(Get the Vi's attention and see if they can clarify the matter.)`
+				`	(Walk over to the other Gegno's ship and see if you can ask them instead.)`
+			`	When you try to approach the Vi, several soldiers march closer to you, and begin growling at you or shouting words in their own language in a much more extravagant manner than any Gegno on the station did. You wonder if you accidentally started something; the last thing you would want to do is upset the Vi on your first visit to one of their worlds.`
+			`	The captain of the other Gegno ship walks over to you and gestures that you return to your ship. They don't seem terribly enthused with either you or the Vi, putting more emphasis on the ships and cargo instead. You notice that they're also not having a large amount of cargo loaded. Their cargo volume, and their presence here, starts to make it clear. The 135 tons must not have been an extra job - it's the whole job. The work slate split the job into portions, in which you took 45 tons of it, and the other Gegno took the rest.`
+			choice
+				`	(Stay a moment to look at the Vi's world.)`
+					goto world
+				`	(Wrap things up and leave.)`
+
+			label leave
+			`	The moment your ship is loaded and refueled, you're ushered to leave and head back to <destination> with the equipment, and the other Gegno ship is already preparing for liftoff. During the period between your ship launching, and your exiting of the atmosphere, you notice numerous Vi ships of all sizes entering the system and coming down to land on the planet. The most you can hope for is that it's not because of you.`
+				launch
+	npc
+		government "Gegno"
+		personality timid
+		ship "Dolomite" "Tyh Dghyi"
+
+
+mission "Gegno Assistance - Hauling IV C"
+	name ""
+	description ""
+	landing
+	source "Tschyss"
+	to offer
+		or
+			has "Gegno Assistance: Hauling IV 1B: done"
+			has "Gegno Assistance: Hauling IV 2B: done"
 	on offer
 		conversation
-			`Blah.`
-				accept
+			`Something has happened. Unlike anything you've seen before,						`
+				decline
+
 
 
 
