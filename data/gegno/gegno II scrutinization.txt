@@ -1338,7 +1338,7 @@ mission "Gegno Assistance - Hauling IIIA"
 		"cargo space" >= 30
 	on offer
 		conversation
-			`Down a corridor you generally have not had access to until now, you find Gegno wrapping up construction on one of the stations' older, larger sections - an outfitter. It is still bare-bones, but appears to have enough equipment and personnel to faciliate basic work on ships. Other than that, there isn't any sort of stock of items, though they likely aren't interested in selling to you at the moment anyways. Despite their relative avoidance, the Gegno here on the station don't seem against servicing your ship. Maybe they're used to working with you now.`
+			`Down a corridor you generally have not had access to until now, you find Gegno working on construction for one of the stations' older, larger sections - an outfitter. It is still bare-bones, but appears to have enough equipment and personnel to faciliate basic work on ships. Other than that, there isn't any sort of stock of items, though they likely aren't interested in selling to you at the moment anyways. Despite their relative avoidance, the Gegno here on the station don't seem against servicing your ship. Maybe they're used to working with you now.`
 			`	Present in the outfitter is the hauling coorinator. By now, it would be easier if you had a name to call them, but you aren't even sure if the Gegno speak on a basis of names, let alone know what they're saying to begin with. What you do know, though, is when they're looking for assistance, from watching the coordinator speaking to Gegno pilots that are coming and going through the facility.`
 			choice
 				`	(See if you can offer them assistance.)`
@@ -1382,6 +1382,8 @@ mission "Gegno Assistance - Hauling IV 1A"
 	cargo "reserved cargo space" 45
 	to offer
 		has "Gegno Assistance - Hauling IIIB: done"
+		"cargo space" >= 45
+		"cargo space" <= 135
 	to accept
 		"cargo space" >= 45
 		"cargo space" <= 135
@@ -1498,6 +1500,7 @@ mission "Gegno Assistance - Hauling IV 2A"
 	cargo "reserved cargo space" 180
 	to offer
 		has "Gegno Assistance - Hauling IIIB: done"
+		"cargo space" >= 180
 	to accept
 		"cargo space" >= 180
 	on offer
@@ -1541,16 +1544,16 @@ mission "Gegno Assistance - Hauling IV 2B"
 		conversation
 			`The authorities on <source> allow you to land without any issues. In fact, your whole landing sequence doesn't go any different than it would on Tschyss, up until the moment you leave your ship. Outside, there are several armed Vi soldiers pacing around the landing area, all of them the larger, hulking form of Gegno you've seen before. They continue to survey the site, although none are approaching to do any sort of unloading.`
 
-			`	A minute or two goes by, and the freight ship from before descends from above, landing next to you. It's only when their engines shut down that another, more mixed group of Gegno approaches, rolling heavy-looking cargo trailers towards both ships. However, the equipment the Vi load onto your ship only adds up to 45 tons - certainly not the 135 tons you assume you were given the second time.`
+			`	A minute or two goes by, and the freight ship from before descends from above, landing next to you. It's only when their engines shut down that another, more mixed group of Gegno approaches, rolling heavy-looking cargo trailers towards both ships. However, the equipment the Vi load onto your ship only adds up to 45 tons - certainly not including the 135 tons you assume you were given the second time.`
 				`	(Get the Vi's attention and see if they can clarify the matter.)`
 				`	(Walk over to the other Gegno's ship and see if you can ask them instead.)`
 			`	When you try to approach the Vi, several soldiers march closer to you, and begin growling at you or shouting words in their own language in a much more extravagant manner than any Gegno on the station did. You wonder if you accidentally started something; the last thing you would want to do is upset the Vi on your first visit to one of their worlds.`
 			`	The captain of the other Gegno ship walks over to you and gestures that you return to your ship. They don't seem terribly enthused with either you or the Vi, putting more emphasis on the ships and cargo instead. You notice that they're also not having a large amount of cargo loaded. Their cargo volume, and their presence here, starts to make it clear. The 135 tons must not have been an extra job - it's the whole job. The work slate split the job into portions, in which you took 45 tons of it, and the other Gegno took the rest.`
 			choice
 				`	(Stay a moment to look at the Vi's world.)`
-					goto world
 				`	(Wrap things up and leave.)`
-
+					goto leave
+			`	Now that you can rest easy knowing everything is sorted out, you take a moment and look around at the Vi's world. Your ship rests on a rock formation angled almost sideways from a mountain, and below are jagged formations with cavernous gapes, with greenery not being uncommon. There are many Vi vehicles, some having crawler-like appearances, moving deeper into the planet's surface, and some leaving it with huge carts of freshly mined minerals. The amount of Vi in the spaceport is quite a lot, much more than that of the station.	You wonder if all the Vi's worlds are this busy, but they don't give you the time.`
 			label leave
 			`	The moment your ship is loaded and refueled, you're ushered to leave and head back to <destination> with the equipment, and the other Gegno ship is already preparing for liftoff. During the period between your ship launching, and your exiting of the atmosphere, you notice numerous Vi ships of all sizes entering the system and coming down to land on the planet. The most you can hope for is that it's not because of you.`
 				launch
@@ -1558,6 +1561,8 @@ mission "Gegno Assistance - Hauling IV 2B"
 		government "Gegno"
 		personality timid
 		ship "Dolomite" "Tyh Dghyi"
+	on complete
+		payment xxx
 
 
 mission "Gegno Assistance - Hauling IV C"
@@ -1571,11 +1576,29 @@ mission "Gegno Assistance - Hauling IV C"
 			has "Gegno Assistance: Hauling IV 2B: done"
 	on offer
 		conversation
-			`Something has happened. Unlike anything you've seen before,						`
+			branch "deferred"
+				has "Gegno Assistance - Hauling IV C: deferred"
+
+			`Something has happened. The sheer amount of ship traffic upon your return is unlike anything you have seen before. Several dozens of Gegno ships are constantly leaving or docking with the station, with many dozens more presently docked in the previously unused hangar. Upon leaving your ship, the interior is no different - there are almost hundreds of Gegno marching about. As typical, some speak little to one another, but a non-insignificant portion of the rest are very roudy or expressive.`
+			`	After passing through several crowds, you and the Gegno that followed you here meet up in the outfitter, where your combined cargo is hauled to. Beyond the team you're used to seeing, there are two more presently working, with the facility being just about complete.`
+			choice
+				`	(Search for the hauling coordinator.)`
+					goto search
+				`	(Wait for them to come to you.)`
+
+# Do outfitters hold the ships, or is it a place they hold systems for sale?			
+			`	With you, the other Gegno waits for the coordinator. You often get "the gaze" from others, as it's likely this new influx of Gegno have never seen you before, though they acknowledge you very little otherwise.`
+				goto payment
+
+			label search
+			`	The other Gegno stays behind as you look for the coordinator amongst those in the outfitter. You occasionally get "the gaze" from Gegno unfamiliar with you, as it's likely many of them have never seen you before.`
+	
+			label payment
+			`	Eventually, you're approached by the coordinator, who quickly hands over <payment> before moving on to someone else in need of their presence. Whatever has happened in the time you were gone, it seems like the station will be much more busy for the forseeable future.`
 				decline
 
-
-
+# Either decide on making random jobs or specific jobs for further hauling to faction planets. Eventually, after doing some amount, this will lead to the plot twist.
+mission "Gegno Hauling Prologue"
 
 
 # Transport Series
@@ -1610,16 +1633,16 @@ mission "Gegno Assistance - Transport II"
 	description "Find a place in Gegno space to dump the junk materials that the Gegno have loaded your cargo hold with."
 	cargo "junk materials" 31
 	source "Tschyss"
-	to offer
-		has "Gegno Assistance - Transport I: done"
-		not "Gegno Genocide Defense: offered"
+#	to offer
+#		has "Gegno Assistance - Transport I: done"
+#		not "Gegno Genocide Defense: offered"
 	to accept
 		"cargo space" >= 31
 	to complete
 		or
 			has "gegno: littered byigii"
 			has "gegno: littered esstch"
-			has "gegno: littered Ghneoe"
+			has "gegno: littered ghneoe"
 			has "gegno: littered dlia jzaur"
 			has "gegno: littered cyife"
 			has "gegno: littered wye tzeou"
@@ -1627,9 +1650,9 @@ mission "Gegno Assistance - Transport II"
 			has "gegno: littered vigales"
 			has "gegno: littered mnai"
 			has "gegno: littered eeu mnai"
-			has "gegno: littered ilirco"
+			has "gegno: littered yiia iyr"
 			has "gegno: littered veiuye"
-			has "gegno: littered esstch"
+			has "gegno: littered uye mpi"
 	on offer
 		conversation
 			`As soon as you arrive on <origin>, a crew of Gegno are waiting for you with several containers and piles of cargo. At least, it looked like cargo, but in reality, most of it appears to be junk - scrap metals, broken parts, containers of unknown contents. The Gegno brazenly loading the materials in the ship's cargo, doing so more efficiently than you'd expect those back on the station would. Before you know it, they are gone as quickly as they came, and not a single one remains to even tell you where to take the cargo, leaving an unspoken expectation of you. Maybe this is why the Gegno was having a hard time looking for someone for the job.`
@@ -1638,17 +1661,16 @@ mission "Gegno Assistance - Transport II"
 
 mission "Gegno Cargo Dump - Byigii"
 	landing
-	repeat
 	source "Byigii"
 	to offer
-		has "Gegno Assistance - Transport: active"
+		has "Gegno Assistance - Transport II: active"
 	on offer
 		conversation
 			`This planet appears to be uninhabited, and there are giant piles of scrap metals and materials on the surface similar to what the Gegno have loaded your cargo hold with. Do you dump the cargo here?`
 			choice
 				`	(Dump the cargo here.)`
 				`	(Not here.)`
-					decline
+					defer
 			action
 				cargo "junk materials" -31
 				set "gegno: littered byigii"
@@ -1657,10 +1679,9 @@ mission "Gegno Cargo Dump - Byigii"
 
 mission "Gegno Cargo Dump - Esstch"
 	landing
-	repeat
 	source "Esstch"
 	to offer
-		has "Gegno Assistance - Transport: active"
+		has "Gegno Assistance - Transport II: active"
 	on offer
 		conversation
 			branch "bystander"
@@ -1676,7 +1697,7 @@ mission "Gegno Cargo Dump - Esstch"
 			choice
 				`	(Dump the cargo here.)`
 				`	(Not here.)`
-					decline
+					defer
 			action
 				cargo "junk materials" -31
 				set "gegno: littered esstch"
@@ -1685,17 +1706,16 @@ mission "Gegno Cargo Dump - Esstch"
 
 mission "Gegno Cargo Dump - Ghneoe"
 	landing
-	repeat
 	source "Ghneoe"
 	to offer
-		has "Gegno Assistance - Transport: active"
+		has "Gegno Assistance - Transport II: active"
 	on offer
 		conversation
 			`There is currently a conflict between the Vi and Scin in the system, however, there are no signs of battle or colonization on this planet. Do you dump the cargo here?`
 			choice
 				`	(Dump the cargo here.)`
 				`	(Not here.)`
-					decline
+					defer
 			action
 				cargo "junk materials" -31
 				set "gegno: littered ghneoe"
@@ -1706,10 +1726,12 @@ mission "Gegno Cargo Dump - Dlia Jzaur"
 	landing
 	source "Dlia Jzaur"
 	to offer
-		has "Gegno Assistance - Transport: active"
-		not "Gegno Cargo Dump - Dlia Jzaur: offered"
+		has "Gegno Assistance - Transport II: active"
 	on offer
 		conversation
+			branch "return"
+				has "Gegno Cargo Dump - Dlia Jzaur: deferred"
+
 			`This planet is currently uninhabited, though there are signs that the Gegno have attempted to colonize it in the past. Suddenly, you notice a Gegno Vi ship descending from above, followed by two other smaller craft. You may be working for the Gegno, but your relationship with the Vi faction is a separate matter. You could try and dump the cargo while still in flight and leave before they notice you, or you could leave now to avoid taking any chances.`
 			choice
 				`	(Quickly dump the cargo and leave.)`
@@ -1722,20 +1744,12 @@ mission "Gegno Cargo Dump - Dlia Jzaur"
 			`	Your cargo bay now smells harshly of metallics, dirt, and unpleasantries. Considering you weren't given a return location either, it doesn't seem like you're getting paid for this work. Hopefully the Gegno appreciate it.`
 				decline
 
-mission "Gegno Cargo Dump - Dlia Jzaur B"
-	landing
-	repeat
-	source "Dlia Jzaur"
-	to offer
-		has "Gegno Assistance - Transport: active"
-		has "Gegno Cargo Dump - Dlia Jzaur: declined"
-	on offer
-		conversation
+			label "return"
 			`You previously visited this planet with the junk cargo you're carrying, but decided to leave as there were several Vi ships in the vicinity. As far as you can tell, they are no longer here, and there's no lasting presence of them, but the Vi could return to this world again soon. Do you dump the cargo here while they aren't around?`
 			choice
 				`	(Dump the cargo here.)`
 				`	(Not here.)`
-					decline
+					defer
 			action
 				cargo "junk materials" -31
 				set "gegno: littered dlia jzaur"
@@ -1745,10 +1759,9 @@ mission "Gegno Cargo Dump - Dlia Jzaur B"
 
 mission "Gegno Cargo Dump - Cyife"
 	landing
-	repeat
 	source "Cyife"
 	to offer
-		has "Gegno Assistance - Transport: active"
+		has "Gegno Assistance - Transport II: active"
 	on offer
 		conversation
 			branch "scin"
@@ -1764,7 +1777,7 @@ mission "Gegno Cargo Dump - Cyife"
 			choice
 				`	(Dump the cargo here.)`
 				`	(Not here.)`
-					decline
+					defer
 			action
 				cargo "junk materials" -31
 				set "gegno: littered cyife"
@@ -1773,17 +1786,16 @@ mission "Gegno Cargo Dump - Cyife"
 
 mission "Gegno Cargo Dump - Wye Tzeou"
 	landing
-	repeat
 	source "Wye Tzeou"
 	to offer
-		has "Gegno Assistance - Transport: active"
+		has "Gegno Assistance - Transport II: active"
 	on offer
 		conversation
 			`This planet is rather far from the Gegno and shows no signs of life. It's possible the Gegno won't visit this world for some time. Do you dump the cargo here?`
 			choice
 				`	(Dump the cargo here.)`
 				`	(Not here.)`
-					decline
+					defer
 			action
 				cargo "junk materials" -31
 				set "gegno: littered wye tzeou"
@@ -1792,17 +1804,16 @@ mission "Gegno Cargo Dump - Wye Tzeou"
 
 mission "Gegno Cargo Dump - Var Oti"
 	landing
-	repeat
-	source "Byigii"
+	source "Var Oti"
 	to offer
-		has "Gegno Assistance - Transport: active"
+		has "Gegno Assistance - Transport II: active"
 	on offer
 		conversation
 			`You know this desert planet all too well, and it is teeming with dangerous creatures. At the very least the Vi have visited it before to apparently hunt said creatures, though there is no permanent residence as far as you know. Do you dump the cargo here?`
 			choice
 				`	(Dump the cargo here.)`
 				`	(Not here.)`
-					decline
+					defer
 			action
 				cargo "junk materials" -31
 				set "gegno: littered var oti"
@@ -1811,10 +1822,9 @@ mission "Gegno Cargo Dump - Var Oti"
 
 mission "Gegno Cargo Dump - Vigales"
 	landing
-	repeat
-	source "Byigii"
+	source "Vigales"
 	to offer
-		has "Gegno Assistance - Transport: active"
+		has "Gegno Assistance - Transport II: active"
 	on offer
 		conversation
 			branch "vi"
@@ -1830,26 +1840,26 @@ mission "Gegno Cargo Dump - Vigales"
 			choice
 				`	(Dump the cargo here.)`
 				`	(Not here.)`
-					decline
+					defer
 			action
 				cargo "junk materials" -31
 				set "gegno: littered vigales"
 			`	You land on the planet and unload your cargo bay, which now smells harshly of metallics, dirt, and unpleasantries. Considering you weren't given a return location either, it doesn't seem like you're getting paid for this work. Hopefully the Gegno appreciate it.`
 				decline
 
+# Edit in an encounter with the Mauv?
 mission "Gegno Cargo Dump - Mnai"
 	landing
-	repeat
-	source "Byigii"
+	source "Mnai"
 	to offer
-		has "Gegno Assistance - Transport: active"
+		has "Gegno Assistance - Transport II: active"
 	on offer
 		conversation
 			`One of the furthest planets from the Gegno in their home region, this planet has an ecosystem more appropriate for human standards than for the Gegno, who may not visit it for a long while. Do you dump the cargo here?`
 			choice
 				`	(Dump the cargo here.)`
 				`	(Not here.)`
-					decline
+					defer
 			action
 				cargo "junk materials" -31
 				set "gegno: littered mnai"
@@ -1858,60 +1868,119 @@ mission "Gegno Cargo Dump - Mnai"
 
 mission "Gegno Cargo Dump - Eeu Mnai"
 	landing
-	repeat
-	source "Byigii"
+	source "Eeu Mnai"
 	to offer
-		has "Gegno Assistance - Transport: active"
+		has "Gegno Assistance - Transport II: active"
 	on offer
 		conversation
 			`This moon is far from Gegno space. While it has rocky and rugged terrain similar to the worlds they inhabit, it also has overall low temperatures and long, winter seasons. Do you dump the cargo here?`
 			choice
 				`	(Dump the cargo here.)`
 				`	(Not here.)`
-					decline
+					defer
 			action
 				cargo "junk materials" -31
 				set "gegno: littered eeu mnai"
 			`	You land on the planet and unload your cargo bay, which now smells harshly of metallics, dirt, and unpleasantries. Considering you weren't given a return location either, it doesn't seem like you're getting paid for this work. Hopefully the Gegno appreciate it.`
 				decline
 
-mission "Gegno Cargo Dump - Ilirco"
+mission "Gegno Cargo Dump - Yiia Iyr"
 	landing
-	repeat
-	source "Byigii"
+	source "Yiia Iyr"
 	to offer
-		has "Gegno Assistance - Transport: active"
+		has "Gegno Assistance - Transport II: active"
 	on offer
 		conversation
 			`This dry world is where you interacted with the Scin. The presence they had while here wasn't necessarily small, but it didn't appear to be a colonization effort. Do you dump the cargo here?`
 			choice
 				`	(Dump the cargo here.)`
 				`	(Not here.)`
-					decline
+					defer
 			action
 				cargo "junk materials" -31
-				set "gegno: littered ilirco"
+				set "gegno: littered yiia iyr"
 			`	You land on the planet and unload your cargo bay, which now smells harshly of metallics, dirt, and unpleasantries. Considering you weren't given a return location either, it doesn't seem like you're getting paid for this work. Hopefully the Gegno appreciate it.`
 				decline
 
 mission "Gegno Cargo Dump - Veiuye"
 	landing
-	repeat
-	source "Byigii"
+	source "Veiuye"
 	to offer
-		has "Gegno Assistance - Transport: active"
+		has "Gegno Assistance - Transport II: active"
 	on offer
 		conversation
 			`This hollow moon is characterized by freezing temperatures and sheets of ice - not something ideal for the Gegno to live on. Any readings of life are shown deep below the surface. Do you dump the cargo here?`
 			choice
 				`	(Dump the cargo here.)`
 				`	(Not here.)`
-					decline
+					defer
 			action
 				cargo "junk materials" -31
 				set "gegno: littered veiuye"
 			`	You land on the planet and unload your cargo bay, which now smells harshly of metallics, dirt, and unpleasantries. Considering you weren't given a return location either, it doesn't seem like you're getting paid for this work. Hopefully the Gegno appreciate it.`
 				decline
+
+mission "Gegno Cargo Dump - Uye Mpi"
+	landing
+	source "Uye Mpi"
+	to offer
+		has "Gegno Assistance - Transport II: active"
+	on offer
+		conversation
+			`...... Do you dump the cargo here?`
+			choice
+				`	(Dump the cargo here.)`
+				`	(Not here.)`
+					defer		
+
+			action
+				cargo "junk materials" -31
+				set "gegno: littered uye mpi"
+			`	You land on the planet and unload your cargo bay, which now smells harshly of metallics, dirt, and unpleasantries. Considering you weren't given a return location either, it doesn't seem like you're getting paid for this work. Hopefully the Gegno appreciate it.`
+				decline
+
+# In Prog
+mission "Gegno Assistance - Transport III"
+	name ""
+	description ""
+	outfitter
+	source "Tschyss"
+	destination
+	passengers
+	to offer
+		has "event: gegno: early tschyss outfitter"
+	to accept
+		"bunks" >=
+	on offer
+		conversation
+			`Down a corridor you generally have not had access to until now, you find Gegno working on construction for one of the stations' older, larger sections - an outfitter. It is still bare-bones, but appears to have enough equipment and personnel to faciliate basic work on ships. Other than that, there isn't any sort of stock of items, though they likely aren't interested in selling to you at the moment anyways. Despite their relative avoidance, the Gegno here on the station don't seem against servicing your ship. Maybe they're used to working with you now.`
+			`	Present in the outfitter is the hauling coorinator. By now, it would be easier if you had a name to call them, but you aren't even sure if the Gegno speak on a basis of names, let alone know what they're saying to begin with. What you do know, though, is when they're looking for assistance, from watching the coordinator speaking to Gegno pilots that are coming and going through the facility.`
+			choice
+				`	(See if you can offer them assistance.)`
+				`	(Leave it to the other Gegno.)`
+					decline
+			`	To the Gegno that show interest, the coordinator is handing out work orders physically written on a sheet of rock not too dissimilar from a piece of paper. When they see it is you next to approach them, they shuffle through the listings until they select a specific one and hand it to you. It has tally marks that add up to 30, but you can only guess what the rest of it says. There are some other etchings that look roughly like boxes and cylinders, but none of the writing around them makes any sense.`
+			`	Before you wonder off, the Gegno grunts at you as if they forgot something, and pulls out their tablet. Thankfully, they show you the location of your task, being <destination>.`
+				accept
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Lore Missions - Station kid, Civ child in Ef spaceport, Vi "card game", Scin "experiments" with young animals?
 
