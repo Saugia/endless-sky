@@ -1431,7 +1431,7 @@ mission "Gegno Assistance - Hauling IV 1A"
 				goto choice
 			
 			label "other gegno"
-			`	You try to communicate with the other Gegno next to you, the one that accepted two jobs. Thje moment you show them the top half of the slate, they simply reach out for it and take it from you before you explain anything. You wonder if it's normal for the Gegno to juggle jobs like that between one another, but at least you know you can handle the original 45 tons. The main concern now is whether or not the Vi will let you land on their world to begin with.`
+			`	You try to communicate with the other Gegno next to you, the one that accepted two jobs. The moment you show them the top half of the slate, they simply reach out for it and take it from you before you explain anything. You wonder if it's normal for the Gegno to juggle jobs like that between one another, but at least you know you can handle the original 45 tons. The main concern now is whether or not the Vi will let you land on their world to begin with.`
 				accept
 			
 	on enter
@@ -1523,7 +1523,6 @@ mission "Gegno Assistance - Hauling IV 2A"
 
 	on enter
 		dialog `As you leave the station, you notice a Gegno freight ship slowly following behind you. You aren't sure why - it could be that they're observing you for security purposes, or perhaps they're some sort of back-up in case the mission goes wrong.`
-
 	npc
 		government "Gegno"
 		personality timid
@@ -1561,6 +1560,17 @@ mission "Gegno Assistance - Hauling IV 2B"
 		government "Gegno"
 		personality timid
 		ship "Dolomite" "Tyh Dghyi"
+	npc
+		government "Gegno Vi"
+		personality entering uninterested
+		system "Scija"
+		fleet "Vi Warfleet" 3
+	npc
+		government "Gegno Vi"
+		personality entering waiting
+		system "Scija"
+		fleet "Vi Warfleet" 2
+
 	on complete
 		payment xxx
 
@@ -1576,9 +1586,6 @@ mission "Gegno Assistance - Hauling IV C"
 			has "Gegno Assistance: Hauling IV 2B: done"
 	on offer
 		conversation
-			branch "deferred"
-				has "Gegno Assistance - Hauling IV C: deferred"
-
 			`Something has happened. The sheer amount of ship traffic upon your return is unlike anything you have seen before. Several dozens of Gegno ships are constantly leaving or docking with the station, with many dozens more presently docked in the previously unused hangar. Upon leaving your ship, the interior is no different - there are almost hundreds of Gegno marching about. As typical, some speak little to one another, but a non-insignificant portion of the rest are very roudy or expressive.`
 			`	After passing through several crowds, you and the Gegno that followed you here meet up in the outfitter, where your combined cargo is hauled to. Beyond the team you're used to seeing, there are two more presently working, with the facility being just about complete.`
 			choice
@@ -1613,13 +1620,13 @@ mission "Gegno Assistance - Transport"
 		not "Gegno Genocide Defense: offered"
 	on offer
 		conversation
-			`There is a Gegno wearing hauling gear marching around the other end of the spaceport with a sense of authority. Their conversations are short, pacing quickly between several Gegno. Judging by how many they've already spoken to, it seems like they are looking for someone to assist them.`
+			`There is a Gegno wearing heavy work gear marching around the other end of the spaceport with a sense of authority. Their conversations are short, pacing quickly between several Gegno. Judging by how many they've already spoken to, it seems like they are looking for someone to assist them.`
 			choice
 				`	(Offer your assistance.)`
 				`	(Walk away and leave them be.)`
 					goto away
-			`	Before you approach them, another Gegno steps near them - the one from the job board that you've met many times already. Both of them exchange several words, and you feel like you're in a spotlight when the job board Gegno points directly at you. The other turns to face you in unison with the gesture, and stomps up to you. They pause, placing a fist against their nose for some reason, and then hand you a map tablet that marks the planet <stopover planet>. In the background, the job leader is already marching off, grunting and raising an arm to their shoulder as they leave. The hauling Gegno also leaves you shortly after. `
-			`	For the amount of searching that Gegno was doing, they left in a nonchalant manner, or maybe confident, although you don't have any idea what they want help with until you go to <destination>.`
+			`	Before you approach them, another Gegno steps near them - the one from the job board that you've met many times already. Both of them exchange several words, and you feel like you're in a spotlight when the job board Gegno points directly at you. The other turns to face you in unison with the gesture, and stomps up to you. They pause, placing a fist against their nose for some reason, and then hand you a map tablet that marks the planet <stopover planet>. In the background, the job leader is already marching off, grunting and raising an arm to their shoulder as they leave. The other Gegno leaves shortly after. `
+			`	Despite the amount of searching they were doing, they left in a manner that shows little to no urgency at all. You don't have any idea what it is they wanted help with anyway, until you go to <destination>.`
 				accept
 			
 			label away
@@ -1633,9 +1640,9 @@ mission "Gegno Assistance - Transport II"
 	description "Find a place in Gegno space to dump the junk materials that the Gegno have loaded your cargo hold with."
 	cargo "junk materials" 31
 	source "Tschyss"
-#	to offer
-#		has "Gegno Assistance - Transport I: done"
-#		not "Gegno Genocide Defense: offered"
+	to offer
+		has "Gegno Assistance - Transport I: done"
+		not "Gegno Genocide Defense: offered"
 	to accept
 		"cargo space" >= 31
 	to complete
@@ -1655,7 +1662,7 @@ mission "Gegno Assistance - Transport II"
 			has "gegno: littered uye mpi"
 	on offer
 		conversation
-			`As soon as you arrive on <origin>, a crew of Gegno are waiting for you with several containers and piles of cargo. At least, it looked like cargo, but in reality, most of it appears to be junk - scrap metals, broken parts, containers of unknown contents. The Gegno brazenly loading the materials in the ship's cargo, doing so more efficiently than you'd expect those back on the station would. Before you know it, they are gone as quickly as they came, and not a single one remains to even tell you where to take the cargo, leaving an unspoken expectation of you. Maybe this is why the Gegno was having a hard time looking for someone for the job.`
+			`As soon as you arrive on <origin>, a crew of Gegno are waiting for you with several containers and piles of cargo. At least, it looks like cargo, but in reality, most of it appears to be junk - scrap metals, broken parts, containers of unknown contents. The Gegno brazenly loading the materials in the ship's cargo, doing so more efficiently than you'd expect those back on the station would. Before you know it, they are gone as quickly as they came, and not a single one remains to even tell you where to take the cargo, leaving an unspoken expectation of you. Maybe this is why the Gegno was having a hard time looking for someone for the job.`
 			`	You certainly aren't going to keep your cargo hold full of what appears to be junk, and the Gegno haven't bothered to tell you where it's supposed to go. It looks like you'll have to improvise.`
 				accept
 
@@ -1920,6 +1927,7 @@ mission "Gegno Cargo Dump - Veiuye"
 			`	You land on the planet and unload your cargo bay, which now smells harshly of metallics, dirt, and unpleasantries. Considering you weren't given a return location either, it doesn't seem like you're getting paid for this work. Hopefully the Gegno appreciate it.`
 				decline
 
+# In Prog
 mission "Gegno Cargo Dump - Uye Mpi"
 	landing
 	source "Uye Mpi"
@@ -1939,43 +1947,124 @@ mission "Gegno Cargo Dump - Uye Mpi"
 			`	You land on the planet and unload your cargo bay, which now smells harshly of metallics, dirt, and unpleasantries. Considering you weren't given a return location either, it doesn't seem like you're getting paid for this work. Hopefully the Gegno appreciate it.`
 				decline
 
-# In Prog
-mission "Gegno Assistance - Transport III"
+
+mission "Gegno Assistance - Transport III A"
 	name ""
 	description ""
-	outfitter
+	"job board"
 	source "Tschyss"
-	destination
-	passengers
+	destination "Cipi"
+	passengers 1
 	to offer
-		has "event: gegno: early tschyss outfitter"
+		has "Gegno Assistance - Transport II: done"
 	to accept
-		"bunks" >=
+		"bunks" >= 10
 	on offer
 		conversation
-			`Down a corridor you generally have not had access to until now, you find Gegno working on construction for one of the stations' older, larger sections - an outfitter. It is still bare-bones, but appears to have enough equipment and personnel to faciliate basic work on ships. Other than that, there isn't any sort of stock of items, though they likely aren't interested in selling to you at the moment anyways. Despite their relative avoidance, the Gegno here on the station don't seem against servicing your ship. Maybe they're used to working with you now.`
-			`	Present in the outfitter is the hauling coorinator. By now, it would be easier if you had a name to call them, but you aren't even sure if the Gegno speak on a basis of names, let alone know what they're saying to begin with. What you do know, though, is when they're looking for assistance, from watching the coordinator speaking to Gegno pilots that are coming and going through the facility.`
+			`	While you are perusing the limited options available to you, a pair of nearby Gegno suddenly break out into a loud discussion about one of the job listings. It's hard to decifer if it comes from a sense of excitement, or if it's an argument of frustration, until the Gegno administrator you're familiar with shows up and addresses the two. Debates like these have been more common as the station's activity has grown, but typically they are ignored by anyone not an immediate part of them, including staff members.`
+			`	The Gegno seem to come to an impass, and you watch the administrator jump between other nearby Gegno - a dance you've seen before. Other Gegno don't seem keen on offering their help, and it's only a matter of time before you're picked out from the crowd again for what could be another lucrative job.`
 			choice
-				`	(See if you can offer them assistance.)`
-				`	(Leave it to the other Gegno.)`
+				`	(Offer your help.)`
+				`	(Walk away and leave it for another Gegno.)`
 					decline
-			`	To the Gegno that show interest, the coordinator is handing out work orders physically written on a sheet of rock not too dissimilar from a piece of paper. When they see it is you next to approach them, they shuffle through the listings until they select a specific one and hand it to you. It has tally marks that add up to 30, but you can only guess what the rest of it says. There are some other etchings that look roughly like boxes and cylinders, but none of the writing around them makes any sense.`
-			`	Before you wonder off, the Gegno grunts at you as if they forgot something, and pulls out their tablet. Thankfully, they show you the location of your task, being <destination>.`
+			
+			`	Before they can pick you out, you approach the Gegno in interest - an action that, for a moment, appears to shock the other two. The admin mumbles to them for another several seconds, occasionally grunting towards you with a nod of their head. Scratching the hair around their chin, they herd the three of you together to the job board again, and begin to fiddle with levers and switches.`
+			`	As the admin navigates through pages of words and images that look like gibberish to you, one of the two Gegno stares at you for an uncomfortably long period of time. Eventually, graphics more familiar to you appear on the display. You gather that it's a mission to transport passengers, and a map location reveals where to - a planet withn Scin space. A small group of Scin may have had interest in you before, but there's no telling what they think of you as a whole. You might not even be allowed to land.`
+			choice
+				`	(Accept the job anyways.)`
+				`	(Decline.)`
+					goto decline
+			`	The Gegno that stared at you looks at the map, back at you, then to the administrator. Without so much as a grunt, they march off as if they were never part of the debate to begin with. The second Gegno remains with you; to them, work is work.`
+			`	You begin heading back to your ship, with them in tow. Based on the graphics for the job, you're expecting nine other passengers. However, aside from one or two of the ship maintenance crew in the docking bay, there are no other Gegno waiting to board. About half an hour passes, and still, no other Gegno appear for transport. It's possible they could have gotten lost, or they cancelled on their end, but there's no easy way for you to tell.`
+			choice
+				`	(Continue to wait.)`
+				`	(Try asking other Gegno about it.)`
+					goto asking
+				`	(Decline the job after all.)`
+					decline
+			
+			`	It has now been a full hour of you waiting, and not a single new Gegno has entered your hangar. The one that followed you here finally boarded your ship several minutes ago, so you can at least assume you are taking them.
+			`	Not only are you unsure about the rest of the nine, but also you have to worry about visting a Gegno Scin world. Hopefully they are able to understand any complications - assuming you are cleared to land in the first place.`
 				accept
 
+			label asking
+			`	The other Gegno is waiting by your ship's entrance, appearing either apathetic or unamused. When you try to ask them about the other nine, they simply board your ship. You wonder what might have happened, but you can at least guess that this one is ready to leave. THe main concern now is whether or not the Scin will clear you to land in the first place.`
+				accept
+	
+			label decline
+			`	The Gegno that came with you, who is still standing outside your ship, receives the notification of the cancellation. In the same matter that the concerned one did, they march off as if they had nothing to do with you or the job. Maybe something went wrong, or there's a procedure you didn't understand, but at least they'll be able to communicate with their kind about it.`
+				decline
 
 
+mission "Gegno Assistance - Transport III B"
+	name ""
+	description ""
+	landing
+	source "Cipi"
+	destination "Tschyss"
+	passengers 8
+	to offer
+		has "Gegno Assistance - Transport III A: done"
+	to accept
+		"bunks" >= 10
+	on offer
+		event "gegno: major miner event"
+		conversation
+			`The authorities on <source> allow you to land without any issues. Other than a single Scin ship that monitors your descent, your landing sequence plays out similar to how it would for Tschyss, up until the moment you leave your ship. A few Gegno Scin are surveying the landing area, all of them the slimmer form of Gegno you've seen before. Some of them look towards your direction, though most casually tend to themselves.`
+			`	The Gegno exists your ship, however they leave their belongings in their bunk, and stand just outside the entrance, peering at the small crowds that pass by. Occasionally, you'll see groups or individuals of different body types strolling around the port, and on a few occasions, one will stop to look at your ship before moving onward.`
+			`	You give the Gegno about ten minutes before you're unsure what is happening again.`
+			choice
+				`	(Attempt to communicate with them once again.)`
+				`	(Wait and see what happens.)`
+					goto happens
+			
+			`	You leave your ship and approach the Gegno, who doesn't seem like they're leaving anytime soon. Trying to think of other means to explain the siutation, you attempt to speak with them, but are interrupted by what happens next.`
+			
+			label happens
+			`	A trio of Gegno that appear more like civilians than Scin approach your ship. Following a brief chat with your passenger, they board, filling up three more of your bunks. This process occurs several times - one or a few Gegno check out your ship, and either leave or board it, until you have seven new passengers. More time passes until finally, the Gegno you flew here with boards your ship again, signifying their wait is over.`
+			`	You're still missing two passengers, but no other Gegno approach your ship. What you're able to gather is that the job isn't about transporting exactly ten passengers, but having the capacity to hold up to ten. It's almost like those old-Earth bus stops you've read about.`
+			choice
+				`	(Stay a moment to look at the Scin's world.)`
+				`	(Wrap things up and leave.`
+					goto leave
 
+			`	Now that you can relax more knowing what the mission is really about, you take a moment to look around at the Scin's world. The port rests on a circular disk protruding from a mountain, and appears to go deeper into it. In the distance, similar industrial facilities, some being factories, also rest on or inside tall mountains. Below is a surprisingly beautiful natural landscape, yet untouched by the industry - far different than the homeworld of the Gegno. You wonder of all Scin worlds are like this, but they make it clear it's time for you to leave.`
+				goto leave
 
+			label leave
+			`	The moment your ship is full and refueled, you're ushered to leave as soon as possible. During your ascent into space, you suddenly see numerous Scin ships of all sizes entering the system and heading towards the planet. The best you can wish for is that they aren't here because of you.`
+				launch
+	npc
+		government "Gegno Scin"
+		personality entering uninterested
+		system "Scija"
+		fleet "Scin Warfleet" 3
+	npc
+		government "Gegno Scin"
+		personality entering waiting
+		system "Zeinar"
+		fleet "Scin Warfleet" 2
 
+	on complete
+		payment xxx
 
+mission "Gegno Assistance - Transport III C"
+	name ""
+	description ""
+	landing
+	source "Tschyss"
+	to offer
+		or
+			has "Gegno Assistance: Transport III B: done"
+	on offer
+		conversation
+			`Something has happened. The sheer amount of ship traffic upon your return is unlike anything you have seen before. Several dozens of Gegno ships are constantly leaving or docking with the station, with many dozens more presently docked in the previously unused hangar. Upon leaving your ship, the interior is no different - there are almost hundreds of Gegno marching about. As typical, some speak little to one another, but a non-insignificant portion of the rest are very roudy or expressive.`
+			`	Most of your passengers leave your ship, quickly dissipating into the many crowds. Meanwhile, the Gegno that stuck with you the whole way heads towards the job board, motioning you to follow with them. You often get "the gaze" from others, as it's likely this new influx of Gegno have never seen you before, though they acknowledge you very little otherwise.`
+			`	Eventually, the two of you make it to the job board, and are quickly greeted by the administrator. They hand over <payment> before immediately moving on to another group in need of their assistance. Whatever has happened in the time you were gone, it seems like the station will be much more busy for the forseeable future.`
+				decline
 
-
-
-
-
-
-
+# Either decide on making random jobs or specific jobs for further hauling to faction planets. Eventually, after doing some amount, this will lead to the plot twist.
+mission "Gegno Transport Prologue"
 
 
 
@@ -1999,7 +2088,6 @@ mission "Gegno Assistance - Transport III"
 # Player can optionally visit Mauv (Anarchists) and see what's going on but doesn't really understand anything
 
 # End of Scrutinization; Comprehension will be the Gegno able to speak the player and a ton of lore dumps, as well as chances to revisit subfactions like the Gnosia and Anarchists and learn more. War will start back up shortly into it. Will also lead into "precursors" tie-in and kick the Rulei lore off fully, leading into hallucinations, etc.. The chapter after that, Consignment?, will be about starting with the factions.
-
 
 
 
