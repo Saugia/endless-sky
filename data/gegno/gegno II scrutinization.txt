@@ -461,11 +461,6 @@ mission "Gegno Miner Incident - Transport"
 			`	All of the Gegno seem to be in some sort of heavy gearsets, some resembling those you've seen worn by others on the station. You let them on board, their gear clangs against the interior of your ship as they shuffle in, trying to find room for themselves. Several of them seem somewhat uncomfortable, and others impatiently grunt. Eventually, they all become silent and keep to themselves, awaiting their commute to <destination>.`
 				launch
 
-# Figure out if the Gegno should talk about the Jump Drive experience or not.
-#	on enter
-#	on enter
-#		dialog `Test.`
-
 	on complete
 		payment 50000
 		conversation
@@ -1086,9 +1081,9 @@ mission "Gegno of Ngozia"
 # Maintenance Series
 
 mission "Gegno Assistance - Maintenance"
-	name "Visit <destination>"
+	name "Assist the maintenance Gegno"
 	landing
-	description ""
+	description "The maintenance coordinator Gegno from Tschyss wishes to be taken to a specified moon."
 	source "Ef Aourtdye"
 	complete at "Iemn Eitch"
 	passengers 1
@@ -1122,7 +1117,7 @@ mission "Gegno Assistance - Maintenance"
 				`	(I know where to go.)`
 					goto accept
 				`	(Attempt to request more information).`			
-			`	Before they could march off like the Gegno normally do on you, you get their attention again. How you'll try to communicate what you need is up to you, though.`
+			`	Before they march off on you like the Gegno typically have done, you manage to get their attention, and they simply wait for whatever it is you wanted.`
 
 			label communicate
 			choice
@@ -1169,10 +1164,10 @@ mission "Gegno Assistance - Maintenance"
 			label look
 			action
 				mark "Heutesl"
-			`	For the time the Gegno gives you, you look around to see if any others have one of the tablets you're more familiar with. Unfortunately, all of the Gegno in this spaceport are working at face paces, with few of them pausing at all to do anything. Hearing the sound of something like construction paper, you turn back to the maintenance lead to see them scribbling on something like a posterboard. It's messy, but they show you a rough drawing of Gegno space, except their home system is drawn significantly larger on the map than any others. Somehow they figured out that you were looking for more instructions, though it seemed what drove them to was irritation rather than trying to understand you, especially considering that it's only one jump away.`
+			`	For the small amount of time the Gegno waits, you look around to see if any others have one of the tablets you're more familiar with. Unfortunately, all of the Gegno in this spaceport are working at face paces, with few of them pausing at all to do anything. Hearing the sound of something like construction paper, you turn back to the maintenance lead to see them scribbling on something like a posterboard. It's messy, but they show you a rough drawing of Gegno space, except their home system is drawn significantly larger on the map than any others. Somehow they figured out that you were looking for more instructions, though it seemed what drove them to was irritation rather than trying to understand you, possibly due to it being only one jump away.`
 			
 			label accept
-			`	The gear the Gegno is carrying clanks and creaks as they haul it over to where your ship is located.`
+			`	The large backpack the Gegno carries clanks and creaks alongside the gear they wear as they haul themself over to where your ship is located.`
 				accept
 
 	npc
@@ -1188,7 +1183,7 @@ mission "Gegno Assistance - Maintenance"
 
 	on complete
 		conversation
-			` 	There's only one landing location on this moon, easily seen on approach - an enormous shipyard that dwarfs even that of the one back on Luna. The whole facility, rather than being built on the surface, is engraved several meters down into a valley. Castle-like structures tower upward, parts of them adorned by lunar rocks and tons of protrusions such as antennae. Spread unevenly across the dusty land are cyndrilical bases with towers of their own, and several Gegno ships that all appear as old as the shipyard itself.`
+			` 	There's only one landing location on this moon, easily seen on approach - an enormous shipyard that dwarfs even that of the one on Luna. The whole facility, rather than being built on the surface, is engraved several meters down into a valley. Castle-like structures tower upward, parts of them adorned by lunar rocks and tons of protrusions such as antennae. Spread unevenly across the dusty land are cyndrilical bases with towers of their own, and several Gegno ships that all appear as old as the shipyard itself.`
 			`	You touch down near one of the towers, with a few Gegno awaiting you arrival. In your environment suit, you go out to greet them, although they seem taken aback by your presence. It's not until the maintenance lead exits your vessel in their own bulky suit that they make arrangements to refuel your ship.`
 			`	Another spacecraft lands near the tower, the same kind as some already stationed at the port. It's built around three large containers of sorts, and the maintenance lead goes over to it with their supplies in the zero gravity environment.`
 			choice
@@ -1203,18 +1198,18 @@ mission "Gegno Assistance - Maintenance"
 				set "gegno: helped on iemn eitch"
 			`	Though the rusty and scrap-like architecture reminds you of how archaic Luna's shipyards are compared to others, there is a bountiful amount of Gegno working around the place, and several that you see leer at you as you walk around. The maintenance lead, and a few other Gegno, are helping move some segmented industrial tubing from the ship that just landed, the same kind used for refueling except much larger.`
 			`	As you approach the group, one of the other Gegno starts stomping towards you, shouting in their language. Before they could get close to you, the maintenance lead talks to them. The two have a lengthy debate with one another that ends with the upset Gegno walking away and any others moving their eyes away from you.`
-			`	The lead jabs you in the side, almost knocking you over. Considering someone of their stature could easily throw you several feet away, they hit you rather lightly, so it doesn't seem like an act of hostility. Passing behind you, they head towards a lunar vehicle driving up with more tubing.`
+			`	The lead randomly jabs you in the side, almost knocking you over. Considering someone of their stature could easily throw you several feet away, they hit you rather lightly, so it doesn't seem like an act of hostility. Passing behind you, they head towards a lunar vehicle driving up with more tubing.`
 			choice
 				`	(Keep going with them.)`
-				`	(Try hitting them back.)`
-			`	The Gegno leaps forward all of a sudden, floating toward the truck. Though strong, there's something comical about a humanoid almost twice your size flying away at a fast speed.`
+				`	(Hit them back.)`
+			`	Before anything else, the Gegno leaps forward all of a sudden, floating toward the truck. Though strong, there's something comical about a humanoid almost twice your size flying away at a fast speed.`
 			`	You do your best to help the Gegno unwind and move more tubing, while other Gegno have been connecting it from the cylinders on the landed ship similar ones on the giant tower nearby. Suddenly, the ground starts to shake, and everything in the vicinity seems to vibrate intensely. In the distance, another tower goes up in smoke, appearing to have exploded from its base.`
 			choice
 				`	(Get the lead's attention.)`
 				`	(Warn the other Gegno.)`
-			`	Strangely, none of the Gegno react. It's only when a blinding, red light appears below the tower in question that you realize these are not towers, but massive starships that dwarf even something like a Bactrian in size, reminiscent of humanity's generation ships that you've read about before.`
-			`	That you are able to see such a ship, especially one of an alien faction, is a sight to behold. It's also probably why the Gegno are uneased by your presence, as you're standing near one of the most important pieces of a species' spacefaring history.`
-			`	After fuel has begun transferring to the nearby ship, the Gegno seem to have had their full of you. You're escorted back to your ship, but the maintenance lead gives you a quiet nod before you leave their sight. Meanwhile, you're left with the sight of a monstrous ship ascending into the moon's thin atmosphere.`
+			`	Strangely, none of the Gegno react. It's only when a blinding, red light appears below the tower in question that you realize these are not towers, but massive starships that dwarf even something like a Bactrian in size, reminiscent of humanity's early generation ships that you've seen only in history books.`
+			`	That you are able to see such a ship, especially one of an alien faction, is a sight to behold. It's also probably why the Gegno are uneased by your presence, as you're standing near one of the most important pieces of their species' spacefaring history.`
+			`	After fuel has begun transferring to the nearby ship, the Gegno seem to have had their full of you. You're escorted back to your ship, but the maintenance lead gives you a quiet nod before you depart. Meanwhile, you're left with the sight of a monstrous ship ascending into the moon's atmosphere.`
 
 mission "Gegno Assistance Protolith"
 	invisible
@@ -1232,6 +1227,54 @@ mission "Gegno Assistance Protolith"
 		personality launching uninterested
 		system "Heutesl"
 		ship "Protolith" "Pyytei Ien"
+
+
+mission "Gegno Assistance - Maintenance II"
+	name "Transport three Gegno to <destination>"
+	landing
+	description "Three Gegno have requested that you take them to <destination>."
+	source "Tschyss"
+	destination "Iemn Eitch"
+	passengers 3
+	clearance `After several minutes of no response, one of the Gegno aboard your ship convinces the spaceport to let you land.`
+	to offer
+		has "Gegno Assistance - Maintenance: done"
+	on offer
+		conversation
+			branch "helped before"
+				has "gegno: helped on iemn eitch"
+			
+			`It's another day of busy work for the Gegno on their massive space station. A good portion of docking bays are occupied by hauling crew moving supplies back and forth. Some others are set aside for ship maintenance and repairs - including the one your ship is currently parked in. Amongst the Gegno crew in your hangar is a group of three other Gegno.`
+			`	One of them spots you, leaving the other two behind as they approach you. At first, they speak in their own language, but interrupt themselves after eyeing you once more. After a moment, they retrieve a tablet, and shown on it is a request to <destination> - the Gegno's lunar shipyard. You were accompanied by Tschyss's maintenance lead the first time you visited, but it's uncertain whether or not you'll readily have landing access again, especailly without hailing first. Several Gegno seemed uneasy about your presence there to begin with.`
+			choice
+				`	(Agree to take them.)`
+				`	(Let another Gegno help them out instead.)`			
+					decline
+			`	The moment the Gegno understand you've acccepted their request, they waste no time in locating and marching over to your ship.`
+				accept
+
+	on complete
+		payment 
+
+mission "Gegno Assistance - Maintenance III"
+	name
+	landing
+	description
+	source
+	destination
+	to offer
+		has "Gegno Assistance - Maintenance II: done"
+	on offer
+		conversation
+			`The time it took for you to be given landing access seems to be more than just hesitance. As you make your way toward your landing area, you see dozens upon dozens of ships already docked, much more than last you visited, with several still well on their way. Most seem to be some type of container transport, carrying what appear to be large fuel tanks. It takes some cautious maneuvering, but you eventually make it to your pad through the traffic.`
+
+			`	The three Gegno quickly depart your ship as you land, leaving you with a small payment. Another group quickly rushes over to perform any repairs or services otherwise, loudly shouting at one another while they do their work. Once they're finished, several of them being gesturing - some to the sky, some to the side, and you gather that they want you to leave as soon as possible.`
+
+			`	Just before you lift off, there is a commotion amongst the Gegno on your landing pad. A third group approaches, hauling a few cargo containers, and directing them looks to be Tschyss's maintenance lead. You aren't exactly knowledgeable of the inner workings of Gegno industry, and as far as you are aware, you have not been requested to help with any cargo.`
+			
+			choice
+				`	(Wait things out and see if you're required for the cargo transport.)`
+				`	(Depart now to avoid delaying other operations.)`
 
 
 # Hauling Series
@@ -1290,7 +1333,7 @@ mission "Gegno Assistance - Hauling II"
 	source "Ef Aourtdye"
 	destination "Tschyss"
 	to offer
-		has "Gegno Assistance - Hauling I: done"
+		has "Gegno Assistance - Hauling: done"
 	on offer
 		conversation
 			branch "scin escort"
@@ -1326,8 +1369,8 @@ mission "Gegno Assistance - Hauling II"
 
 
 mission "Gegno Assistance - Hauling IIIA"
-	name ""
-	description ""
+	name "Assistance on <destination>"
+	description "Visit <destination> to help with a work order involving 30 tons of cargo."
 	outfitter
 	source "Tschyss"
 	destination "Ef Aourtdye"
@@ -1350,8 +1393,8 @@ mission "Gegno Assistance - Hauling IIIA"
 
 
 mission "Gegno Assistance - Hauling IIIB"
-	name ""
-	description ""
+	name "Work order for 30 tons of equipment"
+	description "Transport 30 tons of equipment to <destination>, which will likely be used in further construction of the Outfitter."
 	landing
 	source "Ef Aourtdye"
 	destination "Tschyss"
@@ -1373,11 +1416,19 @@ mission "Gegno Assistance - Hauling IIIB"
 
 
 mission "Gegno Assistance - Hauling IV 1A"
-	name ""
-	description ""
+	name `Work order for <tonnage> of equipment?`
+	description "Assuming you have the clearance to land, visit <destination> to retrieve more equipment for the outfitter."
 	clearance
 	outfitter
 	source "Tschyss"
+	substitutions
+		"<tonnage>" "tonnage"
+		"<tonnage>" "45 tons"
+			"cargo space" >= 45
+			"cargo space" <= 135	
+		"<tonnage>" "135 tons"
+			"cargo space" >= 135
+			"cargo space" < 180
 	destination "Siedi"
 	cargo "reserved cargo space" 45
 	to offer
@@ -1444,8 +1495,8 @@ mission "Gegno Assistance - Hauling IV 1A"
 
 
 mission "Gegno Assistance - Hauling IV 1B"
-	name ""
-	description ""
+	name `Work order for 45 tons of equipment`
+	description "Transport 45 tons of equipment back to <destination>."
 	landing
 	source "Siedi"
 	destination "Tschyss"
@@ -1489,10 +1540,11 @@ mission "Gegno Assistance - Hauling IV 1B"
 		personality timid
 		ship "Dolomite" "Tyh Dghyi"
 
+
 # Split off for the sake of the 180 ton assumption
 mission "Gegno Assistance - Hauling IV 2A"
-	name ""
-	description ""
+	name `Work order for 180 tons of equipment?`
+	description "Assuming you have the clearance to land, visit <destination> to retrieve more equipment for the outfitter."
 	clearance
 	outfitter
 	source "Tschyss"
@@ -1530,8 +1582,8 @@ mission "Gegno Assistance - Hauling IV 2A"
 
 
 mission "Gegno Assistance - Hauling IV 2B"
-	name ""
-	description ""
+	name `Work order for 45 tons of equipment`
+	description "Transport 45 tons of equipment back to <destination>."
 	landing
 	source "Siedi"
 	destination "Tschyss"
@@ -1572,12 +1624,10 @@ mission "Gegno Assistance - Hauling IV 2B"
 		fleet "Vi Warfleet" 2
 
 	on complete
-		payment xxx
+#		payment
 
 
 mission "Gegno Assistance - Hauling IV C"
-	name ""
-	description ""
 	landing
 	source "Tschyss"
 	to offer
@@ -1605,7 +1655,7 @@ mission "Gegno Assistance - Hauling IV C"
 				decline
 
 # Either decide on making random jobs or specific jobs for further hauling to faction planets. Eventually, after doing some amount, this will lead to the plot twist.
-mission "Gegno Hauling Prologue"
+# mission "Gegno Hauling Prologue"
 
 
 # Transport Series
@@ -1854,25 +1904,6 @@ mission "Gegno Cargo Dump - Vigales"
 			`	You land on the planet and unload your cargo bay, which now smells harshly of metallics, dirt, and unpleasantries. Considering you weren't given a return location either, it doesn't seem like you're getting paid for this work. Hopefully the Gegno appreciate it.`
 				decline
 
-# Edit in an encounter with the Mauv?
-mission "Gegno Cargo Dump - Mnai"
-	landing
-	source "Mnai"
-	to offer
-		has "Gegno Assistance - Transport II: active"
-	on offer
-		conversation
-			`One of the furthest planets from the Gegno in their home region, this planet has an ecosystem more appropriate for human standards than for the Gegno, who may not visit it for a long while. Do you dump the cargo here?`
-			choice
-				`	(Dump the cargo here.)`
-				`	(Not here.)`
-					defer
-			action
-				cargo "junk materials" -31
-				set "gegno: littered mnai"
-			`	You land on the planet and unload your cargo bay, which now smells harshly of metallics, dirt, and unpleasantries. Considering you weren't given a return location either, it doesn't seem like you're getting paid for this work. Hopefully the Gegno appreciate it.`
-				decline
-
 mission "Gegno Cargo Dump - Eeu Mnai"
 	landing
 	source "Eeu Mnai"
@@ -1927,7 +1958,6 @@ mission "Gegno Cargo Dump - Veiuye"
 			`	You land on the planet and unload your cargo bay, which now smells harshly of metallics, dirt, and unpleasantries. Considering you weren't given a return location either, it doesn't seem like you're getting paid for this work. Hopefully the Gegno appreciate it.`
 				decline
 
-# In Prog
 mission "Gegno Cargo Dump - Uye Mpi"
 	landing
 	source "Uye Mpi"
@@ -1935,7 +1965,7 @@ mission "Gegno Cargo Dump - Uye Mpi"
 		has "Gegno Assistance - Transport II: active"
 	on offer
 		conversation
-			`...... Do you dump the cargo here?`
+			`This desert world, unlike others in nearby systems, has beautiful natural landscapes inhabited by tame wildlife. The ongoing war between the Gegno factions has barely touched its surface. Do you dump the cargo here?`
 			choice
 				`	(Dump the cargo here.)`
 				`	(Not here.)`
@@ -1947,10 +1977,30 @@ mission "Gegno Cargo Dump - Uye Mpi"
 			`	You land on the planet and unload your cargo bay, which now smells harshly of metallics, dirt, and unpleasantries. Considering you weren't given a return location either, it doesn't seem like you're getting paid for this work. Hopefully the Gegno appreciate it.`
 				decline
 
+# Edit in an encounter with the Mauv?
+mission "Gegno Cargo Dump - Mnai"
+	landing
+	source "Mnai"
+	to offer
+		has "Gegno Assistance - Transport II: active"
+	on offer
+		conversation
+			`One of the furthest planets from the Gegno in their home region, this planet has an ecosystem more appropriate for human standards than for the Gegno, who may not visit it for a long while. Do you dump the cargo here?`
+			choice
+				`	(Dump the cargo here.)`
+				`	(Not here.)`
+					defer
+			action
+				cargo "junk materials" -31
+				set "gegno: littered mnai"
+			`	You land on the planet and unload your cargo bay, which now smells harshly of metallics, dirt, and unpleasantries. Considering you weren't given a return location either, it doesn't seem like you're getting paid for this work. Hopefully the Gegno appreciate it.`
+				decline
+
 
 mission "Gegno Assistance - Transport III A"
-	name ""
-	description ""
+	name "Transport to <destination>"
+	description "Assuming you have clearance to land, transport a Gegno to <destination>. "
+	clearance
 	"job board"
 	source "Tschyss"
 	destination "Cipi"
@@ -1997,8 +2047,8 @@ mission "Gegno Assistance - Transport III A"
 
 
 mission "Gegno Assistance - Transport III B"
-	name ""
-	description ""
+	name "Transport <passengers> back to <destination>"
+	description "Transport a group of <passengers> to <destination>."
 	landing
 	source "Cipi"
 	destination "Tschyss"
@@ -2021,7 +2071,7 @@ mission "Gegno Assistance - Transport III B"
 			`	You leave your ship and approach the Gegno, who doesn't seem like they're leaving anytime soon. Trying to think of other means to explain the siutation, you attempt to speak with them, but are interrupted by what happens next.`
 			
 			label happens
-			`	A trio of Gegno that appear more like civilians than Scin approach your ship. Following a brief chat with your passenger, they board, filling up three more of your bunks. This process occurs several times - one or a few Gegno check out your ship, and either leave or board it, until you have seven new passengers. More time passes until finally, the Gegno you flew here with boards your ship again, signifying their wait is over.`
+			`	A trio of Gegno that appear more like civilians than Scin hesitantly approach your ship. Following a brief chat with your passenger, they board, filling up three more of your bunks. This process occurs several times - one or a few Gegno check out your ship, and either leave or board it, until you have seven new passengers. More time passes until finally, the Gegno you flew here with boards your ship again, signifying their wait is over.`
 			`	You're still missing two passengers, but no other Gegno approach your ship. What you're able to gather is that the job isn't about transporting exactly ten passengers, but having the capacity to hold up to ten. It's almost like those old-Earth bus stops you've read about.`
 			choice
 				`	(Stay a moment to look at the Scin's world.)`
@@ -2032,7 +2082,7 @@ mission "Gegno Assistance - Transport III B"
 				goto leave
 
 			label leave
-			`	The moment your ship is full and refueled, you're ushered to leave as soon as possible. During your ascent into space, you suddenly see numerous Scin ships of all sizes entering the system and heading towards the planet. The best you can wish for is that they aren't here because of you.`
+			`	The moment your ship is full and refueled, you're ushered to leave as soon as possible. During your ascent into space, you suddenly see numerous Scin ships of all sizes entering the system and heading towards the planet. Hopefully they aren't here because of you.`
 				launch
 	npc
 		government "Gegno Scin"
@@ -2049,8 +2099,6 @@ mission "Gegno Assistance - Transport III B"
 		payment xxx
 
 mission "Gegno Assistance - Transport III C"
-	name ""
-	description ""
 	landing
 	source "Tschyss"
 	to offer
